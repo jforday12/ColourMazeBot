@@ -1,5 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"29 ./color.h
+"35 ./color.h
+[; ;./color.h: 35: struct RGB_rel{
+[s S2018 `f 1 `f 1 `f 1 ]
+[n S2018 RGB_rel R G B ]
+"29
 [; ;./color.h: 29: struct RGB{
 [s S2017 `i 1 `i 1 `i 1 `i 1 ]
 [n S2017 RGB R G B L ]
@@ -16,8 +20,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./i2c.h
 [; ;./i2c.h: 13: void I2C_2_Master_Init(void);
 [v _I2C_2_Master_Init `(v ~T0 @X0 0 ef ]
-"37 ./color.h
-[; ;./color.h: 37: void readColours (struct RGB *vals);
+"45 ./color.h
+[; ;./color.h: 45: void readColours (struct RGB *vals);
 [v _readColours `(v ~T0 @X0 0 ef1`*S2017 ]
 "109 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 109: int sprintf(char *restrict, const char *restrict, ...);
@@ -2047,8 +2051,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _DataFlag
 -> -> 1 `i `uc
 ]
-"36 ./color.h
-[; ;./color.h: 36: struct RGB vals;
+"41 ./color.h
+[; ;./color.h: 41: struct RGB_rel rel;
+[v _rel `S2018 ~T0 @X0 1 e ]
+"42
+[; ;./color.h: 42: struct RGB vals;
 [v _vals `S2017 ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "25 main.c
@@ -2083,44 +2090,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _ADC `ui ~T0 @X0 1 a ]
 "35
 [; ;main.c: 35:     while (1)
-[e :U 2020 ]
+[e :U 2021 ]
 "36
 [; ;main.c: 36:     {
 {
-"38
-[; ;main.c: 38:     readColours(&vals);
+"41
+[; ;main.c: 41:     readColours(&vals);
 [e ( _readColours (1 &U _vals ]
-"39
-[; ;main.c: 39:     sprintf(buf,"red=%d green=%d blue=%d lum=%d\r\n",vals.R,vals.G,vals.B,vals.L);
+"45
+[; ;main.c: 45:     sprintf(buf,"red=%d green=%d blue=%d lum=%d\r\n",vals.R,vals.G,vals.B,vals.L);
 [e ( _sprintf (1 , , , , (. , &U _buf :s 1C . _vals 0 . _vals 1 . _vals 2 . _vals 3 ]
-"40
-[; ;main.c: 40:     TxBufferedString(buf);
+"46
+[; ;main.c: 46:     TxBufferedString(buf);
 [e ( _TxBufferedString (1 &U _buf ]
-"42
-[; ;main.c: 42:     while (DataFlag){
-[e $U 2022  ]
-[e :U 2023 ]
-{
-"43
-[; ;main.c: 43:         sendTxBuf();
-[e ( _sendTxBuf ..  ]
-"44
-[; ;main.c: 44:     }
-}
-[e :U 2022 ]
-"42
-[; ;main.c: 42:     while (DataFlag){
-[e $ != -> _DataFlag `i -> 0 `i 2023  ]
-[e :U 2024 ]
 "48
-[; ;main.c: 48: }
-}
-[e :U 2019 ]
-[e $U 2020  ]
-[e :U 2021 ]
+[; ;main.c: 48:     while (DataFlag){
+[e $U 2023  ]
+[e :U 2024 ]
+{
 "49
-[; ;main.c: 49: }
-[e :UE 2018 ]
+[; ;main.c: 49:         sendTxBuf();
+[e ( _sendTxBuf ..  ]
+"50
+[; ;main.c: 50:     }
+}
+[e :U 2023 ]
+"48
+[; ;main.c: 48:     while (DataFlag){
+[e $ != -> _DataFlag `i -> 0 `i 2024  ]
+[e :U 2025 ]
+"54
+[; ;main.c: 54: }
+}
+[e :U 2020 ]
+[e $U 2021  ]
+[e :U 2022 ]
+"55
+[; ;main.c: 55: }
+[e :UE 2019 ]
 }
 [p f _sprintf 8388736 ]
 [a 1C 114 101 100 61 37 100 32 103 114 101 101 110 61 37 100 32 98 108 117 101 61 37 100 32 108 117 109 61 37 100 13 10 0 ]

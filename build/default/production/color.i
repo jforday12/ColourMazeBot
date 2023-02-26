@@ -24256,8 +24256,16 @@ struct RGB{
     int B;
     int L;
 };
+struct RGB_rel{
+    float R;
+    float G;
+    float B;
+};
 
+struct RGB_rel rel;
 struct RGB vals;
+
+void colour_rel(struct RGB *vals, struct RGB_rel *rel);
 void readColours (struct RGB *vals);
 # 2 "color.c" 2
 
@@ -24311,6 +24319,14 @@ void color_click_init(void)
 
 
  color_writetoaddr(0x01, 0xD5);
+
+    LATGbits.LATG1=0;
+    LATAbits.LATA4=0;
+    LATFbits.LATF7=0;
+    TRISGbits.TRISG1=0;
+    TRISAbits.TRISA4 = 0;
+    TRISFbits.TRISF7 = 0;
+
 }
 
 void color_writetoaddr(char address, char value){
@@ -24382,4 +24398,18 @@ void readColours (struct RGB *vals) {
     vals ->B = color_read_Blue();
     vals ->G = color_read_Green();
     vals ->L = color_read_lum();
+}
+
+void colour_rel(struct RGB *vals, struct RGB_rel *rel){
+    rel -> R = vals->R/vals->L;
+    rel -> B = vals->B/vals->L;
+    rel -> G = vals->G/vals->L;
+}
+
+int Colour_decider(struct RGB_rel *rel){
+    if ((rel->R>0.5) && (rel->G<0.3) && (rel->B <0.12)){
+
+
+    }
+
 }

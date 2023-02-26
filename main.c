@@ -34,8 +34,14 @@ void main(void) {
     
     while (1)
     {
+ //   LATGbits.LATG1=1;
+  //  __delay_ms (100);
+    
            
     readColours(&vals);
+//    colour_rel(&vals, &rel);
+//    int temp =  (rel.R*100+0.5);
+//    rel.R=temp/100;
     sprintf(buf,"red=%d green=%d blue=%d lum=%d\r\n",vals.R,vals.G,vals.B,vals.L);
     TxBufferedString(buf);
     //sendTxBuf();
