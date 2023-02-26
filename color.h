@@ -23,5 +23,20 @@ void color_writetoaddr(char address, char value);
  *	Returns a 16 bit ADC value representing colour intensity
  ***********************************************/
 unsigned int color_read_Red(void);
+unsigned int color_read_Blue(void);
+unsigned int color_read_Green(void);
+unsigned int color_read_lum(void);
+struct RGB{
+    int R;
+    int G;
+    int B;
+    int L;
+};
+
+struct RGB vals;
+void readColours (struct RGB *vals);
+
+
+
 
 #endif
