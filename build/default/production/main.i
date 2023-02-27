@@ -24450,13 +24450,13 @@ struct RGB{
     int L;
 };
 
-<<<<<<< Updated upstream
+
 struct RGB vals;
-=======
+
 
 
 void colour_rel(struct RGB *vals, struct RGB_rel *rel);
->>>>>>> Stashed changes
+
 void readColours (struct RGB *vals);
 # 18 "main.c" 2
 
@@ -24527,11 +24527,10 @@ void main(void) {
 
     while (1)
     {
-<<<<<<< Updated upstream
 
     readColours(&vals);
     sprintf(buf,"red=%d green=%d blue=%d lum=%d\r\n",vals.R,vals.G,vals.B,vals.L);
-=======
+
    LATGbits.LATG1=1;
     _delay((unsigned long)((100)*(64000000/4000.0)));
 
@@ -24540,7 +24539,7 @@ void main(void) {
     colour_rel(&vals, &rel);
 
     sprintf(buf,"red=%f green=%f blue=%f lum=%d\r\n",rel.R, rel.G,rel.B,vals.L);
->>>>>>> Stashed changes
+
     TxBufferedString(buf);
 
     while (DataFlag){
