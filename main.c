@@ -22,6 +22,9 @@
 
 extern volatile char DataFlag;
 
+struct RGB_rel rel;
+struct RGB vals;
+
 void main(void) {
     initUSART4(); 
     Interrupts_init();
@@ -34,9 +37,20 @@ void main(void) {
     
     while (1)
     {
+<<<<<<< Updated upstream
            
     readColours(&vals);
     sprintf(buf,"red=%d green=%d blue=%d lum=%d\r\n",vals.R,vals.G,vals.B,vals.L);
+=======
+   LATGbits.LATG1=1;
+    __delay_ms (100);
+    
+           
+    readColours(&vals);
+    colour_rel(&vals, &rel);
+    
+    sprintf(buf,"red=%f green=%f blue=%f lum=%d\r\n",rel.R, rel.G,rel.B,vals.L);
+>>>>>>> Stashed changes
     TxBufferedString(buf);
     //sendTxBuf();
     while (DataFlag){

@@ -1,69 +1,74 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"29 ./color.h
-[; ;./color.h: 29: struct RGB{
-[s S2017 `i 1 `i 1 `i 1 `i 1 ]
-[n S2017 RGB R G B L ]
-[p mainexit ]
-"23 ./serial.h
-[; ;./serial.h: 23: void initUSART4(void);
-[v _initUSART4 `(v ~T0 @X0 0 ef ]
-"8 ./interrupts.h
-[; ;./interrupts.h: 8: void Interrupts_init(void);
-[v _Interrupts_init `(v ~T0 @X0 0 ef ]
-"12 ./color.h
-[; ;./color.h: 12: void color_click_init(void);
-[v _color_click_init `(v ~T0 @X0 0 ef ]
-"13 ./i2c.h
-[; ;./i2c.h: 13: void I2C_2_Master_Init(void);
-[v _I2C_2_Master_Init `(v ~T0 @X0 0 ef ]
-<<<<<<< Updated upstream
-"37 ./color.h
-[; ;./color.h: 37: void readColours (struct RGB *vals);
-=======
-"29146 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29146:     struct {
-[s S1358 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1358 . LATG0 LATG1 LATG2 LATG3 LATG4 . LATG6 LATG7 ]
-"29156
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29156:     struct {
-[s S1359 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1359 . LG0 LG1 LG2 LG3 LG4 ]
-"29145
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29145: typedef union {
-[u S1357 `S1358 1 `S1359 1 ]
-[n S1357 . . . ]
-"29164
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29164: extern volatile LATGbits_t LATGbits __attribute__((address(0xF7F)));
-[v _LATGbits `VS1357 ~T0 @X0 0 e@3967 ]
-[v F192 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\builtins.h
-[v __delay `JF192 ~T0 @X0 0 e ]
-[p i __delay ]
-"44 ./color.h
-[; ;./color.h: 44: void readColours (struct RGB *vals);
->>>>>>> Stashed changes
-[v _readColours `(v ~T0 @X0 0 ef1`*S2017 ]
-"43
-[; ;./color.h: 43: void colour_rel(struct RGB *vals, struct RGB_rel *rel);
-[v _colour_rel `(v ~T0 @X0 0 ef2`*S2017`*S2018 ]
-"109 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 109: int sprintf(char *restrict, const char *restrict, ...);
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"37 ./serial.h
-[; ;./serial.h: 37: void TxBufferedString(char *string);
-[v _TxBufferedString `(v ~T0 @X0 0 ef1`*uc ]
-"38
-[; ;./serial.h: 38: void sendTxBuf(void);
-[v _sendTxBuf `(v ~T0 @X0 0 ef ]
-"23 main.c
-[; ;main.c: 23: extern volatile char DataFlag;
-[v _DataFlag `Vuc ~T0 @X0 0 e ]
-"9 main.c
-[p x FEXTOSC  =  HS      ]
-"10
-[p x RSTOSC  =  EXTOSC_4PLL ]
-"13
-[p x WDTE  =  OFF         ]
+"40478 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 40478:     struct {
+[s S1985 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1985 . INT0EDG INT1EDG INT2EDG INT3EDG . IPEN PEIE_GIEL GIE_GIEH ]
+"40488
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 40488:     struct {
+[s S1986 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1986 . . PEIE GIE ]
+"40493
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 40493:     struct {
+[s S1987 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1987 . . GIEL GIEH ]
+"40477
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 40477: typedef union {
+[u S1984 `S1985 1 `S1986 1 `S1987 1 ]
+[n S1984 . . . . ]
+"40499
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 40499: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS1984 ~T0 @X0 0 e@4082 ]
+"4646
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 4646:     struct {
+[s S267 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S267 . C1IE C2IE C3IE . ZCDIE HLVDIE ]
+"4654
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 4654:     struct {
+[s S268 :6 `uc 1 :1 `uc 1 ]
+[n S268 . . CMIE ]
+"4645
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 4645: typedef union {
+[u S266 `S267 1 `S268 1 ]
+[n S266 . . . ]
+"4659
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 4659: extern volatile PIE2bits_t PIE2bits __attribute__((address(0xE2B)));
+[v _PIE2bits `VS266 ~T0 @X0 0 e@3627 ]
+"4810
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 4810:     struct {
+[s S274 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S274 . TX3IE RC3IE TX4IE RC4IE TX5IE RC5IE ]
+"4809
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 4809: typedef union {
+[u S273 `S274 1 ]
+[n S273 . . ]
+"4819
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 4819: extern volatile PIE4bits_t PIE4bits __attribute__((address(0xE2D)));
+[v _PIE4bits `VS273 ~T0 @X0 0 e@3629 ]
+[t ~ __interrupt . k ]
+[t T2 __interrupt high_priority ]
+"5323
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 5323:     struct {
+[s S297 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S297 . TX3IF RC3IF TX4IF RC4IF TX5IF RC5IF ]
+"5322
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 5322: typedef union {
+[u S296 `S297 1 ]
+[n S296 . . ]
+"5332
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 5332: extern volatile PIR4bits_t PIR4bits __attribute__((address(0xE37)));
+[v _PIR4bits `VS296 ~T0 @X0 0 e@3639 ]
+"15820
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 15820: extern volatile unsigned char TX4REG __attribute__((address(0xEE4)));
+[v _TX4REG `Vuc ~T0 @X0 0 e@3812 ]
+"34 ./serial.h
+[; ;./serial.h: 34: char getCharFromTxBuf(void);
+[v _getCharFromTxBuf `(uc ~T0 @X0 0 ef ]
+"30
+[; ;./serial.h: 30: void putCharToRxBuf(char byte);
+[v _putCharToRxBuf `(v ~T0 @X0 0 ef1`uc ]
+"15782 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 15782: extern volatile unsigned char RC4REG __attribute__((address(0xEE3)));
+[v _RC4REG `Vuc ~T0 @X0 0 e@3811 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2074,138 +2079,76 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _DataFlag
 -> -> 1 `i `uc
 ]
-<<<<<<< Updated upstream
-"36 ./color.h
-[; ;./color.h: 36: struct RGB vals;
-=======
-"25 main.c
-[; ;main.c: 25: struct RGB_rel rel;
-[v _rel `S2018 ~T0 @X0 1 e ]
-"26
-[; ;main.c: 26: struct RGB vals;
->>>>>>> Stashed changes
-[v _vals `S2017 ~T0 @X0 1 e ]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"28
-[; ;main.c: 28: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
+"10 interrupts.c
+[; ;interrupts.c: 10: void Interrupts_init(void)
+[v _Interrupts_init `(v ~T0 @X0 1 ef ]
+"11
+[; ;interrupts.c: 11: {
 {
-[e :U _main ]
+[e :U _Interrupts_init ]
 [f ]
+"12
+[; ;interrupts.c: 12:     INTCONbits.IPEN=0;
+[e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
+"13
+[; ;interrupts.c: 13:     PIE2bits.C1IE=1;
+[e = . . _PIE2bits 0 0 -> -> 1 `i `uc ]
+"14
+[; ;interrupts.c: 14:     INTCONbits.PEIE=1;
+[e = . . _INTCONbits 1 1 -> -> 1 `i `uc ]
+"15
+[; ;interrupts.c: 15:     INTCONbits.GIE=1;
+[e = . . _INTCONbits 1 2 -> -> 1 `i `uc ]
+"16
+[; ;interrupts.c: 16:     PIE4bits.RC4IE=1;
+[e = . . _PIE4bits 0 3 -> -> 1 `i `uc ]
+"19
+[; ;interrupts.c: 19: }
+[e :UE 2015 ]
+}
+[v $root$_HighISR `(v ~T0 @X0 0 e ]
+"25
+[; ;interrupts.c: 25: void __attribute__((picinterrupt(("high_priority")))) HighISR()
+[v _HighISR `(v ~T2 @X0 1 ef ]
+"26
+[; ;interrupts.c: 26: {
+{
+[e :U _HighISR ]
+[f ]
+"27
+[; ;interrupts.c: 27:     if (PIR4bits.TX4IF){
+[e $ ! != -> . . _PIR4bits 0 2 `i -> 0 `i 2017  ]
+{
+"28
+[; ;interrupts.c: 28:         TX4REG = getCharFromTxBuf();
+[e = _TX4REG -> ( _getCharFromTxBuf ..  `uc ]
 "29
-[; ;main.c: 29:     initUSART4();
-[e ( _initUSART4 ..  ]
+[; ;interrupts.c: 29:     }
+}
+[e :U 2017 ]
 "30
-[; ;main.c: 30:     Interrupts_init();
-[e ( _Interrupts_init ..  ]
+[; ;interrupts.c: 30:     if (DataFlag & 0){
+[e $ ! != & -> _DataFlag `i -> 0 `i -> 0 `i 2018  ]
+{
 "31
-[; ;main.c: 31:     color_click_init();
-[e ( _color_click_init ..  ]
+[; ;interrupts.c: 31:         PIE4bits.TX4IE=0;
+[e = . . _PIE4bits 0 2 -> -> 0 `i `uc ]
 "32
-[; ;main.c: 32:     I2C_2_Master_Init();
-[e ( _I2C_2_Master_Init ..  ]
+[; ;interrupts.c: 32:     }
+}
+[e :U 2018 ]
 "33
-[; ;main.c: 33:     char buf[50];
-[v _buf `uc ~T0 @X0 -> 50 `i a ]
+[; ;interrupts.c: 33:     if (PIR4bits.RC4IF){
+[e $ ! != -> . . _PIR4bits 0 3 `i -> 0 `i 2019  ]
+{
 "34
-[; ;main.c: 34:     unsigned int int_part;
-[v _int_part `ui ~T0 @X0 1 a ]
-"35
-<<<<<<< Updated upstream
-[; ;main.c: 35:     while (1)
-[e :U 2020 ]
-=======
-[; ;main.c: 35:     unsigned int frac_part;
-[v _frac_part `ui ~T0 @X0 1 a ]
->>>>>>> Stashed changes
+[; ;interrupts.c: 34:         putCharToRxBuf(RC4REG);
+[e ( _putCharToRxBuf (1 -> _RC4REG `uc ]
 "36
-[; ;main.c: 36:     unsigned int ADC;
-[v _ADC `ui ~T0 @X0 1 a ]
-"38
-[; ;main.c: 38:     while (1)
-[e :U 2021 ]
-"39
-[; ;main.c: 39:     {
-{
-<<<<<<< Updated upstream
-"38
-[; ;main.c: 38:     readColours(&vals);
-[e ( _readColours (1 &U _vals ]
-"39
-[; ;main.c: 39:     sprintf(buf,"red=%d green=%d blue=%d lum=%d\r\n",vals.R,vals.G,vals.B,vals.L);
-[e ( _sprintf (1 , , , , (. , &U _buf :s 1C . _vals 0 . _vals 1 . _vals 2 . _vals 3 ]
-"40
-[; ;main.c: 40:     TxBufferedString(buf);
-[e ( _TxBufferedString (1 &U _buf ]
-"42
-[; ;main.c: 42:     while (DataFlag){
-[e $U 2022  ]
-[e :U 2023 ]
-{
-"43
-[; ;main.c: 43:         sendTxBuf();
-[e ( _sendTxBuf ..  ]
-"44
-[; ;main.c: 44:     }
-=======
-"40
-[; ;main.c: 40:    LATGbits.LATG1=1;
-[e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
-"41
-[; ;main.c: 41:     _delay((unsigned long)((100)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"44
-[; ;main.c: 44:     readColours(&vals);
-[e ( _readColours (1 &U _vals ]
-"45
-[; ;main.c: 45:     colour_rel(&vals, &rel);
-[e ( _colour_rel (2 , &U _vals &U _rel ]
-"47
-[; ;main.c: 47:     sprintf(buf,"red=%f green=%f blue=%f lum=%d\r\n",rel.R, rel.G,rel.B,vals.L);
-[e ( _sprintf (1 , , , , (. , &U _buf :s 1C -> . _rel 0 `d -> . _rel 1 `d -> . _rel 2 `d . _vals 3 ]
-"48
-[; ;main.c: 48:     TxBufferedString(buf);
-[e ( _TxBufferedString (1 &U _buf ]
-"50
-[; ;main.c: 50:     while (DataFlag){
-[e $U 2023  ]
-[e :U 2024 ]
-{
-"51
-[; ;main.c: 51:         sendTxBuf();
-[e ( _sendTxBuf ..  ]
-"52
-[; ;main.c: 52:     }
-}
-[e :U 2023 ]
-"50
-[; ;main.c: 50:     while (DataFlag){
-[e $ != -> _DataFlag `i -> 0 `i 2024  ]
-[e :U 2025 ]
-"56
-[; ;main.c: 56: }
->>>>>>> Stashed changes
-}
-[e :U 2022 ]
-<<<<<<< Updated upstream
-"42
-[; ;main.c: 42:     while (DataFlag){
-[e $ != -> _DataFlag `i -> 0 `i 2023  ]
-[e :U 2024 ]
-"48
-[; ;main.c: 48: }
+[; ;interrupts.c: 36:    }
 }
 [e :U 2019 ]
-[e $U 2020  ]
-[e :U 2021 ]
-"49
-[; ;main.c: 49: }
-[e :UE 2018 ]
-=======
-"57
-[; ;main.c: 57: }
-[e :UE 2019 ]
->>>>>>> Stashed changes
+"39
+[; ;interrupts.c: 39: }
+[e :UE 2016 ]
 }
-[p f _sprintf 8396928 ]
-[a 1C 114 101 100 61 37 102 32 103 114 101 101 110 61 37 102 32 98 108 117 101 61 37 102 32 108 117 109 61 37 100 13 10 0 ]

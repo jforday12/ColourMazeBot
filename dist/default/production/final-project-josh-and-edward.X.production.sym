@@ -1,13 +1,24 @@
+<<<<<<< Updated upstream
 _I2C_2_Master_RepStart 1BB8 0 CODE 0
 ___aodiv@counter 15 0 COMRAM 1
 sprintf@f 74 0 BANK0 1
 _putCharToRxBuf 1AF6 0 CODE 0
 __S0 1BD9 0 ABS 0
 __S1 13C 0 ABS 0
+=======
+_I2C_2_Master_RepStart 3EC4 0 CODE 0
+___aodiv@counter 15 0 COMRAM 1
+sprintf@f A8 0 BANK0 1
+_putCharToRxBuf 3E02 0 CODE 0
+___fldiv@rem 11 0 COMRAM 1
+__S0 3EE5 0 ABS 0
+__S1 1A8 0 ABS 0
+>>>>>>> Stashed changes
 __S4 0 0 ABS 0
 __S5 0 0 ABS 0
 __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
+<<<<<<< Updated upstream
 __end_of_I2C_2_Master_Start 1BD6 0 CODE 0
 _pad 1624 0 CODE 0
 _abs 19A8 0 CODE 0
@@ -19,32 +30,73 @@ pad@w 1E 0 COMRAM 1
 _prec C7 0 BANK0 1
 _dtoa E24 0 CODE 0
 _dbuf CA 0 BANK0 1
+=======
+__end_of_I2C_2_Master_Start 3EE2 0 CODE 0
+_pad 37AE 0 CODE 0
+_rel F3 0 BANK0 1
+_abs 3C32 0 CODE 0
+___fladd@signs 11 0 COMRAM 1
+__end_of___fleq 37AE 0 CODE 0
+vfpfcnvrt@c 53 0 COMRAM 1
+___flneg@f1 5 0 COMRAM 1
+abs@a 17 0 COMRAM 1
+pad@i 1C 0 COMRAM 1
+efgtoa@ne 60 0 BANK0 1
+_putCharToTxBuf 3DD8 0 CODE 0
+pad@p 19 0 COMRAM 1
+pad@w 1E 0 COMRAM 1
+_prec F1 0 BANK0 1
+_dtoa 27B0 0 CODE 0
+_dbuf 150 0 BANK1 1
+>>>>>>> Stashed changes
 ?_abs 17 0 COMRAM 1
-_main 15A4 0 CODE 0
+_main 363C 0 CODE 0
+_labs 3828 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 5B 0 COMRAM 1
+<<<<<<< Updated upstream
 _DataFlag F2 0 BANK0 1
 _vals EA 0 BANK0 1
 start 4A 0 CODE 0
 _I2C_2_Master_Idle 1B20 0 CODE 0
 sprintf@s 66 0 BANK0 1
+=======
+_DataFlag FF 0 BANK0 1
+_vals 1A0 0 BANK1 1
+?___fladd 5 0 COMRAM 1
+start 4A 0 CODE 0
+_I2C_2_Master_Idle 3E2C 0 CODE 0
+sprintf@s 94 0 BANK0 1
+___fltol@f1 5 0 COMRAM 1
+__end_of_strcpy 3BAC 0 CODE 0
+__end_of___flmul 2110 0 CODE 0
+>>>>>>> Stashed changes
 __Hirdata 0 0 CODE 0
 __Lirdata 0 0 CODE 0
+efgtoa@fp 32 0 COMRAM 1
 __HRAM 0 0 ABS 0
 __LRAM 1 0 ABS 0
 ttemp5 5C 0 COMRAM 1
 ttemp6 5F 0 COMRAM 1
 ttemp7 63 0 COMRAM 1
+?___flneg 5 0 COMRAM 1
 wtemp8 5C 0 COMRAM 1
 _dtoa$1152 32 0 COMRAM 1
 __Hconfig 30000C 0 CONFIG 4
 __Lconfig 0 0 CONFIG 4
+_dtoa$1461 32 0 COMRAM 1
 ?___aomod 5 0 COMRAM 1
+labs@a 5 0 COMRAM 1
 dtoa@d 22 0 COMRAM 1
 dtoa@i 41 0 COMRAM 1
+<<<<<<< Updated upstream
+=======
+efgtoa@pp 68 0 BANK0 1
+>>>>>>> Stashed changes
 dtoa@n 38 0 COMRAM 1
 dtoa@p 34 0 COMRAM 1
 dtoa@s 40 0 COMRAM 1
+?___flsub 1E 0 COMRAM 1
 __Hbigram 0 0 ABS 0
 __Lbigram 0 0 ABS 0
 __Hrparam 0 0 COMRAM 1
@@ -54,40 +106,82 @@ pad@fp 15 0 COMRAM 1
 __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
 __Hcomram 0 0 ABS 0
+<<<<<<< Updated upstream
 _putch 1BD6 0 CODE 0
 __Lcomram 0 0 ABS 0
 _fputc 14DA 0 CODE 0
 _width C5 0 BANK0 1
+=======
+_putch 3EE2 0 CODE 0
+__Lcomram 0 0 ABS 0
+_fputc 3572 0 CODE 0
+?_labs 5 0 COMRAM 1
+_width EF 0 BANK0 1
+>>>>>>> Stashed changes
 __Hsfr 0 0 ABS 0
+___flge@ff1 1E 0 COMRAM 1
 __Lsfr 0 0 ABS 0
+<<<<<<< Updated upstream
 _flags C9 0 BANK0 1
+=======
+_flags 56 0 COMRAM 1
+>>>>>>> Stashed changes
 __Hbss 0 0 RAM 1
 __Lbss 0 0 RAM 1
 ___param_bank 0 0 ABS 0
 __Hnvrram 0 0 COMRAM 1
 __Lnvrram 0 0 COMRAM 1
-?_sprintf 66 0 BANK0 1
-_vfprintf 174E 0 CODE 0
-_fputs 1922 0 CODE 0
+efgtoa@ou 73 0 BANK0 1
+?_sprintf 94 0 BANK0 1
+_vfprintf 38EC 0 CODE 0
+_fputs 3BAC 0 CODE 0
 int$flags 5B 0 COMRAM 1
+<<<<<<< Updated upstream
 __end_of_abs 19E8 0 CODE 0
 __end_of_vfpfcnvrt 14DA 0 CODE 0
 __end_of_color_writetoaddr 1B68 0 CODE 0
 __end_of_putch 1BD8 0 CODE 0
+=======
+___xxtofl 2C40 0 CODE 0
+___fleq@ff1 5 0 COMRAM 1
+__end_of_abs 3C72 0 CODE 0
+___flge@ff2 22 0 COMRAM 1
+__end_of_vfpfcnvrt 27B0 0 CODE 0
+___fpclassifyf@F465 EB 0 BANK0 1
+__end_of_color_writetoaddr 3E74 0 CODE 0
+?___fltol 5 0 COMRAM 1
+__end_of_putch 3EE4 0 CODE 0
+>>>>>>> Stashed changes
 __Hbigsfr 0 0 ABS 0
 __Lbigsfr 0 0 ABS 0
 _PIE2bits E2B 0 ABS 0
 __Heeprom_data 0 0 EEDATA 0
 _PIE4bits E2D 0 ABS 0
 __Leeprom_data 0 0 EEDATA 0
+?___flmul 5 0 COMRAM 1
+___fleq@ff2 9 0 COMRAM 1
 _PIR4bits E37 0 ABS 0
+<<<<<<< Updated upstream
 sprintf@ap 72 0 BANK0 1
 __Hintsave_regs 0 0 BIGRAM 1
 I2C_2_Master_Write@data_byte 6 0 COMRAM 1
 __Lintsave_regs 0 0 BIGRAM 1
 ?___aodiv 5 0 COMRAM 1
 _sendTxBuf 1A78 0 CODE 0
+=======
+_LATAbits F79 0 ABS 0
+sprintf@ap A6 0 BANK0 1
+__Hintsave_regs 0 0 BIGRAM 1
+I2C_2_Master_Write@data_byte 6 0 COMRAM 1
+__Lintsave_regs 0 0 BIGRAM 1
+_LATFbits F7E 0 ABS 0
+_LATGbits F7F 0 ABS 0
+?___fldiv 5 0 COMRAM 1
+?___aodiv 5 0 COMRAM 1
+_sendTxBuf 3D84 0 CODE 0
+>>>>>>> Stashed changes
 _RC4REG EE3 0 ABS 0
+colour_rel@R 22 0 COMRAM 1
 _TX4REG EE4 0 ABS 0
 __Hbigbss 0 0 BIGRAM 1
 __Lbigbss 0 0 BIGRAM 1
@@ -107,64 +201,88 @@ __Hintcode 4A 0 CODE 0
 __Lintcode 8 0 CODE 0
 __Hfardata 0 0 FARRAM 0
 __Lfardata 0 0 FARRAM 0
+__end_of___fpclassifyf 3572 0 CODE 0
 __pintcode 8 0 CODE 0
 color_writetoaddr@address 8 0 COMRAM 1
 __Habs1 0 0 ABS 0
 __Labs1 0 0 ABS 0
+__end_of_efgtoa 1826 0 CODE 0
 _RC0PPS E62 0 ABS 0
 _RD5PPS E6F 0 ABS 0
 _RD6PPS E70 0 ABS 0
 isa$xinst 0 0 ABS 0
 _RX4PPS E15 0 ABS 0
+colour_rel@vals 1E 0 COMRAM 1
 __HnvFARRAM 0 0 FARRAM 0
 __LnvFARRAM 0 0 FARRAM 0
 ___heap_hi 0 0 ABS 0
-_color_read_Red 17EE 0 CODE 0
+strcpy@src 7 0 COMRAM 1
+_color_read_Red 3A32 0 CODE 0
 I2C_2_Master_Read@ack 7 0 COMRAM 1
 I2C_2_Master_Read@tmp 8 0 COMRAM 1
+__end_of___fltol 3370 0 CODE 0
 color_read_Blue@tmp E 0 COMRAM 1
 fputc@c 5 0 COMRAM 1
+__end_of___flsub 3B68 0 CODE 0
 fputs@c 12 0 COMRAM 1
 _RxBufReadCnt 59 0 COMRAM 1
 _TxBufReadCnt 57 0 COMRAM 1
 fputs@i 13 0 COMRAM 1
+__end_of___flge 3474 0 CODE 0
 __Hdata 0 0 ABS 0
 __Ldata 0 0 ABS 0
 isa$std 1 0 ABS 0
+___flge 3370 0 CODE 0
 fputs@s E 0 COMRAM 1
 dtoa@fp 20 0 COMRAM 1
 pad@buf 17 0 COMRAM 1
-__end_of_readColours 16FC 0 CODE 0
+_efgtoa E2C 0 CODE 0
+__end_of_readColours 38EC 0 CODE 0
 stackhi 0 0 ABS 0
 __Hheap 0 0 HEAP 7
 __Lheap 0 0 HEAP 7
+___fldiv@new_exp 16 0 COMRAM 1
 color_writetoaddr@value 7 0 COMRAM 1
 __HcstackBANK0 0 0 ABS 0
 __LcstackBANK0 0 0 ABS 0
+_floorf 2A2E 0 CODE 0
 ___aomod@sign 16 0 COMRAM 1
 __pcstackBANK0 60 0 BANK0 1
-_color_click_init 19E8 0 CODE 0
+___fleq 3704 0 CODE 0
+_color_click_init 3C72 0 CODE 0
 __Htemp 5C 0 COMRAM 1
 __Ltemp 5B 0 COMRAM 1
 stacklo 0 0 ABS 0
 __Hrbit 0 0 COMRAM 1
+<<<<<<< Updated upstream
 __end_of_color_click_init 1A1C 0 CODE 0
+=======
+__end_of_color_click_init 3CB2 0 CODE 0
+>>>>>>> Stashed changes
 __Lrbit 0 0 COMRAM 1
 __Hinit 4E 0 CODE 0
 __Linit 4A 0 CODE 0
 __Hintcodelo 4A 0 CODE 0
 __Lintcodelo 4A 0 CODE 0
 __Hrbss 0 0 COMRAM 1
-__end_of_main 1624 0 CODE 0
+__end_of_main 3704 0 CODE 0
 __Lrbss 0 0 COMRAM 1
+<<<<<<< Updated upstream
 _getCharFromTxBuf 1A4C 0 CODE 0
+=======
+_getCharFromTxBuf 3D58 0 CODE 0
+>>>>>>> Stashed changes
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
-?_vfprintf 60 0 BANK0 1
-_color_read_lum 179E 0 CODE 0
+__end_of___fldiv 24AA 0 CODE 0
+?_vfprintf 8C 0 BANK0 1
+_memcpy 3992 0 CODE 0
+_strcpy 3B68 0 CODE 0
+_color_read_lum 39E2 0 CODE 0
 ___heap_lo 0 0 ABS 0
 __HdataBANK0 0 0 ABS 0
 __LdataBANK0 0 0 ABS 0
+<<<<<<< Updated upstream
 __pdataBANK0 F2 0 BANK0 1
 end_of_initialization 1910 0 CODE 0
 ___aodiv@sign 16 0 COMRAM 1
@@ -179,28 +297,65 @@ vfprintf@ap 64 0 BANK0 1
 _TRISDbits F84 0 ABS 0
 vfpfcnvrt@convarg 4B 0 COMRAM 1
 _color_read_Blue 188E 0 CODE 0
+=======
+?___xxtofl 5 0 COMRAM 1
+___flmul@sign 11 0 COMRAM 1
+__pdataBANK0 FF 0 BANK0 1
+end_of_initialization 3CE6 0 CODE 0
+___fldiv@sign 15 0 COMRAM 1
+___aodiv@sign 16 0 COMRAM 1
+__end_of___flneg 3D28 0 CODE 0
+memcpy@tmp B 0 COMRAM 1
+__end_of_I2C_2_Master_Read 3C32 0 CODE 0
+_TxBufferedString 3D28 0 CODE 0
+__end_of___aodiv 3106 0 CODE 0
+vfprintf@fmt 8E 0 BANK0 1
+_color_read_Green 3A82 0 CODE 0
+__end_of_fputs 3BF0 0 CODE 0
+efgtoa@mode 69 0 BANK0 1
+_SSP2ADD ED6 0 ABS 0
+vfprintf@ap 90 0 BANK0 1
+_TRISAbits F81 0 ABS 0
+_TRISDbits F84 0 ABS 0
+vfpfcnvrt@convarg 4B 0 COMRAM 1
+_TRISFbits F86 0 ABS 0
+_TRISGbits F87 0 ABS 0
+___fladd@grs 14 0 COMRAM 1
+_color_read_Blue 3AD2 0 CODE 0
+>>>>>>> Stashed changes
 _SP4BRGH EE6 0 ABS 0
 _SSP2BUF ED5 0 ABS 0
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
+<<<<<<< Updated upstream
 __end_of_I2C_2_Master_Idle 1B48 0 CODE 0
+=======
+__end_of_I2C_2_Master_Idle 3E54 0 CODE 0
+>>>>>>> Stashed changes
 _SP4BRGL EE5 0 ABS 0
+floorf@F526 E7 0 BANK0 1
 __Hifardata 0 0 CODE 0
 __Lifardata 0 0 CODE 0
 __Hbank0 0 0 ABS 0
 __Lbank0 0 0 ABS 0
 __Hbank1 0 0 ABS 0
 __Lbank1 0 0 ABS 0
+<<<<<<< Updated upstream
 _color_writetoaddr 1B48 0 CODE 0
+=======
+_color_writetoaddr 3E54 0 CODE 0
+>>>>>>> Stashed changes
 __Hbank2 0 0 ABS 0
 __Lbank2 0 0 ABS 0
+__end_of_labs 388E 0 CODE 0
 __Hbank3 0 0 ABS 0
 __Lbank3 0 0 ABS 0
+__end_of_colour_rel 2F7E 0 CODE 0
 __Hbank4 0 0 ABS 0
 __Lbank4 0 0 ABS 0
 __Hbank5 0 0 ABS 0
 __Lbank5 0 0 ABS 0
-vfprintf@fp 60 0 BANK0 1
+vfprintf@fp 8C 0 BANK0 1
 __Hpowerup 4A 0 CODE 0
 __Lpowerup 4A 0 CODE 0
 __Hbank6 0 0 ABS 0
@@ -215,39 +370,47 @@ __Hbank9 0 0 ABS 0
 __Lbank9 0 0 ABS 0
 __Htext1 0 0 ABS 0
 __Ltext1 0 0 ABS 0
-__ptext0 15A4 0 CODE 0
+__ptext0 363C 0 CODE 0
+___flmul@grs 13 0 COMRAM 1
 __Htext2 0 0 ABS 0
 __Ltext2 0 0 ABS 0
-__ptext1 16FC 0 CODE 0
+__ptext1 3940 0 CODE 0
 __Htext3 0 0 ABS 0
 __Ltext3 0 0 ABS 0
-__ptext2 174E 0 CODE 0
+__ptext2 38EC 0 CODE 0
+___fldiv@grs 18 0 COMRAM 1
 color_read_Red@tmp E 0 COMRAM 1
 __Htext4 0 0 ABS 0
 __Ltext4 0 0 ABS 0
-__ptext3 138C 0 CODE 0
+__ptext3 24AA 0 CODE 0
 __Htext5 0 0 ABS 0
 __Ltext5 0 0 ABS 0
-__ptext4 E24 0 CODE 0
+__ptext4 E2C 0 CODE 0
 _HighISR 8 0 CODE 0
 __Htext6 0 0 ABS 0
 __Ltext6 0 0 ABS 0
-__ptext5 1624 0 CODE 0
+__ptext5 3B68 0 CODE 0
 __Htext7 0 0 ABS 0
 __Ltext7 0 0 ABS 0
-__ptext6 1922 0 CODE 0
+__ptext6 3992 0 CODE 0
 __HbssCOMRAM 0 0 ABS 0
 ?_color_read_Red 9 0 COMRAM 1
 __LbssCOMRAM 0 0 ABS 0
 __Htext8 0 0 ABS 0
 __Ltext8 0 0 ABS 0
-__ptext7 14DA 0 CODE 0
-__pbssCOMRAM 57 0 COMRAM 1
+__ptext7 3828 0 CODE 0
+__pbssCOMRAM 56 0 COMRAM 1
 __Htext9 0 0 ABS 0
 __Ltext9 0 0 ABS 0
+<<<<<<< Updated upstream
 __ptext8 1BD6 0 CODE 0
 __ptext9 19A8 0 CODE 0
 _vfpfcnvrt 138C 0 CODE 0
+=======
+__ptext8 2A2E 0 CODE 0
+__ptext9 3474 0 CODE 0
+_vfpfcnvrt 24AA 0 CODE 0
+>>>>>>> Stashed changes
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 putCharToRxBuf@byte 1 0 COMRAM 1
@@ -255,6 +418,7 @@ _SSP2CLKPPS E1C 0 ABS 0
 _SSP2DATPPS E1D 0 ABS 0
 color_read_lum@tmp E 0 COMRAM 1
 putCharToTxBuf@byte 5 0 COMRAM 1
+<<<<<<< Updated upstream
 __end_of_putCharToRxBuf 1B20 0 CODE 0
 __end_of_putCharToTxBuf 1AF6 0 CODE 0
 __end_of__initialization 1910 0 CODE 0
@@ -262,152 +426,329 @@ ___rparam_used 1 0 ABS 0
 _I2C_2_Master_Stop 1BC2 0 CODE 0
 _I2C_2_Master_Write 1BAC 0 CODE 0
 _I2C_2_Master_Start 1BCC 0 CODE 0
+=======
+efgtoa@c 38 0 COMRAM 1
+__end_of_putCharToRxBuf 3E2C 0 CODE 0
+__end_of_putCharToTxBuf 3E02 0 CODE 0
+___fpclassifyf@e D 0 COMRAM 1
+efgtoa@d 6B 0 BANK0 1
+efgtoa@e 6F 0 BANK0 1
+__end_of_memcpy 39E2 0 CODE 0
+__end_of__initialization 3CE6 0 CODE 0
+__end_of_floorf 2C40 0 CODE 0
+efgtoa@f 34 0 COMRAM 1
+___fpclassifyf@u F 0 COMRAM 1
+floorf@e 2C 0 COMRAM 1
+efgtoa@g 82 0 BANK0 1
+colour_rel@B 2A 0 COMRAM 1
+efgtoa@h 79 0 BANK0 1
+___rparam_used 1 0 ABS 0
+efgtoa@i 77 0 BANK0 1
+memcpy@d C 0 COMRAM 1
+strcpy@d B 0 COMRAM 1
+efgtoa@l 7D 0 BANK0 1
+efgtoa@m 6D 0 BANK0 1
+efgtoa@n 86 0 BANK0 1
+floorf@m 28 0 COMRAM 1
+_I2C_2_Master_Stop 3ECE 0 CODE 0
+efgtoa@p 62 0 BANK0 1
+_I2C_2_Master_Write 3EB8 0 CODE 0
+_I2C_2_Master_Start 3ED8 0 CODE 0
+memcpy@n 9 0 COMRAM 1
+efgtoa@t 64 0 BANK0 1
+___fladd 1826 0 CODE 0
+efgtoa@u 88 0 BANK0 1
+floorf@u 2E 0 COMRAM 1
+efgtoa@w 71 0 BANK0 1
+>>>>>>> Stashed changes
 __Hidata 0 0 CODE 0
 __Lidata 0 0 CODE 0
+memcpy@s E 0 COMRAM 1
 __Hrdata 0 0 COMRAM 1
 __Lrdata 0 0 COMRAM 1
+strcpy@s 9 0 COMRAM 1
+floorf@x 1E 0 COMRAM 1
 fputc@fp 7 0 COMRAM 1
-__end_of_color_read_Green 188E 0 CODE 0
+__end_of_color_read_Green 3AD2 0 CODE 0
 __Hidloc 200010 0 IDLOC 5
 __Lidloc 0 0 IDLOC 5
-main@buf 7F 0 BANK0 1
+main@buf B5 0 BANK0 1
+___flneg 3CF0 0 CODE 0
 fputs@fp 10 0 COMRAM 1
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
-___aomod 1228 0 CODE 0
+___aomod 3106 0 CODE 0
+___fpclassifyf@x 5 0 COMRAM 1
 __Hparam 0 0 COMRAM 1
 __Lparam 0 0 COMRAM 1
+<<<<<<< Updated upstream
 __Hspace_0 1BD9 0 ABS 0
+=======
+__Hspace_0 3EE5 0 ABS 0
+___flsub 3B22 0 CODE 0
+>>>>>>> Stashed changes
 __HcstackCOMRAM 0 0 ABS 0
 __Lspace_0 0 0 ABS 0
 __LcstackCOMRAM 0 0 ABS 0
+efgtoa@sign 81 0 BANK0 1
 __pcstackCOMRAM 1 0 COMRAM 1
+<<<<<<< Updated upstream
 __end_of_I2C_2_Master_Init 1ACC 0 CODE 0
 __end_of___aomod 138C 0 CODE 0
 _sprintf 16FC 0 CODE 0
 __Hspace_1 13C 0 ABS 0
+=======
+__end_of_I2C_2_Master_Init 3DD8 0 CODE 0
+_efgtoa$1492 66 0 BANK0 1
+?_floorf 1E 0 COMRAM 1
+__end_of___aomod 326A 0 CODE 0
+_sprintf 3940 0 CODE 0
+__Hspace_1 1A8 0 ABS 0
+>>>>>>> Stashed changes
 __Lspace_1 0 0 ABS 0
-__Hsmallconst E24 0 SMALLCONST 0
+_colour_rel 2DF4 0 CODE 0
+__Hsmallconst E2C 0 SMALLCONST 0
 __Lsmallconst E00 0 SMALLCONST 0
 __psmallconst E00 0 SMALLCONST 0
+___fltol 326A 0 CODE 0
 __Hspace_2 0 0 ABS 0
 __Lspace_2 0 0 ABS 0
+<<<<<<< Updated upstream
 __end_of_I2C_2_Master_Stop 1BCC 0 CODE 0
+=======
+___flmul 1CE6 0 CODE 0
+__end_of_I2C_2_Master_Stop 3ED8 0 CODE 0
+>>>>>>> Stashed changes
 __Hnvbit 0 0 COMRAM 1
 __Lnvbit 0 0 COMRAM 1
 __Hcinit 0 0 ABS 0
 __Lcinit 0 0 ABS 0
-___aodiv 10A0 0 CODE 0
-__pcinit 18DE 0 CODE 0
+___fldiv 2110 0 CODE 0
+___aodiv 2F7E 0 CODE 0
+__pcinit 3CB2 0 CODE 0
 __ramtop E00 0 RAM 0
 __mediumconst 0 0 MEDIUMCONST 0
-__end_of_fputc 15A4 0 CODE 0
+__end_of_fputc 363C 0 CODE 0
 __Hconst 0 0 CONST 0
 __Lconst 0 0 CONST 0
+<<<<<<< Updated upstream
 __end_of_isDataInTxBuf 1B9E 0 CODE 0
+=======
+__end_of_isDataInTxBuf 3EAA 0 CODE 0
+>>>>>>> Stashed changes
 __Hspace_4 60000C 0 ABS 0
 __Lspace_4 0 0 ABS 0
+___xxtofl@sign D 0 COMRAM 1
 ?_color_read_lum 9 0 COMRAM 1
+___fltol@exp1 E 0 COMRAM 1
 __HidataBANK0 0 0 ABS 0
 __LidataBANK0 0 0 ABS 0
+<<<<<<< Updated upstream
 __pidataBANK0 1BD8 0 CODE 0
 __end_of_sprintf 174E 0 CODE 0
 _EUSART4RXbuf B1 0 BANK0 1
 __end_of_pad 169E 0 CODE 0
 __end_of_I2C_2_Master_RepStart 1BC2 0 CODE 0
+=======
+__pidataBANK0 3EE4 0 CODE 0
+__end_of_sprintf 3992 0 CODE 0
+_EUSART4RXbuf 13C 0 BANK1 1
+__end_of_pad 3828 0 CODE 0
+__end_of_I2C_2_Master_RepStart 3ECE 0 CODE 0
+>>>>>>> Stashed changes
 _EUSART4TXbuf 100 0 BANK1 1
 __HbssBANK0 0 0 ABS 0
 __LbssBANK0 0 0 ABS 0
 __Hbank10 0 0 ABS 0
-__pbssBANK0 B1 0 BANK0 1
+__pbssBANK0 E7 0 BANK0 1
 __Lbank10 0 0 ABS 0
-sprintf@fmt 68 0 BANK0 1
+___flmul@temp 1C 0 COMRAM 1
+sprintf@fmt 96 0 BANK0 1
 _SSP2CON2 EDA 0 ABS 0
 __Hbank11 0 0 ABS 0
 __Lbank11 0 0 ABS 0
 __Hbank12 0 0 ABS 0
 __Lbank12 0 0 ABS 0
-__end_of_color_read_Red 183E 0 CODE 0
+__end_of_color_read_Red 3A82 0 CODE 0
+__end_of___fladd 1CE6 0 CODE 0
 __Hbank13 0 0 ABS 0
 __Lbank13 0 0 ABS 0
 __HbssBANK1 0 0 ABS 0
 __LbssBANK1 0 0 ABS 0
+___xxtofl@arg F 0 COMRAM 1
 __pbssBANK1 100 0 BANK1 1
 __Htext10 0 0 ABS 0
 __Ltext10 0 0 ABS 0
 __Htext20 0 0 ABS 0
 __Ltext20 0 0 ABS 0
-__ptext10 1228 0 CODE 0
+__ptext10 326A 0 CODE 0
 __Htext30 0 0 ABS 0
 __Htext11 0 0 ABS 0
 __Ltext30 0 0 ABS 0
 __Ltext11 0 0 ABS 0
+<<<<<<< Updated upstream
 __ptext20 1966 0 CODE 0
 __end_of_TxBufferedString 1A4C 0 CODE 0
+=======
+__ptext20 3572 0 CODE 0
+__end_of_TxBufferedString 3D58 0 CODE 0
+__Htext40 0 0 ABS 0
+>>>>>>> Stashed changes
 __Htext21 0 0 ABS 0
+__Ltext40 0 0 ABS 0
 __Ltext21 0 0 ABS 0
+<<<<<<< Updated upstream
 __ptext11 10A0 0 CODE 0
 __ptext30 1ACC 0 CODE 0
+=======
+__ptext11 3B22 0 CODE 0
+__ptext30 3A82 0 CODE 0
+__Htext50 0 0 ABS 0
+>>>>>>> Stashed changes
 __Htext31 0 0 ABS 0
 __Htext12 0 0 ABS 0
+__Ltext50 0 0 ABS 0
 __Ltext31 0 0 ABS 0
 __Ltext12 0 0 ABS 0
+<<<<<<< Updated upstream
 __ptext21 1B68 0 CODE 0
+=======
+__ptext21 3EE2 0 CODE 0
+__ptext40 3EB8 0 CODE 0
+__Htext41 0 0 ABS 0
+>>>>>>> Stashed changes
 __Htext22 0 0 ABS 0
+__Ltext41 0 0 ABS 0
 __Ltext22 0 0 ABS 0
+<<<<<<< Updated upstream
 __ptext12 1A78 0 CODE 0
 __ptext31 1B9E 0 CODE 0
+=======
+__ptext12 1826 0 CODE 0
+__ptext31 3AD2 0 CODE 0
+__ptext50 3D58 0 CODE 0
+__Htext32 0 0 ABS 0
+>>>>>>> Stashed changes
 __Htext13 0 0 ABS 0
+__Ltext32 0 0 ABS 0
 __Ltext13 0 0 ABS 0
-__ptext22 19E8 0 CODE 0
+__ptext22 3C32 0 CODE 0
+__ptext41 3ECE 0 CODE 0
+__Htext42 0 0 ABS 0
 __Htext23 0 0 ABS 0
+__Ltext42 0 0 ABS 0
 __Ltext23 0 0 ABS 0
+<<<<<<< Updated upstream
 __ptext13 1B86 0 CODE 0
+=======
+__ptext13 3CF0 0 CODE 0
+__ptext32 3EC4 0 CODE 0
+>>>>>>> Stashed changes
 __Htext33 0 0 ABS 0
 __Htext14 0 0 ABS 0
 __Ltext33 0 0 ABS 0
 __Ltext14 0 0 ABS 0
+<<<<<<< Updated upstream
 __end_of_color_read_lum 17EE 0 CODE 0
 __ptext23 1B48 0 CODE 0
+=======
+__end_of_color_read_lum 3A32 0 CODE 0
+__ptext23 3106 0 CODE 0
+__ptext42 3ED8 0 CODE 0
+__Htext43 0 0 ABS 0
+>>>>>>> Stashed changes
 __Htext24 0 0 ABS 0
+__Ltext43 0 0 ABS 0
 __Ltext24 0 0 ABS 0
+<<<<<<< Updated upstream
 __ptext14 169E 0 CODE 0
 __ptext33 1AF6 0 CODE 0
+=======
+__ptext14 1CE6 0 CODE 0
+__ptext33 3BF0 0 CODE 0
+colour_rel@G 26 0 COMRAM 1
+>>>>>>> Stashed changes
 __Htext34 0 0 ABS 0
 __Htext15 0 0 ABS 0
 __Ltext34 0 0 ABS 0
 __Ltext15 0 0 ABS 0
+<<<<<<< Updated upstream
 __ptext24 1BAC 0 CODE 0
+=======
+__ptext24 2F7E 0 CODE 0
+__ptext43 3E2C 0 CODE 0
+__Htext44 0 0 ABS 0
+>>>>>>> Stashed changes
 __Htext25 0 0 ABS 0
+__Ltext44 0 0 ABS 0
 __Ltext25 0 0 ABS 0
+<<<<<<< Updated upstream
 __ptext15 179E 0 CODE 0
 __ptext34 1A4C 0 CODE 0
+=======
+__ptext15 3370 0 CODE 0
+__ptext34 3E74 0 CODE 0
+>>>>>>> Stashed changes
 ___inthi_sp 0 0 STACK 2
+__Htext35 0 0 ABS 0
 __Htext16 0 0 ABS 0
+__Ltext35 0 0 ABS 0
 __Ltext16 0 0 ABS 0
+<<<<<<< Updated upstream
 __ptext25 1BC2 0 CODE 0
+=======
+__ptext25 3D84 0 CODE 0
+__ptext44 3DAE 0 CODE 0
+>>>>>>> Stashed changes
 ?_color_read_Green 9 0 COMRAM 1
+__Htext45 0 0 ABS 0
 __Htext26 0 0 ABS 0
+__Ltext45 0 0 ABS 0
 __Ltext26 0 0 ABS 0
-__ptext16 17EE 0 CODE 0
+__ptext16 3704 0 CODE 0
+__ptext35 2DF4 0 CODE 0
+__Htext36 0 0 ABS 0
 __Htext17 0 0 ABS 0
+__Ltext36 0 0 ABS 0
 __Ltext17 0 0 ABS 0
+<<<<<<< Updated upstream
 __ptext26 1BCC 0 CODE 0
+=======
+__ptext26 3E92 0 CODE 0
+__ptext45 3D28 0 CODE 0
+>>>>>>> Stashed changes
 ___aomod@divisor D 0 COMRAM 1
+__Htext46 0 0 ABS 0
 __Htext27 0 0 ABS 0
+__Ltext46 0 0 ABS 0
 __Ltext27 0 0 ABS 0
-__ptext17 183E 0 CODE 0
+__ptext17 27B0 0 CODE 0
+__ptext36 2C40 0 CODE 0
+__Htext37 0 0 ABS 0
 __Htext18 0 0 ABS 0
+__Ltext37 0 0 ABS 0
 __Ltext18 0 0 ABS 0
+<<<<<<< Updated upstream
 __ptext27 1B20 0 CODE 0
+=======
+__ptext27 388E 0 CODE 0
+__ptext46 3DD8 0 CODE 0
+__Htext47 0 0 ABS 0
+>>>>>>> Stashed changes
 __Htext28 0 0 ABS 0
+__Ltext47 0 0 ABS 0
 __Ltext28 0 0 ABS 0
 _ANSELDbits EA7 0 ABS 0
-__ptext18 188E 0 CODE 0
+__ptext18 37AE 0 CODE 0
+__ptext37 2110 0 CODE 0
 _RC4STAbits EE7 0 ABS 0
+___fltol@sign1 D 0 COMRAM 1
+__Htext38 0 0 ABS 0
 __Htext19 0 0 ABS 0
+__Ltext38 0 0 ABS 0
 __Ltext19 0 0 ABS 0
 _TX4STAbits EE8 0 ABS 0
+<<<<<<< Updated upstream
 __ptext28 1AA2 0 CODE 0
 __Htext29 0 0 ABS 0
 __Ltext29 0 0 ABS 0
@@ -419,55 +760,129 @@ readColours@vals 10 0 COMRAM 1
 _INTCONbits FF2 0 ABS 0
 ___aodiv@divisor D 0 COMRAM 1
 __end_of_I2C_2_Master_Write 1BB8 0 CODE 0
+=======
+__ptext28 39E2 0 CODE 0
+__ptext47 3EAA 0 CODE 0
+__Htext29 0 0 ABS 0
+__Ltext29 0 0 ABS 0
+__ptext19 3BAC 0 CODE 0
+__ptext38 3C72 0 CODE 0
+___intlo_sp 0 0 STACK 2
+__Htext39 0 0 ABS 0
+__Ltext39 0 0 ABS 0
+__ptext29 3A32 0 CODE 0
+__end_of_dtoa 2A2E 0 CODE 0
+__Htext49 0 0 ABS 0
+__Ltext49 0 0 ABS 0
+__ptext39 3E54 0 CODE 0
+__ptext49 3E02 0 CODE 0
+readColours@vals 10 0 COMRAM 1
+_INTCONbits FF2 0 ABS 0
+___aodiv@divisor D 0 COMRAM 1
+memcpy@d1 5 0 COMRAM 1
+__end_of_I2C_2_Master_Write 3EC4 0 CODE 0
+>>>>>>> Stashed changes
 vfpfcnvrt@fmt 45 0 COMRAM 1
+strcpy@dest 5 0 COMRAM 1
 __smallconst E00 0 SMALLCONST 0
+efgtoa@nmode 6A 0 BANK0 1
 __Hreset_vec 4 0 CODE 0
 __Lreset_vec 0 0 CODE 0
+<<<<<<< Updated upstream
 __end_of_Interrupts_init 1BAC 0 CODE 0
 _readColours 169E 0 CODE 0
+=======
+__end_of_Interrupts_init 3EB8 0 CODE 0
+_readColours 388E 0 CODE 0
+>>>>>>> Stashed changes
 ?_color_read_Blue 9 0 COMRAM 1
+___xxtofl@exp E 0 COMRAM 1
+memcpy@s1 7 0 COMRAM 1
 TxBufferedString@string 6 0 COMRAM 1
 vfpfcnvrt@ap 47 0 COMRAM 1
 __accesstop 60 0 ABS 0
 __Hintcode_body 0 0 ABS 0
 __Lintcode_body 0 0 ABS 0
+colour_rel@rel 20 0 COMRAM 1
 intlevel0 0 0 CODE 0
 _RxBufWriteCnt 5A 0 COMRAM 1
 _TxBufWriteCnt 58 0 COMRAM 1
 intlevel1 0 0 CODE 0
 _SSP2STAT ED8 0 ABS 0
-vfprintf@cfmt 55 0 COMRAM 1
+vfprintf@cfmt 92 0 BANK0 1
+___xxtofl@val 5 0 COMRAM 1
 intlevel2 0 0 CODE 0
 intlevel3 0 0 CODE 0
-__end_of_vfprintf 179E 0 CODE 0
+__end_of_vfprintf 3940 0 CODE 0
 _SSP2CON1bits ED9 0 ABS 0
-_I2C_2_Master_Read 1966 0 CODE 0
+_I2C_2_Master_Read 3BF0 0 CODE 0
 _SSP2CON2bits EDA 0 ABS 0
+<<<<<<< Updated upstream
 vfpfcnvrt@cp 53 0 COMRAM 1
 __end_of_getCharFromTxBuf 1A78 0 CODE 0
 _initUSART4 1B68 0 CODE 0
 color_read_Green@tmp E 0 COMRAM 1
 _Interrupts_init 1B9E 0 CODE 0
 start_initialization 18DE 0 CODE 0
+=======
+vfpfcnvrt@cp 54 0 COMRAM 1
+__end_of_getCharFromTxBuf 3D84 0 CODE 0
+_initUSART4 3E74 0 CODE 0
+color_read_Green@tmp E 0 COMRAM 1
+___fladd@aexp 12 0 COMRAM 1
+_Interrupts_init 3EAA 0 CODE 0
+___fladd@bexp 13 0 COMRAM 1
+start_initialization 3CB2 0 CODE 0
+>>>>>>> Stashed changes
 ___aodiv@quotient 17 0 COMRAM 1
+__end_of___xxtofl 2DF4 0 CODE 0
+___fladd@a 9 0 COMRAM 1
 vfpfcnvrt@fp 43 0 COMRAM 1
+<<<<<<< Updated upstream
 __end_of_sendTxBuf 1AA2 0 CODE 0
 __initialization 18DE 0 CODE 0
 __end_of_initUSART4 1B86 0 CODE 0
 _I2C_2_Master_Init 1AA2 0 CODE 0
+=======
+colour_rel@L 2E 0 COMRAM 1
+___fladd@b 5 0 COMRAM 1
+___flmul@aexp 12 0 COMRAM 1
+__end_of_sendTxBuf 3DAE 0 CODE 0
+___fldiv@aexp 1D 0 COMRAM 1
+__initialization 3CB2 0 CODE 0
+__end_of_initUSART4 3E92 0 CODE 0
+___flmul@bexp 17 0 COMRAM 1
+___flsub@a 22 0 COMRAM 1
+___fldiv@bexp 1C 0 COMRAM 1
+_I2C_2_Master_Init 3DAE 0 CODE 0
+___flmul@prod 18 0 COMRAM 1
+>>>>>>> Stashed changes
 ___aomod@dividend 5 0 COMRAM 1
-__activetblptr 1 0 ABS 0
+___flsub@b 1E 0 COMRAM 1
+__activetblptr 3 0 ABS 0
 ___aomod@counter 15 0 COMRAM 1
+<<<<<<< Updated upstream
 __end_of_color_read_Blue 18DE 0 CODE 0
 _isDataInTxBuf 1B86 0 CODE 0
+=======
+___flmul@a 9 0 COMRAM 1
+__end_of_color_read_Blue 3B22 0 CODE 0
+?___fpclassifyf 5 0 COMRAM 1
+___fldiv@a 9 0 COMRAM 1
+_isDataInTxBuf 3E92 0 CODE 0
+___flmul@b 5 0 COMRAM 1
+___fpclassifyf 3474 0 CODE 0
+>>>>>>> Stashed changes
 __end_of_HighISR 4A 0 CODE 0
+___fldiv@b 5 0 COMRAM 1
 _BAUD4CONbits EE9 0 ABS 0
 ___aodiv@dividend 5 0 COMRAM 1
 %segments
 reset_vec 0 3 CODE 0 0
 intcode 8 4D CODE 8 0
-smallconst E00 E23 SMALLCONST E00 0
+smallconst E00 E2B SMALLCONST E00 0
 cstackCOMRAM 1 5B COMRAM 1 1
+<<<<<<< Updated upstream
 cstackBANK0 60 F2 BANK0 60 1
 bssBANK1 100 13B BANK1 100 1
 text4 E24 1BD8 CODE E24 0
@@ -523,162 +938,668 @@ main.c
 42 1602 0 CODE 0
 43 1606 0 CODE 0
 42 160A 0 CODE 0
+=======
+cstackBANK0 60 FF BANK0 60 1
+bssBANK1 100 1A7 BANK1 100 1
+text4 E2C 3EE4 CODE E2C 0
+%locals
+dist/default/production\final-project-josh-and-edward.X.production.o
+C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
+C:\Users\jford\AppData\Local\Temp\xcAs59c.s
+6923 3CB2 0 CODE 0
+6925 3CB2 0 CODE 0
+6928 3CB2 0 CODE 0
+6988 3CB2 0 CODE 0
+6989 3CB4 0 CODE 0
+6990 3CB6 0 CODE 0
+6991 3CB8 0 CODE 0
+6992 3CBA 0 CODE 0
+6993 3CBC 0 CODE 0
+6994 3CBE 0 CODE 0
+6995 3CC0 0 CODE 0
+6999 3CC4 0 CODE 0
+7000 3CC8 0 CODE 0
+7001 3CCA 0 CODE 0
+7002 3CCA 0 CODE 0
+7003 3CCC 0 CODE 0
+7004 3CCE 0 CODE 0
+7007 3CD0 0 CODE 0
+7008 3CD4 0 CODE 0
+7009 3CD6 0 CODE 0
+7010 3CD6 0 CODE 0
+7011 3CD8 0 CODE 0
+7012 3CDA 0 CODE 0
+7015 3CDC 0 CODE 0
+7016 3CDE 0 CODE 0
+7017 3CE0 0 CODE 0
+7018 3CE2 0 CODE 0
+7019 3CE4 0 CODE 0
+7025 3CE6 0 CODE 0
+7027 3CE6 0 CODE 0
+7028 3CE8 0 CODE 0
+7029 3CEA 0 CODE 0
+7030 3CEC 0 CODE 0
+main.c
+28 363C 0 CODE 0
+29 363C 0 CODE 0
+30 3640 0 CODE 0
+31 3644 0 CODE 0
+32 3648 0 CODE 0
+40 364C 0 CODE 0
+41 364E 0 CODE 0
+44 3668 0 CODE 0
+45 3674 0 CODE 0
+47 3688 0 CODE 0
+48 36D6 0 CODE 0
+50 36E2 0 CODE 0
+51 36E6 0 CODE 0
+50 36EA 0 CODE 0
+>>>>>>> Stashed changes
 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
-9 16FC 0 CODE 0
-15 16FC 0 CODE 0
-16 1706 0 CODE 0
-17 170E 0 CODE 0
-18 1716 0 CODE 0
-19 171E 0 CODE 0
-20 173A 0 CODE 0
-23 174C 0 CODE 0
+9 3940 0 CODE 0
+15 3940 0 CODE 0
+16 394A 0 CODE 0
+17 3952 0 CODE 0
+18 395A 0 CODE 0
+19 3962 0 CODE 0
+20 397E 0 CODE 0
+23 3990 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1520 174E 0 CODE 0
-1525 174E 0 CODE 0
-1529 1756 0 CODE 0
-1533 175A 0 CODE 0
-1529 1776 0 CODE 0
-1538 1792 0 CODE 0
-1543 179C 0 CODE 0
+1520 38EC 0 CODE 0
+1525 38EC 0 CODE 0
+1529 38F4 0 CODE 0
+1533 38F8 0 CODE 0
+1529 3914 0 CODE 0
+1538 3934 0 CODE 0
+1543 393E 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1007 138C 0 CODE 0
-1019 138C 0 CODE 0
-1020 13B0 0 CODE 0
-1022 13BE 0 CODE 0
-1023 13CC 0 CODE 0
-1117 13D0 0 CODE 0
-1187 13E0 0 CODE 0
-1230 1418 0 CODE 0
-1232 1452 0 CODE 0
-1233 146E 0 CODE 0
-1509 149E 0 CODE 0
-1514 14B0 0 CODE 0
-1517 14D8 0 CODE 0
+1007 24AA 0 CODE 0
+1019 24AA 0 CODE 0
+1020 24D2 0 CODE 0
+1022 24E0 0 CODE 0
+1023 24EE 0 CODE 0
+1117 24F2 0 CODE 0
+1187 2502 0 CODE 0
+1230 2542 0 CODE 0
+1232 257C 0 CODE 0
+1233 2598 0 CODE 0
+1392 25C8 0 CODE 0
+1393 25D8 0 CODE 0
+1394 25EA 0 CODE 0
+1398 25EE 0 CODE 0
+1399 25F2 0 CODE 0
+1424 25F6 0 CODE 0
+1425 25FA 0 CODE 0
+1427 25FE 0 CODE 0
+1428 2602 0 CODE 0
+1429 2606 0 CODE 0
+1429 2610 0 CODE 0
+1429 261E 0 CODE 0
+1429 2626 0 CODE 0
+1429 262E 0 CODE 0
+1431 2638 0 CODE 0
+1459 265C 0 CODE 0
+1460 268C 0 CODE 0
+1462 2690 0 CODE 0
+1463 26C0 0 CODE 0
+1464 26C4 0 CODE 0
+1464 26CE 0 CODE 0
+1464 26DC 0 CODE 0
+1464 26E4 0 CODE 0
+1465 26EE 0 CODE 0
+1466 270A 0 CODE 0
+1493 270E 0 CODE 0
+1495 2740 0 CODE 0
+1495 2758 0 CODE 0
+1495 2766 0 CODE 0
+1509 2770 0 CODE 0
+1514 2782 0 CODE 0
+1517 27AE 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-443 E24 0 CODE 0
-450 E24 0 CODE 0
-451 E44 0 CODE 0
-452 E58 0 CODE 0
-453 E68 0 CODE 0
-462 E88 0 CODE 0
-463 EB8 0 CODE 0
-464 EC0 0 CODE 0
-469 ED0 0 CODE 0
-470 ED6 0 CODE 0
-471 EFE 0 CODE 0
-480 EFE 0 CODE 0
-481 F06 0 CODE 0
-482 F0A 0 CODE 0
-487 F0E 0 CODE 0
-488 F14 0 CODE 0
-488 F40 0 CODE 0
-488 F44 0 CODE 0
-488 F48 0 CODE 0
-488 F4C 0 CODE 0
-488 F50 0 CODE 0
-488 F54 0 CODE 0
-488 F58 0 CODE 0
-488 F5C 0 CODE 0
-489 F96 0 CODE 0
-490 F9C 0 CODE 0
-491 FA2 0 CODE 0
-491 FC2 0 CODE 0
-491 FC6 0 CODE 0
-491 FCA 0 CODE 0
-491 FCE 0 CODE 0
-491 FD2 0 CODE 0
-491 FD6 0 CODE 0
-491 FDA 0 CODE 0
-491 FDE 0 CODE 0
-482 1006 0 CODE 0
-495 1058 0 CODE 0
-496 1068 0 CODE 0
-497 106E 0 CODE 0
-501 107E 0 CODE 0
-502 109E 0 CODE 0
+506 E2C 0 CODE 0
+514 E2C 0 CODE 0
+515 E32 0 CODE 0
+516 E42 0 CODE 0
+517 E50 0 CODE 0
+518 E54 0 CODE 0
+522 E78 0 CODE 0
+523 E82 0 CODE 0
+524 E8A 0 CODE 0
+529 E9A 0 CODE 0
+538 EC2 0 CODE 0
+539 EE8 0 CODE 0
+540 EFA 0 CODE 0
+541 EFE 0 CODE 0
+542 F04 0 CODE 0
+551 F0C 0 CODE 0
+553 F24 0 CODE 0
+554 F2E 0 CODE 0
+556 F4E 0 CODE 0
+557 F74 0 CODE 0
+558 F86 0 CODE 0
+559 F8A 0 CODE 0
+560 F90 0 CODE 0
+569 F98 0 CODE 0
+576 FB4 0 CODE 0
+577 FC6 0 CODE 0
+578 FCE 0 CODE 0
+579 1004 0 CODE 0
+580 1004 0 CODE 0
+581 1014 0 CODE 0
+579 101A 0 CODE 0
+583 10BE 0 CODE 0
+584 10FC 0 CODE 0
+585 110C 0 CODE 0
+588 1110 0 CODE 0
+589 1144 0 CODE 0
+590 114C 0 CODE 0
+587 118C 0 CODE 0
+596 11BE 0 CODE 0
+602 11BE 0 CODE 0
+604 11C2 0 CODE 0
+615 11C6 0 CODE 0
+630 11EA 0 CODE 0
+635 11F2 0 CODE 0
+640 11F6 0 CODE 0
+641 1208 0 CODE 0
+642 1216 0 CODE 0
+643 1226 0 CODE 0
+645 122E 0 CODE 0
+646 1240 0 CODE 0
+652 1248 0 CODE 0
+653 1250 0 CODE 0
+654 1260 0 CODE 0
+655 1270 0 CODE 0
+656 1274 0 CODE 0
+657 12BC 0 CODE 0
+658 12D8 0 CODE 0
+659 1330 0 CODE 0
+660 1364 0 CODE 0
+655 136A 0 CODE 0
+664 1388 0 CODE 0
+665 13BC 0 CODE 0
+666 13EE 0 CODE 0
+667 1400 0 CODE 0
+669 1404 0 CODE 0
+670 1446 0 CODE 0
+675 1456 0 CODE 0
+677 148A 0 CODE 0
+678 14E0 0 CODE 0
+679 14E6 0 CODE 0
+681 151A 0 CODE 0
+683 152E 0 CODE 0
+689 1532 0 CODE 0
+693 1542 0 CODE 0
+695 154A 0 CODE 0
+696 1550 0 CODE 0
+697 1558 0 CODE 0
+698 1560 0 CODE 0
+699 1564 0 CODE 0
+700 15AC 0 CODE 0
+712 1606 0 CODE 0
+713 1626 0 CODE 0
+714 163A 0 CODE 0
+715 1640 0 CODE 0
+718 1648 0 CODE 0
+719 165C 0 CODE 0
+720 1662 0 CODE 0
+717 1668 0 CODE 0
+722 167A 0 CODE 0
+723 1690 0 CODE 0
+725 1696 0 CODE 0
+726 16EE 0 CODE 0
+727 1722 0 CODE 0
+728 172A 0 CODE 0
+698 172E 0 CODE 0
+735 1768 0 CODE 0
+736 1770 0 CODE 0
+767 1780 0 CODE 0
+768 17B0 0 CODE 0
+769 17BE 0 CODE 0
+780 17D6 0 CODE 0
+781 17E6 0 CODE 0
+783 17FC 0 CODE 0
+786 1804 0 CODE 0
+787 1824 0 CODE 0
+C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\strcpy.c
+3 3B68 0 CODE 0
+5 3B68 0 CODE 0
+6 3B70 0 CODE 0
+7 3B78 0 CODE 0
+9 3BAA 0 CODE 0
+C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\memcpy.c
+4 3992 0 CODE 0
+11 3992 0 CODE 0
+12 399A 0 CODE 0
+13 39A2 0 CODE 0
+14 39A6 0 CODE 0
+15 39B6 0 CODE 0
+13 39C6 0 CODE 0
+18 39E0 0 CODE 0
+C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\labs.c
+1 3828 0 CODE 0
+3 3828 0 CODE 0
+4 388C 0 CODE 0
+C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\floorf.c
+3 2A2E 0 CODE 0
+5 2A2E 0 CODE 0
+6 2A4E 0 CODE 0
+9 2A88 0 CODE 0
+10 2AA4 0 CODE 0
+11 2AB8 0 CODE 0
+12 2AC6 0 CODE 0
+13 2B04 0 CODE 0
+16 2B36 0 CODE 0
+17 2B72 0 CODE 0
+18 2B82 0 CODE 0
+19 2BA2 0 CODE 0
+21 2BA6 0 CODE 0
+22 2BE2 0 CODE 0
+23 2BF6 0 CODE 0
+24 2C1E 0 CODE 0
+26 2C2E 0 CODE 0
+27 2C3E 0 CODE 0
+C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\__fpclassifyf.c
+4 3474 0 CODE 0
+6 3474 0 CODE 0
+7 3494 0 CODE 0
+8 34C0 0 CODE 0
+9 3512 0 CODE 0
+10 3568 0 CODE 0
+11 3570 0 CODE 0
+C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+43 326A 0 CODE 0
+47 326A 0 CODE 0
+48 3280 0 CODE 0
+49 3294 0 CODE 0
+50 32BE 0 CODE 0
+51 32C0 0 CODE 0
+52 32D0 0 CODE 0
+53 32D4 0 CODE 0
+54 32E2 0 CODE 0
+57 32FA 0 CODE 0
+60 330E 0 CODE 0
+63 3322 0 CODE 0
+64 332C 0 CODE 0
+62 332E 0 CODE 0
+67 333E 0 CODE 0
+68 334E 0 CODE 0
+69 335E 0 CODE 0
+70 336E 0 CODE 0
+C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcadd.c
+245 3B22 0 CODE 0
+248 3B22 0 CODE 0
+249 3B32 0 CODE 0
+250 3B66 0 CODE 0
+C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcadd.c
+10 1826 0 CODE 0
+21 1826 0 CODE 0
+22 182C 0 CODE 0
+23 1832 0 CODE 0
+24 1840 0 CODE 0
+28 1842 0 CODE 0
+30 1852 0 CODE 0
+32 1862 0 CODE 0
+35 1872 0 CODE 0
+37 1874 0 CODE 0
+38 1878 0 CODE 0
+41 187C 0 CODE 0
+44 188C 0 CODE 0
+46 1892 0 CODE 0
+47 18A4 0 CODE 0
+49 18A6 0 CODE 0
+50 18AC 0 CODE 0
+51 18BA 0 CODE 0
+55 18BC 0 CODE 0
+57 18CC 0 CODE 0
+59 18DC 0 CODE 0
+62 18EC 0 CODE 0
+64 18EE 0 CODE 0
+65 18F2 0 CODE 0
+68 18F6 0 CODE 0
+75 1906 0 CODE 0
+77 1918 0 CODE 0
+78 1926 0 CODE 0
+81 192A 0 CODE 0
+82 192E 0 CODE 0
+83 1932 0 CODE 0
+84 1936 0 CODE 0
+85 193A 0 CODE 0
+86 193E 0 CODE 0
+87 1942 0 CODE 0
+88 1946 0 CODE 0
+89 194A 0 CODE 0
+90 194E 0 CODE 0
+91 1952 0 CODE 0
+92 1956 0 CODE 0
+93 195A 0 CODE 0
+94 195E 0 CODE 0
+95 1962 0 CODE 0
+98 1966 0 CODE 0
+100 196A 0 CODE 0
+101 1994 0 CODE 0
+102 19B0 0 CODE 0
+103 19C0 0 CODE 0
+104 19C4 0 CODE 0
+106 19C8 0 CODE 0
+109 19C8 0 CODE 0
+110 19D6 0 CODE 0
+111 19DE 0 CODE 0
+113 19E2 0 CODE 0
+115 19E6 0 CODE 0
+116 19F4 0 CODE 0
+118 19F6 0 CODE 0
+119 1A00 0 CODE 0
+120 1A02 0 CODE 0
+106 1A02 0 CODE 0
+121 1A14 0 CODE 0
+124 1A14 0 CODE 0
+127 1A22 0 CODE 0
+128 1A32 0 CODE 0
+132 1A46 0 CODE 0
+134 1A56 0 CODE 0
+135 1A64 0 CODE 0
+136 1A72 0 CODE 0
+137 1A7A 0 CODE 0
+139 1A7E 0 CODE 0
+141 1A82 0 CODE 0
+142 1A90 0 CODE 0
+144 1A92 0 CODE 0
+145 1A9C 0 CODE 0
+153 1AA2 0 CODE 0
+154 1AC8 0 CODE 0
+155 1AF8 0 CODE 0
+156 1AFC 0 CODE 0
+157 1AFE 0 CODE 0
+158 1B0E 0 CODE 0
+162 1B1E 0 CODE 0
+163 1B2E 0 CODE 0
+166 1B2E 0 CODE 0
+167 1B54 0 CODE 0
+172 1B68 0 CODE 0
+173 1B72 0 CODE 0
+174 1B80 0 CODE 0
+176 1B82 0 CODE 0
+177 1B90 0 CODE 0
+178 1B94 0 CODE 0
+180 1B98 0 CODE 0
+182 1B9C 0 CODE 0
+183 1BAC 0 CODE 0
+171 1BAE 0 CODE 0
+192 1BBC 0 CODE 0
+193 1BC0 0 CODE 0
+194 1BCE 0 CODE 0
+195 1BE4 0 CODE 0
+196 1BE8 0 CODE 0
+197 1BEC 0 CODE 0
+198 1BEC 0 CODE 0
+202 1BFE 0 CODE 0
+203 1BFE 0 CODE 0
+204 1C0E 0 CODE 0
+205 1C1A 0 CODE 0
+206 1C28 0 CODE 0
+207 1C52 0 CODE 0
+208 1C62 0 CODE 0
+215 1C64 0 CODE 0
+216 1C84 0 CODE 0
+218 1C94 0 CODE 0
+219 1CA4 0 CODE 0
+225 1CA8 0 CODE 0
+226 1CB6 0 CODE 0
+227 1CB8 0 CODE 0
+230 1CBC 0 CODE 0
+232 1CBE 0 CODE 0
+233 1CC4 0 CODE 0
+234 1CD2 0 CODE 0
+236 1CD4 0 CODE 0
+237 1CE4 0 CODE 0
+C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flneg.c
+15 3CF0 0 CODE 0
+17 3CF0 0 CODE 0
+18 3D06 0 CODE 0
+19 3D16 0 CODE 0
+20 3D26 0 CODE 0
+C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+8 1CE6 0 CODE 0
+17 1CE6 0 CODE 0
+18 1CEC 0 CODE 0
+19 1CF2 0 CODE 0
+20 1D00 0 CODE 0
+24 1D02 0 CODE 0
+26 1D12 0 CODE 0
+28 1D22 0 CODE 0
+31 1D32 0 CODE 0
+33 1D34 0 CODE 0
+36 1D38 0 CODE 0
+39 1D48 0 CODE 0
+40 1D4E 0 CODE 0
+41 1D54 0 CODE 0
+42 1D62 0 CODE 0
+45 1D64 0 CODE 0
+48 1D74 0 CODE 0
+50 1D84 0 CODE 0
+53 1D94 0 CODE 0
+54 1D96 0 CODE 0
+57 1D9A 0 CODE 0
+58 1DAA 0 CODE 0
+65 1DAA 0 CODE 0
+66 1DCA 0 CODE 0
+95 1DDE 0 CODE 0
+96 1DEA 0 CODE 0
+97 1DF4 0 CODE 0
+98 1DFE 0 CODE 0
+99 1E0A 0 CODE 0
+100 1E16 0 CODE 0
+101 1E22 0 CODE 0
+102 1E2E 0 CODE 0
+103 1E3A 0 CODE 0
+104 1E46 0 CODE 0
+105 1E54 0 CODE 0
+106 1E60 0 CODE 0
+107 1E70 0 CODE 0
+108 1E7C 0 CODE 0
+109 1E8C 0 CODE 0
+110 1E9A 0 CODE 0
+111 1EA6 0 CODE 0
+112 1EB6 0 CODE 0
+113 1EC2 0 CODE 0
+114 1ED2 0 CODE 0
+115 1EDE 0 CODE 0
+116 1EEE 0 CODE 0
+117 1EFA 0 CODE 0
+145 1F24 0 CODE 0
+146 1F5A 0 CODE 0
+149 1F68 0 CODE 0
+152 1F82 0 CODE 0
+153 1F86 0 CODE 0
+154 1F90 0 CODE 0
+155 1F9E 0 CODE 0
+156 1FA0 0 CODE 0
+157 1FA0 0 CODE 0
+158 1FAA 0 CODE 0
+152 1FB0 0 CODE 0
+163 1FBE 0 CODE 0
+164 1FC2 0 CODE 0
+165 1FD0 0 CODE 0
+166 1FFE 0 CODE 0
+167 2002 0 CODE 0
+168 2006 0 CODE 0
+169 2006 0 CODE 0
+173 2018 0 CODE 0
+174 2018 0 CODE 0
+175 2028 0 CODE 0
+176 2034 0 CODE 0
+177 2042 0 CODE 0
+178 206C 0 CODE 0
+183 2070 0 CODE 0
+184 208A 0 CODE 0
+185 209A 0 CODE 0
+187 209E 0 CODE 0
+188 20B8 0 CODE 0
+190 20C8 0 CODE 0
+191 20CC 0 CODE 0
+192 20D0 0 CODE 0
+194 20D0 0 CODE 0
+195 20D4 0 CODE 0
+196 20E4 0 CODE 0
+197 20F2 0 CODE 0
+199 20F4 0 CODE 0
+201 20FA 0 CODE 0
+203 20FE 0 CODE 0
+205 210E 0 CODE 0
+C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
+4 3370 0 CODE 0
+7 3370 0 CODE 0
+8 339E 0 CODE 0
+9 33AE 0 CODE 0
+10 33DC 0 CODE 0
+12 33EC 0 CODE 0
+13 33FA 0 CODE 0
+14 340C 0 CODE 0
+15 341A 0 CODE 0
+16 342C 0 CODE 0
+17 343C 0 CODE 0
+18 344C 0 CODE 0
+19 3472 0 CODE 0
+C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fleq.c
+4 3704 0 CODE 0
+7 3704 0 CODE 0
+8 3732 0 CODE 0
+9 3742 0 CODE 0
+10 3770 0 CODE 0
+11 3780 0 CODE 0
+12 37AC 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-133 1624 0 CODE 0
-145 1624 0 CODE 0
-146 1646 0 CODE 0
-147 164E 0 CODE 0
-148 1652 0 CODE 0
-149 1666 0 CODE 0
-147 166A 0 CODE 0
-156 1688 0 CODE 0
-164 169C 0 CODE 0
+443 27B0 0 CODE 0
+450 27B0 0 CODE 0
+451 27D0 0 CODE 0
+452 27E4 0 CODE 0
+453 27F4 0 CODE 0
+462 2814 0 CODE 0
+463 2844 0 CODE 0
+464 284C 0 CODE 0
+469 285C 0 CODE 0
+470 2862 0 CODE 0
+471 288A 0 CODE 0
+480 288A 0 CODE 0
+481 2892 0 CODE 0
+482 2898 0 CODE 0
+487 289C 0 CODE 0
+488 28A2 0 CODE 0
+488 28CE 0 CODE 0
+488 28D2 0 CODE 0
+488 28D6 0 CODE 0
+488 28DA 0 CODE 0
+488 28DE 0 CODE 0
+488 28E2 0 CODE 0
+488 28E6 0 CODE 0
+488 28EA 0 CODE 0
+489 2924 0 CODE 0
+490 292A 0 CODE 0
+491 2930 0 CODE 0
+491 2950 0 CODE 0
+491 2954 0 CODE 0
+491 2958 0 CODE 0
+491 295C 0 CODE 0
+491 2960 0 CODE 0
+491 2964 0 CODE 0
+491 2968 0 CODE 0
+491 296C 0 CODE 0
+482 2994 0 CODE 0
+495 29E6 0 CODE 0
+496 29F6 0 CODE 0
+497 29FC 0 CODE 0
+501 2A0C 0 CODE 0
+502 2A2C 0 CODE 0
+C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+133 37AE 0 CODE 0
+145 37AE 0 CODE 0
+146 37D0 0 CODE 0
+147 37D8 0 CODE 0
+148 37DC 0 CODE 0
+149 37F0 0 CODE 0
+147 37F4 0 CODE 0
+156 3812 0 CODE 0
+164 3826 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
-8 1922 0 CODE 0
-13 1922 0 CODE 0
-14 192A 0 CODE 0
-15 192E 0 CODE 0
-16 1940 0 CODE 0
-14 1944 0 CODE 0
-19 1964 0 CODE 0
+8 3BAC 0 CODE 0
+13 3BAC 0 CODE 0
+14 3BB4 0 CODE 0
+15 3BB8 0 CODE 0
+16 3BCA 0 CODE 0
+14 3BCE 0 CODE 0
+19 3BEE 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
-8 14DA 0 CODE 0
-12 14DA 0 CODE 0
-13 14FE 0 CODE 0
-14 1504 0 CODE 0
-15 1508 0 CODE 0
-18 155C 0 CODE 0
-20 1590 0 CODE 0
-24 15A2 0 CODE 0
+8 3572 0 CODE 0
+12 3572 0 CODE 0
+13 3596 0 CODE 0
+14 359C 0 CODE 0
+15 35A0 0 CODE 0
+18 35F4 0 CODE 0
+20 3628 0 CODE 0
+24 363A 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\putch.c
+<<<<<<< Updated upstream
 7 1BD6 0 CODE 0
 9 1BD6 0 CODE 0
+=======
+7 3EE2 0 CODE 0
+9 3EE2 0 CODE 0
+>>>>>>> Stashed changes
 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\abs.c
-1 19A8 0 CODE 0
-3 19A8 0 CODE 0
-4 19E6 0 CODE 0
+1 3C32 0 CODE 0
+3 3C32 0 CODE 0
+4 3C70 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-9 1228 0 CODE 0
-14 1228 0 CODE 0
-15 122C 0 CODE 0
-16 123A 0 CODE 0
-17 125A 0 CODE 0
-19 125E 0 CODE 0
-20 126C 0 CODE 0
-21 128C 0 CODE 0
-22 12AA 0 CODE 0
-23 12AE 0 CODE 0
-24 12B2 0 CODE 0
-25 12C4 0 CODE 0
-23 12C6 0 CODE 0
-28 12D4 0 CODE 0
-29 1302 0 CODE 0
-30 1322 0 CODE 0
-31 1334 0 CODE 0
-33 133A 0 CODE 0
-34 134A 0 CODE 0
-35 136A 0 CODE 0
-36 138A 0 CODE 0
+9 3106 0 CODE 0
+14 3106 0 CODE 0
+15 310A 0 CODE 0
+16 3118 0 CODE 0
+17 3138 0 CODE 0
+19 313C 0 CODE 0
+20 314A 0 CODE 0
+21 316A 0 CODE 0
+22 3188 0 CODE 0
+23 318C 0 CODE 0
+24 3190 0 CODE 0
+25 31A2 0 CODE 0
+23 31A4 0 CODE 0
+28 31B2 0 CODE 0
+29 31E0 0 CODE 0
+30 3200 0 CODE 0
+31 3212 0 CODE 0
+33 3218 0 CODE 0
+34 3228 0 CODE 0
+35 3248 0 CODE 0
+36 3268 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-9 10A0 0 CODE 0
-15 10A0 0 CODE 0
-16 10A4 0 CODE 0
-17 10B2 0 CODE 0
-18 10D2 0 CODE 0
-20 10D6 0 CODE 0
-21 10E4 0 CODE 0
-22 1104 0 CODE 0
-24 1108 0 CODE 0
-25 1114 0 CODE 0
-26 1132 0 CODE 0
-27 1136 0 CODE 0
-28 113A 0 CODE 0
-29 114C 0 CODE 0
-27 114E 0 CODE 0
-32 115C 0 CODE 0
-33 116E 0 CODE 0
-34 119C 0 CODE 0
-35 11BC 0 CODE 0
-37 11BE 0 CODE 0
-38 11D0 0 CODE 0
-40 11D6 0 CODE 0
-41 11E6 0 CODE 0
-42 1206 0 CODE 0
-43 1226 0 CODE 0
+9 2F7E 0 CODE 0
+15 2F7E 0 CODE 0
+16 2F82 0 CODE 0
+17 2F90 0 CODE 0
+18 2FB0 0 CODE 0
+20 2FB4 0 CODE 0
+21 2FC2 0 CODE 0
+22 2FE2 0 CODE 0
+24 2FE6 0 CODE 0
+25 2FF2 0 CODE 0
+26 3010 0 CODE 0
+27 3014 0 CODE 0
+28 3018 0 CODE 0
+29 302A 0 CODE 0
+27 302C 0 CODE 0
+32 303A 0 CODE 0
+33 304C 0 CODE 0
+34 307A 0 CODE 0
+35 309A 0 CODE 0
+37 309C 0 CODE 0
+38 30AE 0 CODE 0
+40 30B4 0 CODE 0
+41 30C4 0 CODE 0
+42 30E4 0 CODE 0
+43 3104 0 CODE 0
 serial.c
+<<<<<<< Updated upstream
 93 1A78 0 CODE 0
 94 1A78 0 CODE 0
 95 1A90 0 CODE 0
@@ -748,18 +1669,90 @@ i2c.c
 35 1BB8 0 CODE 0
 36 1BBC 0 CODE 0
 37 1BC0 0 CODE 0
-i2c.c
-51 1966 0 CODE 0
-54 1968 0 CODE 0
-55 196C 0 CODE 0
-56 1970 0 CODE 0
-57 1974 0 CODE 0
-58 1978 0 CODE 0
-59 197C 0 CODE 0
-60 19A2 0 CODE 0
-61 19A4 0 CODE 0
-62 19A6 0 CODE 0
+=======
+93 3D84 0 CODE 0
+94 3D84 0 CODE 0
+95 3D9C 0 CODE 0
+97 3DA6 0 CODE 0
+99 3DAC 0 CODE 0
 serial.c
+80 3E92 0 CODE 0
+81 3E92 0 CODE 0
+82 3EA8 0 CODE 0
+color.c
+93 388E 0 CODE 0
+94 388E 0 CODE 0
+95 38A2 0 CODE 0
+96 38BA 0 CODE 0
+97 38D2 0 CODE 0
+98 38EA 0 CODE 0
+color.c
+37 39E2 0 CODE 0
+40 39E2 0 CODE 0
+41 39E6 0 CODE 0
+42 39EC 0 CODE 0
+43 39F2 0 CODE 0
+44 39F6 0 CODE 0
+45 39FC 0 CODE 0
+46 3A0A 0 CODE 0
+47 3A24 0 CODE 0
+48 3A28 0 CODE 0
+49 3A30 0 CODE 0
+color.c
+51 3A32 0 CODE 0
+54 3A32 0 CODE 0
+55 3A36 0 CODE 0
+56 3A3C 0 CODE 0
+57 3A42 0 CODE 0
+58 3A46 0 CODE 0
+59 3A4C 0 CODE 0
+60 3A5A 0 CODE 0
+61 3A74 0 CODE 0
+62 3A78 0 CODE 0
+63 3A80 0 CODE 0
+color.c
+64 3A82 0 CODE 0
+67 3A82 0 CODE 0
+68 3A86 0 CODE 0
+69 3A8C 0 CODE 0
+70 3A92 0 CODE 0
+71 3A96 0 CODE 0
+72 3A9C 0 CODE 0
+73 3AAA 0 CODE 0
+74 3AC4 0 CODE 0
+75 3AC8 0 CODE 0
+76 3AD0 0 CODE 0
+color.c
+78 3AD2 0 CODE 0
+81 3AD2 0 CODE 0
+82 3AD6 0 CODE 0
+83 3ADC 0 CODE 0
+84 3AE2 0 CODE 0
+85 3AE6 0 CODE 0
+86 3AEC 0 CODE 0
+87 3AFA 0 CODE 0
+88 3B14 0 CODE 0
+89 3B18 0 CODE 0
+90 3B20 0 CODE 0
+i2c.c
+33 3EC4 0 CODE 0
+35 3EC4 0 CODE 0
+36 3EC8 0 CODE 0
+37 3ECC 0 CODE 0
+>>>>>>> Stashed changes
+i2c.c
+51 3BF0 0 CODE 0
+54 3BF2 0 CODE 0
+55 3BF6 0 CODE 0
+56 3BFA 0 CODE 0
+57 3BFE 0 CODE 0
+58 3C02 0 CODE 0
+59 3C06 0 CODE 0
+60 3C2C 0 CODE 0
+61 3C2E 0 CODE 0
+62 3C30 0 CODE 0
+serial.c
+<<<<<<< Updated upstream
 4 1B68 0 CODE 0
 5 1B68 0 CODE 0
 6 1B6E 0 CODE 0
@@ -841,6 +1834,222 @@ interrupts.c
 19 1BAA 0 CODE 0
 C:\Users\jford\AppData\Local\Temp\xcAs6f8.s
 11770 8 0 CODE 0
+=======
+4 3E74 0 CODE 0
+5 3E74 0 CODE 0
+6 3E7A 0 CODE 0
+7 3E7E 0 CODE 0
+8 3E80 0 CODE 0
+9 3E82 0 CODE 0
+10 3E86 0 CODE 0
+12 3E8A 0 CODE 0
+13 3E8C 0 CODE 0
+14 3E8E 0 CODE 0
+17 3E90 0 CODE 0
+color.c
+100 2DF4 0 CODE 0
+101 2DF4 0 CODE 0
+102 2E24 0 CODE 0
+103 2E58 0 CODE 0
+104 2E8C 0 CODE 0
+105 2EC0 0 CODE 0
+106 2EFC 0 CODE 0
+107 2F3C 0 CODE 0
+108 2F7C 0 CODE 0
+C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+10 2C40 0 CODE 0
+15 2C42 0 CODE 0
+16 2C60 0 CODE 0
+17 2C92 0 CODE 0
+18 2C96 0 CODE 0
+19 2C96 0 CODE 0
+21 2CA6 0 CODE 0
+22 2CBC 0 CODE 0
+23 2CD0 0 CODE 0
+24 2CD4 0 CODE 0
+25 2CD8 0 CODE 0
+26 2CDA 0 CODE 0
+24 2CE4 0 CODE 0
+29 2D16 0 CODE 0
+30 2D18 0 CODE 0
+31 2D24 0 CODE 0
+32 2D2E 0 CODE 0
+28 2D2E 0 CODE 0
+34 2D60 0 CODE 0
+35 2D62 0 CODE 0
+33 2D6C 0 CODE 0
+37 2D8A 0 CODE 0
+38 2D98 0 CODE 0
+39 2D9A 0 CODE 0
+40 2D9E 0 CODE 0
+41 2DC2 0 CODE 0
+42 2DE0 0 CODE 0
+43 2DE2 0 CODE 0
+44 2DF2 0 CODE 0
+C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+11 2110 0 CODE 0
+26 2110 0 CODE 0
+27 2116 0 CODE 0
+28 211C 0 CODE 0
+29 212A 0 CODE 0
+33 212C 0 CODE 0
+35 213C 0 CODE 0
+37 214C 0 CODE 0
+40 215C 0 CODE 0
+42 215E 0 CODE 0
+43 2162 0 CODE 0
+46 2166 0 CODE 0
+49 2176 0 CODE 0
+50 217C 0 CODE 0
+51 2182 0 CODE 0
+52 2190 0 CODE 0
+56 2192 0 CODE 0
+58 21A2 0 CODE 0
+60 21B2 0 CODE 0
+63 21C2 0 CODE 0
+65 21C4 0 CODE 0
+66 21C8 0 CODE 0
+69 21CC 0 CODE 0
+75 21DC 0 CODE 0
+76 21F2 0 CODE 0
+77 2202 0 CODE 0
+78 220A 0 CODE 0
+79 220E 0 CODE 0
+83 2222 0 CODE 0
+84 2232 0 CODE 0
+85 2232 0 CODE 0
+89 2246 0 CODE 0
+92 2260 0 CODE 0
+93 2270 0 CODE 0
+94 2280 0 CODE 0
+96 2290 0 CODE 0
+97 2294 0 CODE 0
+100 2298 0 CODE 0
+101 22A8 0 CODE 0
+102 22B2 0 CODE 0
+103 22BC 0 CODE 0
+104 22CA 0 CODE 0
+105 22CC 0 CODE 0
+106 22CC 0 CODE 0
+112 22D6 0 CODE 0
+115 22F4 0 CODE 0
+116 22F6 0 CODE 0
+118 2306 0 CODE 0
+119 2308 0 CODE 0
+97 2308 0 CODE 0
+122 2318 0 CODE 0
+123 232E 0 CODE 0
+128 2334 0 CODE 0
+129 233E 0 CODE 0
+130 234C 0 CODE 0
+131 234E 0 CODE 0
+132 234E 0 CODE 0
+133 2358 0 CODE 0
+127 235E 0 CODE 0
+139 236C 0 CODE 0
+140 2370 0 CODE 0
+141 237E 0 CODE 0
+142 23AC 0 CODE 0
+143 23B0 0 CODE 0
+144 23B4 0 CODE 0
+145 23B4 0 CODE 0
+149 23C6 0 CODE 0
+150 23C6 0 CODE 0
+151 23D6 0 CODE 0
+152 23E2 0 CODE 0
+153 23F0 0 CODE 0
+154 241A 0 CODE 0
+159 241E 0 CODE 0
+160 2438 0 CODE 0
+161 243E 0 CODE 0
+165 244E 0 CODE 0
+166 2468 0 CODE 0
+167 2470 0 CODE 0
+169 2480 0 CODE 0
+173 2484 0 CODE 0
+175 2488 0 CODE 0
+176 2496 0 CODE 0
+177 2498 0 CODE 0
+180 249C 0 CODE 0
+182 249E 0 CODE 0
+185 24A8 0 CODE 0
+color.c
+5 3C72 0 CODE 0
+8 3C72 0 CODE 0
+11 3C76 0 CODE 0
+12 3C80 0 CODE 0
+15 3C90 0 CODE 0
+18 3C9A 0 CODE 0
+20 3CA4 0 CODE 0
+21 3CA6 0 CODE 0
+22 3CA8 0 CODE 0
+23 3CAA 0 CODE 0
+24 3CAC 0 CODE 0
+25 3CAE 0 CODE 0
+27 3CB0 0 CODE 0
+color.c
+29 3E54 0 CODE 0
+30 3E56 0 CODE 0
+31 3E5A 0 CODE 0
+32 3E60 0 CODE 0
+33 3E68 0 CODE 0
+34 3E6E 0 CODE 0
+35 3E72 0 CODE 0
+i2c.c
+45 3EB8 0 CODE 0
+47 3EBA 0 CODE 0
+48 3EBE 0 CODE 0
+49 3EC2 0 CODE 0
+i2c.c
+39 3ECE 0 CODE 0
+41 3ECE 0 CODE 0
+42 3ED2 0 CODE 0
+43 3ED6 0 CODE 0
+i2c.c
+27 3ED8 0 CODE 0
+29 3ED8 0 CODE 0
+30 3EDC 0 CODE 0
+31 3EE0 0 CODE 0
+i2c.c
+22 3E2C 0 CODE 0
+24 3E2C 0 CODE 0
+25 3E52 0 CODE 0
+i2c.c
+4 3DAE 0 CODE 0
+7 3DAE 0 CODE 0
+8 3DB8 0 CODE 0
+9 3DBA 0 CODE 0
+12 3DBE 0 CODE 0
+13 3DC0 0 CODE 0
+14 3DC2 0 CODE 0
+15 3DC4 0 CODE 0
+16 3DC6 0 CODE 0
+17 3DCA 0 CODE 0
+18 3DCE 0 CODE 0
+19 3DD2 0 CODE 0
+20 3DD6 0 CODE 0
+serial.c
+85 3D28 0 CODE 0
+86 3D28 0 CODE 0
+87 3D2C 0 CODE 0
+86 3D3E 0 CODE 0
+89 3D56 0 CODE 0
+serial.c
+72 3DD8 0 CODE 0
+73 3DDA 0 CODE 0
+74 3DEE 0 CODE 0
+75 3E00 0 CODE 0
+interrupts.c
+10 3EAA 0 CODE 0
+12 3EAA 0 CODE 0
+13 3EAC 0 CODE 0
+14 3EB0 0 CODE 0
+15 3EB2 0 CODE 0
+16 3EB4 0 CODE 0
+19 3EB6 0 CODE 0
+C:\Users\jford\AppData\Local\Temp\xcAs59c.s
+18653 8 0 CODE 0
+>>>>>>> Stashed changes
 interrupts.c
 25 8 0 CODE 0
 27 12 0 CODE 0
@@ -850,6 +2059,7 @@ interrupts.c
 34 38 0 CODE 0
 39 3E 0 CODE 0
 serial.c
+<<<<<<< Updated upstream
 52 1AF6 0 CODE 0
 53 1AF8 0 CODE 0
 54 1B0C 0 CODE 0
@@ -859,3 +2069,14 @@ serial.c
 67 1A4C 0 CODE 0
 68 1A60 0 CODE 0
 69 1A76 0 CODE 0
+=======
+52 3E02 0 CODE 0
+53 3E04 0 CODE 0
+54 3E18 0 CODE 0
+55 3E2A 0 CODE 0
+serial.c
+66 3D58 0 CODE 0
+67 3D58 0 CODE 0
+68 3D6C 0 CODE 0
+69 3D82 0 CODE 0
+>>>>>>> Stashed changes

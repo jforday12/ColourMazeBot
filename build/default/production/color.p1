@@ -1,8 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
+<<<<<<< Updated upstream
 "29 ./color.h
 [; ;./color.h: 29: struct RGB{
 [s S2015 `i 1 `i 1 `i 1 `i 1 ]
 [n S2015 RGB R G B L ]
+=======
+>>>>>>> Stashed changes
 "13 ./i2c.h
 [; ;./i2c.h: 13: void I2C_2_Master_Init(void);
 [v _I2C_2_Master_Init `(v ~T0 @X0 0 ef ]
@@ -28,6 +31,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "43
 [; ;./i2c.h: 43: unsigned char I2C_2_Master_Read(unsigned char ack);
 [v _I2C_2_Master_Read `(uc ~T0 @X0 0 ef1`uc ]
+"29 ./color.h
+[; ;./color.h: 29: struct RGB{
+[s S2015 `i 1 `i 1 `i 1 `i 1 ]
+[n S2015 RGB R G B L ]
+"35
+[; ;./color.h: 35: struct RGB_rel{
+[s S2016 `f 1 `f 1 `f 1 ]
+[n S2016 RGB_rel R G B ]
 "54 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2002,9 +2013,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40927
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 40927: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+<<<<<<< Updated upstream
 "36 ./color.h
 [; ;./color.h: 36: struct RGB vals;
 [v _vals `S2015 ~T0 @X0 1 e ]
+=======
+>>>>>>> Stashed changes
 "5 color.c
 [; ;color.c: 5: void color_click_init(void)
 [v _color_click_init `(v ~T0 @X0 1 ef ]
@@ -2250,7 +2264,69 @@ Version 4.0 HI-TECH Software Intermediate Code
 "89
 [; ;color.c: 89:     vals ->L = color_read_lum();
 [e = . *U _vals 3 -> ( _color_read_lum ..  `i ]
+<<<<<<< Updated upstream
 "90
 [; ;color.c: 90: }
 [e :UE 2022 ]
+=======
+"98
+[; ;color.c: 98: }
+[e :UE 2023 ]
+}
+"100
+[; ;color.c: 100: void colour_rel(struct RGB *vals, struct RGB_rel *rel){
+[v _colour_rel `(v ~T0 @X0 1 ef2`*S2015`*S2016 ]
+{
+[e :U _colour_rel ]
+[v _vals `*S2015 ~T0 @X0 1 r1 ]
+[v _rel `*S2016 ~T0 @X0 1 r2 ]
+[f ]
+"101
+[; ;color.c: 101:     float R = vals->R;
+[v _R `f ~T0 @X0 1 a ]
+[e = _R -> . *U _vals 0 `f ]
+"102
+[; ;color.c: 102:     float G = vals->G;
+[v _G `f ~T0 @X0 1 a ]
+[e = _G -> . *U _vals 1 `f ]
+"103
+[; ;color.c: 103:     float B = vals->B;
+[v _B `f ~T0 @X0 1 a ]
+[e = _B -> . *U _vals 2 `f ]
+"104
+[; ;color.c: 104:     float L = vals->L;
+[v _L `f ~T0 @X0 1 a ]
+[e = _L -> . *U _vals 3 `f ]
+"105
+[; ;color.c: 105:     rel -> R = R/L;
+[e = . *U _rel 0 / _R _L ]
+"106
+[; ;color.c: 106:     rel -> B = B/L;
+[e = . *U _rel 2 / _B _L ]
+"107
+[; ;color.c: 107:     rel -> G = G/L;
+[e = . *U _rel 1 / _G _L ]
+"108
+[; ;color.c: 108: }
+[e :UE 2024 ]
+}
+"110
+[; ;color.c: 110: int Colour_decider(struct RGB_rel *rel){
+[v _Colour_decider `(i ~T0 @X0 1 ef1`*S2016 ]
+{
+[e :U _Colour_decider ]
+[v _rel `*S2016 ~T0 @X0 1 r1 ]
+[f ]
+"111
+[; ;color.c: 111:     if ((rel->R>0.5) && (rel->G<0.3) && (rel->B <0.12)){
+[e $ ! && && > -> . *U _rel 0 `d .0.5 < -> . *U _rel 1 `d .0.3 < -> . *U _rel 2 `d .0.12 2026  ]
+{
+"114
+[; ;color.c: 114:     }
+}
+[e :U 2026 ]
+"116
+[; ;color.c: 116: }
+[e :UE 2025 ]
+>>>>>>> Stashed changes
 }

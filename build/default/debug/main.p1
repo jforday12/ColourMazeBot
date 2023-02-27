@@ -1,5 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"29 ./color.h
+"35 ./color.h
+[; ;./color.h: 35: struct RGB_rel{
+[s S2018 `f 1 `f 1 `f 1 ]
+[n S2018 RGB_rel R G B ]
+"29
 [; ;./color.h: 29: struct RGB{
 [s S2017 `i 1 `i 1 `i 1 `i 1 ]
 [n S2017 RGB R G B L ]
@@ -16,10 +20,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./i2c.h
 [; ;./i2c.h: 13: void I2C_2_Master_Init(void);
 [v _I2C_2_Master_Init `(v ~T0 @X0 0 ef ]
-<<<<<<< Updated upstream
-"37 ./color.h
-[; ;./color.h: 37: void readColours (struct RGB *vals);
-=======
 "29146 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29146:     struct {
 [s S1358 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -41,7 +41,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p i __delay ]
 "44 ./color.h
 [; ;./color.h: 44: void readColours (struct RGB *vals);
->>>>>>> Stashed changes
 [v _readColours `(v ~T0 @X0 0 ef1`*S2017 ]
 "43
 [; ;./color.h: 43: void colour_rel(struct RGB *vals, struct RGB_rel *rel);
@@ -2074,16 +2073,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _DataFlag
 -> -> 1 `i `uc
 ]
-<<<<<<< Updated upstream
-"36 ./color.h
-[; ;./color.h: 36: struct RGB vals;
-=======
 "25 main.c
 [; ;main.c: 25: struct RGB_rel rel;
 [v _rel `S2018 ~T0 @X0 1 e ]
 "26
 [; ;main.c: 26: struct RGB vals;
->>>>>>> Stashed changes
 [v _vals `S2017 ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "28
@@ -2111,13 +2105,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 34:     unsigned int int_part;
 [v _int_part `ui ~T0 @X0 1 a ]
 "35
-<<<<<<< Updated upstream
-[; ;main.c: 35:     while (1)
-[e :U 2020 ]
-=======
 [; ;main.c: 35:     unsigned int frac_part;
 [v _frac_part `ui ~T0 @X0 1 a ]
->>>>>>> Stashed changes
 "36
 [; ;main.c: 36:     unsigned int ADC;
 [v _ADC `ui ~T0 @X0 1 a ]
@@ -2127,27 +2116,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39
 [; ;main.c: 39:     {
 {
-<<<<<<< Updated upstream
-"38
-[; ;main.c: 38:     readColours(&vals);
-[e ( _readColours (1 &U _vals ]
-"39
-[; ;main.c: 39:     sprintf(buf,"red=%d green=%d blue=%d lum=%d\r\n",vals.R,vals.G,vals.B,vals.L);
-[e ( _sprintf (1 , , , , (. , &U _buf :s 1C . _vals 0 . _vals 1 . _vals 2 . _vals 3 ]
-"40
-[; ;main.c: 40:     TxBufferedString(buf);
-[e ( _TxBufferedString (1 &U _buf ]
-"42
-[; ;main.c: 42:     while (DataFlag){
-[e $U 2022  ]
-[e :U 2023 ]
-{
-"43
-[; ;main.c: 43:         sendTxBuf();
-[e ( _sendTxBuf ..  ]
-"44
-[; ;main.c: 44:     }
-=======
 "40
 [; ;main.c: 40:    LATGbits.LATG1=1;
 [e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
@@ -2160,52 +2128,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 "45
 [; ;main.c: 45:     colour_rel(&vals, &rel);
 [e ( _colour_rel (2 , &U _vals &U _rel ]
-"47
-[; ;main.c: 47:     sprintf(buf,"red=%f green=%f blue=%f lum=%d\r\n",rel.R, rel.G,rel.B,vals.L);
-[e ( _sprintf (1 , , , , (. , &U _buf :s 1C -> . _rel 0 `d -> . _rel 1 `d -> . _rel 2 `d . _vals 3 ]
+"46
+[; ;main.c: 46:     float value = vals.R/vals.L;
+[v _value `f ~T0 @X0 1 a ]
+[e = _value -> / . _vals 0 . _vals 3 `f ]
 "48
-[; ;main.c: 48:     TxBufferedString(buf);
+[; ;main.c: 48:     sprintf(buf,"red=%d green=%d blue=%d lum=%d\r\n",vals.R, vals.G,vals.B,vals.L);
+[e ( _sprintf (1 , , , , (. , &U _buf :s 1C . _vals 0 . _vals 1 . _vals 2 . _vals 3 ]
+"49
+[; ;main.c: 49:     TxBufferedString(buf);
 [e ( _TxBufferedString (1 &U _buf ]
-"50
-[; ;main.c: 50:     while (DataFlag){
+"51
+[; ;main.c: 51:     while (DataFlag){
 [e $U 2023  ]
 [e :U 2024 ]
 {
-"51
-[; ;main.c: 51:         sendTxBuf();
-[e ( _sendTxBuf ..  ]
 "52
-[; ;main.c: 52:     }
+[; ;main.c: 52:         sendTxBuf();
+[e ( _sendTxBuf ..  ]
+"53
+[; ;main.c: 53:     }
 }
 [e :U 2023 ]
-"50
-[; ;main.c: 50:     while (DataFlag){
+"51
+[; ;main.c: 51:     while (DataFlag){
 [e $ != -> _DataFlag `i -> 0 `i 2024  ]
 [e :U 2025 ]
-"56
-[; ;main.c: 56: }
->>>>>>> Stashed changes
-}
-[e :U 2022 ]
-<<<<<<< Updated upstream
-"42
-[; ;main.c: 42:     while (DataFlag){
-[e $ != -> _DataFlag `i -> 0 `i 2023  ]
-[e :U 2024 ]
-"48
-[; ;main.c: 48: }
-}
-[e :U 2019 ]
-[e $U 2020  ]
-[e :U 2021 ]
-"49
-[; ;main.c: 49: }
-[e :UE 2018 ]
-=======
 "57
 [; ;main.c: 57: }
-[e :UE 2019 ]
->>>>>>> Stashed changes
 }
-[p f _sprintf 8396928 ]
-[a 1C 114 101 100 61 37 102 32 103 114 101 101 110 61 37 102 32 98 108 117 101 61 37 102 32 108 117 109 61 37 100 13 10 0 ]
+[e :U 2020 ]
+[e $U 2021  ]
+[e :U 2022 ]
+"58
+[; ;main.c: 58: }
+[e :UE 2019 ]
+}
+[p f _sprintf 8388736 ]
+[a 1C 114 101 100 61 37 100 32 103 114 101 101 110 61 37 100 32 98 108 117 101 61 37 100 32 108 117 109 61 37 100 13 10 0 ]

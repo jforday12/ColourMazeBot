@@ -89,3 +89,24 @@ void readColours (struct RGB *vals) {
     vals ->L = color_read_lum();       
 }
 
+<<<<<<< Updated upstream
+=======
+void colour_rel(struct RGB *vals, struct RGB_rel *rel){
+    float R = vals->R; 
+    float G = vals->G; 
+    float B = vals->B; 
+    float L = vals->L;
+    rel -> R = R/L;
+    rel -> B = B/L;
+    rel -> G = G/L;
+}
+
+int Colour_decider(struct RGB_rel *rel){
+    if ((rel->R>0.5) && (rel->G<0.3) && (rel->B <0.12)){
+        
+        //turn blue led
+    }
+    
+}
+
+>>>>>>> Stashed changes
