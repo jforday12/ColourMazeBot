@@ -24257,6 +24257,13 @@ struct RGB{
     int L;
 };
 
+struct RGB_rel{
+    float R;
+    float G;
+    float B;
+    float L;
+};
+
 
 struct RGB vals;
 
@@ -24317,6 +24324,8 @@ void color_click_init(void)
 
 
  color_writetoaddr(0x01, 0xD5);
+
+
 }
 
 void color_writetoaddr(char address, char value){

@@ -16,6 +16,8 @@ void color_click_init(void)
 
     //set integration time
 	color_writetoaddr(0x01, 0xD5);
+   
+    
 }
 
 void color_writetoaddr(char address, char value){
@@ -82,7 +84,7 @@ unsigned int color_read_Blue(void)
 }
 
 
-void readColours (struct RGB *vals) {
+void readColours (struct RGB *vals) { // compile all RGB readings into structure
     vals ->R = color_read_Red();
     vals ->B = color_read_Blue();
     vals ->G = color_read_Green();
@@ -90,7 +92,7 @@ void readColours (struct RGB *vals) {
 }
 
 
-void colour_rel(struct RGB *vals, struct RGB_rel *rel){
+void colour_rel(struct RGB *vals, struct RGB_rel *rel){ // normalize RGB readings with luminance, store into RGB_rel structure
     float R = vals->R; 
     float G = vals->G; 
     float B = vals->B; 
@@ -100,7 +102,7 @@ void colour_rel(struct RGB *vals, struct RGB_rel *rel){
     rel -> G = G/L;
 }
 
-int Colour_decider(struct RGB_rel *rel){
+int Colour_decider(struct RGB_rel *rel){ // contains if 
     if ((rel->R>0.5) && (rel->G<0.3) && (rel->B <0.12)){
         
         //turn blue led

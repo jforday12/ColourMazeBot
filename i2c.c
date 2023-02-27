@@ -1,7 +1,7 @@
 #include <xc.h>
 #include "i2c.h"
 
-void I2C_2_Master_Init(void)
+void I2C_2_Master_Init(void)//sets up the MSSP module as an I2C master device and configures the necessary pins
 {
   //i2c config  
   SSP2CON1bits.SSPM= 0b1000;    // i2c master mode

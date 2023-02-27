@@ -24450,6 +24450,13 @@ struct RGB{
     int L;
 };
 
+struct RGB_rel{
+    float R;
+    float G;
+    float B;
+    float L;
+};
+
 
 struct RGB vals;
 
@@ -24525,14 +24532,23 @@ void main(void) {
     unsigned int frac_part;
     unsigned int ADC;
 
+    I2C_2_Master_Start()
+    TRISGbits.TRISG1=0;
+    LATGbits.LATG1=1;
+    I2C_2_Master_Stop()
+    TRISAbits.TRISA4=0;
+    LATAbits.LATA4=1;
+    _delay((unsigned long)((100)*(64000000/4000.0)));
+
+
+
     while (1)
     {
 
-    readColours(&vals);
-    sprintf(buf,"red=%d green=%d blue=%d lum=%d\r\n",vals.R,vals.G,vals.B,vals.L);
 
-   LATGbits.LATG1=1;
-    _delay((unsigned long)((100)*(64000000/4000.0)));
+
+
+
 
 
     readColours(&vals);
@@ -24542,11 +24558,14 @@ void main(void) {
 
     TxBufferedString(buf);
 
-    while (DataFlag){
-        sendTxBuf();
+
+
+
+        while (DataFlag){
+            sendTxBuf();
+        }
+
+
+
     }
-
-
-
-}
 }

@@ -33,6 +33,13 @@ struct RGB{
     int L;
 };
 
+struct RGB_rel{
+    float R;
+    float G;
+    float B;
+    float L;
+};
+
 
 struct RGB vals;
 

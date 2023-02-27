@@ -35,28 +35,40 @@ void main(void) {
     unsigned int frac_part;
     unsigned int ADC;
     
+    I2C_2_Master_Start()
+    TRISGbits.TRISG1=0; //configure tris for turning on RGB lights (output)
+    LATGbits.LATG1=1;
+    I2C_2_Master_Stop()
+    TRISAbits.TRISA4=0; //configure tris for turning on RGB lights (output)
+    LATAbits.LATA4=1;
+    __delay_ms (100);
+    
+
+    
     while (1)
     {
 
-    readColours(&vals);
-    sprintf(buf,"red=%d green=%d blue=%d lum=%d\r\n",vals.R,vals.G,vals.B,vals.L);
+    //readColours(&vals); //get RGB reading, store in variable RGB, located at vals
+    //sprintf(buf,"red=%d green=%d blue=%d lum=%d\r\n",vals.R,vals.G,vals.B,vals.L); // send RGB reading to computer 
 
-   LATGbits.LATG1=1;
-    __delay_ms (100);
+
     
            
-    readColours(&vals);
-    colour_rel(&vals, &rel);
+    readColours(&vals); //get RGB reading, store in variable RGB, located at vals
+    colour_rel(&vals, &rel); //calculate relative RGB reading from RGB reading
     
-    sprintf(buf,"red=%f green=%f blue=%f lum=%d\r\n",rel.R, rel.G,rel.B,vals.L);
+    sprintf(buf,"red=%f green=%f blue=%f lum=%d\r\n",rel.R, rel.G,rel.B,vals.L); // send relative RGB readings to computer
 
     TxBufferedString(buf);
     //sendTxBuf();
-    while (DataFlag){
-        sendTxBuf();
-    } 
+    
+  
+    
+        while (DataFlag){ 
+            sendTxBuf();
+        } 
 
 //    }
 //    
-}
+    }
 }
