@@ -24531,14 +24531,18 @@ void main(void) {
     unsigned int int_part;
     unsigned int frac_part;
     unsigned int ADC;
-
-    I2C_2_Master_Start()
+# 45 "main.c"
+    color_writetoaddr(0x00, 0x01);
+# 55 "main.c"
     TRISGbits.TRISG1=0;
-    LATGbits.LATG1=1;
-    I2C_2_Master_Stop()
     TRISAbits.TRISA4=0;
+    TRISFbits.TRISF7=0;
+    TRISDbits.TRISD7=0;
+
+    LATGbits.LATG1=1;
     LATAbits.LATA4=1;
-    _delay((unsigned long)((100)*(64000000/4000.0)));
+    LATDbits.LATD7=1;
+
 
 
 

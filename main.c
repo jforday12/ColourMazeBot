@@ -35,13 +35,32 @@ void main(void) {
     unsigned int frac_part;
     unsigned int ADC;
     
-    I2C_2_Master_Start()
-    TRISGbits.TRISG1=0; //configure tris for turning on RGB lights (output)
-    LATGbits.LATG1=1;
-    I2C_2_Master_Stop()
-    TRISAbits.TRISA4=0; //configure tris for turning on RGB lights (output)
-    LATAbits.LATA4=1;
-    __delay_ms (100);
+    
+	//tmp=I2C_2_Master_Read(1);			//read the Red LSB
+	//tmp=tmp | (I2C_2_Master_Read(0)<<8); //read the Red MSB (don't acknowledge as this is the last read)
+    
+	//configure tris RGB lights (output)
+
+    
+    color_writetoaddr(0x00, 0x01); // write 1 to the PON bit in the device enable register
+    
+    //I2C_2_Master_Start();         //Start condition
+	//I2C_2_Master_Write(0x52 | 0x00);     //7 bit address + Write mode
+	//I2C_2_Master_Write(0xA0 | 0x16);    //command (auto-increment protocol transaction) + start at RED low register
+	//I2C_2_Master_RepStart();			// start a repeated transmission
+	//I2C_2_Master_Write(0x52 | 0x00);     //7 bit address + Write(0) mode
+    //I2C_2_Master_Write()
+    //I2C_2_Master_Stop(); //Stop condition
+    
+    TRISGbits.TRISG1=0; // red
+    TRISAbits.TRISA4=0; // green
+    TRISFbits.TRISF7=0; // blue
+    TRISDbits.TRISD7=0; // red
+ 
+    LATGbits.LATG1=1; // red LED
+    LATAbits.LATA4=1; // green LED
+    LATDbits.LATD7=1; // red LED
+    
     
 
     
