@@ -12,16 +12,16 @@
   0h - 3h		(dist/default/production\final-project-josh-and-edward.X.production.hex)
   8h - 2Bh		(dist/default/production\final-project-josh-and-edward.X.production.hex)
   E00h - E2Ah		(dist/default/production\final-project-josh-and-edward.X.production.hex)
-  E2Ch - 3FC2h		(dist/default/production\final-project-josh-and-edward.X.production.hex)
-  3FC4h - 3FC5h		(dist/default/production\final-project-josh-and-edward.X.production.hex)
+  E2Ch - 3F32h		(dist/default/production\final-project-josh-and-edward.X.production.hex)
+  3F34h - 3F35h		(dist/default/production\final-project-josh-and-edward.X.production.hex)
   200000h - 20000Fh		(dist/default/production\final-project-josh-and-edward.X.production.hex)
   300000h - 30000Bh		(dist/default/production\final-project-josh-and-edward.X.production.hex)
  Unused ranges:
   4h - 7h
   2Ch - DFFh
   E2Bh - E2Bh
-  3FC3h - 3FC3h
-  3FC6h - 1FFFFFh
+  3F33h - 3F33h
+  3F36h - 1FFFFFh
   200010h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -822,16 +822,7 @@
 00003F00 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00003F10 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00003F20 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00003F30 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00003F40 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00003F50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00003F60 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00003F70 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00003F80 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00003F90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00003FA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00003FB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00003FC0 | H1 H1 H1 -- H1 H1 -- -- -- -- -- -- -- -- -- --
+00003F30 | H1 H1 H1 -- H1 H1 -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------

@@ -24526,7 +24526,7 @@ struct RGB vals;
 
 void main(void) {
     initUSART4();
-    Interrupts_init();
+
     color_click_init();
     I2C_2_Master_Init();
     char buf[50];
@@ -24539,9 +24539,12 @@ void main(void) {
     TRISGbits.TRISG1=0;
     TRISAbits.TRISA4=0;
     TRISFbits.TRISF7=0;
-    TRISDbits.TRISD7=0;
 
+    TRISDbits.TRISD7=0;
     LATDbits.LATD7=1;
+
+    TRISHbits.TRISH3=0;
+    LATHbits.LATH3=1;
 
     LATGbits.LATG1=0;
     LATAbits.LATA4=0;

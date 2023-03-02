@@ -27,7 +27,7 @@ struct RGB vals;
 
 void main(void) {
     initUSART4(); 
-    Interrupts_init();
+    //Interrupts_init();
     color_click_init();
     I2C_2_Master_Init();
     char buf[50];
@@ -55,9 +55,12 @@ void main(void) {
     TRISGbits.TRISG1=0; // red
     TRISAbits.TRISA4=0; // green
     TRISFbits.TRISF7=0; // blue
+    
     TRISDbits.TRISD7=0; // LED on clicker 2 board
- 
     LATDbits.LATD7=1; // LED on clicker 2 board
+    
+    TRISHbits.TRISH3=0; // LED on clicker 2 board
+    LATHbits.LATH3=1; // LED on clicker 2 board
     
     LATGbits.LATG1=0; // red LED
     LATAbits.LATA4=0; // green LED

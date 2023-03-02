@@ -37,7 +37,7 @@ void clear_int(void){
 }
 
 void colour_interrupt_init(void){
-    clear_int(); // clear Interrupt flag
+    clear_int(); // clear Interrupt flag (clear colour channel)
     color_writetoaddr(0x00,0x13); // Enable interrupts
     __delay_ms(3);   
     color_writetoaddr(0x04,(low_threshold & 0x00FF));
