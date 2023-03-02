@@ -24537,14 +24537,19 @@ void main(void) {
     TRISGbits.TRISG1=0;
     TRISAbits.TRISA4=0;
     TRISFbits.TRISF7=0;
-    TRISDbits.TRISD7=0;
+
+
+    LATGbits.LATG1=0;
+    LATAbits.LATA4=0;
+
+    LATFbits.LATF7=0;
 
     LATGbits.LATG1=1;
+    _delay((unsigned long)((1000)*(64000000/4000.0)));
     LATAbits.LATA4=1;
-    LATDbits.LATD7=1;
-
-
-
+    _delay((unsigned long)((1000)*(64000000/4000.0)));
+    LATFbits.LATF7=1;
+    _delay((unsigned long)((1000)*(64000000/4000.0)));
 
     while (1)
     {

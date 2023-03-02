@@ -55,14 +55,19 @@ void main(void) {
     TRISGbits.TRISG1=0; // red
     TRISAbits.TRISA4=0; // green
     TRISFbits.TRISF7=0; // blue
-    TRISDbits.TRISD7=0; // red
+    //TRISDbits.TRISD7=0; // red
  
+    LATGbits.LATG1=0; // red LED
+    LATAbits.LATA4=0; // green LED
+    //LATDbits.LATD7=1; // red LED
+    LATFbits.LATF7=0; // red blue
+    
     LATGbits.LATG1=1; // red LED
+    __delay_ms(1000);
     LATAbits.LATA4=1; // green LED
-    LATDbits.LATD7=1; // red LED
-    
-    
-
+    __delay_ms(1000);
+    LATFbits.LATF7=1; // red blue
+    __delay_ms(1000);
     
     while (1)
     {
