@@ -24235,13 +24235,99 @@ unsigned char __t3rd16on(void);
 
 
 
+# 1 "./color.h" 1
+# 12 "./color.h"
+void color_click_init(void);
+
+
+
+
+
+
+void color_writetoaddr(char address, char value);
+
+
+
+
+
+unsigned int color_read_Red(void);
+unsigned int color_read_Blue(void);
+unsigned int color_read_Green(void);
+unsigned int color_read_lum(void);
+struct RGB{
+    int R;
+    int G;
+    int B;
+    int L;
+};
+
+struct RGB_rel{
+    float R;
+    float G;
+    float B;
+    float L;
+};
+
+
+struct RGB vals;
+
+
+
+void colour_rel(struct RGB *vals, struct RGB_rel *rel);
+
+void readColours (struct RGB *vals);
+# 4 "./interrupts.h" 2
+
+# 1 "./i2c.h" 1
+# 13 "./i2c.h"
+void I2C_2_Master_Init(void);
+
+
+
+
+void I2C_2_Master_Idle(void);
+
+
+
+
+void I2C_2_Master_Start(void);
+
+
+
+
+void I2C_2_Master_RepStart(void);
+
+
+
+
+void I2C_2_Master_Stop(void);
+
+
+
+
+void I2C_2_Master_Write(unsigned char data_byte);
+
+
+
+
+unsigned char I2C_2_Master_Read(unsigned char ack);
+# 5 "./interrupts.h" 2
+
 
 
 
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
+
+void colour_interrupt_init(void);
+void clear_int(void);
+
 extern volatile char DataFlag;
+extern volatile char ColourFlag;
+
+int low_threshold=0;
+int high_threshold=1000;
 # 2 "interrupts.c" 2
 
 # 1 "./serial.h" 1
@@ -24284,12 +24370,42 @@ volatile char DataFlag=1;
 
 void Interrupts_init(void)
 {
-    INTCONbits.IPEN=0;
+    TRISBbits.TRISB1 = 1;
+    ANSELBbits.ANSELB1 = 0;
+    INT1PPS=0x09;
+
+    PIE0bits.INT1IE = 1;
+    PIR0bits.INT1IF = 0;
+    IPR0bits.INT1IP = 1;
+
+    INTCONbits.INT0EDG = 0;
+    colour_interrupt_init();
+
+
+    INTCONbits.IPEN=1;
     PIE2bits.C1IE=1;
     INTCONbits.PEIE=1;
     INTCONbits.GIE=1;
     PIE4bits.RC4IE=1;
 
+}
+
+void clear_int(void){
+    I2C_2_Master_Start();
+ I2C_2_Master_Write(0x52 | 0x00);
+    I2C_2_Master_Write(0b11100110);
+    I2C_2_Master_Stop();
+}
+
+void colour_interrupt_init(void){
+    clear_int();
+    color_writetoaddr(0x00,0x13);
+    _delay((unsigned long)((3)*(64000000/4000.0)));
+    color_writetoaddr(0x04,(low_threshold & 0x00FF));
+    color_writetoaddr(0x05,(low_threshold >>8));
+    color_writetoaddr(0x06, (high_threshold & 0x00FF));
+    color_writetoaddr(0x07, (high_threshold >>8));
+    color_writetoaddr(0x0C, 0b0100);
 
 }
 
@@ -24297,18 +24413,15 @@ void Interrupts_init(void)
 
 
 
+
 void __attribute__((picinterrupt(("high_priority")))) HighISR()
 {
-    if (PIR4bits.TX4IF){
-        TX4REG = getCharFromTxBuf();
+# 69 "interrupts.c"
+    if (PIR0bits.INT1IF){
+        clear_int();
+        LATDbits.LATD7=1;
+        PIR0bits.INT1IF = 0;
     }
-    if (DataFlag & 0){
-        PIE4bits.TX4IE=0;
-    }
-    if (PIR4bits.RC4IF){
-        putCharToRxBuf(RC4REG);
-
-   }
 
 
 }

@@ -24503,16 +24503,18 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 # 19 "main.c" 2
 
 # 1 "./interrupts.h" 1
-
-
-
-
-
-
-
+# 10 "./interrupts.h"
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
+
+void colour_interrupt_init(void);
+void clear_int(void);
+
 extern volatile char DataFlag;
+extern volatile char ColourFlag;
+
+int low_threshold=0;
+int high_threshold=1000;
 # 20 "main.c" 2
 
 
@@ -24537,7 +24539,9 @@ void main(void) {
     TRISGbits.TRISG1=0;
     TRISAbits.TRISA4=0;
     TRISFbits.TRISF7=0;
+    TRISDbits.TRISD7=0;
 
+    LATDbits.LATD7=1;
 
     LATGbits.LATG1=0;
     LATAbits.LATA4=0;
@@ -24550,6 +24554,7 @@ void main(void) {
     _delay((unsigned long)((1000)*(64000000/4000.0)));
     LATFbits.LATF7=1;
     _delay((unsigned long)((1000)*(64000000/4000.0)));
+
 
     while (1)
     {

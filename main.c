@@ -55,8 +55,10 @@ void main(void) {
     TRISGbits.TRISG1=0; // red
     TRISAbits.TRISA4=0; // green
     TRISFbits.TRISF7=0; // blue
-    //TRISDbits.TRISD7=0; // red
+    TRISDbits.TRISD7=0; // LED on clicker 2 board
  
+    LATDbits.LATD7=1; // LED on clicker 2 board
+    
     LATGbits.LATG1=0; // red LED
     LATAbits.LATA4=0; // green LED
     //LATDbits.LATD7=1; // red LED
@@ -68,6 +70,7 @@ void main(void) {
     __delay_ms(1000);
     LATFbits.LATF7=1; // red blue
     __delay_ms(1000);
+    
     
     while (1)
     {
