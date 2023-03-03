@@ -24256,6 +24256,8 @@ struct RGB{
     int B;
     int L;
 };
+
+
 struct RGB_rel{
     float R;
     float G;
@@ -24265,6 +24267,8 @@ struct RGB_rel{
 
 
 void colour_rel(struct RGB *vals, struct RGB_rel *rel);
+
+char Colour_decider(struct RGB *vals, struct RGB_rel *rel);
 void readColours (struct RGB *vals);
 # 2 "color.c" 2
 
@@ -24309,22 +24313,32 @@ void color_click_init(void)
 
     I2C_2_Master_Init();
 
-
   color_writetoaddr(0x00, 0x01);
     _delay((unsigned long)((3)*(64000000/4000.0)));
 
-
  color_writetoaddr(0x00, 0x03);
-
 
  color_writetoaddr(0x01, 0xD5);
 
-    LATGbits.LATG1=0;
-    LATAbits.LATA4=0;
-    LATFbits.LATF7=0;
-    TRISGbits.TRISG1=0;
+    color_writetoaddr(0x0F, 0x00);
+
+    TRISGbits.TRISG1 = 0;
     TRISAbits.TRISA4 = 0;
     TRISFbits.TRISF7 = 0;
+
+    TRISDbits.TRISD3 = 0;
+    TRISDbits.TRISD4 = 0;
+
+    LATGbits.LATG1=0;
+    LATFbits.LATF7=0;
+    LATAbits.LATA4=0;
+
+    LATDbits.LATD3=0;
+    LATDbits.LATD4=0;
+
+
+
+
 
 }
 
@@ -24368,7 +24382,7 @@ unsigned int color_read_Green(void)
  unsigned int tmp;
  I2C_2_Master_Start();
  I2C_2_Master_Write(0x52 | 0x00);
- I2C_2_Master_Write(0xA0 | 0x16);
+ I2C_2_Master_Write(0xA0 | 0x18);
  I2C_2_Master_RepStart();
  I2C_2_Master_Write(0x52 | 0x01);
  tmp=I2C_2_Master_Read(1);
@@ -24393,26 +24407,60 @@ unsigned int color_read_Blue(void)
 
 
 void readColours (struct RGB *vals) {
+
     vals ->R = color_read_Red();
     vals ->B = color_read_Blue();
     vals ->G = color_read_Green();
     vals ->L = color_read_lum();
 }
 
+
 void colour_rel(struct RGB *vals, struct RGB_rel *rel){
-    unsigned int R = vals->R;
-    unsigned int G = vals->G;
-    unsigned int B = vals->B;
-    unsigned int L = vals->L;
-    rel -> R = (float)R/(float)L;
-    rel -> B = (float)B/(float)L;
-    rel -> G = (float)G/(float)L;
+    float R = vals->R;
+    float G = vals->G;
+    float B = vals->B;
+    float L = vals->L;
+    rel -> R = R/(R+G+B+L);
+    rel -> B = B/(R+G+B+L);
+    rel -> G = G/(R+G+B+L);
+
 }
 
-int Colour_decider(struct RGB_rel *rel){
-    if ((rel->R>0.5) && (rel->G<0.3) && (rel->B <0.12)){
+char Colour_decider(struct RGB *vals, struct RGB_rel *rel){
+    float Cmax = 0;
+    float Cmin= 65536;
+    int Cmax_i =4;
 
+    int i;
+    float RGB_col[3]={vals->R,vals->G,vals->B};
+    float Hue;
+
+
+    for (i=0; i<3 ;i++){
+        if (RGB_col[i]>Cmax){
+            Cmax=RGB_col[i];
+            Cmax_i=i;
+        }
+        if (RGB_col[i]<Cmin){Cmin=RGB_col[i];}
+    }
+
+    if (Cmax-Cmin==0){return 0;}
+
+
+    if (Cmax_i==0){
+        Hue = 60 * ((RGB_col[1]-RGB_col[2])/(Cmax-Cmin));
+
+        if (Hue < 0) {Hue += 360;}
+    }
+
+    else if (Cmax_i==1){
+        Hue=60*(2+(RGB_col[2]-RGB_col[0])/(Cmax-Cmin));
 
     }
 
+    else {
+        Hue=(4+(RGB_col[0]-RGB_col[1])/(Cmax-Cmin))*60;
+    }
+    return Hue;
+# 214 "color.c"
 }

@@ -24235,13 +24235,97 @@ unsigned char __t3rd16on(void);
 
 
 
+# 1 "./color.h" 1
+# 12 "./color.h"
+void color_click_init(void);
+
+
+
+
+
+
+void color_writetoaddr(char address, char value);
+
+
+
+
+
+unsigned int color_read_Red(void);
+unsigned int color_read_Blue(void);
+unsigned int color_read_Green(void);
+unsigned int color_read_lum(void);
+struct RGB{
+    int R;
+    int G;
+    int B;
+    int L;
+};
+
+
+struct RGB_rel{
+    float R;
+    float G;
+    float B;
+};
+
+
+
+void colour_rel(struct RGB *vals, struct RGB_rel *rel);
+
+int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
+void readColours (struct RGB *vals);
+# 4 "./interrupts.h" 2
+
+# 1 "./i2c.h" 1
+# 13 "./i2c.h"
+void I2C_2_Master_Init(void);
+
+
+
+
+void I2C_2_Master_Idle(void);
+
+
+
+
+void I2C_2_Master_Start(void);
+
+
+
+
+void I2C_2_Master_RepStart(void);
+
+
+
+
+void I2C_2_Master_Stop(void);
+
+
+
+
+void I2C_2_Master_Write(unsigned char data_byte);
+
+
+
+
+unsigned char I2C_2_Master_Read(unsigned char ack);
+# 5 "./interrupts.h" 2
+
 
 
 
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
+
+void colour_interrupt_init(void);
+void clear_int(void);
+
 extern volatile char DataFlag;
+extern volatile char ColourFlag;
+
+int low_threshold=0;
+int high_threshold=1000;
 # 2 "interrupts.c" 2
 
 # 1 "./serial.h" 1
@@ -24275,40 +24359,13 @@ void sendTxBuf(void);
 
 volatile char DataFlag=1;
 # 3 "interrupts.c" 2
-
-
-
-
-
-
-
+# 12 "interrupts.c"
 void Interrupts_init(void)
 {
-    INTCONbits.IPEN=0;
-    PIE2bits.C1IE=1;
-    INTCONbits.PEIE=1;
-    INTCONbits.GIE=1;
-    PIE4bits.RC4IE=1;
-
-
+# 32 "interrupts.c"
 }
-
-
-
-
-
+# 59 "interrupts.c"
 void __attribute__((picinterrupt(("high_priority")))) HighISR()
 {
-    if (PIR4bits.TX4IF){
-        TX4REG = getCharFromTxBuf();
-    }
-    if (DataFlag & 0){
-        PIE4bits.TX4IE=0;
-    }
-    if (PIR4bits.RC4IF){
-        putCharToRxBuf(RC4REG);
-
-   }
-
-
+# 78 "interrupts.c"
 }

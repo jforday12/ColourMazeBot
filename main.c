@@ -30,34 +30,35 @@ void main(void) {
     Interrupts_init();
     color_click_init();
     I2C_2_Master_Init();
-    char buf[50];
-    unsigned int int_part;
-    unsigned int frac_part;
-    unsigned int ADC;
+    char buf[100];
+    TRISGbits.TRISG1 = 0; // Set TRIS value for red LED (output)
+    TRISAbits.TRISA4 = 0; // Set TRIS value for green LED (output)
+    TRISFbits.TRISF7 = 0; // Set TRIS value for blue LED (output)
+    RED_LED=1; // sets RED LED on 
+    GREEN_LED=1; // sets green LED on
+    BLUE_LED=1; // sets Blue LED on
     
+
     while (1)
     {
-<<<<<<< Updated upstream
-           
-    readColours(&vals);
-    sprintf(buf,"red=%d green=%d blue=%d lum=%d\r\n",vals.R,vals.G,vals.B,vals.L);
-=======
-   LATGbits.LATG1=1;
-    __delay_ms (100);
+        
     
-           
+    // read the colours and store it in the struct vals
     readColours(&vals);
+    
+    // obtain the relative RGB values and store it in the struct RGB_rel vals
     colour_rel(&vals, &rel);
     
-    sprintf(buf,"red=%f green=%f blue=%f lum=%d\r\n",rel.R, rel.G,rel.B,vals.L);
->>>>>>> Stashed changes
-    TxBufferedString(buf);
-    //sendTxBuf();
-    while (DataFlag){
-        sendTxBuf();
-    } 
+    // if the clear value is greater than 2500 (value obtained from lowest clear value card which was blue) then it has hit a wall so detect what colour it sees
+    if (vals.L>=2200){
+            int colour = Colour_decider(&vals, &rel);
+            sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,colour);
+    }else{
+            sprintf(buf,"red=%d green=%d blue=%d lum=%d \r\n",vals.R, vals.G,vals.B,vals.L);
+    }
+    
 
-//    }
-//    
+    sendStringSerial4(buf);
+   
 }
 }

@@ -33,15 +33,23 @@ struct RGB{
     int L;
 };
 
-<<<<<<< Updated upstream
-struct RGB vals;
-=======
+
+struct RGB_rel{
+    float R;
+    float G;
+    float B;
+};
+
 
 
 void colour_rel(struct RGB *vals, struct RGB_rel *rel);
->>>>>>> Stashed changes
+
+int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
 void readColours (struct RGB *vals);
 
+#define RED_LED LATGbits.LATG1
+#define GREEN_LED LATAbits.LATA4
+#define BLUE_LED LATFbits.LATF7
 
 
 

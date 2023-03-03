@@ -3,8 +3,6 @@
 [d edition pro ]
 [d chip 18F67K40 ]
 [d frameptr 4065 ]
-"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\__fpclassifyf.c
-[v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
 "1 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
 "9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
@@ -15,27 +13,16 @@
 [v _pad pad `(v  1 s 1 pad ]
 "443
 [v _dtoa dtoa `(v  1 s 1 dtoa ]
-"506
-[v _efgtoa efgtoa `(v  1 s 1 efgtoa ]
 "1007
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 "1520
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
-<<<<<<< Updated upstream
-=======
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
 [v ___flge __flge `(b  1 e 0 0 ]
-"15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flneg.c
-[v ___flneg __flneg `(d  1 e 4 0 ]
->>>>>>> Stashed changes
 "62 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
-"3 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\floorf.c
-[v _floorf floorf `(f  1 e 4 0 ]
-"43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
 "86 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 4 0 ]
 "54 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\ftdiv.c
@@ -44,10 +31,6 @@
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
 "19 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
-"1 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\labs.c
-[v _labs labs `(l  1 e 4 0 ]
-"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\memcpy.c
-[v _memcpy memcpy `(*.39v  1 e 2 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
@@ -64,28 +47,30 @@
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
-"3 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\strcpy.c
-[v _strcpy strcpy `(*.39uc  1 e 2 0 ]
 "15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 "5 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\color.c
 [v _color_click_init color_click_init `(v  1 e 1 0 ]
-"21
+"39
 [v _color_writetoaddr color_writetoaddr `(v  1 e 1 0 ]
-"29
+"47
 [v _color_read_lum color_read_lum `(ui  1 e 2 0 ]
-"43
+"61
 [v _color_read_Red color_read_Red `(ui  1 e 2 0 ]
-"56
+"74
 [v _color_read_Green color_read_Green `(ui  1 e 2 0 ]
-"70
+"88
 [v _color_read_Blue color_read_Blue `(ui  1 e 2 0 ]
-"85
+"103
 [v _readColours readColours `(v  1 e 1 0 ]
-"100
+"112
 [v _colour_rel colour_rel `(v  1 e 1 0 ]
+"123
+[v _Colour_decider Colour_decider `(i  1 e 2 0 ]
 "4 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\i2c.c
 [v _I2C_2_Master_Init I2C_2_Master_Init `(v  1 e 1 0 ]
 "22
@@ -100,9 +85,9 @@
 [v _I2C_2_Master_Write I2C_2_Master_Write `(v  1 e 1 0 ]
 "51
 [v _I2C_2_Master_Read I2C_2_Master_Read `(uc  1 e 1 0 ]
-"10 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\interrupts.c
+"12 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\interrupts.c
 [v _Interrupts_init Interrupts_init `(v  1 e 1 0 ]
-"25
+"59
 [v _HighISR HighISR `IIH(v  1 e 1 0 ]
 "28 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\main.c
 [v _main main `(v  1 e 1 0 ]
@@ -110,24 +95,12 @@
 [v _initUSART4 initUSART4 `(v  1 e 1 0 ]
 "26
 [v _sendCharSerial4 sendCharSerial4 `(v  1 e 1 0 ]
-"52
-[v _putCharToRxBuf putCharToRxBuf `(v  1 e 1 0 ]
-"66
-[v _getCharFromTxBuf getCharFromTxBuf `(uc  1 e 1 0 ]
+"33
+[v _sendStringSerial4 sendStringSerial4 `(v  1 e 1 0 ]
 "72
 [v _putCharToTxBuf putCharToTxBuf `(v  1 e 1 0 ]
 "80
 [v _isDataInTxBuf isDataInTxBuf `(uc  1 e 1 0 ]
-"85
-[v _TxBufferedString TxBufferedString `(v  1 e 1 0 ]
-"93
-[v _sendTxBuf sendTxBuf `(v  1 e 1 0 ]
-<<<<<<< Updated upstream
-[s S24 RGB 8 `i 1 R 2 0 `i 1 G 2 2 `i 1 B 2 4 `i 1 L 2 6 ]
-"36 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X/color.h
-[v _vals vals `S24  1 e 8 0 ]
-=======
->>>>>>> Stashed changes
 "13 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X/serial.h
 [v _EUSART4RXbuf EUSART4RXbuf `VE[20]uc  1 e 20 0 ]
 "14
@@ -148,33 +121,7 @@
 [v _SSP2CLKPPS SSP2CLKPPS `VEuc  1 e 1 @3612 ]
 "3862
 [v _SSP2DATPPS SSP2DATPPS `VEuc  1 e 1 @3613 ]
-<<<<<<< Updated upstream
-[s S511 . 1 `uc 1 C1IE 1 0 :1:0 
-=======
-[s S754 . 1 `uc 1 C1IE 1 0 :1:0 
->>>>>>> Stashed changes
-`uc 1 C2IE 1 0 :1:1 
-`uc 1 C3IE 1 0 :1:2 
-`uc 1 . 1 0 :3:3 
-`uc 1 ZCDIE 1 0 :1:6 
-`uc 1 HLVDIE 1 0 :1:7 
-]
-"4659
-<<<<<<< Updated upstream
-[s S518 . 1 `uc 1 . 1 0 :6:0 
-`uc 1 CMIE 1 0 :1:6 
-]
-[u S521 . 1 `S511 1 . 1 0 `S518 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES521  1 e 1 @3627 ]
-[s S392 . 1 `uc 1 TX3IE 1 0 :1:0 
-=======
-[s S761 . 1 `uc 1 . 1 0 :6:0 
-`uc 1 CMIE 1 0 :1:6 
-]
-[u S764 . 1 `S754 1 . 1 0 `S761 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES764  1 e 1 @3627 ]
-[s S635 . 1 `uc 1 TX3IE 1 0 :1:0 
->>>>>>> Stashed changes
+[s S707 . 1 `uc 1 TX3IE 1 0 :1:0 
 `uc 1 RC3IE 1 0 :1:1 
 `uc 1 TX4IE 1 0 :1:2 
 `uc 1 RC4IE 1 0 :1:3 
@@ -182,15 +129,9 @@
 `uc 1 RC5IE 1 0 :1:5 
 ]
 "4819
-<<<<<<< Updated upstream
-[u S399 . 1 `S392 1 . 1 0 ]
-[v _PIE4bits PIE4bits `VES399  1 e 1 @3629 ]
-[s S373 . 1 `uc 1 TX3IF 1 0 :1:0 
-=======
-[u S642 . 1 `S635 1 . 1 0 ]
-[v _PIE4bits PIE4bits `VES642  1 e 1 @3629 ]
-[s S616 . 1 `uc 1 TX3IF 1 0 :1:0 
->>>>>>> Stashed changes
+[u S714 . 1 `S707 1 . 1 0 ]
+[v _PIE4bits PIE4bits `VES714  1 e 1 @3629 ]
+[s S688 . 1 `uc 1 TX3IF 1 0 :1:0 
 `uc 1 RC3IF 1 0 :1:1 
 `uc 1 TX4IF 1 0 :1:2 
 `uc 1 RC4IF 1 0 :1:3 
@@ -198,24 +139,15 @@
 `uc 1 RC5IF 1 0 :1:5 
 ]
 "5332
-<<<<<<< Updated upstream
-[u S380 . 1 `S373 1 . 1 0 ]
-[v _PIR4bits PIR4bits `VES380  1 e 1 @3639 ]
-=======
-[u S623 . 1 `S616 1 . 1 0 ]
-[v _PIR4bits PIR4bits `VES623  1 e 1 @3639 ]
->>>>>>> Stashed changes
+[u S695 . 1 `S688 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES695  1 e 1 @3639 ]
 "7858
 [v _RC0PPS RC0PPS `VEuc  1 e 1 @3682 ]
 "8508
 [v _RD5PPS RD5PPS `VEuc  1 e 1 @3695 ]
 "8558
 [v _RD6PPS RD6PPS `VEuc  1 e 1 @3696 ]
-<<<<<<< Updated upstream
-[s S161 . 1 `uc 1 ANSELD0 1 0 :1:0 
-=======
-[s S404 . 1 `uc 1 ANSELD0 1 0 :1:0 
->>>>>>> Stashed changes
+[s S484 . 1 `uc 1 ANSELD0 1 0 :1:0 
 `uc 1 ANSELD1 1 0 :1:1 
 `uc 1 ANSELD2 1 0 :1:2 
 `uc 1 ANSELD3 1 0 :1:3 
@@ -225,44 +157,27 @@
 `uc 1 ANSELD7 1 0 :1:7 
 ]
 "11513
-<<<<<<< Updated upstream
-[u S170 . 1 `S161 1 . 1 0 ]
-[v _ANSELDbits ANSELDbits `VES170  1 e 1 @3751 ]
-=======
-[u S413 . 1 `S404 1 . 1 0 ]
-[v _ANSELDbits ANSELDbits `VES413  1 e 1 @3751 ]
->>>>>>> Stashed changes
+[u S493 . 1 `S484 1 . 1 0 ]
+[v _ANSELDbits ANSELDbits `VES493  1 e 1 @3751 ]
 "14196
 [v _SSP2BUF SSP2BUF `VEuc  1 e 1 @3797 ]
 "14216
 [v _SSP2ADD SSP2ADD `VEuc  1 e 1 @3798 ]
 "14406
 [v _SSP2STAT SSP2STAT `VEuc  1 e 1 @3800 ]
-<<<<<<< Updated upstream
-[s S94 . 1 `uc 1 SSPM 1 0 :4:0 
-=======
-[s S337 . 1 `uc 1 SSPM 1 0 :4:0 
->>>>>>> Stashed changes
+[s S426 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "14890
-<<<<<<< Updated upstream
-[s S100 . 1 `uc 1 SSPM0 1 0 :1:0 
-=======
-[s S343 . 1 `uc 1 SSPM0 1 0 :1:0 
->>>>>>> Stashed changes
+[s S432 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-<<<<<<< Updated upstream
-[s S105 . 1 `uc 1 SSPM02 1 0 :1:0 
-=======
-[s S348 . 1 `uc 1 SSPM02 1 0 :1:0 
->>>>>>> Stashed changes
+[s S437 . 1 `uc 1 SSPM02 1 0 :1:0 
 `uc 1 SSPM12 1 0 :1:1 
 `uc 1 SSPM22 1 0 :1:2 
 `uc 1 SSPM32 1 0 :1:3 
@@ -271,19 +186,11 @@
 `uc 1 SSPOV2 1 0 :1:6 
 `uc 1 WCOL2 1 0 :1:7 
 ]
-<<<<<<< Updated upstream
-[u S114 . 1 `S94 1 . 1 0 `S100 1 . 1 0 `S105 1 . 1 0 ]
-[v _SSP2CON1bits SSP2CON1bits `VES114  1 e 1 @3801 ]
+[u S446 . 1 `S426 1 . 1 0 `S432 1 . 1 0 `S437 1 . 1 0 ]
+[v _SSP2CON1bits SSP2CON1bits `VES446  1 e 1 @3801 ]
 "14980
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3802 ]
-[s S188 . 1 `uc 1 SEN 1 0 :1:0 
-=======
-[u S357 . 1 `S337 1 . 1 0 `S343 1 . 1 0 `S348 1 . 1 0 ]
-[v _SSP2CON1bits SSP2CON1bits `VES357  1 e 1 @3801 ]
-"14980
-[v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3802 ]
-[s S431 . 1 `uc 1 SEN 1 0 :1:0 
->>>>>>> Stashed changes
+[s S511 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -293,28 +200,17 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "15027
-<<<<<<< Updated upstream
-[s S197 . 1 `uc 1 . 1 0 :1:0 
+[s S520 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK 1 0 :5:1 
 ]
-[s S200 . 1 `uc 1 . 1 0 :1:0 
-=======
-[s S440 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 ADMSK 1 0 :5:1 
-]
-[s S443 . 1 `uc 1 . 1 0 :1:0 
->>>>>>> Stashed changes
+[s S523 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK1 1 0 :1:1 
 `uc 1 ADMSK2 1 0 :1:2 
 `uc 1 ADMSK3 1 0 :1:3 
 `uc 1 ADMSK4 1 0 :1:4 
 `uc 1 ADMSK5 1 0 :1:5 
 ]
-<<<<<<< Updated upstream
-[s S207 . 1 `uc 1 SEN2 1 0 :1:0 
-=======
-[s S450 . 1 `uc 1 SEN2 1 0 :1:0 
->>>>>>> Stashed changes
+[s S530 . 1 `uc 1 SEN2 1 0 :1:0 
 `uc 1 ADMSK12 1 0 :1:1 
 `uc 1 ADMSK22 1 0 :1:2 
 `uc 1 ADMSK32 1 0 :1:3 
@@ -323,24 +219,15 @@
 `uc 1 ACKSTAT2 1 0 :1:6 
 `uc 1 GCEN2 1 0 :1:7 
 ]
-<<<<<<< Updated upstream
-[s S216 . 1 `uc 1 . 1 0 :1:0 
-=======
-[s S459 . 1 `uc 1 . 1 0 :1:0 
->>>>>>> Stashed changes
+[s S539 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RSEN2 1 0 :1:1 
 `uc 1 PEN2 1 0 :1:2 
 `uc 1 RCEN2 1 0 :1:3 
 `uc 1 ADMSK42 1 0 :1:4 
 `uc 1 ADMSK52 1 0 :1:5 
 ]
-<<<<<<< Updated upstream
-[u S223 . 1 `S188 1 . 1 0 `S197 1 . 1 0 `S200 1 . 1 0 `S207 1 . 1 0 `S216 1 . 1 0 ]
-[v _SSP2CON2bits SSP2CON2bits `VES223  1 e 1 @3802 ]
-=======
-[u S466 . 1 `S431 1 . 1 0 `S440 1 . 1 0 `S443 1 . 1 0 `S450 1 . 1 0 `S459 1 . 1 0 ]
-[v _SSP2CON2bits SSP2CON2bits `VES466  1 e 1 @3802 ]
->>>>>>> Stashed changes
+[u S546 . 1 `S511 1 . 1 0 `S520 1 . 1 0 `S523 1 . 1 0 `S530 1 . 1 0 `S539 1 . 1 0 ]
+[v _SSP2CON2bits SSP2CON2bits `VES546  1 e 1 @3802 ]
 "15782
 [v _RC4REG RC4REG `VEuc  1 e 1 @3811 ]
 "15820
@@ -349,11 +236,7 @@
 [v _SP4BRGL SP4BRGL `VEuc  1 e 1 @3813 ]
 "15903
 [v _SP4BRGH SP4BRGH `VEuc  1 e 1 @3814 ]
-<<<<<<< Updated upstream
-[s S352 . 1 `uc 1 RX9D 1 0 :1:0 
-=======
-[s S595 . 1 `uc 1 RX9D 1 0 :1:0 
->>>>>>> Stashed changes
+[s S667 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -363,15 +246,9 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "15963
-<<<<<<< Updated upstream
-[u S361 . 1 `S352 1 . 1 0 ]
-[v _RC4STAbits RC4STAbits `VES361  1 e 1 @3815 ]
-[s S329 . 1 `uc 1 TX9D 1 0 :1:0 
-=======
-[u S604 . 1 `S595 1 . 1 0 ]
-[v _RC4STAbits RC4STAbits `VES604  1 e 1 @3815 ]
-[s S572 . 1 `uc 1 TX9D 1 0 :1:0 
->>>>>>> Stashed changes
+[u S676 . 1 `S667 1 . 1 0 ]
+[v _RC4STAbits RC4STAbits `VES676  1 e 1 @3815 ]
+[s S644 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -381,15 +258,9 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "16085
-<<<<<<< Updated upstream
-[u S338 . 1 `S329 1 . 1 0 ]
-[v _TX4STAbits TX4STAbits `VES338  1 e 1 @3816 ]
-[s S308 . 1 `uc 1 ABDEN 1 0 :1:0 
-=======
-[u S581 . 1 `S572 1 . 1 0 ]
-[v _TX4STAbits TX4STAbits `VES581  1 e 1 @3816 ]
-[s S551 . 1 `uc 1 ABDEN 1 0 :1:0 
->>>>>>> Stashed changes
+[u S653 . 1 `S644 1 . 1 0 ]
+[v _TX4STAbits TX4STAbits `VES653  1 e 1 @3816 ]
+[s S623 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -399,14 +270,9 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "16211
-<<<<<<< Updated upstream
-[u S317 . 1 `S308 1 . 1 0 ]
-[v _BAUD4CONbits BAUD4CONbits `VES317  1 e 1 @3817 ]
-[s S140 . 1 `uc 1 TRISD0 1 0 :1:0 
-=======
-[u S560 . 1 `S551 1 . 1 0 ]
-[v _BAUD4CONbits BAUD4CONbits `VES560  1 e 1 @3817 ]
-[s S74 . 1 `uc 1 LATA0 1 0 :1:0 
+[u S632 . 1 `S623 1 . 1 0 ]
+[v _BAUD4CONbits BAUD4CONbits `VES632  1 e 1 @3817 ]
+[s S198 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -416,7 +282,7 @@
 `uc 1 LATA7 1 0 :1:7 
 ]
 "28495
-[s S83 . 1 `uc 1 LA0 1 0 :1:0 
+[s S207 . 1 `uc 1 LA0 1 0 :1:0 
 `uc 1 LA1 1 0 :1:1 
 `uc 1 LA2 1 0 :1:2 
 `uc 1 LA3 1 0 :1:3 
@@ -425,9 +291,30 @@
 `uc 1 LA6 1 0 :1:6 
 `uc 1 LA7 1 0 :1:7 
 ]
-[u S92 . 1 `S74 1 . 1 0 `S83 1 . 1 0 ]
-[v _LATAbits LATAbits `VES92  1 e 1 @3961 ]
-[s S114 . 1 `uc 1 LATF0 1 0 :1:0 
+[u S216 . 1 `S198 1 . 1 0 `S207 1 . 1 0 ]
+[v _LATAbits LATAbits `VES216  1 e 1 @3961 ]
+[s S238 . 1 `uc 1 LATD0 1 0 :1:0 
+`uc 1 LATD1 1 0 :1:1 
+`uc 1 LATD2 1 0 :1:2 
+`uc 1 LATD3 1 0 :1:3 
+`uc 1 LATD4 1 0 :1:4 
+`uc 1 LATD5 1 0 :1:5 
+`uc 1 LATD6 1 0 :1:6 
+`uc 1 LATD7 1 0 :1:7 
+]
+"28831
+[s S247 . 1 `uc 1 LD0 1 0 :1:0 
+`uc 1 LD1 1 0 :1:1 
+`uc 1 LD2 1 0 :1:2 
+`uc 1 LD3 1 0 :1:3 
+`uc 1 LD4 1 0 :1:4 
+`uc 1 LD5 1 0 :1:5 
+`uc 1 LD6 1 0 :1:6 
+`uc 1 LD7 1 0 :1:7 
+]
+[u S256 . 1 `S238 1 . 1 0 `S247 1 . 1 0 ]
+[v _LATDbits LATDbits `VES256  1 e 1 @3964 ]
+[s S158 . 1 `uc 1 LATF0 1 0 :1:0 
 `uc 1 LATF1 1 0 :1:1 
 `uc 1 LATF2 1 0 :1:2 
 `uc 1 LATF3 1 0 :1:3 
@@ -437,7 +324,7 @@
 `uc 1 LATF7 1 0 :1:7 
 ]
 "29055
-[s S123 . 1 `uc 1 LF0 1 0 :1:0 
+[s S167 . 1 `uc 1 LF0 1 0 :1:0 
 `uc 1 LF1 1 0 :1:1 
 `uc 1 LF2 1 0 :1:2 
 `uc 1 LF3 1 0 :1:3 
@@ -446,9 +333,9 @@
 `uc 1 LF6 1 0 :1:6 
 `uc 1 LF7 1 0 :1:7 
 ]
-[u S132 . 1 `S114 1 . 1 0 `S123 1 . 1 0 ]
-[v _LATFbits LATFbits `VES132  1 e 1 @3966 ]
-[s S40 . 1 `uc 1 LATG0 1 0 :1:0 
+[u S176 . 1 `S158 1 . 1 0 `S167 1 . 1 0 ]
+[v _LATFbits LATFbits `VES176  1 e 1 @3966 ]
+[s S124 . 1 `uc 1 LATG0 1 0 :1:0 
 `uc 1 LATG1 1 0 :1:1 
 `uc 1 LATG2 1 0 :1:2 
 `uc 1 LATG3 1 0 :1:3 
@@ -458,15 +345,15 @@
 `uc 1 LATG7 1 0 :1:7 
 ]
 "29164
-[s S49 . 1 `uc 1 LG0 1 0 :1:0 
+[s S133 . 1 `uc 1 LG0 1 0 :1:0 
 `uc 1 LG1 1 0 :1:1 
 `uc 1 LG2 1 0 :1:2 
 `uc 1 LG3 1 0 :1:3 
 `uc 1 LG4 1 0 :1:4 
 ]
-[u S55 . 1 `S40 1 . 1 0 `S49 1 . 1 0 ]
-[v _LATGbits LATGbits `VES55  1 e 1 @3967 ]
-[s S175 . 1 `uc 1 TRISA0 1 0 :1:0 
+[u S139 . 1 `S124 1 . 1 0 `S133 1 . 1 0 ]
+[v _LATGbits LATGbits `VES139  1 e 1 @3967 ]
+[s S61 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -476,10 +363,9 @@
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "29351
-[u S184 . 1 `S175 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES184  1 e 1 @3969 ]
-[s S383 . 1 `uc 1 TRISD0 1 0 :1:0 
->>>>>>> Stashed changes
+[u S70 . 1 `S61 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES70  1 e 1 @3969 ]
+[s S103 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -489,14 +375,9 @@
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "29717
-<<<<<<< Updated upstream
-[u S149 . 1 `S140 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES149  1 e 1 @3972 ]
-[s S472 . 1 `uc 1 INT0EDG 1 0 :1:0 
-=======
-[u S392 . 1 `S383 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES392  1 e 1 @3972 ]
-[s S196 . 1 `uc 1 TRISF0 1 0 :1:0 
+[u S112 . 1 `S103 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES112  1 e 1 @3972 ]
+[s S82 . 1 `uc 1 TRISF0 1 0 :1:0 
 `uc 1 TRISF1 1 0 :1:1 
 `uc 1 TRISF2 1 0 :1:2 
 `uc 1 TRISF3 1 0 :1:3 
@@ -506,9 +387,9 @@
 `uc 1 TRISF7 1 0 :1:7 
 ]
 "29956
-[u S205 . 1 `S196 1 . 1 0 ]
-[v _TRISFbits TRISFbits `VES205  1 e 1 @3974 ]
-[s S154 . 1 `uc 1 TRISG0 1 0 :1:0 
+[u S91 . 1 `S82 1 . 1 0 ]
+[v _TRISFbits TRISFbits `VES91  1 e 1 @3974 ]
+[s S40 . 1 `uc 1 TRISG0 1 0 :1:0 
 `uc 1 TRISG1 1 0 :1:1 
 `uc 1 TRISG2 1 0 :1:2 
 `uc 1 TRISG3 1 0 :1:3 
@@ -518,393 +399,122 @@
 `uc 1 TRISG7 1 0 :1:7 
 ]
 "30018
-[u S163 . 1 `S154 1 . 1 0 ]
-[v _TRISGbits TRISGbits `VES163  1 e 1 @3975 ]
-[s S715 . 1 `uc 1 INT0EDG 1 0 :1:0 
->>>>>>> Stashed changes
-`uc 1 INT1EDG 1 0 :1:1 
-`uc 1 INT2EDG 1 0 :1:2 
-`uc 1 INT3EDG 1 0 :1:3 
-`uc 1 . 1 0 :1:4 
-`uc 1 IPEN 1 0 :1:5 
-`uc 1 PEIE_GIEL 1 0 :1:6 
-`uc 1 GIE_GIEH 1 0 :1:7 
-]
-"40499
-<<<<<<< Updated upstream
-[s S481 . 1 `uc 1 . 1 0 :6:0 
-=======
-[s S724 . 1 `uc 1 . 1 0 :6:0 
->>>>>>> Stashed changes
-`uc 1 PEIE 1 0 :1:6 
-`uc 1 GIE 1 0 :1:7 
-]
-"40499
-<<<<<<< Updated upstream
-[s S485 . 1 `uc 1 . 1 0 :6:0 
-=======
-[s S728 . 1 `uc 1 . 1 0 :6:0 
->>>>>>> Stashed changes
-`uc 1 GIEL 1 0 :1:6 
-`uc 1 GIEH 1 0 :1:7 
-]
-"40499
-<<<<<<< Updated upstream
-[u S489 . 1 `S472 1 . 1 0 `S481 1 . 1 0 `S485 1 . 1 0 ]
-"40499
-"40499
-[v _INTCONbits INTCONbits `VES489  1 e 1 @4082 ]
-=======
-[u S732 . 1 `S715 1 . 1 0 `S724 1 . 1 0 `S728 1 . 1 0 ]
-"40499
-"40499
-[v _INTCONbits INTCONbits `VES732  1 e 1 @4082 ]
->>>>>>> Stashed changes
+[u S49 . 1 `S40 1 . 1 0 ]
+[v _TRISGbits TRISGbits `VES49  1 e 1 @3975 ]
 "99 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
 [v _prec prec `i  1 s 2 prec ]
 [v _width width `i  1 s 2 width ]
 "100
 [v _flags flags `uc  1 s 1 flags ]
 "125
-[v _dbuf dbuf `[80]uc  1 s 80 dbuf ]
-[s S244 RGB_rel 12 `f 1 R 4 0 `f 1 G 4 4 `f 1 B 4 8 ]
+[v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
+[s S305 RGB_rel 12 `f 1 R 4 0 `f 1 G 4 4 `f 1 B 4 8 ]
 "25 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\main.c
-[v _rel rel `S244  1 e 12 0 ]
-[s S239 RGB 8 `i 1 R 2 0 `i 1 G 2 2 `i 1 B 2 4 `i 1 L 2 6 ]
+[v _rel rel `S305  1 e 12 0 ]
+[s S300 RGB 8 `i 1 R 2 0 `i 1 G 2 2 `i 1 B 2 4 `i 1 L 2 6 ]
 "26
-[v _vals vals `S239  1 e 8 0 ]
+[v _vals vals `S300  1 e 8 0 ]
 "28
 [v _main main `(v  1 e 1 0 ]
 {
-<<<<<<< Updated upstream
-"30
-[v main@buf buf `[50]uc  1 a 50 31 ]
-"49
-=======
+"54
+[v main@colour colour `i  1 a 2 132 ]
 "33
-[v main@buf buf `[50]uc  1 a 50 85 ]
-"57
->>>>>>> Stashed changes
+[v main@buf buf `[100]uc  1 a 100 32 ]
+"64
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-<<<<<<< Updated upstream
-[u S1071 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S1395 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
-[s S1074 _IO_FILE 11 `S1071 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S1074  1 a 11 20 ]
-=======
-[u S1349 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-"13
-[s S1352 _IO_FILE 11 `S1349 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S1352  1 a 11 72 ]
->>>>>>> Stashed changes
+[s S1398 _IO_FILE 11 `S1395 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S1398  1 a 11 16 ]
 "12
-[v sprintf@ap ap `[1]*.39v  1 a 2 70 ]
+[v sprintf@ap ap `[1]*.39v  1 a 2 14 ]
 "9
-[v sprintf@s s `*.39uc  1 p 2 52 ]
-[v sprintf@fmt fmt `*.32Cuc  1 p 2 54 ]
+[v sprintf@s s `*.39uc  1 p 2 0 ]
+[v sprintf@fmt fmt `*.32Cuc  1 p 2 2 ]
 "23
 } 0
 "1520 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
 {
 "1523
-<<<<<<< Updated upstream
-[v vfprintf@cfmt cfmt `*.32uc  1 a 2 84 ]
-[s S1106 _IO_FILE 0 ]
+[v vfprintf@cfmt cfmt `*.32uc  1 a 2 86 ]
+[s S1430 _IO_FILE 0 ]
 "1520
-[v vfprintf@fp fp `*.39S1106  1 p 2 0 ]
-[v vfprintf@fmt fmt `*.32Cuc  1 p 2 2 ]
-[v vfprintf@ap ap `*.39*.39v  1 p 2 4 ]
-=======
-[v vfprintf@cfmt cfmt `*.32uc  1 a 2 50 ]
-[s S1384 _IO_FILE 0 ]
-"1520
-[v vfprintf@fp fp `*.39S1384  1 p 2 44 ]
-[v vfprintf@fmt fmt `*.32Cuc  1 p 2 46 ]
-[v vfprintf@ap ap `*.39*.39v  1 p 2 48 ]
->>>>>>> Stashed changes
+[v vfprintf@fp fp `*.39S1430  1 p 2 80 ]
+[v vfprintf@fmt fmt `*.32Cuc  1 p 2 82 ]
+[v vfprintf@ap ap `*.39*.39v  1 p 2 84 ]
 "1543
 } 0
 "1007
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-<<<<<<< Updated upstream
-[u S1124 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
+[u S1448 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
 "1016
-[v vfpfcnvrt@convarg convarg `S1124  1 a 8 74 ]
+[v vfpfcnvrt@convarg convarg `S1448  1 a 8 70 ]
 "1009
-[v vfpfcnvrt@cp cp `*.32uc  1 a 2 82 ]
-[s S1106 _IO_FILE 0 ]
+[v vfpfcnvrt@cp cp `*.32uc  1 a 2 78 ]
+[s S1430 _IO_FILE 0 ]
 "1007
-[v vfpfcnvrt@fp fp `*.39S1106  1 p 2 66 ]
-=======
-[u S1433 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
-"1016
-[v vfpfcnvrt@convarg convarg `S1433  1 a 8 74 ]
-"1009
-[v vfpfcnvrt@cp cp `*.32uc  1 a 2 83 ]
-[v vfpfcnvrt@c c `uc  1 a 1 82 ]
-[s S1384 _IO_FILE 0 ]
-"1007
-[v vfpfcnvrt@fp fp `*.39S1384  1 p 2 66 ]
->>>>>>> Stashed changes
-[v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 68 ]
-[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 70 ]
+[v vfpfcnvrt@fp fp `*.39S1430  1 p 2 62 ]
+[v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 64 ]
+[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 66 ]
 "1517
 } 0
-"506
-[v _efgtoa efgtoa `(v  1 s 1 efgtoa ]
-{
-[u S1402 flui 4 `d 1 f 4 0 `l 1 u 4 0 ]
-"511
-[v efgtoa@u u `S1402  1 a 4 40 ]
-[v efgtoa@g g `S1402  1 a 4 34 ]
-"510
-[v efgtoa@l l `d  1 a 4 29 ]
-[v efgtoa@h h `d  1 a 4 25 ]
-"511
-[v efgtoa@ou ou `S1402  1 a 4 19 ]
-"509
-[v efgtoa@n n `i  1 a 2 38 ]
-[v efgtoa@i i `i  1 a 2 23 ]
-[v efgtoa@w w `i  1 a 2 17 ]
-[v efgtoa@e e `i  1 a 2 15 ]
-[v efgtoa@m m `i  1 a 2 13 ]
-[v efgtoa@d d `i  1 a 2 11 ]
-[v efgtoa@t t `i  1 a 2 4 ]
-[v efgtoa@p p `i  1 a 2 2 ]
-[v efgtoa@ne ne `i  1 a 2 0 ]
-"508
-[v efgtoa@sign sign `uc  1 a 1 33 ]
-[v efgtoa@nmode nmode `uc  1 a 1 10 ]
-[v efgtoa@mode mode `uc  1 a 1 9 ]
-[v efgtoa@pp pp `uc  1 a 1 8 ]
-[s S1384 _IO_FILE 0 ]
-"506
-[v efgtoa@fp fp `*.39S1384  1 p 2 49 ]
-[v efgtoa@f f `d  1 p 4 51 ]
-[v efgtoa@c c `uc  1 p 1 55 ]
-"787
-} 0
-"3 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\strcpy.c
-[v _strcpy strcpy `(*.39uc  1 e 2 0 ]
-{
-"6
-[v strcpy@d d `*.39uc  1 a 2 10 ]
-"5
-[v strcpy@s s `*.32Cuc  1 a 2 8 ]
-"3
-[v strcpy@dest dest `*.39uc  1 p 2 4 ]
-[v strcpy@src src `*.32Cuc  1 p 2 6 ]
-"9
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\memcpy.c
-[v _memcpy memcpy `(*.39v  1 e 2 0 ]
-{
-"8
-[v memcpy@s s `*.39Cuc  1 a 2 13 ]
-"7
-[v memcpy@d d `*.39uc  1 a 2 11 ]
-"9
-[v memcpy@tmp tmp `uc  1 a 1 10 ]
-"4
-[v memcpy@d1 d1 `*.39v  1 p 2 4 ]
-[v memcpy@s1 s1 `*.39Cv  1 p 2 6 ]
-[v memcpy@n n `ui  1 p 2 8 ]
-"18
-} 0
-"1 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\labs.c
-[v _labs labs `(l  1 e 4 0 ]
-{
-[v labs@a a `l  1 p 4 4 ]
-"4
-} 0
-"3 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\floorf.c
-[v _floorf floorf `(f  1 e 4 0 ]
-{
-[u S1520 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
-"5
-[v floorf@u u `S1520  1 a 4 45 ]
-"7
-[v floorf@m m `ul  1 a 4 39 ]
-"6
-[v floorf@e e `i  1 a 2 43 ]
-"3
-[v floorf@x x `f  1 p 4 29 ]
-"4
-[v floorf@F526 F526 `S1520  1 s 4 F526 ]
-"27
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\__fpclassifyf.c
-[v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
-{
-[u S1520 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
-"6
-[v ___fpclassifyf@u u `S1520  1 a 4 14 ]
-"7
-[v ___fpclassifyf@e e `i  1 a 2 12 ]
-"4
-[v ___fpclassifyf@x x `f  1 p 4 4 ]
-"5
-[v ___fpclassifyf@F465 F465 `S1520  1 s 4 F465 ]
-"11
-} 0
-"43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
-{
-"45
-[v ___fltol@exp1 exp1 `uc  1 a 1 13 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 12 ]
-"43
-[v ___fltol@f1 f1 `d  1 p 4 4 ]
-"70
-} 0
-"245 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcadd.c
-[v ___flsub __flsub `(d  1 e 4 0 ]
-{
-[v ___flsub@b b `d  1 p 4 29 ]
-[v ___flsub@a a `d  1 p 4 33 ]
-"250
-} 0
-"10
-[v ___fladd __fladd `(d  1 e 4 0 ]
-{
-"17
-[v ___fladd@grs grs `uc  1 a 1 19 ]
-"15
-[v ___fladd@bexp bexp `uc  1 a 1 18 ]
-"16
-[v ___fladd@aexp aexp `uc  1 a 1 17 ]
-"13
-[v ___fladd@signs signs `uc  1 a 1 16 ]
-"10
-[v ___fladd@b b `d  1 p 4 4 ]
-[v ___fladd@a a `d  1 p 4 8 ]
-"237
-} 0
-"15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flneg.c
-[v ___flneg __flneg `(d  1 e 4 0 ]
-{
-[v ___flneg@f1 f1 `d  1 p 4 4 ]
-"20
-} 0
-"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
-[v ___flmul __flmul `(d  1 e 4 0 ]
-{
-[s S1214 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
-"13
-[s S1219 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S1222 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1214 1 fAsBytes 4 0 `S1219 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S1222  1 a 4 23 ]
-"12
-[v ___flmul@grs grs `ul  1 a 4 18 ]
-[s S1290 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
-"14
-[u S1293 . 2 `s 1 i 2 0 `us 1 n 2 0 `S1290 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S1293  1 a 2 27 ]
-"10
-[v ___flmul@bexp bexp `uc  1 a 1 22 ]
-"11
-[v ___flmul@aexp aexp `uc  1 a 1 17 ]
-"9
-[v ___flmul@sign sign `uc  1 a 1 16 ]
-"8
-[v ___flmul@b b `d  1 p 4 4 ]
-[v ___flmul@a a `d  1 p 4 8 ]
-"205
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
-[v ___flge __flge `(b  1 e 0 0 ]
-{
-[v ___flge@ff1 ff1 `d  1 p 4 29 ]
-[v ___flge@ff2 ff2 `d  1 p 4 33 ]
-"19
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fleq.c
-[v ___fleq __fleq `(b  1 e 0 0 ]
-{
-[v ___fleq@ff1 ff1 `d  1 p 4 4 ]
-[v ___fleq@ff2 ff2 `d  1 p 4 8 ]
-"12
-} 0
-"443 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+"443
 [v _dtoa dtoa `(v  1 s 1 dtoa ]
 {
 "447
-[v dtoa@n n `o  1 a 8 55 ]
+[v dtoa@n n `o  1 a 8 51 ]
 "446
-[v dtoa@i i `i  1 a 2 64 ]
-[v dtoa@w w `i  1 a 2 53 ]
-[v dtoa@p p `i  1 a 2 51 ]
+[v dtoa@i i `i  1 a 2 59 ]
+[v dtoa@w w `i  1 a 2 49 ]
+[v dtoa@p p `i  1 a 2 47 ]
 "445
-[v dtoa@s s `uc  1 a 1 63 ]
-<<<<<<< Updated upstream
-[s S1106 _IO_FILE 0 ]
+[v dtoa@s s `uc  1 a 1 61 ]
+[s S1430 _IO_FILE 0 ]
 "443
-[v dtoa@fp fp `*.39S1106  1 p 2 31 ]
-=======
-[s S1384 _IO_FILE 0 ]
-"443
-[v dtoa@fp fp `*.39S1384  1 p 2 31 ]
->>>>>>> Stashed changes
-[v dtoa@d d `o  1 p 8 33 ]
+[v dtoa@fp fp `*.39S1430  1 p 2 27 ]
+[v dtoa@d d `o  1 p 8 29 ]
 "502
 } 0
 "133
 [v _pad pad `(v  1 s 1 pad ]
 {
 "135
-[v pad@w w `i  1 a 2 29 ]
-[v pad@i i `i  1 a 2 27 ]
-<<<<<<< Updated upstream
-[s S1106 _IO_FILE 0 ]
+[v pad@w w `i  1 a 2 25 ]
+[v pad@i i `i  1 a 2 23 ]
+[s S1430 _IO_FILE 0 ]
 "133
-[v pad@fp fp `*.39S1106  1 p 2 20 ]
-=======
-[s S1384 _IO_FILE 0 ]
-"133
-[v pad@fp fp `*.39S1384  1 p 2 20 ]
->>>>>>> Stashed changes
-[v pad@buf buf `*.39uc  1 p 2 22 ]
-[v pad@p p `i  1 p 2 24 ]
+[v pad@fp fp `*.39S1430  1 p 2 16 ]
+[v pad@buf buf `*.39uc  1 p 2 18 ]
+[v pad@p p `i  1 p 2 20 ]
 "164
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
 [v _fputs fputs `(i  1 e 2 0 ]
 {
 "11
-[v fputs@i i `i  1 a 2 18 ]
+[v fputs@i i `i  1 a 2 14 ]
 "10
-[v fputs@c c `uc  1 a 1 17 ]
+[v fputs@c c `uc  1 a 1 13 ]
 "8
-[v fputs@s s `*.39Cuc  1 p 2 13 ]
-<<<<<<< Updated upstream
-[u S1071 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S1074 _IO_FILE 11 `S1071 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.39S1074  1 p 2 15 ]
-=======
-[u S1349 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S1352 _IO_FILE 11 `S1349 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.39S1352  1 p 2 15 ]
->>>>>>> Stashed changes
+[v fputs@s s `*.39Cuc  1 p 2 9 ]
+[u S1395 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1398 _IO_FILE 11 `S1395 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.39S1398  1 p 2 11 ]
 "19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
-[v fputc@c c `i  1 p 2 4 ]
-<<<<<<< Updated upstream
-[u S1071 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S1074 _IO_FILE 11 `S1071 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S1074  1 p 2 6 ]
-=======
-[u S1349 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S1352 _IO_FILE 11 `S1349 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S1352  1 p 2 6 ]
->>>>>>> Stashed changes
+[v fputc@c c `i  1 p 2 0 ]
+[u S1395 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1398 _IO_FILE 11 `S1395 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S1398  1 p 2 2 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\putch.c
@@ -915,83 +525,81 @@
 "1 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
 {
-[v abs@a a `i  1 p 2 22 ]
+[v abs@a a `i  1 p 2 18 ]
 "4
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
 [v ___aomod __aomod `(o  1 e 8 0 ]
 {
 "12
-[v ___aomod@sign sign `uc  1 a 1 21 ]
-[v ___aomod@counter counter `uc  1 a 1 20 ]
+[v ___aomod@sign sign `uc  1 a 1 17 ]
+[v ___aomod@counter counter `uc  1 a 1 16 ]
 "9
-[v ___aomod@dividend dividend `o  1 p 8 4 ]
-[v ___aomod@divisor divisor `o  1 p 8 12 ]
+[v ___aomod@dividend dividend `o  1 p 8 0 ]
+[v ___aomod@divisor divisor `o  1 p 8 8 ]
 "36
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
 [v ___aodiv __aodiv `(o  1 e 8 0 ]
 {
 "12
-[v ___aodiv@quotient quotient `o  1 a 8 22 ]
+[v ___aodiv@quotient quotient `o  1 a 8 18 ]
 "13
-[v ___aodiv@sign sign `uc  1 a 1 21 ]
-[v ___aodiv@counter counter `uc  1 a 1 20 ]
+[v ___aodiv@sign sign `uc  1 a 1 17 ]
+[v ___aodiv@counter counter `uc  1 a 1 16 ]
 "9
-[v ___aodiv@dividend dividend `o  1 p 8 4 ]
-[v ___aodiv@divisor divisor `o  1 p 8 12 ]
+[v ___aodiv@dividend dividend `o  1 p 8 0 ]
+[v ___aodiv@divisor divisor `o  1 p 8 8 ]
 "43
 } 0
-"93 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\serial.c
-[v _sendTxBuf sendTxBuf `(v  1 e 1 0 ]
+"33 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\serial.c
+[v _sendStringSerial4 sendStringSerial4 `(v  1 e 1 0 ]
 {
-"99
+[v sendStringSerial4@string string `*.39uc  1 p 2 1 ]
+"39
 } 0
-"80
-[v _isDataInTxBuf isDataInTxBuf `(uc  1 e 1 0 ]
+"26
+[v _sendCharSerial4 sendCharSerial4 `(v  1 e 1 0 ]
 {
-"82
+[v sendCharSerial4@charToSend charToSend `uc  1 a 1 wreg ]
+[v sendCharSerial4@charToSend charToSend `uc  1 a 1 wreg ]
+[v sendCharSerial4@charToSend charToSend `uc  1 a 1 0 ]
+"29
 } 0
-"85 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\color.c
+"103 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\color.c
 [v _readColours readColours `(v  1 e 1 0 ]
 {
-<<<<<<< Updated upstream
-[s S24 RGB 8 `i 1 R 2 0 `i 1 G 2 2 `i 1 B 2 4 `i 1 L 2 6 ]
-[v readColours@vals vals `*.39S24  1 p 2 15 ]
-"90
-=======
-[s S239 RGB 8 `i 1 R 2 0 `i 1 G 2 2 `i 1 B 2 4 `i 1 L 2 6 ]
-[v readColours@vals vals `*.39S239  1 p 2 15 ]
-"98
->>>>>>> Stashed changes
+[s S300 RGB 8 `i 1 R 2 0 `i 1 G 2 2 `i 1 B 2 4 `i 1 L 2 6 ]
+[v readColours@vals vals `*.39S300  1 p 2 11 ]
+"109
 } 0
-"29
+"47
 [v _color_read_lum color_read_lum `(ui  1 e 2 0 ]
 {
-"31
-[v color_read_lum@tmp tmp `ui  1 a 2 13 ]
-"41
+"49
+[v color_read_lum@tmp tmp `ui  1 a 2 9 ]
+"59
 } 0
-"43
+"61
 [v _color_read_Red color_read_Red `(ui  1 e 2 0 ]
 {
-"45
-[v color_read_Red@tmp tmp `ui  1 a 2 13 ]
-"55
+"63
+[v color_read_Red@tmp tmp `ui  1 a 2 9 ]
+"73
 } 0
-"56
+"74
 [v _color_read_Green color_read_Green `(ui  1 e 2 0 ]
 {
-"58
-[v color_read_Green@tmp tmp `ui  1 a 2 13 ]
-"68
+"76
+[v color_read_Green@tmp tmp `ui  1 a 2 9 ]
+"86
 } 0
-"70
+"88
 [v _color_read_Blue color_read_Blue `(ui  1 e 2 0 ]
 {
-"72
-[v color_read_Blue@tmp tmp `ui  1 a 2 13 ]
-"82
+"90
+[v color_read_Blue@tmp tmp `ui  1 a 2 9 ]
+"100
 } 0
 "33 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\i2c.c
 [v _I2C_2_Master_RepStart I2C_2_Master_RepStart `(v  1 e 1 0 ]
@@ -1003,11 +611,11 @@
 {
 [v I2C_2_Master_Read@ack ack `uc  1 a 1 wreg ]
 "53
-[v I2C_2_Master_Read@tmp tmp `uc  1 a 1 7 ]
+[v I2C_2_Master_Read@tmp tmp `uc  1 a 1 3 ]
 "51
 [v I2C_2_Master_Read@ack ack `uc  1 a 1 wreg ]
 "54
-[v I2C_2_Master_Read@ack ack `uc  1 a 1 6 ]
+[v I2C_2_Master_Read@ack ack `uc  1 a 1 2 ]
 "62
 } 0
 "4 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\serial.c
@@ -1015,72 +623,37 @@
 {
 "17
 } 0
-"100 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\color.c
+"112 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\color.c
 [v _colour_rel colour_rel `(v  1 e 1 0 ]
 {
-"104
-[v colour_rel@L L `f  1 a 4 45 ]
-"103
-[v colour_rel@B B `f  1 a 4 41 ]
-"102
-[v colour_rel@G G `f  1 a 4 37 ]
-"101
-[v colour_rel@R R `f  1 a 4 33 ]
-[s S239 RGB 8 `i 1 R 2 0 `i 1 G 2 2 `i 1 B 2 4 `i 1 L 2 6 ]
-"100
-[v colour_rel@vals vals `*.39S239  1 p 2 29 ]
-[s S244 RGB_rel 12 `f 1 R 4 0 `f 1 G 4 4 `f 1 B 4 8 ]
-[v colour_rel@rel rel `*.39S244  1 p 2 31 ]
-"108
+"115
+[v colour_rel@B B `f  1 a 4 73 ]
+"114
+[v colour_rel@G G `f  1 a 4 69 ]
+"113
+[v colour_rel@R R `f  1 a 4 65 ]
+"116
+[v colour_rel@L L `f  1 a 4 53 ]
+[s S300 RGB 8 `i 1 R 2 0 `i 1 G 2 2 `i 1 B 2 4 `i 1 L 2 6 ]
+"112
+[v colour_rel@vals vals `*.39S300  1 p 2 49 ]
+[s S305 RGB_rel 12 `f 1 R 4 0 `f 1 G 4 4 `f 1 B 4 8 ]
+[v colour_rel@rel rel `*.39S305  1 p 2 51 ]
+"121
 } 0
-"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
-[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-{
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-"13
-[v ___xxtofl@arg arg `ul  1 a 4 14 ]
-"12
-[v ___xxtofl@exp exp `uc  1 a 1 13 ]
-"10
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-[v ___xxtofl@val val `l  1 p 4 4 ]
-"15
-[v ___xxtofl@sign sign `uc  1 a 1 12 ]
-"44
-} 0
-"11 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
-[v ___fldiv __fldiv `(d  1 e 4 0 ]
-{
-"21
-[v ___fldiv@grs grs `ul  1 a 4 23 ]
-"22
-[v ___fldiv@rem rem `ul  1 a 4 16 ]
-"20
-[v ___fldiv@new_exp new_exp `s  1 a 2 21 ]
-"19
-[v ___fldiv@aexp aexp `uc  1 a 1 28 ]
-"18
-[v ___fldiv@bexp bexp `uc  1 a 1 27 ]
-"16
-[v ___fldiv@sign sign `uc  1 a 1 20 ]
-"11
-[v ___fldiv@b b `d  1 p 4 4 ]
-[v ___fldiv@a a `d  1 p 4 8 ]
-"185
-} 0
-"5 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\color.c
+"5
 [v _color_click_init color_click_init `(v  1 e 1 0 ]
 {
-"19
+"37
 } 0
-"21
+"39
 [v _color_writetoaddr color_writetoaddr `(v  1 e 1 0 ]
 {
 [v color_writetoaddr@address address `uc  1 a 1 wreg ]
 [v color_writetoaddr@address address `uc  1 a 1 wreg ]
-[v color_writetoaddr@value value `uc  1 p 1 6 ]
-[v color_writetoaddr@address address `uc  1 a 1 7 ]
-"27
+[v color_writetoaddr@value value `uc  1 p 1 2 ]
+[v color_writetoaddr@address address `uc  1 a 1 3 ]
+"45
 } 0
 "45 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\i2c.c
 [v _I2C_2_Master_Write I2C_2_Master_Write `(v  1 e 1 0 ]
@@ -1088,7 +661,7 @@
 [v I2C_2_Master_Write@data_byte data_byte `uc  1 a 1 wreg ]
 [v I2C_2_Master_Write@data_byte data_byte `uc  1 a 1 wreg ]
 "47
-[v I2C_2_Master_Write@data_byte data_byte `uc  1 a 1 5 ]
+[v I2C_2_Master_Write@data_byte data_byte `uc  1 a 1 1 ]
 "49
 } 0
 "39
@@ -1111,40 +684,132 @@
 {
 "20
 } 0
-"85 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\serial.c
-[v _TxBufferedString TxBufferedString `(v  1 e 1 0 ]
-{
-[v TxBufferedString@string string `*.39uc  1 p 2 5 ]
-"89
-} 0
-"72
-[v _putCharToTxBuf putCharToTxBuf `(v  1 e 1 0 ]
-{
-[v putCharToTxBuf@byte byte `uc  1 a 1 wreg ]
-[v putCharToTxBuf@byte byte `uc  1 a 1 wreg ]
-[v putCharToTxBuf@byte byte `uc  1 a 1 4 ]
-"75
-} 0
-"10 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\interrupts.c
+"12 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\interrupts.c
 [v _Interrupts_init Interrupts_init `(v  1 e 1 0 ]
 {
+"32
+} 0
+"123 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\color.c
+[v _Colour_decider Colour_decider `(i  1 e 2 0 ]
+{
+"129
+[v Colour_decider@RGB_col RGB_col `[3]f  1 a 12 6 ]
+"130
+[v Colour_decider@Hue Hue `f  1 a 4 28 ]
+"125
+[v Colour_decider@Cmin Cmin `f  1 a 4 22 ]
+"124
+[v Colour_decider@Cmax Cmax `f  1 a 4 18 ]
+"128
+[v Colour_decider@i i `i  1 a 2 26 ]
+"126
+[v Colour_decider@Cmax_i Cmax_i `i  1 a 2 4 ]
+[s S300 RGB 8 `i 1 R 2 0 `i 1 G 2 2 `i 1 B 2 4 `i 1 L 2 6 ]
+"123
+[v Colour_decider@vals vals `*.39S300  1 p 2 74 ]
+[s S305 RGB_rel 12 `f 1 R 4 0 `f 1 G 4 4 `f 1 B 4 8 ]
+[v Colour_decider@rel rel `*.39S305  1 p 2 76 ]
+"215
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 10 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 9 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 0 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 8 ]
+"44
+} 0
+"245 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcadd.c
+[v ___flsub __flsub `(d  1 e 4 0 ]
+{
+[v ___flsub@b b `d  1 p 4 16 ]
+[v ___flsub@a a `d  1 p 4 20 ]
+"250
+} 0
+"10
+[v ___fladd __fladd `(d  1 e 4 0 ]
+{
+"17
+[v ___fladd@grs grs `uc  1 a 1 15 ]
+"15
+[v ___fladd@bexp bexp `uc  1 a 1 14 ]
+"16
+[v ___fladd@aexp aexp `uc  1 a 1 13 ]
+"13
+[v ___fladd@signs signs `uc  1 a 1 12 ]
+"10
+[v ___fladd@b b `d  1 p 4 0 ]
+[v ___fladd@a a `d  1 p 4 4 ]
+"237
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S1260 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S1265 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S1268 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1260 1 fAsBytes 4 0 `S1265 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S1268  1 a 4 68 ]
+"12
+[v ___flmul@grs grs `ul  1 a 4 62 ]
+[s S1336 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S1339 . 2 `s 1 i 2 0 `us 1 n 2 0 `S1336 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S1339  1 a 2 72 ]
+"10
+[v ___flmul@bexp bexp `uc  1 a 1 67 ]
+"11
+[v ___flmul@aexp aexp `uc  1 a 1 66 ]
+"9
+[v ___flmul@sign sign `uc  1 a 1 61 ]
+"8
+[v ___flmul@b b `d  1 p 4 49 ]
+[v ___flmul@a a `d  1 p 4 53 ]
+"205
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+{
+[v ___flge@ff1 ff1 `d  1 p 4 0 ]
+[v ___flge@ff2 ff2 `d  1 p 4 4 ]
 "19
 } 0
-"25
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+{
+[v ___fleq@ff1 ff1 `d  1 p 4 24 ]
+[v ___fleq@ff2 ff2 `d  1 p 4 28 ]
+"12
+} 0
+"11 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 43 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 36 ]
+"20
+[v ___fldiv@new_exp new_exp `s  1 a 2 41 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 48 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 47 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 40 ]
+"11
+[v ___fldiv@b b `d  1 p 4 24 ]
+[v ___fldiv@a a `d  1 p 4 28 ]
+"185
+} 0
+"59 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\interrupts.c
 [v _HighISR HighISR `IIH(v  1 e 1 0 ]
 {
-"39
-} 0
-"52 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\serial.c
-[v _putCharToRxBuf putCharToRxBuf `(v  1 e 1 0 ]
-{
-[v putCharToRxBuf@byte byte `uc  1 a 1 wreg ]
-[v putCharToRxBuf@byte byte `uc  1 a 1 wreg ]
-[v putCharToRxBuf@byte byte `uc  1 a 1 0 ]
-"55
-} 0
-"66
-[v _getCharFromTxBuf getCharFromTxBuf `(uc  1 e 1 0 ]
-{
-"69
+"78
 } 0

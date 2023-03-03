@@ -24449,6 +24449,8 @@ struct RGB{
     int B;
     int L;
 };
+
+
 struct RGB_rel{
     float R;
     float G;
@@ -24458,6 +24460,8 @@ struct RGB_rel{
 
 
 void colour_rel(struct RGB *vals, struct RGB_rel *rel);
+
+char Colour_decider(struct RGB *vals, struct RGB_rel *rel);
 void readColours (struct RGB *vals);
 # 18 "main.c" 2
 
@@ -24497,16 +24501,18 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 # 19 "main.c" 2
 
 # 1 "./interrupts.h" 1
-
-
-
-
-
-
-
+# 10 "./interrupts.h"
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
+
+void colour_interrupt_init(void);
+void clear_int(void);
+
 extern volatile char DataFlag;
+extern volatile char ColourFlag;
+
+int low_threshold=0;
+int high_threshold=1000;
 # 20 "main.c" 2
 
 
@@ -24521,29 +24527,39 @@ void main(void) {
     Interrupts_init();
     color_click_init();
     I2C_2_Master_Init();
-    char buf[50];
+    char buf[100];
     unsigned int int_part;
     unsigned int frac_part;
     unsigned int ADC;
 
+    TRISGbits.TRISG1 = 0;
+    TRISAbits.TRISA4 = 0;
+    TRISFbits.TRISF7 = 0;
+    LATGbits.LATG1=1;
+    LATAbits.LATA4=1;
+    LATFbits.LATF7=1;
+
+
     while (1)
     {
-   LATGbits.LATG1=1;
-    _delay((unsigned long)((100)*(64000000/4000.0)));
+
 
 
     readColours(&vals);
+
+
     colour_rel(&vals, &rel);
-    float value = vals.R/vals.L;
 
-    sprintf(buf,"red=%d green=%d blue=%d lum=%d\r\n",vals.R, vals.G,vals.B,vals.L);
-    TxBufferedString(buf);
 
-    while (DataFlag){
-        sendTxBuf();
+    if (vals.L>=2500){
+            int colour = Colour_decider(&vals, &rel);
+            sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,colour);
+    }else{
+        sprintf(buf,"red=%d green=%d blue=%d lum=%d \r\n",vals.R, vals.G,vals.B,vals.L);
     }
 
 
+    sendStringSerial4(buf);
 
 }
 }
