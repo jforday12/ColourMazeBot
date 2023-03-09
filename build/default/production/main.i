@@ -24546,6 +24546,10 @@ void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
 void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
 void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
 void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
+
+void RedMove(struct DC_motor *mL,struct DC_motor *mR);
+void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
+void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
 # 21 "main.c" 2
 
 
@@ -24596,9 +24600,23 @@ void main(void) {
 
 
         if (vals.L>=2200){
+
             stop(&motorL, &motorR);
-            _delay((unsigned long)((10)*(64000000/4000.0)));
+            _delay((unsigned long)((200)*(64000000/4000.0)));
+
             int colour = Colour_decider(&vals, &rel);
+
+
+            if (colour==1){
+                RedMove(&motorL, &motorR);
+            }
+            else if(colour==4){
+                BlueMove(&motorL, &motorR);
+            }
+            else if(colour==5){
+                GreenMove(&motorL, &motorR);
+            }
+
 
 
             sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,colour);

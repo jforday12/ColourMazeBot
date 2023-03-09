@@ -24338,6 +24338,10 @@ void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
 void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
 void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
 void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
+
+void RedMove(struct DC_motor *mL,struct DC_motor *mR);
+void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
+void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
 # 4 "color.c" 2
 
 
@@ -24499,10 +24503,6 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
 
 
     if ((330<=Hue)&(Hue<=360)){
-        reverseDetect(&motorL, &motorR);
-        turnRight45(&motorL, &motorR);
-        turnRight45(&motorL, &motorR);
-
         return 1;
     }
 
@@ -24520,11 +24520,6 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
             return 3;
 
         } else{
-            reverseDetect(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
             return 4;
 
         }
@@ -24532,11 +24527,6 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
 
     else if ((60<=Hue)&(Hue<=79)){
         if(0.15<=rel->B){
-            reverseDetect(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
             return 4;
         }
         else{

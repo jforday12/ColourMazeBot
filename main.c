@@ -67,9 +67,23 @@ void main(void) {
     
         // if the clear value is greater than 2500 (value obtained from lowest clear value card which was blue) then it has hit a wall so detect what colour it sees
         if (vals.L>=2200){
+            // stop the buggie
             stop(&motorL, &motorR);
-            __delay_ms(10); 
+            __delay_ms(200); 
+            
             int colour = Colour_decider(&vals, &rel);
+            
+            // give move instruction based on returned colour
+            if (colour==1){ //red
+                RedMove(&motorL, &motorR);
+            }
+            else if(colour==4){ //blue
+                BlueMove(&motorL, &motorR);
+            }
+            else if(colour==5){ //green
+                GreenMove(&motorL, &motorR);
+            }
+            
             
           
             sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,colour);

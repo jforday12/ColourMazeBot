@@ -29,4 +29,7 @@ void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
 void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
 void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
 
+void RedMove(struct DC_motor *mL,struct DC_motor *mR);
+void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
+void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
 #endif

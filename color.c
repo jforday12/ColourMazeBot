@@ -161,10 +161,6 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
 
     // if the hue is between the found ranges of red return that its red
     if ((330<=Hue)&(Hue<=360)){
-        reverseDetect(&motorL, &motorR);
-        turnRight45(&motorL, &motorR);
-        turnRight45(&motorL, &motorR);
-        
         return 1; // red
     }    
     // if the hue is between the found ranges of orange return that its red
@@ -182,11 +178,6 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
             return 3; // yellow
         // otherwise it must be blue
         } else{
-            reverseDetect(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
             return 4; // blue
 
         }       
@@ -194,11 +185,6 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
     // if the hue is between the found ranges of green return green 
     else if ((60<=Hue)&(Hue<=79)){
         if(0.15<=rel->B){
-            reverseDetect(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
             return 4; //blue
         }
         else{
