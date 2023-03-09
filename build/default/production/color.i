@@ -24264,6 +24264,7 @@ struct RGB_rel{
     float B;
 };
 
+volatile char pointer=0;
 
 
 void colour_rel(struct RGB *vals, struct RGB_rel *rel);
@@ -24307,6 +24308,8 @@ void I2C_2_Master_Write(unsigned char data_byte);
 unsigned char I2C_2_Master_Read(unsigned char ack);
 # 3 "color.c" 2
 
+# 1 "./Memory.h" 1
+# 4 "color.c" 2
 
 void color_click_init(void)
 {
@@ -24475,6 +24478,7 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
     else if ((20<=Hue)&(Hue<=29)){
 
         if ((0.20<=rel->R)&(rel->R<=0.23)){
+
             return 0;
         }
 
@@ -24487,25 +24491,39 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
         }
     }
 
-    else if ((60<=Hue)&(Hue<=74)){
-        return 5;
+    else if ((60<=Hue)&(Hue<=79)){
+        if (0.15<=rel->B){
+            return 4;
+        }
+        else{
+            return 5;
+        }
     }
 
-    else if ((75<=Hue)&(Hue<=115)){
-        return 6;
+    else if ((80<=Hue)&(Hue<=115)){
+        if (0.15<=rel->B){
+            return 4;
+        }
+        else{
+            return 6;
+        }
     }
 
-    else if (((30<=Hue)&(Hue<=55))|(120<=Hue)&(Hue<=220)){
+    else if (((30<=Hue)&(Hue<=58))|(120<=Hue)&(Hue<=220)){
         return 4;
     }
 
     else if ((14<=Hue)&(Hue<=19)){
 
         if ((0.20<=rel->R)&(rel->R<=0.23)){
-            return 0;
-        }else{
 
-        return 7;
+            return 0;
+        }else if (0.15<=rel->B){
+            return 4;
+        }
+
+        else{
+            return 7;
           }
     }
     else{

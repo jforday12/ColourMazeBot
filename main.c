@@ -18,9 +18,12 @@
 #include "color.h"
 #include "i2c.h"
 #include "interrupts.h"
+#include "Memory.h"
+
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
 extern volatile char DataFlag;
+
 
 struct RGB_rel rel;
 struct RGB vals;
@@ -31,14 +34,14 @@ void main(void) {
     color_click_init();
     I2C_2_Master_Init();
     char buf[100];
-    TRISGbits.TRISG1 = 0; // Set TRIS value for red LED (output)
-    TRISAbits.TRISA4 = 0; // Set TRIS value for green LED (output)
-    TRISFbits.TRISF7 = 0; // Set TRIS value for blue LED (output)
+
     RED_LED=1; // sets RED LED on 
     GREEN_LED=1; // sets green LED on
     BLUE_LED=1; // sets Blue LED on
     
-
+    
+    
+    
     while (1)
     {
         
@@ -56,7 +59,9 @@ void main(void) {
     }else{
             sprintf(buf,"red=%d green=%d blue=%d lum=%d \r\n",vals.R, vals.G,vals.B,vals.L);
     }
-    
+    //int colour = Colour_decider(&vals, &rel);
+    //sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,colour);
+    //sprintf(buf,"red=%f green=%f blue=%f lum=%d colour=%d \r\n",rel.R, rel.G,rel.B,vals.L,colour);
 
     sendStringSerial4(buf);
    

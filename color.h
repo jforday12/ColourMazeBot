@@ -40,6 +40,7 @@ struct RGB_rel{
     float B;
 };
 
+volatile char pointer=0;
 
 
 void colour_rel(struct RGB *vals, struct RGB_rel *rel);

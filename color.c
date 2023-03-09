@@ -1,7 +1,7 @@
 #include <xc.h>
 #include "color.h"
 #include "i2c.h"
-
+#include "Memory.h"
 void color_click_init(void)
 {   
     //setup colour sensor via i2c interface
@@ -156,7 +156,7 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
         Hue=(4+(RGB_col[0]-RGB_col[1])/(Cmax-Cmin))*60;
     }
     
-
+    //return Hue;
     // if the hue is between the found ranges of red return that its red
     if ((330<=Hue)&(Hue<=360)){
         return 1; // red
@@ -169,6 +169,7 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
     else if ((20<=Hue)&(Hue<=29)){
         // check if the relative values lie in the white range if it does then its white
         if ((0.20<=rel->R)&(rel->R<=0.23)){
+//            Return(&Ar);5
             return 0;//white
         }
         // otherwise if the absolute value of red is greater than 2000 then its yellow. this value was found through testing
@@ -181,25 +182,39 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
         }       
     }
     // if the hue is between the found ranges of green return green 
-    else if ((60<=Hue)&(Hue<=74)){
-        return 5; // green
-    } 
+    else if ((60<=Hue)&(Hue<=79)){
+        if (0.15<=rel->B){
+            return 4;
+        }
+        else{
+            return 5; // green
+        }
+    }   
     // if the hue is between the found ranges of light blue return light blue 
-    else if ((75<=Hue)&(Hue<=115)){
-        return 6; // light blue
+    else if ((80<=Hue)&(Hue<=115)){
+        if (0.15<=rel->B){
+            return 4;
+        }
+        else{
+            return 6; // green
+        }
     } 
     // if the hue is between the found ranges of  blue return  blue 
-    else if (((30<=Hue)&(Hue<=55))|(120<=Hue)&(Hue<=220)){
+    else if (((30<=Hue)&(Hue<=58))|(120<=Hue)&(Hue<=220)){
         return 4; //  blue
     }
     // if the hue is between the found ranges of white or pink 
     else if ((14<=Hue)&(Hue<=19)){
         // check if the relative values lie in the white range if it does then its white 
         if ((0.20<=rel->R)&(rel->R<=0.23)){
+////            Return(&Ar);
             return 0;//white
-        }else{
+        }else if (0.15<=rel->B){
+            return 4;
+        }
         // otherwise it must be pink
-        return 7; // pink
+        else{
+            return 7; // pink
           }
     }
     else{

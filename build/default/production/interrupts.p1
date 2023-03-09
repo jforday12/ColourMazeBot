@@ -1975,6 +1975,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40927
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 40927: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"43 ./color.h
+[; ;./color.h: 43: volatile char pointer=0;
+[v _pointer `Vuc ~T0 @X0 1 e ]
+[i _pointer
+-> -> 0 `i `uc
+]
 "19 ./interrupts.h
 [; ;./interrupts.h: 19: int low_threshold=0;
 [v _low_threshold `i ~T0 @X0 1 e ]
