@@ -1,6 +1,8 @@
 #include <xc.h>
 #include "color.h"
 #include "i2c.h"
+#include "dc_motor.h"
+//initDCmotorsPWM(200);
 
 void color_click_init(void)
 {   
@@ -120,7 +122,7 @@ void colour_rel(struct RGB *vals, struct RGB_rel *rel){
     // stores all relative value in new struct of floats for relative values
 }
 
-int Colour_decider(struct RGB *vals, struct RGB_rel *rel){ 
+int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structure as inputs 
     float Cmax = 0;
     float Cmin= 100000; 
     int Cmax_i =4; // intialises Cmax_i as anything will be replaced after for loop
@@ -159,6 +161,10 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
 
     // if the hue is between the found ranges of red return that its red
     if ((330<=Hue)&(Hue<=360)){
+        reverseDetect(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
+        
         return 1; // red
     }    
     // if the hue is between the found ranges of orange return that its red
@@ -176,20 +182,51 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
             return 3; // yellow
         // otherwise it must be blue
         } else{
+            reverseDetect(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
             return 4; // blue
 
         }       
     }
     // if the hue is between the found ranges of green return green 
-    else if ((60<=Hue)&(Hue<=74)){
-        return 5; // green
+    else if ((60<=Hue)&(Hue<=79)){
+        if(0.15<=rel->B){
+            reverseDetect(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            return 4;
+        }
+        else{
+            reverseDetect(&motorL, &motorR);
+            turnLeft45(&motorL, &motorR);
+            turnLeft45(&motorL, &motorR);
+            return 5; // green
+            
+        }
+        
     } 
     // if the hue is between the found ranges of light blue return light blue 
-    else if ((75<=Hue)&(Hue<=115)){
-        return 6; // light blue
+    else if ((80<=Hue)&(Hue<=115)){
+        if(0.15<=rel->B){
+            reverseDetect(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            return 4;
+        }
+        else{
+             return 6; // light blue
+        }
+       
     } 
     // if the hue is between the found ranges of  blue return  blue 
-    else if (((30<=Hue)&(Hue<=55))|(120<=Hue)&(Hue<=220)){
+    else if (((30<=Hue)&(Hue<=58))|(120<=Hue)&(Hue<=220)){
         return 4; //  blue
     }
     // if the hue is between the found ranges of white or pink 
@@ -197,9 +234,17 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
         // check if the relative values lie in the white range if it does then its white 
         if ((0.20<=rel->R)&(rel->R<=0.23)){
             return 0;//white
+        }
+        else if (0.15<=rel->B){
+            reverseDetect(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            return 4;
         }else{
         // otherwise it must be pink
-        return 7; // pink
+            return 7; // pink
           }
     }
     else{

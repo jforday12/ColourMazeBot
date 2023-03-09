@@ -3,4 +3,5 @@ main.c  \
 serial.h  \
 color.h  \
 i2c.h  \
-interrupts.h 
+interrupts.h  \
+dc_motor.h 

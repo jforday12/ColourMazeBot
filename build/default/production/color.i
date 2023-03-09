@@ -24307,6 +24307,40 @@ void I2C_2_Master_Write(unsigned char data_byte);
 unsigned char I2C_2_Master_Read(unsigned char ack);
 # 3 "color.c" 2
 
+# 1 "./dc_motor.h" 1
+
+
+
+
+
+
+
+struct DC_motor {
+    char power;
+    char direction;
+    char brakemode;
+    unsigned int PWMperiod;
+    unsigned char *posDutyHighByte;
+    unsigned char *negDutyHighByte;
+};
+
+struct DC_motor motorL, motorR;
+
+
+void initDCmotorsPWM(unsigned int PWMperiod);
+void setMotorPWM(struct DC_motor *m);
+void stop(struct DC_motor *mL,struct DC_motor *mR);
+void turnLeft(struct DC_motor *mL,struct DC_motor *mR);
+void turnRight(struct DC_motor *mL,struct DC_motor *mR);
+void fullSpeedAhead(struct DC_motor *mL,struct DC_motor *mR);
+void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
+
+void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
+void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
+void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
+# 4 "color.c" 2
+
+
 
 void color_click_init(void)
 {
@@ -24465,6 +24499,10 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
 
 
     if ((330<=Hue)&(Hue<=360)){
+        reverseDetect(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
+
         return 1;
     }
 
@@ -24482,20 +24520,51 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
             return 3;
 
         } else{
+            reverseDetect(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
             return 4;
 
         }
     }
 
-    else if ((60<=Hue)&(Hue<=74)){
-        return 5;
+    else if ((60<=Hue)&(Hue<=79)){
+        if(0.15<=rel->B){
+            reverseDetect(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            return 4;
+        }
+        else{
+            reverseDetect(&motorL, &motorR);
+            turnLeft45(&motorL, &motorR);
+            turnLeft45(&motorL, &motorR);
+            return 5;
+
+        }
+
     }
 
-    else if ((75<=Hue)&(Hue<=115)){
-        return 6;
+    else if ((80<=Hue)&(Hue<=115)){
+        if(0.15<=rel->B){
+            reverseDetect(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            return 4;
+        }
+        else{
+             return 6;
+        }
+
     }
 
-    else if (((30<=Hue)&(Hue<=55))|(120<=Hue)&(Hue<=220)){
+    else if (((30<=Hue)&(Hue<=58))|(120<=Hue)&(Hue<=220)){
         return 4;
     }
 
@@ -24503,9 +24572,17 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
 
         if ((0.20<=rel->R)&(rel->R<=0.23)){
             return 0;
+        }
+        else if (0.15<=rel->B){
+            reverseDetect(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            turnRight45(&motorL, &motorR);
+            return 4;
         }else{
 
-        return 7;
+            return 7;
           }
     }
     else{

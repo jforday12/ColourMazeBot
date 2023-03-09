@@ -18,6 +18,7 @@
 #include "color.h"
 #include "i2c.h"
 #include "interrupts.h"
+#include "dc_motor.h"
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
 extern volatile char DataFlag;
@@ -30,6 +31,7 @@ void main(void) {
     Interrupts_init();
     color_click_init();
     I2C_2_Master_Init();
+    initDCmotorsPWM(200);
     char buf[100];
     TRISGbits.TRISG1 = 0; // Set TRIS value for red LED (output)
     TRISAbits.TRISA4 = 0; // Set TRIS value for green LED (output)
@@ -39,26 +41,44 @@ void main(void) {
     BLUE_LED=1; // sets Blue LED on
     
 
+    //create structure for dc motors
+    motorL.power=0; 						//zero power to start
+    motorL.direction=1; 					//set default motor direction
+    motorL.brakemode=1;						// brake mode (slow decay)
+    motorL.posDutyHighByte=(unsigned char *)(&CCPR1H);  //store address of CCP1 duty high byte
+    motorL.negDutyHighByte=(unsigned char *)(&CCPR2H);  //store address of CCP2 duty high byte
+    motorL.PWMperiod=200; 			//store PWMperiod for motor (value of T2PR in this case)
+    motorR.power=0; 						//zero power to start
+    motorR.direction=1; 					//set default motor direction
+    motorR.brakemode=1;						// brake mode (slow decay)
+    motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);  //store address of CCP1 duty high byte
+    motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);  //store address of CCP2 duty high byte
+    motorR.PWMperiod=200; 			//store PWMperiod for motor (value of T2PR in this case)
+    
     while (1)
     {
-        
+        fullSpeedAhead(&motorL, &motorR);
     
-    // read the colours and store it in the struct vals
-    readColours(&vals);
+        // read the colours and store it in the struct vals
+        readColours(&vals);
     
-    // obtain the relative RGB values and store it in the struct RGB_rel vals
-    colour_rel(&vals, &rel);
+        // obtain the relative RGB values and store it in the struct RGB_rel vals
+        colour_rel(&vals, &rel);
     
-    // if the clear value is greater than 2500 (value obtained from lowest clear value card which was blue) then it has hit a wall so detect what colour it sees
-    if (vals.L>=2200){
+        // if the clear value is greater than 2500 (value obtained from lowest clear value card which was blue) then it has hit a wall so detect what colour it sees
+        if (vals.L>=2200){
+            stop(&motorL, &motorR);
+            __delay_ms(10); 
             int colour = Colour_decider(&vals, &rel);
+            
+          
             sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,colour);
-    }else{
+        }else{
             sprintf(buf,"red=%d green=%d blue=%d lum=%d \r\n",vals.R, vals.G,vals.B,vals.L);
-    }
+        }
     
 
-    sendStringSerial4(buf);
+        sendStringSerial4(buf);
    
-}
+    }
 }

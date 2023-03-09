@@ -24515,6 +24515,39 @@ int low_threshold=0;
 int high_threshold=1000;
 # 20 "main.c" 2
 
+# 1 "./dc_motor.h" 1
+
+
+
+
+
+
+
+struct DC_motor {
+    char power;
+    char direction;
+    char brakemode;
+    unsigned int PWMperiod;
+    unsigned char *posDutyHighByte;
+    unsigned char *negDutyHighByte;
+};
+
+struct DC_motor motorL, motorR;
+
+
+void initDCmotorsPWM(unsigned int PWMperiod);
+void setMotorPWM(struct DC_motor *m);
+void stop(struct DC_motor *mL,struct DC_motor *mR);
+void turnLeft(struct DC_motor *mL,struct DC_motor *mR);
+void turnRight(struct DC_motor *mL,struct DC_motor *mR);
+void fullSpeedAhead(struct DC_motor *mL,struct DC_motor *mR);
+void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
+
+void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
+void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
+void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
+# 21 "main.c" 2
+
 
 
 extern volatile char DataFlag;
@@ -24527,6 +24560,7 @@ void main(void) {
     Interrupts_init();
     color_click_init();
     I2C_2_Master_Init();
+    initDCmotorsPWM(200);
     char buf[100];
     TRISGbits.TRISG1 = 0;
     TRISAbits.TRISA4 = 0;
@@ -24536,26 +24570,44 @@ void main(void) {
     LATFbits.LATF7=1;
 
 
+
+    motorL.power=0;
+    motorL.direction=1;
+    motorL.brakemode=1;
+    motorL.posDutyHighByte=(unsigned char *)(&CCPR1H);
+    motorL.negDutyHighByte=(unsigned char *)(&CCPR2H);
+    motorL.PWMperiod=200;
+    motorR.power=0;
+    motorR.direction=1;
+    motorR.brakemode=1;
+    motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);
+    motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);
+    motorR.PWMperiod=200;
+
     while (1)
     {
+        fullSpeedAhead(&motorL, &motorR);
 
 
-
-    readColours(&vals);
-
-
-    colour_rel(&vals, &rel);
+        readColours(&vals);
 
 
-    if (vals.L>=2200){
+        colour_rel(&vals, &rel);
+
+
+        if (vals.L>=2200){
+            stop(&motorL, &motorR);
+            _delay((unsigned long)((10)*(64000000/4000.0)));
             int colour = Colour_decider(&vals, &rel);
+
+
             sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,colour);
-    }else{
+        }else{
             sprintf(buf,"red=%d green=%d blue=%d lum=%d \r\n",vals.R, vals.G,vals.B,vals.L);
+        }
+
+
+        sendStringSerial4(buf);
+
     }
-
-
-    sendStringSerial4(buf);
-
-}
 }
