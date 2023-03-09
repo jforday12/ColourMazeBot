@@ -199,12 +199,12 @@ void reverseDetect(struct DC_motor *mL,struct DC_motor *mR){
     __delay_ms(1000); 
 }
 
-//void BumpintoWall(struct DC_motor *mL,struct DC_motor *mR){
-//    fullSpeedAhead(mL,mR);
-//    __delay_ms(400);
-//    stop(&motorL, &motorR);
-//    __delay_ms(1000); 
-//}
+void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR){
+    fullSpeedBack(mL,mR);
+    __delay_ms(1000); // reverse time period needs to be calibrated
+    stop(&motorL, &motorR);
+    __delay_ms(1000); 
+}
 
 
 // one line instruction for each colour
@@ -236,11 +236,41 @@ void BlueMove(struct DC_motor *mL,struct DC_motor *mR){
 }
 
 // yellow move instruction Reverse 1 square and turn right 90
+void YellowMove(struct DC_motor *mL,struct DC_motor *mR){
+    reverseDetect(&motorL, &motorR);
+    //reverse one square
+    reverseOneBlock(&motorL, &motorR);
+    // turn right 90 degree
+    turnRight45(&motorL, &motorR);
+    turnRight45(&motorL, &motorR);
+}
 
 // pink move instruction Reverse 1 square and turn left 90
+void PinkMove(struct DC_motor *mL,struct DC_motor *mR){
+    reverseDetect(&motorL, &motorR);
+    //reverse one square
+    reverseOneBlock(&motorL, &motorR);
+    // turn left 90 degree
+    turnLeft45(&motorL, &motorR);
+    turnLeft45(&motorL, &motorR);
+}
 
 // orange move instruction Turn Right 135
+void OrangeMove(struct DC_motor *mL,struct DC_motor *mR){
+    reverseDetect(&motorL, &motorR);
+    // turn right 135 degree
+    turnRight45(&motorL, &motorR);
+    turnRight45(&motorL, &motorR);
+    turnRight45(&motorL, &motorR);
+}
 
 // light blue move instruction 	Turn Left 135
+void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR){
+    reverseDetect(&motorL, &motorR);
+    // turn left 135 degree
+    turnLeft45(&motorL, &motorR);
+    turnLeft45(&motorL, &motorR);
+    turnLeft45(&motorL, &motorR);
+}
 
 // white move instruction Finish (return home)

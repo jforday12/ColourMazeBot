@@ -77,11 +77,23 @@ void main(void) {
             if (colour==1){ //red
                 RedMove(&motorL, &motorR);
             }
+            else if(colour==2){ //orange
+                OrangeMove(&motorL, &motorR);
+            }
+            else if(colour==3){ //yellow
+                YellowMove(&motorL, &motorR);
+            }
             else if(colour==4){ //blue
                 BlueMove(&motorL, &motorR);
             }
             else if(colour==5){ //green
                 GreenMove(&motorL, &motorR);
+            }
+            else if(colour==6){ //light blue
+                LightBlueMove(&motorL, &motorR);
+            }
+            else if(colour==7){ //pink
+                PinkMove(&motorL, &motorR);
             }
             
             

@@ -2469,8 +2469,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "130
 [; ;color.c: 130:     int i;
 [v _i `i ~T0 @X0 1 a ]
-[v F14315 `f ~T0 @X0 -> 3 `i s ]
-[i F14315
+[v F14330 `f ~T0 @X0 -> 3 `i s ]
+[i F14330
 :U ..
 "131
 [; ;color.c: 131:     float RGB_col[3]={vals->R,vals->G,vals->B};
@@ -2480,7 +2480,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _RGB_col `f ~T0 @X0 -> 3 `i a ]
-[e = _RGB_col F14315 ]
+[e = _RGB_col F14330 ]
 [e ; = *U + &U _RGB_col * -> -> -> 0 `i `ui `ux -> -> # *U &U _RGB_col `ui `ux -> . *U _vals 0 `f ; = *U + &U _RGB_col * -> -> -> 1 `i `ui `ux -> -> # *U &U _RGB_col `ui `ux -> . *U _vals 1 `f = *U + &U _RGB_col * -> -> -> 2 `i `ui `ux -> -> # *U &U _RGB_col `ui `ux -> . *U _vals 2 `f ]
 "132
 [; ;color.c: 132:     float Hue;

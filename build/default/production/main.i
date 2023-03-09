@@ -24546,10 +24546,15 @@ void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
 void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
 void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
 void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
+void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 
 void RedMove(struct DC_motor *mL,struct DC_motor *mR);
 void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
 void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
+void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
+void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
+void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
+void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
 # 21 "main.c" 2
 
 
@@ -24610,11 +24615,23 @@ void main(void) {
             if (colour==1){
                 RedMove(&motorL, &motorR);
             }
+            else if(colour==2){
+                OrangeMove(&motorL, &motorR);
+            }
+            else if(colour==3){
+                YellowMove(&motorL, &motorR);
+            }
             else if(colour==4){
                 BlueMove(&motorL, &motorR);
             }
             else if(colour==5){
                 GreenMove(&motorL, &motorR);
+            }
+            else if(colour==6){
+                LightBlueMove(&motorL, &motorR);
+            }
+            else if(colour==7){
+                PinkMove(&motorL, &motorR);
             }
 
 

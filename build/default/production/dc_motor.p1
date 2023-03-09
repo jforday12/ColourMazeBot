@@ -2736,6 +2736,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 200: }
 [e :UE 2044 ]
 }
+"202
+[; ;dc_motor.c: 202: void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR){
+[v _reverseOneBlock `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
+{
+[e :U _reverseOneBlock ]
+[v _mL `*S2015 ~T0 @X0 1 r1 ]
+[v _mR `*S2015 ~T0 @X0 1 r2 ]
+[f ]
+"203
+[; ;dc_motor.c: 203:     fullSpeedBack(mL,mR);
+[e ( _fullSpeedBack (2 , _mL _mR ]
+"204
+[; ;dc_motor.c: 204:     _delay((unsigned long)((1000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"205
+[; ;dc_motor.c: 205:     stop(&motorL, &motorR);
+[e ( _stop (2 , &U _motorL &U _motorR ]
+"206
+[; ;dc_motor.c: 206:     _delay((unsigned long)((1000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"207
+[; ;dc_motor.c: 207: }
+[e :UE 2045 ]
+}
 "213
 [; ;dc_motor.c: 213: void RedMove(struct DC_motor *mL,struct DC_motor *mR){
 [v _RedMove `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
@@ -2755,7 +2779,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _turnRight45 (2 , &U _motorL &U _motorR ]
 "218
 [; ;dc_motor.c: 218: }
-[e :UE 2045 ]
+[e :UE 2046 ]
 }
 "221
 [; ;dc_motor.c: 221: void GreenMove(struct DC_motor *mL,struct DC_motor *mR){
@@ -2776,7 +2800,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
 "226
 [; ;dc_motor.c: 226: }
-[e :UE 2046 ]
+[e :UE 2047 ]
 }
 "229
 [; ;dc_motor.c: 229: void BlueMove(struct DC_motor *mL,struct DC_motor *mR){
@@ -2803,5 +2827,101 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _turnRight45 (2 , &U _motorL &U _motorR ]
 "236
 [; ;dc_motor.c: 236: }
-[e :UE 2047 ]
+[e :UE 2048 ]
+}
+"239
+[; ;dc_motor.c: 239: void YellowMove(struct DC_motor *mL,struct DC_motor *mR){
+[v _YellowMove `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
+{
+[e :U _YellowMove ]
+[v _mL `*S2015 ~T0 @X0 1 r1 ]
+[v _mR `*S2015 ~T0 @X0 1 r2 ]
+[f ]
+"240
+[; ;dc_motor.c: 240:     reverseDetect(&motorL, &motorR);
+[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+"242
+[; ;dc_motor.c: 242:     reverseOneBlock(&motorL, &motorR);
+[e ( _reverseOneBlock (2 , &U _motorL &U _motorR ]
+"244
+[; ;dc_motor.c: 244:     turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"245
+[; ;dc_motor.c: 245:     turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"246
+[; ;dc_motor.c: 246: }
+[e :UE 2049 ]
+}
+"249
+[; ;dc_motor.c: 249: void PinkMove(struct DC_motor *mL,struct DC_motor *mR){
+[v _PinkMove `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
+{
+[e :U _PinkMove ]
+[v _mL `*S2015 ~T0 @X0 1 r1 ]
+[v _mR `*S2015 ~T0 @X0 1 r2 ]
+[f ]
+"250
+[; ;dc_motor.c: 250:     reverseDetect(&motorL, &motorR);
+[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+"252
+[; ;dc_motor.c: 252:     reverseOneBlock(&motorL, &motorR);
+[e ( _reverseOneBlock (2 , &U _motorL &U _motorR ]
+"254
+[; ;dc_motor.c: 254:     turnLeft45(&motorL, &motorR);
+[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
+"255
+[; ;dc_motor.c: 255:     turnLeft45(&motorL, &motorR);
+[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
+"256
+[; ;dc_motor.c: 256: }
+[e :UE 2050 ]
+}
+"259
+[; ;dc_motor.c: 259: void OrangeMove(struct DC_motor *mL,struct DC_motor *mR){
+[v _OrangeMove `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
+{
+[e :U _OrangeMove ]
+[v _mL `*S2015 ~T0 @X0 1 r1 ]
+[v _mR `*S2015 ~T0 @X0 1 r2 ]
+[f ]
+"260
+[; ;dc_motor.c: 260:     reverseDetect(&motorL, &motorR);
+[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+"262
+[; ;dc_motor.c: 262:     turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"263
+[; ;dc_motor.c: 263:     turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"264
+[; ;dc_motor.c: 264:     turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"265
+[; ;dc_motor.c: 265: }
+[e :UE 2051 ]
+}
+"268
+[; ;dc_motor.c: 268: void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR){
+[v _LightBlueMove `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
+{
+[e :U _LightBlueMove ]
+[v _mL `*S2015 ~T0 @X0 1 r1 ]
+[v _mR `*S2015 ~T0 @X0 1 r2 ]
+[f ]
+"269
+[; ;dc_motor.c: 269:     reverseDetect(&motorL, &motorR);
+[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+"271
+[; ;dc_motor.c: 271:     turnLeft45(&motorL, &motorR);
+[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
+"272
+[; ;dc_motor.c: 272:     turnLeft45(&motorL, &motorR);
+[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
+"273
+[; ;dc_motor.c: 273:     turnLeft45(&motorL, &motorR);
+[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
+"274
+[; ;dc_motor.c: 274: }
+[e :UE 2052 ]
 }
