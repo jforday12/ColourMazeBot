@@ -1,6 +1,5 @@
 _I2C_2_Master_RepStart 4192 0 CODE 0
 ___lwdiv@dividend 7 0 COMRAM 1
-_colour_rel$2471 3A 0 COMRAM 1
 ___aodiv@counter 11 0 COMRAM 1
 sprintf@f 70 0 BANK0 1
 _T2CLKCONbits FBF 0 ABS 0
@@ -55,6 +54,7 @@ ttemp5 60 0 COMRAM 1
 ttemp6 63 0 COMRAM 1
 ttemp7 67 0 COMRAM 1
 wtemp8 60 0 COMRAM 1
+_dtoa$2171 2E 0 COMRAM 1
 __Hconfig 30000C 0 CONFIG 4
 __Lconfig 0 0 CONFIG 4
 ?___aomod 1 0 COMRAM 1
@@ -62,6 +62,7 @@ dtoa@d 1E 0 COMRAM 1
 dtoa@i 3C 0 COMRAM 1
 fullSpeedBack@mL 14 0 COMRAM 1
 dtoa@n 34 0 COMRAM 1
+_colour_rel$2477 3A 0 COMRAM 1
 dtoa@p 30 0 COMRAM 1
 Colour_decider@Cmin 76 0 BANK0 1
 Colour_decider@Cmax 72 0 BANK0 1
@@ -115,7 +116,6 @@ _CCPR1H FAA 0 ABS 0
 _CCPR2H FA6 0 ABS 0
 Colour_decider@Cmax_i 64 0 BANK0 1
 _CCPR3H F25 0 ABS 0
-_dtoa$2168 2E 0 COMRAM 1
 _CCPR4H F21 0 ABS 0
 _LATAbits F79 0 ABS 0
 sprintf@ap 6E 0 BANK0 1
@@ -440,7 +440,6 @@ __Hbank13 0 0 ABS 0
 __Lbank13 0 0 ABS 0
 __HbssBANK1 0 0 ABS 0
 __LbssBANK1 0 0 ABS 0
-_colour_rel$2472 3E 0 COMRAM 1
 ___xxtofl@arg B 0 COMRAM 1
 __pbssBANK1 100 0 BANK1 1
 __Htext10 0 0 ABS 0
@@ -594,7 +593,7 @@ ___lwdiv@divisor 9 0 COMRAM 1
 vfpfcnvrt@fmt 41 0 COMRAM 1
 __pidataCOMRAM 41B6 0 CODE 0
 __smallconst E00 0 SMALLCONST 0
-_Colour_decider$2473 60 0 BANK0 1
+_Colour_decider$2479 60 0 BANK0 1
 __Hreset_vec 4 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 __end_of_Interrupts_init 41B6 0 CODE 0
@@ -602,6 +601,7 @@ _readColours 3B86 0 CODE 0
 _fullSpeedAhead 3742 0 CODE 0
 ?_color_read_Blue 5 0 COMRAM 1
 ___xxtofl@exp A 0 COMRAM 1
+_colour_rel$2478 3E 0 COMRAM 1
 vfpfcnvrt@ap 43 0 COMRAM 1
 __accesstop 60 0 ABS 0
 __Hintcode_body 0 0 ABS 0
@@ -678,7 +678,7 @@ text33 E50 41B6 CODE E50 0
 %locals
 dist/default/production\final-project-josh-and-edward.X.production.o
 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
-C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
+C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
 8323 3BE4 0 CODE 0
 8325 3BE4 0 CODE 0
 8328 3BE4 0 CODE 0
@@ -1178,12 +1178,12 @@ color.c
 215 1764 0 CODE 0
 224 17A6 0 CODE 0
 229 17B2 0 CODE 0
-233 187E 0 CODE 0
-235 18E2 0 CODE 0
-238 195A 0 CODE 0
-247 199C 0 CODE 0
-251 19A8 0 CODE 0
-260 19B0 0 CODE 0
+238 187E 0 CODE 0
+240 18E2 0 CODE 0
+243 195A 0 CODE 0
+252 199C 0 CODE 0
+256 19A8 0 CODE 0
+265 19B0 0 CODE 0
 dc_motor.c
 181 3C9A 0 CODE 0
 182 3C9A 0 CODE 0
@@ -1645,8 +1645,8 @@ C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
 180 2628 0 CODE 0
 182 262A 0 CODE 0
 185 2634 0 CODE 0
-C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-20609 8 0 CODE 0
+C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+20611 8 0 CODE 0
 interrupts.c
 59 8 0 CODE 0
 78 A 0 CODE 0

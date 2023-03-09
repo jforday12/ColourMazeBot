@@ -7,10 +7,10 @@ Linker command line:
   -cn \
   -h+dist/default/production\final-project-josh-and-edward.X.production.sym \
   --cmf=dist/default/production\final-project-josh-and-edward.X.production.cmf \
-  -z -Q18F67K40 -oC:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.5 \
+  -z -Q18F67K40 -oC:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.4 \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/final-project-josh-and-edward.X.production.map \
-  --md=C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.dat -E1 \
+  --md=C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=0E00h-0EFFhx498 -AMEDIUMCONST=0E00h-0FFFFh,010E00h-01FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0DE9h -ABIGRAM=01h-0DE9h \
@@ -30,7 +30,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o \
+  C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o \
   dist/default/production\final-project-josh-and-edward.X.production.o 
 
 Object code version is 3.11
@@ -40,7 +40,7 @@ Machine type is 18F67K40
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
+C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
                 idloc                            200000   200000       10        0       5
                 config                           300000   300000        C        0       4
                 init                                  E        E        4        4       0
@@ -331,7 +331,7 @@ _CCPR3H                        (abs)        000F25
 _CCPR4H                        (abs)        000F21
 _CCPTMRS0bits                  (abs)        000FAD
 _Colour_decider                text33       000E50
-_Colour_decider$2473           cstackBANK0  000060
+_Colour_decider$2479           cstackBANK0  000060
 _DataFlag                      dataCOMRAM   00005E
 _EUSART4RXbuf                  bssBANK1     00013C
 _EUSART4TXbuf                  bssBANK1     000100
@@ -838,11 +838,11 @@ _color_read_Red                text16       003E3E
 _color_read_lum                text15       003DEE
 _color_writetoaddr             text26       004130
 _colour_rel                    text24       002636
-_colour_rel$2471               cstackCOMRAM 00003A
-_colour_rel$2472               cstackCOMRAM 00003E
+_colour_rel$2477               cstackCOMRAM 00003A
+_colour_rel$2478               cstackCOMRAM 00003E
 _dbuf                          bssBANK1     00015C
 _dtoa                          text4        002964
-_dtoa$2168                     cstackCOMRAM 00002E
+_dtoa$2171                     cstackCOMRAM 00002E
 _flags                         bssBANK0     0000EC
 _fputc                         text7        0035CE
 _fputs                         text6        003FC2

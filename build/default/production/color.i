@@ -24565,6 +24565,11 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
     }
 
     else if (((30<=Hue)&(Hue<=58))|(120<=Hue)&(Hue<=220)){
+        reverseDetect(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
         return 4;
     }
 

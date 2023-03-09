@@ -78,7 +78,7 @@ dataBANK1 BANK1 1 190 190 2 1 1
 dataCOMRAM COMRAM 1 5E 5E 1 1 1
 bssCOMRAM COMRAM 1 5A 5A 4 1 1
 config CONFIG 4 300000 300000 C 1 1
-$C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
+$C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
 idloc IDLOC 5 200000 200000 10 1 1
 init CODE 0 E E 4 1 2
 reset_vec CODE 0 0 0 4 1 2
@@ -133,7 +133,7 @@ MEDIUMCONST 10E00-1FFFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\final-project-josh-and-edward.X.production.o
-8 intcode CODE >20609:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
+8 intcode CODE >20611:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
 8 intcode CODE >59:C:\ECM\final-project-josh-and-edward.X\interrupts.c
 A intcode CODE >78:C:\ECM\final-project-josh-and-edward.X\interrupts.c
 229C text50 CODE >11:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
@@ -626,12 +626,12 @@ FB4 text33 CODE >140:C:\ECM\final-project-josh-and-edward.X\color.c
 1764 text33 CODE >215:C:\ECM\final-project-josh-and-edward.X\color.c
 17A6 text33 CODE >224:C:\ECM\final-project-josh-and-edward.X\color.c
 17B2 text33 CODE >229:C:\ECM\final-project-josh-and-edward.X\color.c
-187E text33 CODE >233:C:\ECM\final-project-josh-and-edward.X\color.c
-18E2 text33 CODE >235:C:\ECM\final-project-josh-and-edward.X\color.c
-195A text33 CODE >238:C:\ECM\final-project-josh-and-edward.X\color.c
-199C text33 CODE >247:C:\ECM\final-project-josh-and-edward.X\color.c
-19A8 text33 CODE >251:C:\ECM\final-project-josh-and-edward.X\color.c
-19B0 text33 CODE >260:C:\ECM\final-project-josh-and-edward.X\color.c
+187E text33 CODE >238:C:\ECM\final-project-josh-and-edward.X\color.c
+18E2 text33 CODE >240:C:\ECM\final-project-josh-and-edward.X\color.c
+195A text33 CODE >243:C:\ECM\final-project-josh-and-edward.X\color.c
+199C text33 CODE >252:C:\ECM\final-project-josh-and-edward.X\color.c
+19A8 text33 CODE >256:C:\ECM\final-project-josh-and-edward.X\color.c
+19B0 text33 CODE >265:C:\ECM\final-project-josh-and-edward.X\color.c
 41B4 text32 CODE >12:C:\ECM\final-project-josh-and-edward.X\interrupts.c
 41B4 text32 CODE >32:C:\ECM\final-project-josh-and-edward.X\interrupts.c
 40B8 text31 CODE >4:C:\ECM\final-project-josh-and-edward.X\i2c.c
@@ -1005,52 +1005,52 @@ FB4 text33 CODE >140:C:\ECM\final-project-josh-and-edward.X\color.c
 2ED6 text0 CODE >76:C:\ECM\final-project-josh-and-edward.X\main.c
 2EDA text0 CODE >77:C:\ECM\final-project-josh-and-edward.X\main.c
 2F10 text0 CODE >81:C:\ECM\final-project-josh-and-edward.X\main.c
-3BE4 cinit CODE >8323:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3BE4 cinit CODE >8325:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3BE4 cinit CODE >8328:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3BE4 cinit CODE >8405:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3BE6 cinit CODE >8406:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3BE8 cinit CODE >8407:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3BEA cinit CODE >8408:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3BEC cinit CODE >8409:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3BEE cinit CODE >8410:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3BF0 cinit CODE >8411:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3BF2 cinit CODE >8412:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3BF6 cinit CODE >8413:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3BF8 cinit CODE >8414:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3BFC cinit CODE >8418:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3BFE cinit CODE >8419:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C00 cinit CODE >8420:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C02 cinit CODE >8421:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C04 cinit CODE >8422:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C06 cinit CODE >8423:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C08 cinit CODE >8424:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C0A cinit CODE >8425:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C0E cinit CODE >8429:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C12 cinit CODE >8430:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C14 cinit CODE >8431:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C14 cinit CODE >8432:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C16 cinit CODE >8433:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C18 cinit CODE >8434:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C1A cinit CODE >8437:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C1E cinit CODE >8438:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C20 cinit CODE >8439:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C20 cinit CODE >8440:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C22 cinit CODE >8441:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C24 cinit CODE >8442:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C26 cinit CODE >8445:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C28 cinit CODE >8446:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C2A cinit CODE >8447:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C2C cinit CODE >8448:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C2E cinit CODE >8454:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C2E cinit CODE >8456:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C30 cinit CODE >8457:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C32 cinit CODE >8459:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C34 cinit CODE >8460:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C36 cinit CODE >8461:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C38 cinit CODE >8462:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C3A cinit CODE >8463:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
-3C3C cinit CODE >8464:C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.s
+3BE4 cinit CODE >8323:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3BE4 cinit CODE >8325:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3BE4 cinit CODE >8328:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3BE4 cinit CODE >8405:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3BE6 cinit CODE >8406:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3BE8 cinit CODE >8407:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3BEA cinit CODE >8408:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3BEC cinit CODE >8409:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3BEE cinit CODE >8410:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3BF0 cinit CODE >8411:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3BF2 cinit CODE >8412:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3BF6 cinit CODE >8413:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3BF8 cinit CODE >8414:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3BFC cinit CODE >8418:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3BFE cinit CODE >8419:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C00 cinit CODE >8420:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C02 cinit CODE >8421:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C04 cinit CODE >8422:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C06 cinit CODE >8423:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C08 cinit CODE >8424:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C0A cinit CODE >8425:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C0E cinit CODE >8429:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C12 cinit CODE >8430:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C14 cinit CODE >8431:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C14 cinit CODE >8432:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C16 cinit CODE >8433:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C18 cinit CODE >8434:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C1A cinit CODE >8437:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C1E cinit CODE >8438:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C20 cinit CODE >8439:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C20 cinit CODE >8440:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C22 cinit CODE >8441:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C24 cinit CODE >8442:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C26 cinit CODE >8445:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C28 cinit CODE >8446:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C2A cinit CODE >8447:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C2C cinit CODE >8448:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C2E cinit CODE >8454:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C2E cinit CODE >8456:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C30 cinit CODE >8457:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C32 cinit CODE >8459:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C34 cinit CODE >8460:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C36 cinit CODE >8461:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C38 cinit CODE >8462:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C3A cinit CODE >8463:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
+3C3C cinit CODE >8464:C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1073,14 +1073,14 @@ color_writetoaddr@address 4 0 COMRAM 1 cstackCOMRAM dist/default/production\fina
 __HidataBANK1 0 0 ABS 0 idataBANK1 dist/default/production\final-project-josh-and-edward.X.production.o
 _sendCharSerial4 416E 0 CODE 0 text13 dist/default/production\final-project-josh-and-edward.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\final-project-josh-and-edward.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\final-project-josh-and-edward.X.production.o
 setMotorPWM@m E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 ?_abs 13 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 ?_vfprintf 51 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 __Lsmallconst E00 0 SMALLCONST 0 smallconst dist/default/production\final-project-josh-and-edward.X.production.o
 _T2PR FBC 0 ABS 0 - dist/default/production\final-project-josh-and-edward.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
+___sp 0 0 STACK 2 stack C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
 __end_of_reverseDetect 3C9A 0 CODE 0 text38 dist/default/production\final-project-josh-and-edward.X.production.o
 _dbuf 15C 0 BANK1 1 bssBANK1 dist/default/production\final-project-josh-and-edward.X.production.o
 _dtoa 2964 0 CODE 0 text4 dist/default/production\final-project-josh-and-edward.X.production.o
@@ -1093,7 +1093,7 @@ btemp 5F 0 COMRAM 1 temp dist/default/production\final-project-josh-and-edward.X
 pad@i 18 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 pad@p 15 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 pad@w 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
-start E 0 CODE 0 init C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
+start E 0 CODE 0 init C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
 ___aomod@counter 11 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 ___flmul@aexp 43 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 ___flmul@bexp 44 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
@@ -1114,11 +1114,11 @@ ttemp5 60 0 COMRAM 1 temp dist/default/production\final-project-josh-and-edward.
 ttemp6 63 0 COMRAM 1 temp dist/default/production\final-project-josh-and-edward.X.production.o
 ttemp7 67 0 COMRAM 1 temp dist/default/production\final-project-josh-and-edward.X.production.o
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
-intlevel0 0 0 CODE 0 text C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
-intlevel1 0 0 CODE 0 text C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
-intlevel2 0 0 CODE 0 text C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
-intlevel3 0 0 CODE 0 text C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
+__accesstop 60 0 ABS 0 - C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
+intlevel0 0 0 CODE 0 text C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
+intlevel1 0 0 CODE 0 text C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
+intlevel2 0 0 CODE 0 text C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
+intlevel3 0 0 CODE 0 text C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\final-project-josh-and-edward.X.production.o
 ?_Colour_decider 4B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
@@ -1132,8 +1132,8 @@ _DataFlag 5E 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-josh-an
 _high_threshold 190 0 BANK1 1 dataBANK1 dist/default/production\final-project-josh-and-edward.X.production.o
 ___wmul@multiplicand 3 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 __end_of_Interrupts_init 41B6 0 CODE 0 text32 dist/default/production\final-project-josh-and-edward.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
 I2C_2_Master_Read@ack 3 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 I2C_2_Master_Read@tmp 4 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
@@ -1205,13 +1205,13 @@ _RE4PPS E76 0 ABS 0 - dist/default/production\final-project-josh-and-edward.X.pr
 _RG6PPS E88 0 ABS 0 - dist/default/production\final-project-josh-and-edward.X.production.o
 _RX4PPS E15 0 ABS 0 - dist/default/production\final-project-josh-and-edward.X.production.o
 __pcstackBANK0 60 0 BANK0 1 cstackBANK0 dist/default/production\final-project-josh-and-edward.X.production.o
-_colour_rel$2471 3A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
-_colour_rel$2472 3E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
+_colour_rel$2477 3A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
+_colour_rel$2478 3E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 __end_of_I2C_2_Master_Start 41B0 0 CODE 0 text29 dist/default/production\final-project-josh-and-edward.X.production.o
 __end_of_I2C_2_Master_Write 4192 0 CODE 0 text27 dist/default/production\final-project-josh-and-edward.X.production.o
 _TX4REG EE4 0 ABS 0 - dist/default/production\final-project-josh-and-edward.X.production.o
 I2C_2_Master_Write@data_byte 2 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
+isa$xinst 0 0 ABS 0 - C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
 turnLeft@mL 14 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 turnLeft@mR 16 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 fputc@fp 3 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
@@ -1253,8 +1253,8 @@ __Hbank13 0 0 ABS 0 bank13 dist/default/production\final-project-josh-and-edward
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\final-project-josh-and-edward.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\final-project-josh-and-edward.X.production.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\final-project-josh-and-edward.X.production.o
-_Colour_decider$2473 60 0 BANK0 1 cstackBANK0 dist/default/production\final-project-josh-and-edward.X.production.o
-__smallconst E00 0 SMALLCONST 0 smallconst C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
+_Colour_decider$2479 60 0 BANK0 1 cstackBANK0 dist/default/production\final-project-josh-and-edward.X.production.o
+__smallconst E00 0 SMALLCONST 0 smallconst C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
 turnLeft45@mL 19 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 turnLeft45@mR 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 ___xxtofl@arg B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
@@ -1361,7 +1361,7 @@ ___aodiv@sign 12 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-j
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\final-project-josh-and-edward.X.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\final-project-josh-and-edward.X.production.o
 sprintf@fmt 62 0 BANK0 1 cstackBANK0 dist/default/production\final-project-josh-and-edward.X.production.o
-_dtoa$2168 2E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
+_dtoa$2171 2E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 ___xxtofl 2BE2 0 CODE 0 text44 dist/default/production\final-project-josh-and-edward.X.production.o
 __end_of_abs 4088 0 CODE 0 text9 dist/default/production\final-project-josh-and-edward.X.production.o
 __end_of_pad 3A9C 0 CODE 0 text5 dist/default/production\final-project-josh-and-edward.X.production.o
@@ -1509,12 +1509,12 @@ ___lwdiv@divisor 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project
 ?_color_read_Red 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 ?_color_read_lum 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\final-project-josh-and-edward.X.production.o
-isa$std 1 0 ABS 0 - C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
+isa$std 1 0 ABS 0 - C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
 ___fldiv@new_exp 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 _EUSART4RXbuf 13C 0 BANK1 1 bssBANK1 dist/default/production\final-project-josh-and-edward.X.production.o
 _EUSART4TXbuf 100 0 BANK1 1 bssBANK1 dist/default/production\final-project-josh-and-edward.X.production.o
-stackhi 0 0 ABS 0 - C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
-stacklo 0 0 ABS 0 - C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
+stackhi 0 0 ABS 0 - C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
+stacklo 0 0 ABS 0 - C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
 stop@mL 14 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 stop@mR 16 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\final-project-josh-and-edward.X.production.o
@@ -1638,7 +1638,7 @@ __Ltext48 0 0 ABS 0 text48 dist/default/production\final-project-josh-and-edward
 __Ltext49 0 0 ABS 0 text49 dist/default/production\final-project-josh-and-edward.X.production.o
 __Ltext50 0 0 ABS 0 text50 dist/default/production\final-project-josh-and-edward.X.production.o
 __end_of_color_writetoaddr 4150 0 CODE 0 text26 dist/default/production\final-project-josh-and-edward.X.production.o
-__ramtop E00 0 RAM 0 ramtop C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
+__ramtop E00 0 RAM 0 ramtop C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
 _sprintf 3D4A 0 CODE 0 text1 dist/default/production\final-project-josh-and-edward.X.production.o
 _sendStringSerial4 4088 0 CODE 0 text12 dist/default/production\final-project-josh-and-edward.X.production.o
 _HighISR 8 0 CODE 0 intcode dist/default/production\final-project-josh-and-edward.X.production.o
@@ -1657,8 +1657,8 @@ __end_of_vfprintf 3F7C 0 CODE 0 text2 dist/default/production\final-project-josh
 setMotorPWM@negDuty 13 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-josh-and-edward.X.production.o
 _I2C_2_Master_RepStart 4192 0 CODE 0 text19 dist/default/production\final-project-josh-and-edward.X.production.o
 _CCP3CONbits F26 0 ABS 0 - dist/default/production\final-project-josh-and-edward.X.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
-___heap_lo 0 0 ABS 0 - C:\Users\EDWARD~1\AppData\Local\Temp\xcAsu68.o
+___heap_hi 0 0 ABS 0 - C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
+___heap_lo 0 0 ABS 0 - C:\Users\EDWARD~1\AppData\Local\Temp\xcAs1aog.o
 _I2C_2_Master_Idle 40E2 0 CODE 0 text30 dist/default/production\final-project-josh-and-edward.X.production.o
 _I2C_2_Master_Init 40B8 0 CODE 0 text31 dist/default/production\final-project-josh-and-edward.X.production.o
 _I2C_2_Master_Read 4006 0 CODE 0 text20 dist/default/production\final-project-josh-and-edward.X.production.o

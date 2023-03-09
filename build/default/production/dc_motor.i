@@ -24412,7 +24412,7 @@ void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR)
 
     mL->direction =1;
     mR->direction =1;
-    while (mL->power < 50 && mR->power <50){
+    while (mL->power < 100 && mR->power < 100){
 
         mL->power+=10;
         mR->power+=10;
@@ -24459,6 +24459,13 @@ void turnLeft45(struct DC_motor *mL,struct DC_motor *mR){
 void reverseDetect(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedBack(mL,mR);
     _delay((unsigned long)((200)*(64000000/4000.0)));
+    stop(&motorL, &motorR);
+    _delay((unsigned long)((1000)*(64000000/4000.0)));
+}
+
+void BumpintoWall(struct DC_motor *mL,struct DC_motor *mR){
+    fullSpeedAhead(mL,mR);
+    _delay((unsigned long)((400)*(64000000/4000.0)));
     stop(&motorL, &motorR);
     _delay((unsigned long)((1000)*(64000000/4000.0)));
 }

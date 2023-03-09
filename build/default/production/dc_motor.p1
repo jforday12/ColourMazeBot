@@ -2581,7 +2581,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 150:     mR->direction =1;
 [e = . *U _mR 1 -> -> 1 `i `uc ]
 "151
-[; ;dc_motor.c: 151:     while (mL->power < 50 && mR->power <50){
+[; ;dc_motor.c: 151:     while (mL->power < 100 && mR->power < 100){
 [e $U 2035  ]
 [e :U 2036 ]
 {
@@ -2605,8 +2605,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2035 ]
 "151
-[; ;dc_motor.c: 151:     while (mL->power < 50 && mR->power <50){
-[e $ && < -> . *U _mL 0 `i -> 50 `i < -> . *U _mR 0 `i -> 50 `i 2036  ]
+[; ;dc_motor.c: 151:     while (mL->power < 100 && mR->power < 100){
+[e $ && < -> . *U _mL 0 `i -> 100 `i < -> . *U _mR 0 `i -> 100 `i 2036  ]
 [e :U 2037 ]
 "161
 [; ;dc_motor.c: 161: }
@@ -2735,4 +2735,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 "200
 [; ;dc_motor.c: 200: }
 [e :UE 2044 ]
+}
+"202
+[; ;dc_motor.c: 202: void BumpintoWall(struct DC_motor *mL,struct DC_motor *mR){
+[v _BumpintoWall `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
+{
+[e :U _BumpintoWall ]
+[v _mL `*S2015 ~T0 @X0 1 r1 ]
+[v _mR `*S2015 ~T0 @X0 1 r2 ]
+[f ]
+"203
+[; ;dc_motor.c: 203:     fullSpeedAhead(mL,mR);
+[e ( _fullSpeedAhead (2 , _mL _mR ]
+"204
+[; ;dc_motor.c: 204:     _delay((unsigned long)((400)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"205
+[; ;dc_motor.c: 205:     stop(&motorL, &motorR);
+[e ( _stop (2 , &U _motorL &U _motorR ]
+"206
+[; ;dc_motor.c: 206:     _delay((unsigned long)((1000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"207
+[; ;dc_motor.c: 207: }
+[e :UE 2045 ]
 }

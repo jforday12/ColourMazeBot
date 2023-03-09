@@ -2774,83 +2774,98 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! | & <= -> -> 30 `i `f _Hue <= _Hue -> -> 58 `i `f & <= -> -> 120 `i `f _Hue <= _Hue -> -> 220 `i `f 2055  ]
 {
 "230
-[; ;color.c: 230:         return 4;
+[; ;color.c: 230:         reverseDetect(&motorL, &motorR);
+[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+"231
+[; ;color.c: 231:         turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"232
+[; ;color.c: 232:         turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"233
+[; ;color.c: 233:         turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"234
+[; ;color.c: 234:         turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"235
+[; ;color.c: 235:         return 4;
 [e ) -> 4 `i ]
 [e $UE 2026  ]
-"231
-[; ;color.c: 231:     }
+"236
+[; ;color.c: 236:     }
 }
 [e $U 2056  ]
-"233
-[; ;color.c: 233:     else if ((14<=Hue)&(Hue<=19)){
+"238
+[; ;color.c: 238:     else if ((14<=Hue)&(Hue<=19)){
 [e :U 2055 ]
 [e $ ! & <= -> -> 14 `i `f _Hue <= _Hue -> -> 19 `i `f 2057  ]
 {
-"235
-[; ;color.c: 235:         if ((0.20<=rel->R)&(rel->R<=0.23)){
+"240
+[; ;color.c: 240:         if ((0.20<=rel->R)&(rel->R<=0.23)){
 [e $ ! & <= .0.20 -> . *U _rel 0 `d <= -> . *U _rel 0 `d .0.23 2058  ]
 {
-"236
-[; ;color.c: 236:             return 0;
+"241
+[; ;color.c: 241:             return 0;
 [e ) -> 0 `i ]
 [e $UE 2026  ]
-"237
-[; ;color.c: 237:         }
+"242
+[; ;color.c: 242:         }
 }
 [e $U 2059  ]
-"238
-[; ;color.c: 238:         else if (0.15<=rel->B){
+"243
+[; ;color.c: 243:         else if (0.15<=rel->B){
 [e :U 2058 ]
 [e $ ! <= .0.15 -> . *U _rel 2 `d 2060  ]
 {
-"239
-[; ;color.c: 239:             reverseDetect(&motorL, &motorR);
-[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
-"240
-[; ;color.c: 240:             turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"241
-[; ;color.c: 241:             turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"242
-[; ;color.c: 242:             turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"243
-[; ;color.c: 243:             turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
 "244
-[; ;color.c: 244:             return 4;
+[; ;color.c: 244:             reverseDetect(&motorL, &motorR);
+[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+"245
+[; ;color.c: 245:             turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"246
+[; ;color.c: 246:             turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"247
+[; ;color.c: 247:             turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"248
+[; ;color.c: 248:             turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"249
+[; ;color.c: 249:             return 4;
 [e ) -> 4 `i ]
 [e $UE 2026  ]
-"245
-[; ;color.c: 245:         }else{
+"250
+[; ;color.c: 250:         }else{
 }
 [e $U 2061  ]
 [e :U 2060 ]
 {
-"247
-[; ;color.c: 247:             return 7;
+"252
+[; ;color.c: 252:             return 7;
 [e ) -> 7 `i ]
 [e $UE 2026  ]
-"248
-[; ;color.c: 248:           }
+"253
+[; ;color.c: 253:           }
 }
 [e :U 2061 ]
 [e :U 2059 ]
-"249
-[; ;color.c: 249:     }
+"254
+[; ;color.c: 254:     }
 }
 [e $U 2062  ]
-"250
-[; ;color.c: 250:     else{
+"255
+[; ;color.c: 255:     else{
 [e :U 2057 ]
 {
-"251
-[; ;color.c: 251:         return 10;
+"256
+[; ;color.c: 256:         return 10;
 [e ) -> 10 `i ]
 [e $UE 2026  ]
-"252
-[; ;color.c: 252:     }
+"257
+[; ;color.c: 257:     }
 }
 [e :U 2062 ]
 [e :U 2056 ]
@@ -2859,7 +2874,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2046 ]
 [e :U 2041 ]
 [e :U 2039 ]
-"260
-[; ;color.c: 260: }
+"265
+[; ;color.c: 265: }
 [e :UE 2026 ]
 }

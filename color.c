@@ -199,7 +199,7 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
             turnRight45(&motorL, &motorR);
             turnRight45(&motorL, &motorR);
             turnRight45(&motorL, &motorR);
-            return 4;
+            return 4; //blue
         }
         else{
             reverseDetect(&motorL, &motorR);
@@ -218,7 +218,7 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
             turnRight45(&motorL, &motorR);
             turnRight45(&motorL, &motorR);
             turnRight45(&motorL, &motorR);
-            return 4;
+            return 4; //blue
         }
         else{
              return 6; // light blue
@@ -227,6 +227,11 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
     } 
     // if the hue is between the found ranges of  blue return  blue 
     else if (((30<=Hue)&(Hue<=58))|(120<=Hue)&(Hue<=220)){
+        reverseDetect(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
         return 4; //  blue
     }
     // if the hue is between the found ranges of white or pink 
@@ -241,7 +246,7 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
             turnRight45(&motorL, &motorR);
             turnRight45(&motorL, &motorR);
             turnRight45(&motorL, &motorR);
-            return 4;
+            return 4; //blue
         }else{
         // otherwise it must be pink
             return 7; // pink
