@@ -24521,50 +24521,40 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
             return 0;
         }
 
-        if (vals->R>=2000){
+
+        else if(0.14<=rel->B){
+            return 4;
+            }
+        else{
             return 3;
-
-        } else{
-            return 4;
-
         }
+
     }
 
-    else if ((60<=Hue)&(Hue<=79)){
+    else if ((45<=Hue)&(Hue<=80)){
         if(0.15<=rel->B){
             return 4;
         }
+        else if (0.12<=rel->B){
+            return 6;
+        }
         else{
-            reverseDetect(&motorL, &motorR);
-            turnLeft45(&motorL, &motorR);
-            turnLeft45(&motorL, &motorR);
             return 5;
-
         }
 
     }
 
-    else if ((80<=Hue)&(Hue<=115)){
+    else if ((81<=Hue)&(Hue<=115)){
         if(0.15<=rel->B){
-            reverseDetect(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
             return 4;
         }
-        else{
+        else {
              return 6;
         }
 
     }
 
     else if (((30<=Hue)&(Hue<=58))|(120<=Hue)&(Hue<=220)){
-        reverseDetect(&motorL, &motorR);
-        turnRight45(&motorL, &motorR);
-        turnRight45(&motorL, &motorR);
-        turnRight45(&motorL, &motorR);
-        turnRight45(&motorL, &motorR);
         return 4;
     }
 
@@ -24574,11 +24564,6 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
             return 0;
         }
         else if (0.15<=rel->B){
-            reverseDetect(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
             return 4;
         }else{
 

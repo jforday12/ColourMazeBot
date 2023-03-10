@@ -117,9 +117,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "21098
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 21098: extern volatile unsigned char CCPR4H __attribute__((address(0xF21)));
 [v _CCPR4H `Vuc ~T0 @X0 0 e@3873 ]
-"25 ./dc_motor.h
-[; ;./dc_motor.h: 25: void fullSpeedAhead(struct DC_motor *mL,struct DC_motor *mR);
-[v _fullSpeedAhead `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "48 ./color.h
 [; ;./color.h: 48: void readColours (struct RGB *vals);
 [v _readColours `(v ~T0 @X0 0 ef1`*S2017 ]
@@ -136,6 +133,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47 ./color.h
 [; ;./color.h: 47: int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
 [v _Colour_decider `(i ~T0 @X0 0 ef2`*S2017`*S2018 ]
+"109 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 109: int sprintf(char *restrict, const char *restrict, ...);
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"26 ./serial.h
+[; ;./serial.h: 26: void sendStringSerial4(char *string);
+[v _sendStringSerial4 `(v ~T0 @X0 0 ef1`*uc ]
 "33 ./dc_motor.h
 [; ;./dc_motor.h: 33: void RedMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _RedMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
@@ -157,12 +160,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37
 [; ;./dc_motor.h: 37: void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _PinkMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
-"109 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 109: int sprintf(char *restrict, const char *restrict, ...);
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"26 ./serial.h
-[; ;./serial.h: 26: void sendStringSerial4(char *string);
-[v _sendStringSerial4 `(v ~T0 @X0 0 ef1`*uc ]
 "9 main.c
 [p x FEXTOSC  =  HS      ]
 "10
@@ -2280,153 +2277,205 @@ Version 4.0 HI-TECH Software Intermediate Code
 "56
 [; ;main.c: 56:     motorR.PWMperiod=200;
 [e = . _motorR 3 -> -> 200 `i `ui ]
+"57
+[; ;main.c: 57:     int consecuitive=0;
+[v _consecuitive `i ~T0 @X0 1 a ]
+[e = _consecuitive -> 0 `i ]
 "58
-[; ;main.c: 58:     while (1)
-[e :U 2022 ]
-"59
-[; ;main.c: 59:     {
-{
+[; ;main.c: 58:     int prev_colour =0;
+[v _prev_colour `i ~T0 @X0 1 a ]
+[e = _prev_colour -> 0 `i ]
 "60
-[; ;main.c: 60:         fullSpeedAhead(&motorL, &motorR);
-[e ( _fullSpeedAhead (2 , &U _motorL &U _motorR ]
-"63
-[; ;main.c: 63:         readColours(&vals);
+[; ;main.c: 60:     while (1)
+[e :U 2022 ]
+"61
+[; ;main.c: 61:     {
+{
+"65
+[; ;main.c: 65:         readColours(&vals);
 [e ( _readColours (1 &U _vals ]
-"66
-[; ;main.c: 66:         colour_rel(&vals, &rel);
+"68
+[; ;main.c: 68:         colour_rel(&vals, &rel);
 [e ( _colour_rel (2 , &U _vals &U _rel ]
-"69
-[; ;main.c: 69:         if (vals.L>=2200){
+"71
+[; ;main.c: 71:         if (vals.L>=2200){
 [e $ ! >= . _vals 3 -> 2200 `i 2024  ]
 {
-"71
-[; ;main.c: 71:             stop(&motorL, &motorR);
+"73
+[; ;main.c: 73:             stop(&motorL, &motorR);
 [e ( _stop (2 , &U _motorL &U _motorR ]
-"72
-[; ;main.c: 72:             _delay((unsigned long)((200)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "74
-[; ;main.c: 74:             int colour = Colour_decider(&vals, &rel);
+[; ;main.c: 74:             _delay((unsigned long)((200)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"79
+[; ;main.c: 79:             while (consecuitive<20){
+[e $U 2025  ]
+[e :U 2026 ]
+{
+"80
+[; ;main.c: 80:                 int colour = Colour_decider(&vals, &rel);
 [v _colour `i ~T0 @X0 1 a ]
 [e = _colour ( _Colour_decider (2 , &U _vals &U _rel ]
-"77
-[; ;main.c: 77:             if (colour==1){
-[e $ ! == _colour -> 1 `i 2025  ]
-{
-"78
-[; ;main.c: 78:                 RedMove(&motorL, &motorR);
-[e ( _RedMove (2 , &U _motorL &U _motorR ]
-"79
-[; ;main.c: 79:             }
-}
-[e $U 2026  ]
-"80
-[; ;main.c: 80:             else if(colour==2){
-[e :U 2025 ]
-[e $ ! == _colour -> 2 `i 2027  ]
-{
 "81
-[; ;main.c: 81:                 OrangeMove(&motorL, &motorR);
-[e ( _OrangeMove (2 , &U _motorL &U _motorR ]
+[; ;main.c: 81:                 if (colour==prev_colour){
+[e $ ! == _colour _prev_colour 2028  ]
+{
 "82
-[; ;main.c: 82:             }
-}
-[e $U 2028  ]
+[; ;main.c: 82:                     consecuitive++;
+[e ++ _consecuitive -> 1 `i ]
 "83
-[; ;main.c: 83:             else if(colour==3){
-[e :U 2027 ]
-[e $ ! == _colour -> 3 `i 2029  ]
-{
+[; ;main.c: 83:                 }
+}
+[e $U 2029  ]
 "84
-[; ;main.c: 84:                 YellowMove(&motorL, &motorR);
-[e ( _YellowMove (2 , &U _motorL &U _motorR ]
+[; ;main.c: 84:                 else{
+[e :U 2028 ]
+{
 "85
-[; ;main.c: 85:             }
-}
-[e $U 2030  ]
+[; ;main.c: 85:                     consecuitive=0;
+[e = _consecuitive -> 0 `i ]
 "86
-[; ;main.c: 86:             else if(colour==4){
+[; ;main.c: 86:                 }
+}
 [e :U 2029 ]
-[e $ ! == _colour -> 4 `i 2031  ]
-{
 "87
-[; ;main.c: 87:                 BlueMove(&motorL, &motorR);
-[e ( _BlueMove (2 , &U _motorL &U _motorR ]
+[; ;main.c: 87:                 prev_colour=colour;
+[e = _prev_colour _colour ]
 "88
-[; ;main.c: 88:             }
-}
-[e $U 2032  ]
+[; ;main.c: 88:                 _delay((unsigned long)((50)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "89
-[; ;main.c: 89:             else if(colour==5){
-[e :U 2031 ]
-[e $ ! == _colour -> 5 `i 2033  ]
-{
+[; ;main.c: 89:             }
+}
+[e :U 2025 ]
+"79
+[; ;main.c: 79:             while (consecuitive<20){
+[e $ < _consecuitive -> 20 `i 2026  ]
+[e :U 2027 ]
 "90
-[; ;main.c: 90:                 GreenMove(&motorL, &motorR);
-[e ( _GreenMove (2 , &U _motorL &U _motorR ]
-"91
-[; ;main.c: 91:             }
-}
-[e $U 2034  ]
+[; ;main.c: 90:             consecuitive=0;
+[e = _consecuitive -> 0 `i ]
 "92
-[; ;main.c: 92:             else if(colour==6){
-[e :U 2033 ]
-[e $ ! == _colour -> 6 `i 2035  ]
-{
+[; ;main.c: 92:             sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+[e ( _sprintf (1 , , , , , (. , &U _buf :s 1C -> . _rel 0 `d -> . _rel 1 `d -> . _rel 2 `d . _vals 3 _prev_colour ]
 "93
-[; ;main.c: 93:                 LightBlueMove(&motorL, &motorR);
-[e ( _LightBlueMove (2 , &U _motorL &U _motorR ]
-"94
-[; ;main.c: 94:             }
-}
-[e $U 2036  ]
+[; ;main.c: 93:             sendStringSerial4(buf);
+[e ( _sendStringSerial4 (1 &U _buf ]
 "95
-[; ;main.c: 95:             else if(colour==7){
-[e :U 2035 ]
-[e $ ! == _colour -> 7 `i 2037  ]
+[; ;main.c: 95:             if (prev_colour==1){
+[e $ ! == _prev_colour -> 1 `i 2030  ]
 {
 "96
-[; ;main.c: 96:                 PinkMove(&motorL, &motorR);
-[e ( _PinkMove (2 , &U _motorL &U _motorR ]
+[; ;main.c: 96:                 RedMove(&motorL, &motorR);
+[e ( _RedMove (2 , &U _motorL &U _motorR ]
 "97
 [; ;main.c: 97:             }
 }
-[e :U 2037 ]
-[e :U 2036 ]
-[e :U 2034 ]
-[e :U 2032 ]
+[e $U 2031  ]
+"98
+[; ;main.c: 98:             else if(prev_colour==2){
 [e :U 2030 ]
-[e :U 2028 ]
-[e :U 2026 ]
-"101
-[; ;main.c: 101:             sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,colour);
-[e ( _sprintf (1 , , , , , (. , &U _buf :s 1C . _vals 0 . _vals 1 . _vals 2 . _vals 3 _colour ]
-"102
-[; ;main.c: 102:         }else{
+[e $ ! == _prev_colour -> 2 `i 2032  ]
+{
+"99
+[; ;main.c: 99:                 OrangeMove(&motorL, &motorR);
+[e ( _OrangeMove (2 , &U _motorL &U _motorR ]
+"100
+[; ;main.c: 100:             }
 }
-[e $U 2038  ]
+[e $U 2033  ]
+"101
+[; ;main.c: 101:             else if(prev_colour==3){
+[e :U 2032 ]
+[e $ ! == _prev_colour -> 3 `i 2034  ]
+{
+"102
+[; ;main.c: 102:                 YellowMove(&motorL, &motorR);
+[e ( _YellowMove (2 , &U _motorL &U _motorR ]
+"103
+[; ;main.c: 103:             }
+}
+[e $U 2035  ]
+"104
+[; ;main.c: 104:             else if(prev_colour==4){
+[e :U 2034 ]
+[e $ ! == _prev_colour -> 4 `i 2036  ]
+{
+"105
+[; ;main.c: 105:                 BlueMove(&motorL, &motorR);
+[e ( _BlueMove (2 , &U _motorL &U _motorR ]
+"106
+[; ;main.c: 106:             }
+}
+[e $U 2037  ]
+"107
+[; ;main.c: 107:             else if(prev_colour==5){
+[e :U 2036 ]
+[e $ ! == _prev_colour -> 5 `i 2038  ]
+{
+"108
+[; ;main.c: 108:                 GreenMove(&motorL, &motorR);
+[e ( _GreenMove (2 , &U _motorL &U _motorR ]
+"109
+[; ;main.c: 109:             }
+}
+[e $U 2039  ]
+"110
+[; ;main.c: 110:             else if(prev_colour==6){
+[e :U 2038 ]
+[e $ ! == _prev_colour -> 6 `i 2040  ]
+{
+"111
+[; ;main.c: 111:                 LightBlueMove(&motorL, &motorR);
+[e ( _LightBlueMove (2 , &U _motorL &U _motorR ]
+"112
+[; ;main.c: 112:             }
+}
+[e $U 2041  ]
+"113
+[; ;main.c: 113:             else if(prev_colour==7){
+[e :U 2040 ]
+[e $ ! == _prev_colour -> 7 `i 2042  ]
+{
+"114
+[; ;main.c: 114:                 PinkMove(&motorL, &motorR);
+[e ( _PinkMove (2 , &U _motorL &U _motorR ]
+"115
+[; ;main.c: 115:             }
+}
+[e :U 2042 ]
+[e :U 2041 ]
+[e :U 2039 ]
+[e :U 2037 ]
+[e :U 2035 ]
+[e :U 2033 ]
+[e :U 2031 ]
+"120
+[; ;main.c: 120:         }else{
+}
+[e $U 2043  ]
 [e :U 2024 ]
 {
-"103
-[; ;main.c: 103:             sprintf(buf,"red=%d green=%d blue=%d lum=%d \r\n",vals.R, vals.G,vals.B,vals.L);
+"121
+[; ;main.c: 121:             sprintf(buf,"red=%d green=%d blue=%d lum=%d \r\n",vals.R, vals.G,vals.B,vals.L);
 [e ( _sprintf (1 , , , , (. , &U _buf :s 2C . _vals 0 . _vals 1 . _vals 2 . _vals 3 ]
-"104
-[; ;main.c: 104:         }
-}
-[e :U 2038 ]
-"107
-[; ;main.c: 107:         sendStringSerial4(buf);
+"122
+[; ;main.c: 122:             sendStringSerial4(buf);
 [e ( _sendStringSerial4 (1 &U _buf ]
-"109
-[; ;main.c: 109:     }
+"123
+[; ;main.c: 123:         }
+}
+[e :U 2043 ]
+"128
+[; ;main.c: 128:     }
 }
 [e :U 2021 ]
 [e $U 2022  ]
 [e :U 2023 ]
-"110
-[; ;main.c: 110: }
+"129
+[; ;main.c: 129: }
 [e :UE 2020 ]
 }
-[p f _sprintf 8388736 ]
-[a 1C 114 101 100 61 37 100 32 103 114 101 101 110 61 37 100 32 98 108 117 101 61 37 100 32 108 117 109 61 37 100 32 99 111 108 111 117 114 61 37 100 32 13 10 0 ]
+[p f _sprintf 8396928 ]
 [a 2C 114 101 100 61 37 100 32 103 114 101 101 110 61 37 100 32 98 108 117 101 61 37 100 32 108 117 109 61 37 100 32 13 10 0 ]
+[a 1C 114 101 100 61 37 102 32 103 114 101 101 110 61 37 102 32 98 108 117 101 61 37 102 32 108 117 109 61 37 100 32 99 111 108 111 117 114 49 61 37 100 32 13 10 0 ]

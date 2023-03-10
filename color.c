@@ -174,50 +174,40 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
             return 0;//white
         }
         // otherwise if the absolute value of red is greater than 2000 then its yellow. this value was found through testing
-        if (vals->R>=2000){
-            return 3; // yellow
-        // otherwise it must be blue
-        } else{
-            return 4; // blue
 
-        }       
+        else if(0.14<=rel->B){
+            return 4; //blue
+            }
+        else{
+            return 3; // yellow
+        }
+               
     }
     // if the hue is between the found ranges of green return green 
-    else if ((60<=Hue)&(Hue<=79)){
+    else if ((45<=Hue)&(Hue<=80)){
         if(0.15<=rel->B){
             return 4; //blue
         }
+        else if (0.12<=rel->B){
+            return 6; // light blue
+        }
         else{
-            reverseDetect(&motorL, &motorR);
-            turnLeft45(&motorL, &motorR);
-            turnLeft45(&motorL, &motorR);
             return 5; // green
-            
         }
         
     } 
     // if the hue is between the found ranges of light blue return light blue 
-    else if ((80<=Hue)&(Hue<=115)){
+    else if ((81<=Hue)&(Hue<=115)){
         if(0.15<=rel->B){
-            reverseDetect(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
             return 4; //blue
         }
-        else{
+        else {
              return 6; // light blue
         }
        
     } 
     // if the hue is between the found ranges of  blue return  blue 
     else if (((30<=Hue)&(Hue<=58))|(120<=Hue)&(Hue<=220)){
-        reverseDetect(&motorL, &motorR);
-        turnRight45(&motorL, &motorR);
-        turnRight45(&motorL, &motorR);
-        turnRight45(&motorL, &motorR);
-        turnRight45(&motorL, &motorR);
         return 4; //  blue
     }
     // if the hue is between the found ranges of white or pink 
@@ -227,11 +217,6 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
             return 0;//white
         }
         else if (0.15<=rel->B){
-            reverseDetect(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
-            turnRight45(&motorL, &motorR);
             return 4; //blue
         }else{
         // otherwise it must be pink

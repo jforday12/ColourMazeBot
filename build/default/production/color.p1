@@ -140,15 +140,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./color.h: 37: struct RGB_rel{
 [s S2016 `f 1 `f 1 `f 1 ]
 [n S2016 RGB_rel R G B ]
-"30 ./dc_motor.h
-[; ;./dc_motor.h: 30: void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
-[v _reverseDetect `(v ~T0 @X0 0 ef2`*S2017`*S2017 ]
-"29
-[; ;./dc_motor.h: 29: void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
-[v _turnLeft45 `(v ~T0 @X0 0 ef2`*S2017`*S2017 ]
-"28
-[; ;./dc_motor.h: 28: void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
-[v _turnRight45 `(v ~T0 @X0 0 ef2`*S2017`*S2017 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2612,230 +2603,194 @@ Version 4.0 HI-TECH Software Intermediate Code
 "175
 [; ;color.c: 175:         }
 }
-[e :U 2043 ]
-"177
-[; ;color.c: 177:         if (vals->R>=2000){
-[e $ ! >= . *U _vals 0 -> 2000 `i 2044  ]
-{
+[e $U 2044  ]
 "178
-[; ;color.c: 178:             return 3;
-[e ) -> 3 `i ]
+[; ;color.c: 178:         else if(0.14<=rel->B){
+[e :U 2043 ]
+[e $ ! <= .0.14 -> . *U _rel 2 `d 2045  ]
+{
+"179
+[; ;color.c: 179:             return 4;
+[e ) -> 4 `i ]
 [e $UE 2026  ]
 "180
-[; ;color.c: 180:         } else{
+[; ;color.c: 180:             }
 }
-[e $U 2045  ]
-[e :U 2044 ]
-{
+[e $U 2046  ]
 "181
-[; ;color.c: 181:             return 4;
-[e ) -> 4 `i ]
+[; ;color.c: 181:         else{
+[e :U 2045 ]
+{
+"182
+[; ;color.c: 182:             return 3;
+[e ) -> 3 `i ]
 [e $UE 2026  ]
 "183
 [; ;color.c: 183:         }
 }
-[e :U 2045 ]
-"184
-[; ;color.c: 184:     }
+[e :U 2046 ]
+[e :U 2044 ]
+"185
+[; ;color.c: 185:     }
 }
-[e $U 2046  ]
-"186
-[; ;color.c: 186:     else if ((60<=Hue)&(Hue<=79)){
-[e :U 2042 ]
-[e $ ! & <= -> -> 60 `i `f _Hue <= _Hue -> -> 79 `i `f 2047  ]
-{
+[e $U 2047  ]
 "187
-[; ;color.c: 187:         if(0.15<=rel->B){
-[e $ ! <= .0.15 -> . *U _rel 2 `d 2048  ]
+[; ;color.c: 187:     else if ((45<=Hue)&(Hue<=80)){
+[e :U 2042 ]
+[e $ ! & <= -> -> 45 `i `f _Hue <= _Hue -> -> 80 `i `f 2048  ]
 {
 "188
-[; ;color.c: 188:             return 4;
+[; ;color.c: 188:         if(0.15<=rel->B){
+[e $ ! <= .0.15 -> . *U _rel 2 `d 2049  ]
+{
+"189
+[; ;color.c: 189:             return 4;
 [e ) -> 4 `i ]
 [e $UE 2026  ]
-"189
-[; ;color.c: 189:         }
-}
-[e $U 2049  ]
 "190
-[; ;color.c: 190:         else{
-[e :U 2048 ]
-{
+[; ;color.c: 190:         }
+}
+[e $U 2050  ]
 "191
-[; ;color.c: 191:             reverseDetect(&motorL, &motorR);
-[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+[; ;color.c: 191:         else if (0.12<=rel->B){
+[e :U 2049 ]
+[e $ ! <= .0.12 -> . *U _rel 2 `d 2051  ]
+{
 "192
-[; ;color.c: 192:             turnLeft45(&motorL, &motorR);
-[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
+[; ;color.c: 192:             return 6;
+[e ) -> 6 `i ]
+[e $UE 2026  ]
 "193
-[; ;color.c: 193:             turnLeft45(&motorL, &motorR);
-[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
+[; ;color.c: 193:         }
+}
+[e $U 2052  ]
 "194
-[; ;color.c: 194:             return 5;
+[; ;color.c: 194:         else{
+[e :U 2051 ]
+{
+"195
+[; ;color.c: 195:             return 5;
 [e ) -> 5 `i ]
 [e $UE 2026  ]
 "196
 [; ;color.c: 196:         }
 }
-[e :U 2049 ]
+[e :U 2052 ]
+[e :U 2050 ]
 "198
 [; ;color.c: 198:     }
 }
-[e $U 2050  ]
+[e $U 2053  ]
 "200
-[; ;color.c: 200:     else if ((80<=Hue)&(Hue<=115)){
-[e :U 2047 ]
-[e $ ! & <= -> -> 80 `i `f _Hue <= _Hue -> -> 115 `i `f 2051  ]
+[; ;color.c: 200:     else if ((81<=Hue)&(Hue<=115)){
+[e :U 2048 ]
+[e $ ! & <= -> -> 81 `i `f _Hue <= _Hue -> -> 115 `i `f 2054  ]
 {
 "201
 [; ;color.c: 201:         if(0.15<=rel->B){
-[e $ ! <= .0.15 -> . *U _rel 2 `d 2052  ]
+[e $ ! <= .0.15 -> . *U _rel 2 `d 2055  ]
 {
 "202
-[; ;color.c: 202:             reverseDetect(&motorL, &motorR);
-[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+[; ;color.c: 202:             return 4;
+[e ) -> 4 `i ]
+[e $UE 2026  ]
 "203
-[; ;color.c: 203:             turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"204
-[; ;color.c: 204:             turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"205
-[; ;color.c: 205:             turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"206
-[; ;color.c: 206:             turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"207
-[; ;color.c: 207:             return 4;
-[e ) -> 4 `i ]
-[e $UE 2026  ]
-"208
-[; ;color.c: 208:         }
-}
-[e $U 2053  ]
-"209
-[; ;color.c: 209:         else{
-[e :U 2052 ]
-{
-"210
-[; ;color.c: 210:              return 6;
-[e ) -> 6 `i ]
-[e $UE 2026  ]
-"211
-[; ;color.c: 211:         }
-}
-[e :U 2053 ]
-"213
-[; ;color.c: 213:     }
-}
-[e $U 2054  ]
-"215
-[; ;color.c: 215:     else if (((30<=Hue)&(Hue<=58))|(120<=Hue)&(Hue<=220)){
-[e :U 2051 ]
-[e $ ! | & <= -> -> 30 `i `f _Hue <= _Hue -> -> 58 `i `f & <= -> -> 120 `i `f _Hue <= _Hue -> -> 220 `i `f 2055  ]
-{
-"216
-[; ;color.c: 216:         reverseDetect(&motorL, &motorR);
-[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
-"217
-[; ;color.c: 217:         turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"218
-[; ;color.c: 218:         turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"219
-[; ;color.c: 219:         turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"220
-[; ;color.c: 220:         turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"221
-[; ;color.c: 221:         return 4;
-[e ) -> 4 `i ]
-[e $UE 2026  ]
-"222
-[; ;color.c: 222:     }
+[; ;color.c: 203:         }
 }
 [e $U 2056  ]
-"224
-[; ;color.c: 224:     else if ((14<=Hue)&(Hue<=19)){
+"204
+[; ;color.c: 204:         else {
 [e :U 2055 ]
-[e $ ! & <= -> -> 14 `i `f _Hue <= _Hue -> -> 19 `i `f 2057  ]
 {
-"226
-[; ;color.c: 226:         if ((0.20<=rel->R)&(rel->R<=0.23)){
-[e $ ! & <= .0.20 -> . *U _rel 0 `d <= -> . *U _rel 0 `d .0.23 2058  ]
-{
-"227
-[; ;color.c: 227:             return 0;
-[e ) -> 0 `i ]
+"205
+[; ;color.c: 205:              return 6;
+[e ) -> 6 `i ]
 [e $UE 2026  ]
-"228
-[; ;color.c: 228:         }
+"206
+[; ;color.c: 206:         }
 }
-[e $U 2059  ]
-"229
-[; ;color.c: 229:         else if (0.15<=rel->B){
-[e :U 2058 ]
-[e $ ! <= .0.15 -> . *U _rel 2 `d 2060  ]
+[e :U 2056 ]
+"208
+[; ;color.c: 208:     }
+}
+[e $U 2057  ]
+"210
+[; ;color.c: 210:     else if (((30<=Hue)&(Hue<=58))|(120<=Hue)&(Hue<=220)){
+[e :U 2054 ]
+[e $ ! | & <= -> -> 30 `i `f _Hue <= _Hue -> -> 58 `i `f & <= -> -> 120 `i `f _Hue <= _Hue -> -> 220 `i `f 2058  ]
 {
-"230
-[; ;color.c: 230:             reverseDetect(&motorL, &motorR);
-[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
-"231
-[; ;color.c: 231:             turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"232
-[; ;color.c: 232:             turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"233
-[; ;color.c: 233:             turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"234
-[; ;color.c: 234:             turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"235
-[; ;color.c: 235:             return 4;
+"211
+[; ;color.c: 211:         return 4;
 [e ) -> 4 `i ]
 [e $UE 2026  ]
-"236
-[; ;color.c: 236:         }else{
+"212
+[; ;color.c: 212:     }
 }
-[e $U 2061  ]
-[e :U 2060 ]
+[e $U 2059  ]
+"214
+[; ;color.c: 214:     else if ((14<=Hue)&(Hue<=19)){
+[e :U 2058 ]
+[e $ ! & <= -> -> 14 `i `f _Hue <= _Hue -> -> 19 `i `f 2060  ]
 {
-"238
-[; ;color.c: 238:             return 7;
-[e ) -> 7 `i ]
+"216
+[; ;color.c: 216:         if ((0.20<=rel->R)&(rel->R<=0.23)){
+[e $ ! & <= .0.20 -> . *U _rel 0 `d <= -> . *U _rel 0 `d .0.23 2061  ]
+{
+"217
+[; ;color.c: 217:             return 0;
+[e ) -> 0 `i ]
 [e $UE 2026  ]
-"239
-[; ;color.c: 239:           }
-}
-[e :U 2061 ]
-[e :U 2059 ]
-"240
-[; ;color.c: 240:     }
+"218
+[; ;color.c: 218:         }
 }
 [e $U 2062  ]
-"241
-[; ;color.c: 241:     else{
-[e :U 2057 ]
+"219
+[; ;color.c: 219:         else if (0.15<=rel->B){
+[e :U 2061 ]
+[e $ ! <= .0.15 -> . *U _rel 2 `d 2063  ]
 {
-"242
-[; ;color.c: 242:         return 10;
+"220
+[; ;color.c: 220:             return 4;
+[e ) -> 4 `i ]
+[e $UE 2026  ]
+"221
+[; ;color.c: 221:         }else{
+}
+[e $U 2064  ]
+[e :U 2063 ]
+{
+"223
+[; ;color.c: 223:             return 7;
+[e ) -> 7 `i ]
+[e $UE 2026  ]
+"224
+[; ;color.c: 224:           }
+}
+[e :U 2064 ]
+[e :U 2062 ]
+"225
+[; ;color.c: 225:     }
+}
+[e $U 2065  ]
+"226
+[; ;color.c: 226:     else{
+[e :U 2060 ]
+{
+"227
+[; ;color.c: 227:         return 10;
 [e ) -> 10 `i ]
 [e $UE 2026  ]
-"243
-[; ;color.c: 243:     }
+"228
+[; ;color.c: 228:     }
 }
-[e :U 2062 ]
-[e :U 2056 ]
-[e :U 2054 ]
-[e :U 2050 ]
-[e :U 2046 ]
+[e :U 2065 ]
+[e :U 2059 ]
+[e :U 2057 ]
+[e :U 2053 ]
+[e :U 2047 ]
 [e :U 2041 ]
 [e :U 2039 ]
-"251
-[; ;color.c: 251: }
+"236
+[; ;color.c: 236: }
 [e :UE 2026 ]
 }

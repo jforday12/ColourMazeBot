@@ -54,10 +54,12 @@ void main(void) {
     motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);  //store address of CCP1 duty high byte
     motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);  //store address of CCP2 duty high byte
     motorR.PWMperiod=200; 			//store PWMperiod for motor (value of T2PR in this case)
+    int consecuitive=0;
+    int prev_colour =0;
     
     while (1)
     {
-        fullSpeedAhead(&motorL, &motorR);
+        //fullSpeedAhead(&motorL, &motorR);
     
         // read the colours and store it in the struct vals
         readColours(&vals);
@@ -70,41 +72,58 @@ void main(void) {
             // stop the buggie
             stop(&motorL, &motorR);
             __delay_ms(200); 
-            
-            int colour = Colour_decider(&vals, &rel);
-            
-            // give move instruction based on returned colour
-            if (colour==1){ //red
+
+//            int colour = Colour_decider(&vals, &rel);
+//            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour=%d \r\n",rel.R, rel.G,rel.B,vals.L,colour);
+//            sendStringSerial4(buf);
+            while (consecuitive<20){
+                int colour = Colour_decider(&vals, &rel);
+                if (colour==prev_colour){
+                    consecuitive++;
+                }
+                else{
+                    consecuitive=0;
+                }
+                prev_colour=colour;
+                __delay_ms(50); 
+            }
+            consecuitive=0;
+            //sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,prev_colour);
+            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+            sendStringSerial4(buf);
+                //give move instruction based on returned colour
+            if (prev_colour==1){ //red
                 RedMove(&motorL, &motorR);
             }
-            else if(colour==2){ //orange
+            else if(prev_colour==2){ //orange
                 OrangeMove(&motorL, &motorR);
             }
-            else if(colour==3){ //yellow
+            else if(prev_colour==3){ //yellow
                 YellowMove(&motorL, &motorR);
             }
-            else if(colour==4){ //blue
+            else if(prev_colour==4){ //blue
                 BlueMove(&motorL, &motorR);
             }
-            else if(colour==5){ //green
+            else if(prev_colour==5){ //green
                 GreenMove(&motorL, &motorR);
             }
-            else if(colour==6){ //light blue
+            else if(prev_colour==6){ //light blue
                 LightBlueMove(&motorL, &motorR);
             }
-            else if(colour==7){ //pink
+            else if(prev_colour==7){ //pink
                 PinkMove(&motorL, &motorR);
             }
             
             
           
-            sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,colour);
+            
         }else{
             sprintf(buf,"red=%d green=%d blue=%d lum=%d \r\n",vals.R, vals.G,vals.B,vals.L);
+            sendStringSerial4(buf);
         }
     
 
-        sendStringSerial4(buf);
+        
    
     }
 }
