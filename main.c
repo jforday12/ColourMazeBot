@@ -36,6 +36,8 @@ void main(void) {
     TRISGbits.TRISG1 = 0; // Set TRIS value for red LED (output)
     TRISAbits.TRISA4 = 0; // Set TRIS value for green LED (output)
     TRISFbits.TRISF7 = 0; // Set TRIS value for blue LED (output)
+    TRISFbits.TRISF2 = 1; // Set Tris value for RF2 Button (input)
+    ANSELFbits.ANSELF2=0;
     RED_LED=1; // sets RED LED on 
     GREEN_LED=1; // sets green LED on
     BLUE_LED=1; // sets Blue LED on
@@ -57,18 +59,22 @@ void main(void) {
     int consecuitive=0;
     int prev_colour =0;
     
+    while (RF2_button);
     while (1)
     {
+        
+        Forwardhalfblock(&motorL,&motorR);
         //fullSpeedAhead(&motorL, &motorR);
-    
+
         // read the colours and store it in the struct vals
         readColours(&vals);
-    
+
         // obtain the relative RGB values and store it in the struct RGB_rel vals
         colour_rel(&vals, &rel);
-    
+
         // if the clear value is greater than 2500 (value obtained from lowest clear value card which was blue) then it has hit a wall so detect what colour it sees
         if (vals.L>=2200){
+            Forwardhalfblock(&motorL,&motorR);
             // stop the buggie
             stop(&motorL, &motorR);
             __delay_ms(200); 
@@ -113,17 +119,20 @@ void main(void) {
             else if(prev_colour==7){ //pink
                 PinkMove(&motorL, &motorR);
             }
-            
-            
-          
-            
+            else if (prev_colour==10){// undecided colour
+                RetryMove(&motorL, &motorR);
+            }
+
+
+
         }else{
             sprintf(buf,"red=%d green=%d blue=%d lum=%d \r\n",vals.R, vals.G,vals.B,vals.L);
             sendStringSerial4(buf);
         }
-    
 
-        
-   
+
     }
+
 }
+
+    

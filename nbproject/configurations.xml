@@ -23,6 +23,7 @@
       <itemPath>interrupts.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>dc_motor.c</itemPath>
+      <itemPath>Memory.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

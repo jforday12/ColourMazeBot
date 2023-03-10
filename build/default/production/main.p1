@@ -60,6 +60,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29956
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29956: extern volatile TRISFbits_t TRISFbits __attribute__((address(0xF86)));
 [v _TRISFbits `VS1387 ~T0 @X0 0 e@3974 ]
+"12308
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 12308:     struct {
+[s S568 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S568 . ANSELF0 ANSELF1 ANSELF2 ANSELF3 ANSELF4 ANSELF5 ANSELF6 ANSELF7 ]
+"12307
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 12307: typedef union {
+[u S567 `S568 1 ]
+[n S567 . . ]
+"12319
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 12319: extern volatile ANSELFbits_t ANSELFbits __attribute__((address(0xEB4)));
+[v _ANSELFbits `VS567 ~T0 @X0 0 e@3764 ]
 "29146
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29146:     struct {
 [s S1358 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -117,6 +128,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "21098
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 21098: extern volatile unsigned char CCPR4H __attribute__((address(0xF21)));
 [v _CCPR4H `Vuc ~T0 @X0 0 e@3873 ]
+"30585
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30585:     struct {
+[s S1412 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1412 . RF0 RF1 RF2 RF3 RF4 RF5 RF6 RF7 ]
+"30595
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30595:     struct {
+[s S1413 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1413 . . C2OUTF C1OUTF ]
+"30584
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30584: typedef union {
+[u S1411 `S1412 1 `S1413 1 ]
+[n S1411 . . . ]
+"30601
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30601: extern volatile PORTFbits_t PORTFbits __attribute__((address(0xF8E)));
+[v _PORTFbits `VS1411 ~T0 @X0 0 e@3982 ]
+"40 ./dc_motor.h
+[; ;./dc_motor.h: 40: void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+[v _Forwardhalfblock `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "48 ./color.h
 [; ;./color.h: 48: void readColours (struct RGB *vals);
 [v _readColours `(v ~T0 @X0 0 ef1`*S2017 ]
@@ -160,6 +189,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37
 [; ;./dc_motor.h: 37: void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _PinkMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
+"41
+[; ;./dc_motor.h: 41: void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _RetryMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "9 main.c
 [p x FEXTOSC  =  HS      ]
 "10
@@ -2233,247 +2265,279 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 38:     TRISFbits.TRISF7 = 0;
 [e = . . _TRISFbits 0 7 -> -> 0 `i `uc ]
 "39
-[; ;main.c: 39:     LATGbits.LATG1=1;
-[e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
+[; ;main.c: 39:     TRISFbits.TRISF2 = 1;
+[e = . . _TRISFbits 0 2 -> -> 1 `i `uc ]
 "40
-[; ;main.c: 40:     LATAbits.LATA4=1;
-[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+[; ;main.c: 40:     ANSELFbits.ANSELF2=0;
+[e = . . _ANSELFbits 0 2 -> -> 0 `i `uc ]
 "41
-[; ;main.c: 41:     LATFbits.LATF7=1;
+[; ;main.c: 41:     LATGbits.LATG1=1;
+[e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
+"42
+[; ;main.c: 42:     LATAbits.LATA4=1;
+[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+"43
+[; ;main.c: 43:     LATFbits.LATF7=1;
 [e = . . _LATFbits 0 7 -> -> 1 `i `uc ]
-"45
-[; ;main.c: 45:     motorL.power=0;
-[e = . _motorL 0 -> -> 0 `i `uc ]
-"46
-[; ;main.c: 46:     motorL.direction=1;
-[e = . _motorL 1 -> -> 1 `i `uc ]
 "47
-[; ;main.c: 47:     motorL.brakemode=1;
-[e = . _motorL 2 -> -> 1 `i `uc ]
+[; ;main.c: 47:     motorL.power=0;
+[e = . _motorL 0 -> -> 0 `i `uc ]
 "48
-[; ;main.c: 48:     motorL.posDutyHighByte=(unsigned char *)(&CCPR1H);
-[e = . _motorL 4 -> &U _CCPR1H `*uc ]
+[; ;main.c: 48:     motorL.direction=1;
+[e = . _motorL 1 -> -> 1 `i `uc ]
 "49
-[; ;main.c: 49:     motorL.negDutyHighByte=(unsigned char *)(&CCPR2H);
-[e = . _motorL 5 -> &U _CCPR2H `*uc ]
+[; ;main.c: 49:     motorL.brakemode=1;
+[e = . _motorL 2 -> -> 1 `i `uc ]
 "50
-[; ;main.c: 50:     motorL.PWMperiod=200;
-[e = . _motorL 3 -> -> 200 `i `ui ]
+[; ;main.c: 50:     motorL.posDutyHighByte=(unsigned char *)(&CCPR1H);
+[e = . _motorL 4 -> &U _CCPR1H `*uc ]
 "51
-[; ;main.c: 51:     motorR.power=0;
-[e = . _motorR 0 -> -> 0 `i `uc ]
+[; ;main.c: 51:     motorL.negDutyHighByte=(unsigned char *)(&CCPR2H);
+[e = . _motorL 5 -> &U _CCPR2H `*uc ]
 "52
-[; ;main.c: 52:     motorR.direction=1;
-[e = . _motorR 1 -> -> 1 `i `uc ]
+[; ;main.c: 52:     motorL.PWMperiod=200;
+[e = . _motorL 3 -> -> 200 `i `ui ]
 "53
-[; ;main.c: 53:     motorR.brakemode=1;
-[e = . _motorR 2 -> -> 1 `i `uc ]
+[; ;main.c: 53:     motorR.power=0;
+[e = . _motorR 0 -> -> 0 `i `uc ]
 "54
-[; ;main.c: 54:     motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);
-[e = . _motorR 4 -> &U _CCPR3H `*uc ]
+[; ;main.c: 54:     motorR.direction=1;
+[e = . _motorR 1 -> -> 1 `i `uc ]
 "55
-[; ;main.c: 55:     motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);
-[e = . _motorR 5 -> &U _CCPR4H `*uc ]
+[; ;main.c: 55:     motorR.brakemode=1;
+[e = . _motorR 2 -> -> 1 `i `uc ]
 "56
-[; ;main.c: 56:     motorR.PWMperiod=200;
-[e = . _motorR 3 -> -> 200 `i `ui ]
+[; ;main.c: 56:     motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);
+[e = . _motorR 4 -> &U _CCPR3H `*uc ]
 "57
-[; ;main.c: 57:     int consecuitive=0;
+[; ;main.c: 57:     motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);
+[e = . _motorR 5 -> &U _CCPR4H `*uc ]
+"58
+[; ;main.c: 58:     motorR.PWMperiod=200;
+[e = . _motorR 3 -> -> 200 `i `ui ]
+"59
+[; ;main.c: 59:     int consecuitive=0;
 [v _consecuitive `i ~T0 @X0 1 a ]
 [e = _consecuitive -> 0 `i ]
-"58
-[; ;main.c: 58:     int prev_colour =0;
+"60
+[; ;main.c: 60:     int prev_colour =0;
 [v _prev_colour `i ~T0 @X0 1 a ]
 [e = _prev_colour -> 0 `i ]
-"60
-[; ;main.c: 60:     while (1)
+"62
+[; ;main.c: 62:     while (PORTFbits.RF2);
+[e $U 2021  ]
 [e :U 2022 ]
-"61
-[; ;main.c: 61:     {
+[e :U 2021 ]
+[e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2022  ]
+[e :U 2023 ]
+"63
+[; ;main.c: 63:     while (1)
+[e :U 2025 ]
+"64
+[; ;main.c: 64:     {
 {
-"65
-[; ;main.c: 65:         readColours(&vals);
+"66
+[; ;main.c: 66:         Forwardhalfblock(&motorL,&motorR);
+[e ( _Forwardhalfblock (2 , &U _motorL &U _motorR ]
+"70
+[; ;main.c: 70:         readColours(&vals);
 [e ( _readColours (1 &U _vals ]
-"68
-[; ;main.c: 68:         colour_rel(&vals, &rel);
-[e ( _colour_rel (2 , &U _vals &U _rel ]
-"71
-[; ;main.c: 71:         if (vals.L>=2200){
-[e $ ! >= . _vals 3 -> 2200 `i 2024  ]
-{
 "73
-[; ;main.c: 73:             stop(&motorL, &motorR);
-[e ( _stop (2 , &U _motorL &U _motorR ]
-"74
-[; ;main.c: 74:             _delay((unsigned long)((200)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"79
-[; ;main.c: 79:             while (consecuitive<20){
-[e $U 2025  ]
-[e :U 2026 ]
+[; ;main.c: 73:         colour_rel(&vals, &rel);
+[e ( _colour_rel (2 , &U _vals &U _rel ]
+"76
+[; ;main.c: 76:         if (vals.L>=2200){
+[e $ ! >= . _vals 3 -> 2200 `i 2027  ]
 {
+"77
+[; ;main.c: 77:             Forwardhalfblock(&motorL,&motorR);
+[e ( _Forwardhalfblock (2 , &U _motorL &U _motorR ]
+"79
+[; ;main.c: 79:             stop(&motorL, &motorR);
+[e ( _stop (2 , &U _motorL &U _motorR ]
 "80
-[; ;main.c: 80:                 int colour = Colour_decider(&vals, &rel);
+[; ;main.c: 80:             _delay((unsigned long)((200)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"85
+[; ;main.c: 85:             while (consecuitive<20){
+[e $U 2028  ]
+[e :U 2029 ]
+{
+"86
+[; ;main.c: 86:                 int colour = Colour_decider(&vals, &rel);
 [v _colour `i ~T0 @X0 1 a ]
 [e = _colour ( _Colour_decider (2 , &U _vals &U _rel ]
-"81
-[; ;main.c: 81:                 if (colour==prev_colour){
-[e $ ! == _colour _prev_colour 2028  ]
-{
-"82
-[; ;main.c: 82:                     consecuitive++;
-[e ++ _consecuitive -> 1 `i ]
-"83
-[; ;main.c: 83:                 }
-}
-[e $U 2029  ]
-"84
-[; ;main.c: 84:                 else{
-[e :U 2028 ]
-{
-"85
-[; ;main.c: 85:                     consecuitive=0;
-[e = _consecuitive -> 0 `i ]
-"86
-[; ;main.c: 86:                 }
-}
-[e :U 2029 ]
 "87
-[; ;main.c: 87:                 prev_colour=colour;
-[e = _prev_colour _colour ]
+[; ;main.c: 87:                 if (colour==prev_colour){
+[e $ ! == _colour _prev_colour 2031  ]
+{
 "88
-[; ;main.c: 88:                 _delay((unsigned long)((50)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 88:                     consecuitive++;
+[e ++ _consecuitive -> 1 `i ]
 "89
-[; ;main.c: 89:             }
+[; ;main.c: 89:                 }
 }
-[e :U 2025 ]
-"79
-[; ;main.c: 79:             while (consecuitive<20){
-[e $ < _consecuitive -> 20 `i 2026  ]
-[e :U 2027 ]
+[e $U 2032  ]
 "90
-[; ;main.c: 90:             consecuitive=0;
+[; ;main.c: 90:                 else{
+[e :U 2031 ]
+{
+"91
+[; ;main.c: 91:                     consecuitive=0;
 [e = _consecuitive -> 0 `i ]
 "92
-[; ;main.c: 92:             sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
-[e ( _sprintf (1 , , , , , (. , &U _buf :s 1C -> . _rel 0 `d -> . _rel 1 `d -> . _rel 2 `d . _vals 3 _prev_colour ]
-"93
-[; ;main.c: 93:             sendStringSerial4(buf);
-[e ( _sendStringSerial4 (1 &U _buf ]
-"95
-[; ;main.c: 95:             if (prev_colour==1){
-[e $ ! == _prev_colour -> 1 `i 2030  ]
-{
-"96
-[; ;main.c: 96:                 RedMove(&motorL, &motorR);
-[e ( _RedMove (2 , &U _motorL &U _motorR ]
-"97
-[; ;main.c: 97:             }
+[; ;main.c: 92:                 }
 }
-[e $U 2031  ]
-"98
-[; ;main.c: 98:             else if(prev_colour==2){
-[e :U 2030 ]
-[e $ ! == _prev_colour -> 2 `i 2032  ]
-{
-"99
-[; ;main.c: 99:                 OrangeMove(&motorL, &motorR);
-[e ( _OrangeMove (2 , &U _motorL &U _motorR ]
-"100
-[; ;main.c: 100:             }
-}
-[e $U 2033  ]
-"101
-[; ;main.c: 101:             else if(prev_colour==3){
 [e :U 2032 ]
-[e $ ! == _prev_colour -> 3 `i 2034  ]
+"93
+[; ;main.c: 93:                 prev_colour=colour;
+[e = _prev_colour _colour ]
+"94
+[; ;main.c: 94:                 _delay((unsigned long)((50)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"95
+[; ;main.c: 95:             }
+}
+[e :U 2028 ]
+"85
+[; ;main.c: 85:             while (consecuitive<20){
+[e $ < _consecuitive -> 20 `i 2029  ]
+[e :U 2030 ]
+"96
+[; ;main.c: 96:             consecuitive=0;
+[e = _consecuitive -> 0 `i ]
+"98
+[; ;main.c: 98:             sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+[e ( _sprintf (1 , , , , , (. , &U _buf :s 1C -> . _rel 0 `d -> . _rel 1 `d -> . _rel 2 `d . _vals 3 _prev_colour ]
+"99
+[; ;main.c: 99:             sendStringSerial4(buf);
+[e ( _sendStringSerial4 (1 &U _buf ]
+"101
+[; ;main.c: 101:             if (prev_colour==1){
+[e $ ! == _prev_colour -> 1 `i 2033  ]
 {
 "102
-[; ;main.c: 102:                 YellowMove(&motorL, &motorR);
-[e ( _YellowMove (2 , &U _motorL &U _motorR ]
+[; ;main.c: 102:                 RedMove(&motorL, &motorR);
+[e ( _RedMove (2 , &U _motorL &U _motorR ]
 "103
 [; ;main.c: 103:             }
 }
-[e $U 2035  ]
+[e $U 2034  ]
 "104
-[; ;main.c: 104:             else if(prev_colour==4){
-[e :U 2034 ]
-[e $ ! == _prev_colour -> 4 `i 2036  ]
+[; ;main.c: 104:             else if(prev_colour==2){
+[e :U 2033 ]
+[e $ ! == _prev_colour -> 2 `i 2035  ]
 {
 "105
-[; ;main.c: 105:                 BlueMove(&motorL, &motorR);
-[e ( _BlueMove (2 , &U _motorL &U _motorR ]
+[; ;main.c: 105:                 OrangeMove(&motorL, &motorR);
+[e ( _OrangeMove (2 , &U _motorL &U _motorR ]
 "106
 [; ;main.c: 106:             }
 }
-[e $U 2037  ]
+[e $U 2036  ]
 "107
-[; ;main.c: 107:             else if(prev_colour==5){
-[e :U 2036 ]
-[e $ ! == _prev_colour -> 5 `i 2038  ]
+[; ;main.c: 107:             else if(prev_colour==3){
+[e :U 2035 ]
+[e $ ! == _prev_colour -> 3 `i 2037  ]
 {
 "108
-[; ;main.c: 108:                 GreenMove(&motorL, &motorR);
-[e ( _GreenMove (2 , &U _motorL &U _motorR ]
+[; ;main.c: 108:                 YellowMove(&motorL, &motorR);
+[e ( _YellowMove (2 , &U _motorL &U _motorR ]
 "109
 [; ;main.c: 109:             }
 }
-[e $U 2039  ]
+[e $U 2038  ]
 "110
-[; ;main.c: 110:             else if(prev_colour==6){
-[e :U 2038 ]
-[e $ ! == _prev_colour -> 6 `i 2040  ]
+[; ;main.c: 110:             else if(prev_colour==4){
+[e :U 2037 ]
+[e $ ! == _prev_colour -> 4 `i 2039  ]
 {
 "111
-[; ;main.c: 111:                 LightBlueMove(&motorL, &motorR);
-[e ( _LightBlueMove (2 , &U _motorL &U _motorR ]
+[; ;main.c: 111:                 BlueMove(&motorL, &motorR);
+[e ( _BlueMove (2 , &U _motorL &U _motorR ]
 "112
 [; ;main.c: 112:             }
 }
-[e $U 2041  ]
+[e $U 2040  ]
 "113
-[; ;main.c: 113:             else if(prev_colour==7){
-[e :U 2040 ]
-[e $ ! == _prev_colour -> 7 `i 2042  ]
+[; ;main.c: 113:             else if(prev_colour==5){
+[e :U 2039 ]
+[e $ ! == _prev_colour -> 5 `i 2041  ]
 {
 "114
-[; ;main.c: 114:                 PinkMove(&motorL, &motorR);
-[e ( _PinkMove (2 , &U _motorL &U _motorR ]
+[; ;main.c: 114:                 GreenMove(&motorL, &motorR);
+[e ( _GreenMove (2 , &U _motorL &U _motorR ]
 "115
 [; ;main.c: 115:             }
 }
-[e :U 2042 ]
+[e $U 2042  ]
+"116
+[; ;main.c: 116:             else if(prev_colour==6){
 [e :U 2041 ]
-[e :U 2039 ]
-[e :U 2037 ]
-[e :U 2035 ]
-[e :U 2033 ]
-[e :U 2031 ]
-"120
-[; ;main.c: 120:         }else{
-}
-[e $U 2043  ]
-[e :U 2024 ]
+[e $ ! == _prev_colour -> 6 `i 2043  ]
 {
-"121
-[; ;main.c: 121:             sprintf(buf,"red=%d green=%d blue=%d lum=%d \r\n",vals.R, vals.G,vals.B,vals.L);
-[e ( _sprintf (1 , , , , (. , &U _buf :s 2C . _vals 0 . _vals 1 . _vals 2 . _vals 3 ]
-"122
-[; ;main.c: 122:             sendStringSerial4(buf);
-[e ( _sendStringSerial4 (1 &U _buf ]
-"123
-[; ;main.c: 123:         }
+"117
+[; ;main.c: 117:                 LightBlueMove(&motorL, &motorR);
+[e ( _LightBlueMove (2 , &U _motorL &U _motorR ]
+"118
+[; ;main.c: 118:             }
 }
+[e $U 2044  ]
+"119
+[; ;main.c: 119:             else if(prev_colour==7){
 [e :U 2043 ]
-"128
-[; ;main.c: 128:     }
+[e $ ! == _prev_colour -> 7 `i 2045  ]
+{
+"120
+[; ;main.c: 120:                 PinkMove(&motorL, &motorR);
+[e ( _PinkMove (2 , &U _motorL &U _motorR ]
+"121
+[; ;main.c: 121:             }
 }
-[e :U 2021 ]
-[e $U 2022  ]
-[e :U 2023 ]
+[e $U 2046  ]
+"122
+[; ;main.c: 122:             else if (prev_colour==10){
+[e :U 2045 ]
+[e $ ! == _prev_colour -> 10 `i 2047  ]
+{
+"123
+[; ;main.c: 123:                 RetryMove(&motorL, &motorR);
+[e ( _RetryMove (2 , &U _motorL &U _motorR ]
+"124
+[; ;main.c: 124:             }
+}
+[e :U 2047 ]
+[e :U 2046 ]
+[e :U 2044 ]
+[e :U 2042 ]
+[e :U 2040 ]
+[e :U 2038 ]
+[e :U 2036 ]
+[e :U 2034 ]
+"128
+[; ;main.c: 128:         }else{
+}
+[e $U 2048  ]
+[e :U 2027 ]
+{
 "129
-[; ;main.c: 129: }
+[; ;main.c: 129:             sprintf(buf,"red=%d green=%d blue=%d lum=%d \r\n",vals.R, vals.G,vals.B,vals.L);
+[e ( _sprintf (1 , , , , (. , &U _buf :s 2C . _vals 0 . _vals 1 . _vals 2 . _vals 3 ]
+"130
+[; ;main.c: 130:             sendStringSerial4(buf);
+[e ( _sendStringSerial4 (1 &U _buf ]
+"131
+[; ;main.c: 131:         }
+}
+[e :U 2048 ]
+"134
+[; ;main.c: 134:     }
+}
+[e :U 2024 ]
+[e $U 2025  ]
+[e :U 2026 ]
+"136
+[; ;main.c: 136: }
 [e :UE 2020 ]
 }
 [p f _sprintf 8396928 ]

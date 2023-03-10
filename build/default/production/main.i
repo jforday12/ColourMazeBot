@@ -24555,6 +24555,8 @@ void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
 void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
 void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
 void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
+void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
 # 21 "main.c" 2
 
 
@@ -24574,6 +24576,8 @@ void main(void) {
     TRISGbits.TRISG1 = 0;
     TRISAbits.TRISA4 = 0;
     TRISFbits.TRISF7 = 0;
+    TRISFbits.TRISF2 = 1;
+    ANSELFbits.ANSELF2=0;
     LATGbits.LATG1=1;
     LATAbits.LATA4=1;
     LATFbits.LATF7=1;
@@ -24595,8 +24599,11 @@ void main(void) {
     int consecuitive=0;
     int prev_colour =0;
 
+    while (PORTFbits.RF2);
     while (1)
     {
+
+        Forwardhalfblock(&motorL,&motorR);
 
 
 
@@ -24607,6 +24614,7 @@ void main(void) {
 
 
         if (vals.L>=2200){
+            Forwardhalfblock(&motorL,&motorR);
 
             stop(&motorL, &motorR);
             _delay((unsigned long)((200)*(64000000/4000.0)));
@@ -24651,7 +24659,9 @@ void main(void) {
             else if(prev_colour==7){
                 PinkMove(&motorL, &motorR);
             }
-
+            else if (prev_colour==10){
+                RetryMove(&motorL, &motorR);
+            }
 
 
 
@@ -24661,7 +24671,6 @@ void main(void) {
         }
 
 
-
-
     }
+
 }
