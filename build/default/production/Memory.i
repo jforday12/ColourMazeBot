@@ -24322,24 +24322,31 @@ void go_Home (char *WayBack, int *Time_forward){
 
 
         if (WayBack[i-1]==1){
+            reverseDetect(&motorL, &motorR);
             GreenMove(&motorL, &motorR);
         }
         else if (WayBack[i-1]==2){
+            reverseDetect(&motorL, &motorR);
             LightBlueMove(&motorL, &motorR);
         }
         else if (WayBack[i-1]==3){
+            reverseDetect(&motorL, &motorR);
             ReverseYellow(&motorL, &motorR);
         }
         else if (WayBack[i-1]==4){
+            reverseDetect(&motorL, &motorR);
             BlueMove(&motorL, &motorR);
         }
         else if (WayBack[i-1]==5){
+            reverseDetect(&motorL, &motorR);
             RedMove(&motorL, &motorR);
         }
         else if (WayBack[i-1]==6){
+            reverseDetect(&motorL, &motorR);
             OrangeMove(&motorL, &motorR);
         }
         else if (WayBack[i-1]==7){
+            reverseDetect(&motorL, &motorR);
             ReversePink(&motorL, &motorR);
         }
 

@@ -3113,36 +3113,60 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [f ]
 "325
-[; ;dc_motor.c: 325:     turnLeft45(&motorL, &motorR);
-[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
+[; ;dc_motor.c: 325:     turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
 "326
-[; ;dc_motor.c: 326:     turnLeft45(&motorL, &motorR);
-[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
+[; ;dc_motor.c: 326:     turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
 "327
 [; ;dc_motor.c: 327:     ForwardOneBlock(&motorL, &motorR);
 [e ( _ForwardOneBlock (2 , &U _motorL &U _motorR ]
 "328
-[; ;dc_motor.c: 328: }
-[e :UE 2061 ]
-}
+[; ;dc_motor.c: 328:     turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
 "329
-[; ;dc_motor.c: 329: void ReversePink(struct DC_motor *mL,struct DC_motor *mR){
-[v _ReversePink `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
-{
-[e :U _ReversePink ]
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-[f ]
+[; ;dc_motor.c: 329:     turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
 "330
 [; ;dc_motor.c: 330:     turnRight45(&motorL, &motorR);
 [e ( _turnRight45 (2 , &U _motorL &U _motorR ]
 "331
 [; ;dc_motor.c: 331:     turnRight45(&motorL, &motorR);
 [e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"332
-[; ;dc_motor.c: 332:     ForwardOneBlock(&motorL, &motorR);
-[e ( _ForwardOneBlock (2 , &U _motorL &U _motorR ]
 "333
 [; ;dc_motor.c: 333: }
+[e :UE 2061 ]
+}
+"334
+[; ;dc_motor.c: 334: void ReversePink(struct DC_motor *mL,struct DC_motor *mR){
+[v _ReversePink `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
+{
+[e :U _ReversePink ]
+[v _mL `*S2015 ~T0 @X0 1 r1 ]
+[v _mR `*S2015 ~T0 @X0 1 r2 ]
+[f ]
+"335
+[; ;dc_motor.c: 335:     turnLeft45(&motorL, &motorR);
+[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
+"336
+[; ;dc_motor.c: 336:     turnLeft45(&motorL, &motorR);
+[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
+"337
+[; ;dc_motor.c: 337:     ForwardOneBlock(&motorL, &motorR);
+[e ( _ForwardOneBlock (2 , &U _motorL &U _motorR ]
+"338
+[; ;dc_motor.c: 338:     turnLeft45(&motorL, &motorR);
+[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
+"339
+[; ;dc_motor.c: 339:     turnLeft45(&motorL, &motorR);
+[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
+"340
+[; ;dc_motor.c: 340:     turnLeft45(&motorL, &motorR);
+[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
+"341
+[; ;dc_motor.c: 341:     turnLeft45(&motorL, &motorR);
+[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
+"342
+[; ;dc_motor.c: 342: }
 [e :UE 2062 ]
 }

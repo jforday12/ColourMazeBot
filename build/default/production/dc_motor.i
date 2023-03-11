@@ -24617,12 +24617,21 @@ void RetryMove(struct DC_motor *mL,struct DC_motor *mR){
 }
 
 void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR){
-    turnLeft45(&motorL, &motorR);
-    turnLeft45(&motorL, &motorR);
+    turnRight45(&motorL, &motorR);
+    turnRight45(&motorL, &motorR);
     ForwardOneBlock(&motorL, &motorR);
+    turnRight45(&motorL, &motorR);
+    turnRight45(&motorL, &motorR);
+    turnRight45(&motorL, &motorR);
+    turnRight45(&motorL, &motorR);
+
 }
 void ReversePink(struct DC_motor *mL,struct DC_motor *mR){
-    turnRight45(&motorL, &motorR);
-    turnRight45(&motorL, &motorR);
+    turnLeft45(&motorL, &motorR);
+    turnLeft45(&motorL, &motorR);
     ForwardOneBlock(&motorL, &motorR);
+    turnLeft45(&motorL, &motorR);
+    turnLeft45(&motorL, &motorR);
+    turnLeft45(&motorL, &motorR);
+    turnLeft45(&motorL, &motorR);
 }

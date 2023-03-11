@@ -9,6 +9,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30 ./dc_motor.h
 [; ;./dc_motor.h: 30: void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time);
 [v _timed_forward `(v ~T0 @X0 0 ef3`*S2015`*S2015`i ]
+"35
+[; ;./dc_motor.h: 35: void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
+[v _reverseDetect `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "39
 [; ;./dc_motor.h: 39: void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _GreenMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
@@ -2059,82 +2062,103 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> *U + _WayBack * -> - _i -> 1 `i `x -> -> # *U _WayBack `i `x `i -> 1 `i 2020  ]
 {
 "22
-[; ;Memory.c: 22:             GreenMove(&motorL, &motorR);
-[e ( _GreenMove (2 , &U _motorL &U _motorR ]
+[; ;Memory.c: 22:             reverseDetect(&motorL, &motorR);
+[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
 "23
-[; ;Memory.c: 23:         }
+[; ;Memory.c: 23:             GreenMove(&motorL, &motorR);
+[e ( _GreenMove (2 , &U _motorL &U _motorR ]
+"24
+[; ;Memory.c: 24:         }
 }
 [e $U 2021  ]
-"24
-[; ;Memory.c: 24:         else if (WayBack[i-1]==2){
+"25
+[; ;Memory.c: 25:         else if (WayBack[i-1]==2){
 [e :U 2020 ]
 [e $ ! == -> *U + _WayBack * -> - _i -> 1 `i `x -> -> # *U _WayBack `i `x `i -> 2 `i 2022  ]
 {
-"25
-[; ;Memory.c: 25:             LightBlueMove(&motorL, &motorR);
-[e ( _LightBlueMove (2 , &U _motorL &U _motorR ]
 "26
-[; ;Memory.c: 26:         }
+[; ;Memory.c: 26:             reverseDetect(&motorL, &motorR);
+[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+"27
+[; ;Memory.c: 27:             LightBlueMove(&motorL, &motorR);
+[e ( _LightBlueMove (2 , &U _motorL &U _motorR ]
+"28
+[; ;Memory.c: 28:         }
 }
 [e $U 2023  ]
-"27
-[; ;Memory.c: 27:         else if (WayBack[i-1]==3){
+"29
+[; ;Memory.c: 29:         else if (WayBack[i-1]==3){
 [e :U 2022 ]
 [e $ ! == -> *U + _WayBack * -> - _i -> 1 `i `x -> -> # *U _WayBack `i `x `i -> 3 `i 2024  ]
 {
-"28
-[; ;Memory.c: 28:             ReverseYellow(&motorL, &motorR);
-[e ( _ReverseYellow (2 , &U _motorL &U _motorR ]
-"29
-[; ;Memory.c: 29:         }
-}
-[e $U 2025  ]
 "30
-[; ;Memory.c: 30:         else if (WayBack[i-1]==4){
-[e :U 2024 ]
-[e $ ! == -> *U + _WayBack * -> - _i -> 1 `i `x -> -> # *U _WayBack `i `x `i -> 4 `i 2026  ]
-{
+[; ;Memory.c: 30:             reverseDetect(&motorL, &motorR);
+[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
 "31
-[; ;Memory.c: 31:             BlueMove(&motorL, &motorR);
-[e ( _BlueMove (2 , &U _motorL &U _motorR ]
+[; ;Memory.c: 31:             ReverseYellow(&motorL, &motorR);
+[e ( _ReverseYellow (2 , &U _motorL &U _motorR ]
 "32
 [; ;Memory.c: 32:         }
 }
-[e $U 2027  ]
+[e $U 2025  ]
 "33
-[; ;Memory.c: 33:         else if (WayBack[i-1]==5){
+[; ;Memory.c: 33:         else if (WayBack[i-1]==4){
+[e :U 2024 ]
+[e $ ! == -> *U + _WayBack * -> - _i -> 1 `i `x -> -> # *U _WayBack `i `x `i -> 4 `i 2026  ]
+{
+"34
+[; ;Memory.c: 34:             reverseDetect(&motorL, &motorR);
+[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+"35
+[; ;Memory.c: 35:             BlueMove(&motorL, &motorR);
+[e ( _BlueMove (2 , &U _motorL &U _motorR ]
+"36
+[; ;Memory.c: 36:         }
+}
+[e $U 2027  ]
+"37
+[; ;Memory.c: 37:         else if (WayBack[i-1]==5){
 [e :U 2026 ]
 [e $ ! == -> *U + _WayBack * -> - _i -> 1 `i `x -> -> # *U _WayBack `i `x `i -> 5 `i 2028  ]
 {
-"34
-[; ;Memory.c: 34:             RedMove(&motorL, &motorR);
+"38
+[; ;Memory.c: 38:             reverseDetect(&motorL, &motorR);
+[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+"39
+[; ;Memory.c: 39:             RedMove(&motorL, &motorR);
 [e ( _RedMove (2 , &U _motorL &U _motorR ]
-"35
-[; ;Memory.c: 35:         }
+"40
+[; ;Memory.c: 40:         }
 }
 [e $U 2029  ]
-"36
-[; ;Memory.c: 36:         else if (WayBack[i-1]==6){
+"41
+[; ;Memory.c: 41:         else if (WayBack[i-1]==6){
 [e :U 2028 ]
 [e $ ! == -> *U + _WayBack * -> - _i -> 1 `i `x -> -> # *U _WayBack `i `x `i -> 6 `i 2030  ]
 {
-"37
-[; ;Memory.c: 37:             OrangeMove(&motorL, &motorR);
+"42
+[; ;Memory.c: 42:             reverseDetect(&motorL, &motorR);
+[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+"43
+[; ;Memory.c: 43:             OrangeMove(&motorL, &motorR);
 [e ( _OrangeMove (2 , &U _motorL &U _motorR ]
-"38
-[; ;Memory.c: 38:         }
+"44
+[; ;Memory.c: 44:         }
 }
 [e $U 2031  ]
-"39
-[; ;Memory.c: 39:         else if (WayBack[i-1]==7){
+"45
+[; ;Memory.c: 45:         else if (WayBack[i-1]==7){
 [e :U 2030 ]
 [e $ ! == -> *U + _WayBack * -> - _i -> 1 `i `x -> -> # *U _WayBack `i `x `i -> 7 `i 2032  ]
 {
-"40
-[; ;Memory.c: 40:             ReversePink(&motorL, &motorR);
+"46
+[; ;Memory.c: 46:             reverseDetect(&motorL, &motorR);
+[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+"47
+[; ;Memory.c: 47:             ReversePink(&motorL, &motorR);
 [e ( _ReversePink (2 , &U _motorL &U _motorR ]
-"41
-[; ;Memory.c: 41:         }
+"48
+[; ;Memory.c: 48:         }
 }
 [e :U 2032 ]
 [e :U 2031 ]
@@ -2143,14 +2167,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2025 ]
 [e :U 2023 ]
 [e :U 2021 ]
-"44
-[; ;Memory.c: 44:   }
+"51
+[; ;Memory.c: 51:   }
 }
 [e -- _i -> 1 `i ]
 [e $ >= _i -> 0 `i 2017  ]
 [e :U 2018 ]
 }
-"45
-[; ;Memory.c: 45: }
+"52
+[; ;Memory.c: 52: }
 [e :UE 2016 ]
 }
