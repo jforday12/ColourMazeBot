@@ -24250,7 +24250,7 @@ struct DC_motor {
 
 struct DC_motor motorL, motorR;
 
-int power = 30;
+int power = 50;
 int Turn45Delay = 220;
 
 
@@ -24359,12 +24359,12 @@ void setMotorPWM(struct DC_motor *m)
 
     if (m->direction) {
 
-        *(m->posDutyHighByte)=posDuty;
-        *(m->negDutyHighByte)=negDuty;
-
-    } else {
         *(m->posDutyHighByte)=negDuty;
         *(m->negDutyHighByte)=posDuty;
+
+    } else {
+        *(m->posDutyHighByte)=posDuty;
+        *(m->negDutyHighByte)=negDuty;
     }
 }
 

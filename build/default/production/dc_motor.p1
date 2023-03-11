@@ -2226,10 +2226,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _motorL `S2015 ~T0 @X0 1 e ]
 [v _motorR `S2015 ~T0 @X0 1 e ]
 "19
-[; ;./dc_motor.h: 19: int power = 30;
+[; ;./dc_motor.h: 19: int power = 50;
 [v _power `i ~T0 @X0 1 e ]
 [i _power
--> 30 `i
+-> 50 `i
 ]
 "20
 [; ;./dc_motor.h: 20: int Turn45Delay = 220;
@@ -2397,11 +2397,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! != -> . *U _m 1 `i -> 0 `i 2020  ]
 {
 "82
-[; ;dc_motor.c: 82:         *(m->posDutyHighByte)=posDuty;
-[e = *U . *U _m 4 _posDuty ]
+[; ;dc_motor.c: 82:         *(m->posDutyHighByte)=negDuty;
+[e = *U . *U _m 4 _negDuty ]
 "83
-[; ;dc_motor.c: 83:         *(m->negDutyHighByte)=negDuty;
-[e = *U . *U _m 5 _negDuty ]
+[; ;dc_motor.c: 83:         *(m->negDutyHighByte)=posDuty;
+[e = *U . *U _m 5 _posDuty ]
 "85
 [; ;dc_motor.c: 85:     } else {
 }
@@ -2409,11 +2409,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2020 ]
 {
 "86
-[; ;dc_motor.c: 86:         *(m->posDutyHighByte)=negDuty;
-[e = *U . *U _m 4 _negDuty ]
+[; ;dc_motor.c: 86:         *(m->posDutyHighByte)=posDuty;
+[e = *U . *U _m 4 _posDuty ]
 "87
-[; ;dc_motor.c: 87:         *(m->negDutyHighByte)=posDuty;
-[e = *U . *U _m 5 _posDuty ]
+[; ;dc_motor.c: 87:         *(m->negDutyHighByte)=negDuty;
+[e = *U . *U _m 5 _negDuty ]
 "88
 [; ;dc_motor.c: 88:     }
 }

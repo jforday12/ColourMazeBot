@@ -16,7 +16,7 @@ struct DC_motor { //definition of DC_motor structure
 
 struct DC_motor motorL, motorR; //declare two DC_motor structures 
 
-int power = 30; // forward backward, turning motor power
+int power = 50; // forward backward, turning motor power
 int Turn45Delay = 220; //time delay in ms for a 45 degree turn
 
 //function prototypes

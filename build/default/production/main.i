@@ -24534,7 +24534,7 @@ struct DC_motor {
 
 struct DC_motor motorL, motorR;
 
-int power = 30;
+int power = 50;
 int Turn45Delay = 220;
 
 
@@ -24624,19 +24624,32 @@ void main(void) {
     motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);
     motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);
     motorR.PWMperiod=200;
+
     int consecuitive=0;
     int prev_colour =0;
     int run_flag=1;
     move_count=-1;
+
+
     while (PORTFbits.RF2);
     _delay((unsigned long)((1000)*(64000000/4000.0)));
     TMR0H=0;
     TMR0L=0;
+
+
     while (run_flag)
     {
+        move_count++;
+        int fakeTimer = 0;
 
-        fullSpeedAhead(&motorL,&motorR);
+        while (vals.L<=500){
 
+            fullSpeedAhead(&motorL,&motorR);
+            _delay((unsigned long)((100)*(64000000/4000.0)));
+            fakeTimer+=1;
+        }
+
+        Time_forward[move_count]=fakeTimer;
 
 
 
@@ -24655,8 +24668,8 @@ void main(void) {
 
 
 
-            move_count++;
-            getTMR0val();
+
+
 
             while (consecuitive<20){
                 int colour = Colour_decider(&vals, &rel);
@@ -24670,8 +24683,9 @@ void main(void) {
                 _delay((unsigned long)((50)*(64000000/4000.0)));
             }
             consecuitive=0;
-            int temp=TMR0L;
-            sprintf(buf,"red=%d green=%d blue=%d timer=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
+
+
+            sprintf(buf,"red=%d green=%d blue=%d timer=%d \r\n",vals.R, vals.G,vals.B,fakeTimer);
 
 
             sendStringSerial4(buf);

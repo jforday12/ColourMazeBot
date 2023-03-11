@@ -24266,7 +24266,7 @@ struct DC_motor {
 
 struct DC_motor motorL, motorR;
 
-int power = 30;
+int power = 50;
 int Turn45Delay = 220;
 
 

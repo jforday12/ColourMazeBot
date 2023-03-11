@@ -58,21 +58,34 @@ void main(void) {
     motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);  //store address of CCP1 duty high byte
     motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);  //store address of CCP2 duty high byte
     motorR.PWMperiod=200; 			//store PWMperiod for motor (value of T2PR in this case)
+    
     int consecuitive=0; // variable to register how many consecuitive readings there are
     int prev_colour =0; // variable to decide what the previous colour is 
     int run_flag=1;
     move_count=-1;
+    
+    // start after button press RF2
     while (RF2_button);
     __delay_ms(1000);
     TMR0H=0; // reset timer values
     TMR0L=0;
+    
+    
     while (run_flag)
     {
-//        Forwardhalfblock(&motorL,&motorR);
-        fullSpeedAhead(&motorL,&motorR);
-//        WayBack[move_count]=0;
-        //fullSpeedAhead(&motorL, &motorR);
-
+        move_count++; // increment index of wayback and time forward arrays
+        int fakeTimer = 0; // reset fake timer before each straight
+//      section to go forward, count seconds 
+        while (vals.L<=500){
+            
+            fullSpeedAhead(&motorL,&motorR);
+            __delay_ms(100);
+            fakeTimer+=1;
+        }
+        
+        Time_forward[move_count]=fakeTimer;// store the time forward into array
+        
+        
         // read the colours and store it in the struct vals
         readColours(&vals);
 
@@ -89,9 +102,9 @@ void main(void) {
 //            int colour = Colour_decider(&vals, &rel);
 //            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour=%d \r\n",rel.R, rel.G,rel.B,vals.L,colour);
 //            sendStringSerial4(buf);
-            move_count++; // increment index of move and timer arrays
-            getTMR0val(); // place time moving forward in time array
-        
+            
+            
+            // get repeated colour readings 
             while (consecuitive<20){
                 int colour = Colour_decider(&vals, &rel);
                 if (colour==prev_colour){
@@ -104,8 +117,9 @@ void main(void) {
                 __delay_ms(50); 
             }
             consecuitive=0;
-            int temp=TMR0L;
-            sprintf(buf,"red=%d green=%d blue=%d timer=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
+            
+            //serial communication
+            sprintf(buf,"red=%d green=%d blue=%d timer=%d \r\n",vals.R, vals.G,vals.B,fakeTimer);
             //sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,prev_colour);
             //sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
             sendStringSerial4(buf);

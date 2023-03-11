@@ -2024,10 +2024,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _motorL `S2015 ~T0 @X0 1 e ]
 [v _motorR `S2015 ~T0 @X0 1 e ]
 "19
-[; ;./dc_motor.h: 19: int power = 30;
+[; ;./dc_motor.h: 19: int power = 50;
 [v _power `i ~T0 @X0 1 e ]
 [i _power
--> 30 `i
+-> 50 `i
 ]
 "20
 [; ;./dc_motor.h: 20: int Turn45Delay = 220;
