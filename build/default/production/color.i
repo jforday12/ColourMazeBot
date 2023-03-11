@@ -24339,7 +24339,7 @@ void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
 void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
 void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
-
+void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void RedMove(struct DC_motor *mL,struct DC_motor *mR);
 void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
 void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
@@ -24349,6 +24349,8 @@ void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
 void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
 void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
+void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
+void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
 # 4 "color.c" 2
 
 

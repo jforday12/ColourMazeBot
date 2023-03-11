@@ -9,6 +9,7 @@
       <itemPath>serial.h</itemPath>
       <itemPath>interrupts.h</itemPath>
       <itemPath>dc_motor.h</itemPath>
+      <itemPath>Memory.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

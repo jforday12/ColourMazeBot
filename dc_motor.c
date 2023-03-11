@@ -180,14 +180,14 @@ void fullSpeedBack(struct DC_motor *mL, struct DC_motor *mR)
 
 void turnRight45(struct DC_motor *mL,struct DC_motor *mR){
     turnRight(mL,mR);
-    __delay_ms(130);
+    __delay_ms(120);
     stop(&motorL, &motorR);
     __delay_ms(1000); 
 }
 
 void turnLeft45(struct DC_motor *mL,struct DC_motor *mR){
     turnLeft(mL,mR);
-    __delay_ms(130);
+    __delay_ms(120);
     stop(&motorL, &motorR);
     __delay_ms(1000);
 }
@@ -201,6 +201,12 @@ void reverseDetect(struct DC_motor *mL,struct DC_motor *mR){
 
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedBack(mL,mR);
+    __delay_ms(1000); // reverse time period needs to be calibrated
+    stop(&motorL, &motorR);
+    __delay_ms(1000); 
+}
+void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR){
+    fullSpeedAhead(mL,mR);
     __delay_ms(1000); // reverse time period needs to be calibrated
     stop(&motorL, &motorR);
     __delay_ms(1000); 
@@ -295,4 +301,13 @@ void RetryMove(struct DC_motor *mL,struct DC_motor *mR){
     stop(&motorL, &motorR);
 }
 
-// white move instruction Finish (return home)
+void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR){
+    turnLeft45(&motorL, &motorR);
+    turnLeft45(&motorL, &motorR);
+    ForwardOneBlock(&motorL, &motorR);
+}
+void ReversePink(struct DC_motor *mL,struct DC_motor *mR){
+    turnRight45(&motorL, &motorR);
+    turnRight45(&motorL, &motorR);
+    ForwardOneBlock(&motorL, &motorR);
+}

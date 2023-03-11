@@ -19,13 +19,13 @@
 #include "i2c.h"
 #include "interrupts.h"
 #include "dc_motor.h"
+#include "Memory.h"
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-extern volatile char DataFlag;
 
 struct RGB_rel rel;
 struct RGB vals;
-
+volatile unsigned int move_count;  // variable to keep track of list index
 void main(void) {
     initUSART4(); 
     Interrupts_init();
@@ -56,14 +56,17 @@ void main(void) {
     motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);  //store address of CCP1 duty high byte
     motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);  //store address of CCP2 duty high byte
     motorR.PWMperiod=200; 			//store PWMperiod for motor (value of T2PR in this case)
-    int consecuitive=0;
-    int prev_colour =0;
-    
+    int consecuitive=0; // variable to register how many consecuitive readings there are
+    int prev_colour =0; // variable to decide what the previous colour is 
+    int run_flag=1;
+    move_count=-1;
     while (RF2_button);
-    while (1)
+    __delay_ms(1000);
+    while (run_flag)
     {
-        
         Forwardhalfblock(&motorL,&motorR);
+        move_count++;
+        WayBack[move_count]=0;
         //fullSpeedAhead(&motorL, &motorR);
 
         // read the colours and store it in the struct vals
@@ -100,27 +103,47 @@ void main(void) {
                 //give move instruction based on returned colour
             if (prev_colour==1){ //red
                 RedMove(&motorL, &motorR);
+                move_count++;
+                WayBack[move_count]=1;
             }
             else if(prev_colour==2){ //orange
                 OrangeMove(&motorL, &motorR);
+                move_count++;
+                WayBack[move_count]=2;
             }
             else if(prev_colour==3){ //yellow
                 YellowMove(&motorL, &motorR);
+                move_count++;
+                WayBack[move_count]=3;
             }
             else if(prev_colour==4){ //blue
                 BlueMove(&motorL, &motorR);
+                move_count++;
+                WayBack[move_count]=4;
             }
             else if(prev_colour==5){ //green
                 GreenMove(&motorL, &motorR);
+                move_count++;
+                WayBack[move_count]=5;
             }
             else if(prev_colour==6){ //light blue
                 LightBlueMove(&motorL, &motorR);
+                move_count++;
+                WayBack[move_count]=6;
             }
             else if(prev_colour==7){ //pink
                 PinkMove(&motorL, &motorR);
+                move_count++;
+                WayBack[move_count]=7;
             }
             else if (prev_colour==10){// undecided colour
                 RetryMove(&motorL, &motorR);
+            }
+            else if (prev_colour==0){
+                BlueMove(&motorL, &motorR);
+                go_Home(WayBack);
+                stop(&motorL, &motorR);
+                run_flag=0;
             }
 
 

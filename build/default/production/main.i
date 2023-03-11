@@ -24547,7 +24547,7 @@ void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
 void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
 void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
-
+void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void RedMove(struct DC_motor *mL,struct DC_motor *mR);
 void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
 void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
@@ -24557,15 +24557,24 @@ void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
 void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
 void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
+void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
+void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
 # 21 "main.c" 2
 
+# 1 "./Memory.h" 1
+# 16 "./Memory.h"
+char WayBack [250];
+volatile unsigned int move_count;
+
+void go_Home (char *WayBack);
+# 22 "main.c" 2
 
 
-extern volatile char DataFlag;
+
 
 struct RGB_rel rel;
 struct RGB vals;
-
+volatile unsigned int move_count;
 void main(void) {
     initUSART4();
     Interrupts_init();
@@ -24598,12 +24607,15 @@ void main(void) {
     motorR.PWMperiod=200;
     int consecuitive=0;
     int prev_colour =0;
-
+    int run_flag=1;
+    move_count=-1;
     while (PORTFbits.RF2);
-    while (1)
+    _delay((unsigned long)((1000)*(64000000/4000.0)));
+    while (run_flag)
     {
-
         Forwardhalfblock(&motorL,&motorR);
+        move_count++;
+        WayBack[move_count]=0;
 
 
 
@@ -24640,27 +24652,47 @@ void main(void) {
 
             if (prev_colour==1){
                 RedMove(&motorL, &motorR);
+                move_count++;
+                WayBack[move_count]=1;
             }
             else if(prev_colour==2){
                 OrangeMove(&motorL, &motorR);
+                move_count++;
+                WayBack[move_count]=2;
             }
             else if(prev_colour==3){
                 YellowMove(&motorL, &motorR);
+                move_count++;
+                WayBack[move_count]=3;
             }
             else if(prev_colour==4){
                 BlueMove(&motorL, &motorR);
+                move_count++;
+                WayBack[move_count]=4;
             }
             else if(prev_colour==5){
                 GreenMove(&motorL, &motorR);
+                move_count++;
+                WayBack[move_count]=5;
             }
             else if(prev_colour==6){
                 LightBlueMove(&motorL, &motorR);
+                move_count++;
+                WayBack[move_count]=6;
             }
             else if(prev_colour==7){
                 PinkMove(&motorL, &motorR);
+                move_count++;
+                WayBack[move_count]=7;
             }
             else if (prev_colour==10){
                 RetryMove(&motorL, &motorR);
+            }
+            else if (prev_colour==0){
+                BlueMove(&motorL, &motorR);
+                go_Home(WayBack);
+                stop(&motorL, &motorR);
+                run_flag=0;
             }
 
 
