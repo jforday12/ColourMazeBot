@@ -221,26 +221,26 @@ void reverseDetect(struct DC_motor *mL,struct DC_motor *mR){
 
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedBack(mL,mR);
-    __delay_ms(1000); // reverse time period needs to be calibrated
+    __delay_ms(RunOneBlockTime); // reverse time period needs to be calibrated
     stop(&motorL, &motorR);
     __delay_ms(1000); 
 }
 void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedAhead(mL,mR);
-    __delay_ms(1000); // reverse time period needs to be calibrated
+    __delay_ms(RunOneBlockTime); // reverse time period needs to be calibrated
     stop(&motorL, &motorR);
     __delay_ms(1000); 
 }
 
 void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedAhead(mL,mR);
-    __delay_ms(500); // reverse time period needs to be calibrated
+    __delay_ms(RunOneBlockTime/2); // reverse time period needs to be calibrated
     stop(&motorL, &motorR);
     __delay_ms(1000); 
 }
 void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedBack(mL,mR);
-    __delay_ms(500); // reverse time period needs to be calibrated
+    __delay_ms(RunOneBlockTime/2); // reverse time period needs to be calibrated
     stop(&motorL, &motorR);
     __delay_ms(1000); 
 }

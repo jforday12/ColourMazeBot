@@ -2240,6 +2240,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _Turn45Delay
 -> 220 `i
 ]
+"21
+[; ;./dc_motor.h: 21: int RunOneBlockTime = 2000;
+[v _RunOneBlockTime `i ~T0 @X0 1 e ]
+[i _RunOneBlockTime
+-> 2000 `i
+]
 "5 dc_motor.c
 [; ;dc_motor.c: 5: void initDCmotorsPWM(unsigned int PWMperiod){
 [v _initDCmotorsPWM `(v ~T0 @X0 1 ef1`ui ]
@@ -2819,8 +2825,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 223:     fullSpeedBack(mL,mR);
 [e ( _fullSpeedBack (2 , _mL _mR ]
 "224
-[; ;dc_motor.c: 224:     _delay((unsigned long)((1000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 224:     _delay((unsigned long)((RunOneBlockTime)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> _RunOneBlockTime `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "225
 [; ;dc_motor.c: 225:     stop(&motorL, &motorR);
 [e ( _stop (2 , &U _motorL &U _motorR ]
@@ -2843,8 +2849,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 229:     fullSpeedAhead(mL,mR);
 [e ( _fullSpeedAhead (2 , _mL _mR ]
 "230
-[; ;dc_motor.c: 230:     _delay((unsigned long)((1000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 230:     _delay((unsigned long)((RunOneBlockTime)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> _RunOneBlockTime `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "231
 [; ;dc_motor.c: 231:     stop(&motorL, &motorR);
 [e ( _stop (2 , &U _motorL &U _motorR ]
@@ -2867,8 +2873,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 236:     fullSpeedAhead(mL,mR);
 [e ( _fullSpeedAhead (2 , _mL _mR ]
 "237
-[; ;dc_motor.c: 237:     _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 237:     _delay((unsigned long)((RunOneBlockTime/2)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> / _RunOneBlockTime -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "238
 [; ;dc_motor.c: 238:     stop(&motorL, &motorR);
 [e ( _stop (2 , &U _motorL &U _motorR ]
@@ -2891,8 +2897,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 242:     fullSpeedBack(mL,mR);
 [e ( _fullSpeedBack (2 , _mL _mR ]
 "243
-[; ;dc_motor.c: 243:     _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 243:     _delay((unsigned long)((RunOneBlockTime/2)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> / _RunOneBlockTime -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "244
 [; ;dc_motor.c: 244:     stop(&motorL, &motorR);
 [e ( _stop (2 , &U _motorL &U _motorR ]
