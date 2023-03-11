@@ -12,16 +12,16 @@
   0h - 3h		(dist/default/production\final-project-josh-and-edward.X.production.hex)
   8h - 11h		(dist/default/production\final-project-josh-and-edward.X.production.hex)
   E00h - E58h		(dist/default/production\final-project-josh-and-edward.X.production.hex)
-  E5Ah - 5BB8h		(dist/default/production\final-project-josh-and-edward.X.production.hex)
-  5BBAh - 5BBDh		(dist/default/production\final-project-josh-and-edward.X.production.hex)
+  E5Ah - 5BE2h		(dist/default/production\final-project-josh-and-edward.X.production.hex)
+  5BE4h - 5BE7h		(dist/default/production\final-project-josh-and-edward.X.production.hex)
   200000h - 20000Fh		(dist/default/production\final-project-josh-and-edward.X.production.hex)
   300000h - 30000Bh		(dist/default/production\final-project-josh-and-edward.X.production.hex)
  Unused ranges:
   4h - 7h
   12h - DFFh
   E59h - E59h
-  5BB9h - 5BB9h
-  5BBEh - 1FFFFFh
+  5BE3h - 5BE3h
+  5BE8h - 1FFFFFh
   200010h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -1277,7 +1277,10 @@
 00005B80 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00005B90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00005BA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00005BB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 -- H1 H1 H1 H1 -- --
+00005BB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00005BC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00005BD0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00005BE0 | H1 H1 H1 -- H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------

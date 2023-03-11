@@ -24534,6 +24534,9 @@ struct DC_motor {
 
 struct DC_motor motorL, motorR;
 
+int power = 30;
+int Turn45Delay = 220;
+
 
 void initDCmotorsPWM(unsigned int PWMperiod);
 void setMotorPWM(struct DC_motor *m);

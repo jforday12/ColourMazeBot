@@ -24,8 +24,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./i2c.h
 [; ;./i2c.h: 13: void I2C_2_Master_Init(void);
 [v _I2C_2_Master_Init `(v ~T0 @X0 0 ef ]
-"20 ./dc_motor.h
-[; ;./dc_motor.h: 20: void initDCmotorsPWM(unsigned int PWMperiod);
+"23 ./dc_motor.h
+[; ;./dc_motor.h: 23: void initDCmotorsPWM(unsigned int PWMperiod);
 [v _initDCmotorsPWM `(v ~T0 @X0 0 ef1`ui ]
 "30007 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30007:     struct {
@@ -147,8 +147,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
 [p i __delay ]
-"40 ./dc_motor.h
-[; ;./dc_motor.h: 40: void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+"43 ./dc_motor.h
+[; ;./dc_motor.h: 43: void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 [v _Forwardhalfblock `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "48 ./color.h
 [; ;./color.h: 48: void readColours (struct RGB *vals);
@@ -156,8 +156,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "45
 [; ;./color.h: 45: void colour_rel(struct RGB *vals, struct RGB_rel *rel);
 [v _colour_rel `(v ~T0 @X0 0 ef2`*S2017`*S2018 ]
-"22 ./dc_motor.h
-[; ;./dc_motor.h: 22: void stop(struct DC_motor *mL,struct DC_motor *mR);
+"25 ./dc_motor.h
+[; ;./dc_motor.h: 25: void stop(struct DC_motor *mL,struct DC_motor *mR);
 [v _stop `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "47 ./color.h
 [; ;./color.h: 47: int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
@@ -168,29 +168,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26 ./serial.h
 [; ;./serial.h: 26: void sendStringSerial4(char *string);
 [v _sendStringSerial4 `(v ~T0 @X0 0 ef1`*uc ]
-"33 ./dc_motor.h
-[; ;./dc_motor.h: 33: void RedMove(struct DC_motor *mL,struct DC_motor *mR);
+"36 ./dc_motor.h
+[; ;./dc_motor.h: 36: void RedMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _RedMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
-"38
-[; ;./dc_motor.h: 38: void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _OrangeMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
-"36
-[; ;./dc_motor.h: 36: void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _YellowMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
-"35
-[; ;./dc_motor.h: 35: void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _BlueMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
-"34
-[; ;./dc_motor.h: 34: void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _GreenMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
-"39
-[; ;./dc_motor.h: 39: void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _LightBlueMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
-"37
-[; ;./dc_motor.h: 37: void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _PinkMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "41
-[; ;./dc_motor.h: 41: void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
+[; ;./dc_motor.h: 41: void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _OrangeMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
+"39
+[; ;./dc_motor.h: 39: void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _YellowMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
+"38
+[; ;./dc_motor.h: 38: void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _BlueMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
+"37
+[; ;./dc_motor.h: 37: void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _GreenMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
+"42
+[; ;./dc_motor.h: 42: void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _LightBlueMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
+"40
+[; ;./dc_motor.h: 40: void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _PinkMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
+"44
+[; ;./dc_motor.h: 44: void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _RetryMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "19 ./Memory.h
 [; ;./Memory.h: 19: void go_Home (char *WayBack);
@@ -2227,6 +2227,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./dc_motor.h: 17: struct DC_motor motorL, motorR;
 [v _motorL `S2019 ~T0 @X0 1 e ]
 [v _motorR `S2019 ~T0 @X0 1 e ]
+"19
+[; ;./dc_motor.h: 19: int power = 30;
+[v _power `i ~T0 @X0 1 e ]
+[i _power
+-> 30 `i
+]
+"20
+[; ;./dc_motor.h: 20: int Turn45Delay = 220;
+[v _Turn45Delay `i ~T0 @X0 1 e ]
+[i _Turn45Delay
+-> 220 `i
+]
 "16 ./Memory.h
 [; ;./Memory.h: 16: char WayBack [250];
 [v _WayBack `uc ~T0 @X0 -> 250 `i e ]

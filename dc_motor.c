@@ -102,7 +102,7 @@ void stop(struct DC_motor *mL,struct DC_motor *mR)
         setMotorPWM(mL);
         setMotorPWM(mR);
         
-        __delay_ms(1);
+        __delay_ms(20);
     }
 }
 
@@ -112,7 +112,7 @@ void turnLeft(struct DC_motor *mL,struct DC_motor *mR)
     mL->direction =0;
     mR->direction =1;
     
-    while(mL->power<70 && mR->power<70){
+    while(mL->power<power && mR->power<power){
         
         mL->power+=10;
         mR->power+=10;
@@ -120,7 +120,7 @@ void turnLeft(struct DC_motor *mL,struct DC_motor *mR)
         setMotorPWM(mL);
         setMotorPWM(mR);
         
-        __delay_ms(1);
+        __delay_ms(20);
     }
 }
 
@@ -130,7 +130,7 @@ void turnRight(struct DC_motor *mL,struct DC_motor *mR)
     mL->direction =1;
     mR->direction =0;
     
-    while(mL->power<70 && mR->power<70){
+    while(mL->power<power && mR->power<power){
         
         mL->power+=10;
         mR->power+=10;
@@ -138,7 +138,7 @@ void turnRight(struct DC_motor *mL,struct DC_motor *mR)
         setMotorPWM(mL);
         setMotorPWM(mR);
         
-        __delay_ms(1);
+        __delay_ms(20);
     }
 }
 
@@ -148,7 +148,7 @@ void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR)
 
     mL->direction =1;
     mR->direction =1;
-    while (mL->power < 50 && mR->power < 50){
+    while (mL->power < power && mR->power < power){
 
         mL->power+=10;
         mR->power+=10;
@@ -156,7 +156,7 @@ void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR)
         setMotorPWM(mL);
         setMotorPWM(mR);
         
-        __delay_ms(1);
+        __delay_ms(20);
     }
 }
 
@@ -166,7 +166,7 @@ void fullSpeedBack(struct DC_motor *mL, struct DC_motor *mR)
 
     mL->direction =0;
     mR->direction =0;
-    while (mL->power < 50 && mR->power <50){
+    while (mL->power < power && mR->power < power){
 
         mL->power+=10;
         mR->power+=10;
@@ -174,20 +174,20 @@ void fullSpeedBack(struct DC_motor *mL, struct DC_motor *mR)
         setMotorPWM(mL);
         setMotorPWM(mR);
         
-        __delay_ms(1);
+        __delay_ms(20);
     }
 }
 
 void turnRight45(struct DC_motor *mL,struct DC_motor *mR){
     turnRight(mL,mR);
-    __delay_ms(120);
+    __delay_ms(Turn45Delay);
     stop(&motorL, &motorR);
     __delay_ms(1000); 
 }
 
 void turnLeft45(struct DC_motor *mL,struct DC_motor *mR){
     turnLeft(mL,mR);
-    __delay_ms(120);
+    __delay_ms(Turn45Delay);
     stop(&motorL, &motorR);
     __delay_ms(1000);
 }
