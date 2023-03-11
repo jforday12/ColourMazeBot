@@ -24252,6 +24252,7 @@ struct DC_motor motorL, motorR;
 
 int power = 30;
 int Turn45Delay = 220;
+int RunOneBlockTime = 2000;
 
 
 void initDCmotorsPWM(unsigned int PWMperiod);
@@ -24481,26 +24482,26 @@ void reverseDetect(struct DC_motor *mL,struct DC_motor *mR){
 
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedBack(mL,mR);
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
+    _delay((unsigned long)((RunOneBlockTime)*(64000000/4000.0)));
     stop(&motorL, &motorR);
     _delay((unsigned long)((1000)*(64000000/4000.0)));
 }
 void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedAhead(mL,mR);
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
+    _delay((unsigned long)((RunOneBlockTime)*(64000000/4000.0)));
     stop(&motorL, &motorR);
     _delay((unsigned long)((1000)*(64000000/4000.0)));
 }
 
 void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedAhead(mL,mR);
-    _delay((unsigned long)((500)*(64000000/4000.0)));
+    _delay((unsigned long)((RunOneBlockTime/2)*(64000000/4000.0)));
     stop(&motorL, &motorR);
     _delay((unsigned long)((1000)*(64000000/4000.0)));
 }
 void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedBack(mL,mR);
-    _delay((unsigned long)((500)*(64000000/4000.0)));
+    _delay((unsigned long)((RunOneBlockTime/2)*(64000000/4000.0)));
     stop(&motorL, &motorR);
     _delay((unsigned long)((1000)*(64000000/4000.0)));
 }

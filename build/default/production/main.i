@@ -24536,6 +24536,7 @@ struct DC_motor motorL, motorR;
 
 int power = 30;
 int Turn45Delay = 220;
+int RunOneBlockTime = 2000;
 
 
 void initDCmotorsPWM(unsigned int PWMperiod);
@@ -24612,6 +24613,15 @@ void main(void) {
     int prev_colour =0;
     int run_flag=1;
     move_count=-1;
+
+    while (PORTFbits.RF3){
+        _delay((unsigned long)((1000)*(64000000/4000.0)));
+        turnRight45(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
+    }
+
     while (PORTFbits.RF2);
     _delay((unsigned long)((1000)*(64000000/4000.0)));
     while (run_flag)

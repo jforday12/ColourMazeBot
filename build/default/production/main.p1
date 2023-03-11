@@ -24,8 +24,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./i2c.h
 [; ;./i2c.h: 13: void I2C_2_Master_Init(void);
 [v _I2C_2_Master_Init `(v ~T0 @X0 0 ef ]
-"23 ./dc_motor.h
-[; ;./dc_motor.h: 23: void initDCmotorsPWM(unsigned int PWMperiod);
+"24 ./dc_motor.h
+[; ;./dc_motor.h: 24: void initDCmotorsPWM(unsigned int PWMperiod);
 [v _initDCmotorsPWM `(v ~T0 @X0 0 ef1`ui ]
 "30007 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30007:     struct {
@@ -128,7 +128,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "21098
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 21098: extern volatile unsigned char CCPR4H __attribute__((address(0xF21)));
 [v _CCPR4H `Vuc ~T0 @X0 0 e@3873 ]
-"30585
+[v F192 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\builtins.h
+[v __delay `JF192 ~T0 @X0 0 e ]
+[p i __delay ]
+"32 ./dc_motor.h
+[; ;./dc_motor.h: 32: void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
+[v _turnRight45 `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
+"30585 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30585:     struct {
 [s S1412 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1412 . RF0 RF1 RF2 RF3 RF4 RF5 RF6 RF7 ]
@@ -143,12 +150,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30601
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30601: extern volatile PORTFbits_t PORTFbits __attribute__((address(0xF8E)));
 [v _PORTFbits `VS1411 ~T0 @X0 0 e@3982 ]
-[v F192 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\builtins.h
-[v __delay `JF192 ~T0 @X0 0 e ]
-[p i __delay ]
-"43 ./dc_motor.h
-[; ;./dc_motor.h: 43: void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+"44 ./dc_motor.h
+[; ;./dc_motor.h: 44: void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 [v _Forwardhalfblock `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "48 ./color.h
 [; ;./color.h: 48: void readColours (struct RGB *vals);
@@ -156,8 +159,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "45
 [; ;./color.h: 45: void colour_rel(struct RGB *vals, struct RGB_rel *rel);
 [v _colour_rel `(v ~T0 @X0 0 ef2`*S2017`*S2018 ]
-"25 ./dc_motor.h
-[; ;./dc_motor.h: 25: void stop(struct DC_motor *mL,struct DC_motor *mR);
+"26 ./dc_motor.h
+[; ;./dc_motor.h: 26: void stop(struct DC_motor *mL,struct DC_motor *mR);
 [v _stop `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "47 ./color.h
 [; ;./color.h: 47: int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
@@ -168,29 +171,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26 ./serial.h
 [; ;./serial.h: 26: void sendStringSerial4(char *string);
 [v _sendStringSerial4 `(v ~T0 @X0 0 ef1`*uc ]
-"36 ./dc_motor.h
-[; ;./dc_motor.h: 36: void RedMove(struct DC_motor *mL,struct DC_motor *mR);
+"37 ./dc_motor.h
+[; ;./dc_motor.h: 37: void RedMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _RedMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
-"41
-[; ;./dc_motor.h: 41: void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _OrangeMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
-"39
-[; ;./dc_motor.h: 39: void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _YellowMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
-"38
-[; ;./dc_motor.h: 38: void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _BlueMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
-"37
-[; ;./dc_motor.h: 37: void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _GreenMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "42
-[; ;./dc_motor.h: 42: void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _LightBlueMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
+[; ;./dc_motor.h: 42: void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _OrangeMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "40
-[; ;./dc_motor.h: 40: void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
+[; ;./dc_motor.h: 40: void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _YellowMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
+"39
+[; ;./dc_motor.h: 39: void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _BlueMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
+"38
+[; ;./dc_motor.h: 38: void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _GreenMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
+"43
+[; ;./dc_motor.h: 43: void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _LightBlueMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
+"41
+[; ;./dc_motor.h: 41: void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _PinkMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
-"44
-[; ;./dc_motor.h: 44: void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
+"45
+[; ;./dc_motor.h: 45: void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _RetryMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "19 ./Memory.h
 [; ;./Memory.h: 19: void go_Home (char *WayBack);
@@ -2239,6 +2242,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _Turn45Delay
 -> 220 `i
 ]
+"21
+[; ;./dc_motor.h: 21: int RunOneBlockTime = 2000;
+[v _RunOneBlockTime `i ~T0 @X0 1 e ]
+[i _RunOneBlockTime
+-> 2000 `i
+]
 "16 ./Memory.h
 [; ;./Memory.h: 16: char WayBack [250];
 [v _WayBack `uc ~T0 @X0 -> 250 `i e ]
@@ -2354,297 +2363,325 @@ Version 4.0 HI-TECH Software Intermediate Code
 "62
 [; ;main.c: 62:     move_count=-1;
 [e = _move_count -> -U -> 1 `i `ui ]
-"63
-[; ;main.c: 63:     while (PORTFbits.RF2);
+"64
+[; ;main.c: 64:     while (PORTFbits.RF3){
 [e $U 2021  ]
 [e :U 2022 ]
-[e :U 2021 ]
-[e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2022  ]
-[e :U 2023 ]
-"64
-[; ;main.c: 64:     _delay((unsigned long)((1000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+{
 "65
-[; ;main.c: 65:     while (run_flag)
+[; ;main.c: 65:         _delay((unsigned long)((1000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"66
+[; ;main.c: 66:         turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"67
+[; ;main.c: 67:         turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"68
+[; ;main.c: 68:         turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"69
+[; ;main.c: 69:         turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
+"70
+[; ;main.c: 70:     }
+}
+[e :U 2021 ]
+"64
+[; ;main.c: 64:     while (PORTFbits.RF3){
+[e $ != -> . . _PORTFbits 0 3 `i -> 0 `i 2022  ]
+[e :U 2023 ]
+"72
+[; ;main.c: 72:     while (PORTFbits.RF2);
 [e $U 2024  ]
 [e :U 2025 ]
-"66
-[; ;main.c: 66:     {
-{
-"67
-[; ;main.c: 67:         Forwardhalfblock(&motorL,&motorR);
-[e ( _Forwardhalfblock (2 , &U _motorL &U _motorR ]
-"68
-[; ;main.c: 68:         move_count++;
-[e ++ _move_count -> -> 1 `i `Vui ]
-"69
-[; ;main.c: 69:         WayBack[move_count]=0;
-[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 0 `i `uc ]
+[e :U 2024 ]
+[e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2025  ]
+[e :U 2026 ]
 "73
-[; ;main.c: 73:         readColours(&vals);
-[e ( _readColours (1 &U _vals ]
-"76
-[; ;main.c: 76:         colour_rel(&vals, &rel);
-[e ( _colour_rel (2 , &U _vals &U _rel ]
-"79
-[; ;main.c: 79:         if (vals.L>=2200){
-[e $ ! >= . _vals 3 -> 2200 `i 2027  ]
+[; ;main.c: 73:     _delay((unsigned long)((1000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"74
+[; ;main.c: 74:     while (run_flag)
+[e $U 2027  ]
+[e :U 2028 ]
+"75
+[; ;main.c: 75:     {
 {
-"80
-[; ;main.c: 80:             Forwardhalfblock(&motorL,&motorR);
+"76
+[; ;main.c: 76:         Forwardhalfblock(&motorL,&motorR);
 [e ( _Forwardhalfblock (2 , &U _motorL &U _motorR ]
+"77
+[; ;main.c: 77:         move_count++;
+[e ++ _move_count -> -> 1 `i `Vui ]
+"78
+[; ;main.c: 78:         WayBack[move_count]=0;
+[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 0 `i `uc ]
 "82
-[; ;main.c: 82:             stop(&motorL, &motorR);
-[e ( _stop (2 , &U _motorL &U _motorR ]
-"83
-[; ;main.c: 83:             _delay((unsigned long)((200)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 82:         readColours(&vals);
+[e ( _readColours (1 &U _vals ]
+"85
+[; ;main.c: 85:         colour_rel(&vals, &rel);
+[e ( _colour_rel (2 , &U _vals &U _rel ]
 "88
-[; ;main.c: 88:             while (consecuitive<20){
-[e $U 2028  ]
-[e :U 2029 ]
+[; ;main.c: 88:         if (vals.L>=2200){
+[e $ ! >= . _vals 3 -> 2200 `i 2030  ]
 {
 "89
-[; ;main.c: 89:                 int colour = Colour_decider(&vals, &rel);
+[; ;main.c: 89:             Forwardhalfblock(&motorL,&motorR);
+[e ( _Forwardhalfblock (2 , &U _motorL &U _motorR ]
+"91
+[; ;main.c: 91:             stop(&motorL, &motorR);
+[e ( _stop (2 , &U _motorL &U _motorR ]
+"92
+[; ;main.c: 92:             _delay((unsigned long)((200)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"97
+[; ;main.c: 97:             while (consecuitive<20){
+[e $U 2031  ]
+[e :U 2032 ]
+{
+"98
+[; ;main.c: 98:                 int colour = Colour_decider(&vals, &rel);
 [v _colour `i ~T0 @X0 1 a ]
 [e = _colour ( _Colour_decider (2 , &U _vals &U _rel ]
-"90
-[; ;main.c: 90:                 if (colour==prev_colour){
-[e $ ! == _colour _prev_colour 2031  ]
-{
-"91
-[; ;main.c: 91:                     consecuitive++;
-[e ++ _consecuitive -> 1 `i ]
-"92
-[; ;main.c: 92:                 }
-}
-[e $U 2032  ]
-"93
-[; ;main.c: 93:                 else{
-[e :U 2031 ]
-{
-"94
-[; ;main.c: 94:                     consecuitive=0;
-[e = _consecuitive -> 0 `i ]
-"95
-[; ;main.c: 95:                 }
-}
-[e :U 2032 ]
-"96
-[; ;main.c: 96:                 prev_colour=colour;
-[e = _prev_colour _colour ]
-"97
-[; ;main.c: 97:                 _delay((unsigned long)((50)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"98
-[; ;main.c: 98:             }
-}
-[e :U 2028 ]
-"88
-[; ;main.c: 88:             while (consecuitive<20){
-[e $ < _consecuitive -> 20 `i 2029  ]
-[e :U 2030 ]
 "99
-[; ;main.c: 99:             consecuitive=0;
-[e = _consecuitive -> 0 `i ]
+[; ;main.c: 99:                 if (colour==prev_colour){
+[e $ ! == _colour _prev_colour 2034  ]
+{
+"100
+[; ;main.c: 100:                     consecuitive++;
+[e ++ _consecuitive -> 1 `i ]
 "101
-[; ;main.c: 101:             sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
-[e ( _sprintf (1 , , , , , (. , &U _buf :s 1C -> . _rel 0 `d -> . _rel 1 `d -> . _rel 2 `d . _vals 3 _prev_colour ]
+[; ;main.c: 101:                 }
+}
+[e $U 2035  ]
 "102
-[; ;main.c: 102:             sendStringSerial4(buf);
-[e ( _sendStringSerial4 (1 &U _buf ]
+[; ;main.c: 102:                 else{
+[e :U 2034 ]
+{
+"103
+[; ;main.c: 103:                     consecuitive=0;
+[e = _consecuitive -> 0 `i ]
 "104
-[; ;main.c: 104:             if (prev_colour==1){
-[e $ ! == _prev_colour -> 1 `i 2033  ]
-{
-"105
-[; ;main.c: 105:                 RedMove(&motorL, &motorR);
-[e ( _RedMove (2 , &U _motorL &U _motorR ]
-"106
-[; ;main.c: 106:                 move_count++;
-[e ++ _move_count -> -> 1 `i `Vui ]
-"107
-[; ;main.c: 107:                 WayBack[move_count]=1;
-[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 1 `i `uc ]
-"108
-[; ;main.c: 108:             }
+[; ;main.c: 104:                 }
 }
-[e $U 2034  ]
-"109
-[; ;main.c: 109:             else if(prev_colour==2){
-[e :U 2033 ]
-[e $ ! == _prev_colour -> 2 `i 2035  ]
-{
-"110
-[; ;main.c: 110:                 OrangeMove(&motorL, &motorR);
-[e ( _OrangeMove (2 , &U _motorL &U _motorR ]
-"111
-[; ;main.c: 111:                 move_count++;
-[e ++ _move_count -> -> 1 `i `Vui ]
-"112
-[; ;main.c: 112:                 WayBack[move_count]=2;
-[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 2 `i `uc ]
-"113
-[; ;main.c: 113:             }
-}
-[e $U 2036  ]
-"114
-[; ;main.c: 114:             else if(prev_colour==3){
 [e :U 2035 ]
-[e $ ! == _prev_colour -> 3 `i 2037  ]
+"105
+[; ;main.c: 105:                 prev_colour=colour;
+[e = _prev_colour _colour ]
+"106
+[; ;main.c: 106:                 _delay((unsigned long)((50)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"107
+[; ;main.c: 107:             }
+}
+[e :U 2031 ]
+"97
+[; ;main.c: 97:             while (consecuitive<20){
+[e $ < _consecuitive -> 20 `i 2032  ]
+[e :U 2033 ]
+"108
+[; ;main.c: 108:             consecuitive=0;
+[e = _consecuitive -> 0 `i ]
+"110
+[; ;main.c: 110:             sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+[e ( _sprintf (1 , , , , , (. , &U _buf :s 1C -> . _rel 0 `d -> . _rel 1 `d -> . _rel 2 `d . _vals 3 _prev_colour ]
+"111
+[; ;main.c: 111:             sendStringSerial4(buf);
+[e ( _sendStringSerial4 (1 &U _buf ]
+"113
+[; ;main.c: 113:             if (prev_colour==1){
+[e $ ! == _prev_colour -> 1 `i 2036  ]
 {
+"114
+[; ;main.c: 114:                 RedMove(&motorL, &motorR);
+[e ( _RedMove (2 , &U _motorL &U _motorR ]
 "115
-[; ;main.c: 115:                 YellowMove(&motorL, &motorR);
-[e ( _YellowMove (2 , &U _motorL &U _motorR ]
+[; ;main.c: 115:                 move_count++;
+[e ++ _move_count -> -> 1 `i `Vui ]
 "116
-[; ;main.c: 116:                 move_count++;
-[e ++ _move_count -> -> 1 `i `Vui ]
+[; ;main.c: 116:                 WayBack[move_count]=1;
+[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 1 `i `uc ]
 "117
-[; ;main.c: 117:                 WayBack[move_count]=3;
-[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 3 `i `uc ]
+[; ;main.c: 117:             }
+}
+[e $U 2037  ]
 "118
-[; ;main.c: 118:             }
-}
-[e $U 2038  ]
+[; ;main.c: 118:             else if(prev_colour==2){
+[e :U 2036 ]
+[e $ ! == _prev_colour -> 2 `i 2038  ]
+{
 "119
-[; ;main.c: 119:             else if(prev_colour==4){
-[e :U 2037 ]
-[e $ ! == _prev_colour -> 4 `i 2039  ]
-{
+[; ;main.c: 119:                 OrangeMove(&motorL, &motorR);
+[e ( _OrangeMove (2 , &U _motorL &U _motorR ]
 "120
-[; ;main.c: 120:                 BlueMove(&motorL, &motorR);
-[e ( _BlueMove (2 , &U _motorL &U _motorR ]
+[; ;main.c: 120:                 move_count++;
+[e ++ _move_count -> -> 1 `i `Vui ]
 "121
-[; ;main.c: 121:                 move_count++;
-[e ++ _move_count -> -> 1 `i `Vui ]
+[; ;main.c: 121:                 WayBack[move_count]=2;
+[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 2 `i `uc ]
 "122
-[; ;main.c: 122:                 WayBack[move_count]=4;
-[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 4 `i `uc ]
+[; ;main.c: 122:             }
+}
+[e $U 2039  ]
 "123
-[; ;main.c: 123:             }
-}
-[e $U 2040  ]
+[; ;main.c: 123:             else if(prev_colour==3){
+[e :U 2038 ]
+[e $ ! == _prev_colour -> 3 `i 2040  ]
+{
 "124
-[; ;main.c: 124:             else if(prev_colour==5){
-[e :U 2039 ]
-[e $ ! == _prev_colour -> 5 `i 2041  ]
-{
+[; ;main.c: 124:                 YellowMove(&motorL, &motorR);
+[e ( _YellowMove (2 , &U _motorL &U _motorR ]
 "125
-[; ;main.c: 125:                 GreenMove(&motorL, &motorR);
-[e ( _GreenMove (2 , &U _motorL &U _motorR ]
+[; ;main.c: 125:                 move_count++;
+[e ++ _move_count -> -> 1 `i `Vui ]
 "126
-[; ;main.c: 126:                 move_count++;
-[e ++ _move_count -> -> 1 `i `Vui ]
+[; ;main.c: 126:                 WayBack[move_count]=3;
+[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 3 `i `uc ]
 "127
-[; ;main.c: 127:                 WayBack[move_count]=5;
-[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 5 `i `uc ]
+[; ;main.c: 127:             }
+}
+[e $U 2041  ]
 "128
-[; ;main.c: 128:             }
-}
-[e $U 2042  ]
+[; ;main.c: 128:             else if(prev_colour==4){
+[e :U 2040 ]
+[e $ ! == _prev_colour -> 4 `i 2042  ]
+{
 "129
-[; ;main.c: 129:             else if(prev_colour==6){
-[e :U 2041 ]
-[e $ ! == _prev_colour -> 6 `i 2043  ]
-{
-"130
-[; ;main.c: 130:                 LightBlueMove(&motorL, &motorR);
-[e ( _LightBlueMove (2 , &U _motorL &U _motorR ]
-"131
-[; ;main.c: 131:                 move_count++;
-[e ++ _move_count -> -> 1 `i `Vui ]
-"132
-[; ;main.c: 132:                 WayBack[move_count]=6;
-[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 6 `i `uc ]
-"133
-[; ;main.c: 133:             }
-}
-[e $U 2044  ]
-"134
-[; ;main.c: 134:             else if(prev_colour==7){
-[e :U 2043 ]
-[e $ ! == _prev_colour -> 7 `i 2045  ]
-{
-"135
-[; ;main.c: 135:                 PinkMove(&motorL, &motorR);
-[e ( _PinkMove (2 , &U _motorL &U _motorR ]
-"136
-[; ;main.c: 136:                 move_count++;
-[e ++ _move_count -> -> 1 `i `Vui ]
-"137
-[; ;main.c: 137:                 WayBack[move_count]=7;
-[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 7 `i `uc ]
-"138
-[; ;main.c: 138:             }
-}
-[e $U 2046  ]
-"139
-[; ;main.c: 139:             else if (prev_colour==10){
-[e :U 2045 ]
-[e $ ! == _prev_colour -> 10 `i 2047  ]
-{
-"140
-[; ;main.c: 140:                 RetryMove(&motorL, &motorR);
-[e ( _RetryMove (2 , &U _motorL &U _motorR ]
-"141
-[; ;main.c: 141:             }
-}
-[e $U 2048  ]
-"142
-[; ;main.c: 142:             else if (prev_colour==0){
-[e :U 2047 ]
-[e $ ! == _prev_colour -> 0 `i 2049  ]
-{
-"143
-[; ;main.c: 143:                 BlueMove(&motorL, &motorR);
+[; ;main.c: 129:                 BlueMove(&motorL, &motorR);
 [e ( _BlueMove (2 , &U _motorL &U _motorR ]
+"130
+[; ;main.c: 130:                 move_count++;
+[e ++ _move_count -> -> 1 `i `Vui ]
+"131
+[; ;main.c: 131:                 WayBack[move_count]=4;
+[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 4 `i `uc ]
+"132
+[; ;main.c: 132:             }
+}
+[e $U 2043  ]
+"133
+[; ;main.c: 133:             else if(prev_colour==5){
+[e :U 2042 ]
+[e $ ! == _prev_colour -> 5 `i 2044  ]
+{
+"134
+[; ;main.c: 134:                 GreenMove(&motorL, &motorR);
+[e ( _GreenMove (2 , &U _motorL &U _motorR ]
+"135
+[; ;main.c: 135:                 move_count++;
+[e ++ _move_count -> -> 1 `i `Vui ]
+"136
+[; ;main.c: 136:                 WayBack[move_count]=5;
+[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 5 `i `uc ]
+"137
+[; ;main.c: 137:             }
+}
+[e $U 2045  ]
+"138
+[; ;main.c: 138:             else if(prev_colour==6){
+[e :U 2044 ]
+[e $ ! == _prev_colour -> 6 `i 2046  ]
+{
+"139
+[; ;main.c: 139:                 LightBlueMove(&motorL, &motorR);
+[e ( _LightBlueMove (2 , &U _motorL &U _motorR ]
+"140
+[; ;main.c: 140:                 move_count++;
+[e ++ _move_count -> -> 1 `i `Vui ]
+"141
+[; ;main.c: 141:                 WayBack[move_count]=6;
+[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 6 `i `uc ]
+"142
+[; ;main.c: 142:             }
+}
+[e $U 2047  ]
+"143
+[; ;main.c: 143:             else if(prev_colour==7){
+[e :U 2046 ]
+[e $ ! == _prev_colour -> 7 `i 2048  ]
+{
 "144
-[; ;main.c: 144:                 go_Home(WayBack);
-[e ( _go_Home (1 &U _WayBack ]
+[; ;main.c: 144:                 PinkMove(&motorL, &motorR);
+[e ( _PinkMove (2 , &U _motorL &U _motorR ]
 "145
-[; ;main.c: 145:                 stop(&motorL, &motorR);
-[e ( _stop (2 , &U _motorL &U _motorR ]
+[; ;main.c: 145:                 move_count++;
+[e ++ _move_count -> -> 1 `i `Vui ]
 "146
-[; ;main.c: 146:                 run_flag=0;
-[e = _run_flag -> 0 `i ]
+[; ;main.c: 146:                 WayBack[move_count]=7;
+[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 7 `i `uc ]
 "147
 [; ;main.c: 147:             }
 }
-[e :U 2049 ]
+[e $U 2049  ]
+"148
+[; ;main.c: 148:             else if (prev_colour==10){
 [e :U 2048 ]
-[e :U 2046 ]
-[e :U 2044 ]
-[e :U 2042 ]
-[e :U 2040 ]
-[e :U 2038 ]
-[e :U 2036 ]
-[e :U 2034 ]
-"151
-[; ;main.c: 151:         }else{
+[e $ ! == _prev_colour -> 10 `i 2050  ]
+{
+"149
+[; ;main.c: 149:                 RetryMove(&motorL, &motorR);
+[e ( _RetryMove (2 , &U _motorL &U _motorR ]
+"150
+[; ;main.c: 150:             }
 }
-[e $U 2050  ]
-[e :U 2027 ]
+[e $U 2051  ]
+"151
+[; ;main.c: 151:             else if (prev_colour==0){
+[e :U 2050 ]
+[e $ ! == _prev_colour -> 0 `i 2052  ]
 {
 "152
-[; ;main.c: 152:             sprintf(buf,"red=%d green=%d blue=%d lum=%d \r\n",vals.R, vals.G,vals.B,vals.L);
-[e ( _sprintf (1 , , , , (. , &U _buf :s 2C . _vals 0 . _vals 1 . _vals 2 . _vals 3 ]
+[; ;main.c: 152:                 BlueMove(&motorL, &motorR);
+[e ( _BlueMove (2 , &U _motorL &U _motorR ]
 "153
-[; ;main.c: 153:             sendStringSerial4(buf);
-[e ( _sendStringSerial4 (1 &U _buf ]
+[; ;main.c: 153:                 go_Home(WayBack);
+[e ( _go_Home (1 &U _WayBack ]
 "154
-[; ;main.c: 154:         }
+[; ;main.c: 154:                 stop(&motorL, &motorR);
+[e ( _stop (2 , &U _motorL &U _motorR ]
+"155
+[; ;main.c: 155:                 run_flag=0;
+[e = _run_flag -> 0 `i ]
+"156
+[; ;main.c: 156:             }
 }
-[e :U 2050 ]
-"157
-[; ;main.c: 157:     }
+[e :U 2052 ]
+[e :U 2051 ]
+[e :U 2049 ]
+[e :U 2047 ]
+[e :U 2045 ]
+[e :U 2043 ]
+[e :U 2041 ]
+[e :U 2039 ]
+[e :U 2037 ]
+"160
+[; ;main.c: 160:         }else{
 }
-[e :U 2024 ]
-"65
-[; ;main.c: 65:     while (run_flag)
-[e $ != _run_flag -> 0 `i 2025  ]
-[e :U 2026 ]
-"159
-[; ;main.c: 159: }
+[e $U 2053  ]
+[e :U 2030 ]
+{
+"161
+[; ;main.c: 161:             sprintf(buf,"red=%d green=%d blue=%d lum=%d \r\n",vals.R, vals.G,vals.B,vals.L);
+[e ( _sprintf (1 , , , , (. , &U _buf :s 2C . _vals 0 . _vals 1 . _vals 2 . _vals 3 ]
+"162
+[; ;main.c: 162:             sendStringSerial4(buf);
+[e ( _sendStringSerial4 (1 &U _buf ]
+"163
+[; ;main.c: 163:         }
+}
+[e :U 2053 ]
+"166
+[; ;main.c: 166:     }
+}
+[e :U 2027 ]
+"74
+[; ;main.c: 74:     while (run_flag)
+[e $ != _run_flag -> 0 `i 2028  ]
+[e :U 2029 ]
+"168
+[; ;main.c: 168: }
 [e :UE 2020 ]
 }
 [p f _sprintf 8396928 ]

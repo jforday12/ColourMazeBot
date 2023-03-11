@@ -60,6 +60,15 @@ void main(void) {
     int prev_colour =0; // variable to decide what the previous colour is 
     int run_flag=1;
     move_count=-1;
+    
+    while (RF3_button){
+        __delay_ms(1000);
+        turnRight45(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
+        turnRight45(&motorL, &motorR);
+    }
+        
     while (RF2_button);
     __delay_ms(1000);
     while (run_flag)

@@ -3,29 +3,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./dc_motor.h: 8: struct DC_motor {
 [s S2015 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
 [n S2015 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
-"43
-[; ;./dc_motor.h: 43: void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+"44
+[; ;./dc_motor.h: 44: void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 [v _Forwardhalfblock `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"37
-[; ;./dc_motor.h: 37: void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _GreenMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"42
-[; ;./dc_motor.h: 42: void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _LightBlueMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"45
-[; ;./dc_motor.h: 45: void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
-[v _ReverseYellow `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "38
-[; ;./dc_motor.h: 38: void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _BlueMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"36
-[; ;./dc_motor.h: 36: void RedMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _RedMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"41
-[; ;./dc_motor.h: 41: void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _OrangeMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+[; ;./dc_motor.h: 38: void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _GreenMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"43
+[; ;./dc_motor.h: 43: void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _LightBlueMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "46
-[; ;./dc_motor.h: 46: void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
+[; ;./dc_motor.h: 46: void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
+[v _ReverseYellow `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"39
+[; ;./dc_motor.h: 39: void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _BlueMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"37
+[; ;./dc_motor.h: 37: void RedMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _RedMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"42
+[; ;./dc_motor.h: 42: void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _OrangeMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"47
+[; ;./dc_motor.h: 47: void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
 [v _ReversePink `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
@@ -2022,6 +2022,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _Turn45Delay `i ~T0 @X0 1 e ]
 [i _Turn45Delay
 -> 220 `i
+]
+"21
+[; ;./dc_motor.h: 21: int RunOneBlockTime = 2000;
+[v _RunOneBlockTime `i ~T0 @X0 1 e ]
+[i _RunOneBlockTime
+-> 2000 `i
 ]
 "3 Memory.c
 [; ;Memory.c: 3: void go_Home (char *WayBack){
