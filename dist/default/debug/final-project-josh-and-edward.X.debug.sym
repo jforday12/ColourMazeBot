@@ -716,7 +716,7 @@ vfpfcnvrt@fmt 41 0 COMRAM 1
 ReversePink@mR 22 0 COMRAM 1
 __smallconst E00 0 SMALLCONST 0
 _Colour_decider$2808 60 0 BANK0 1
-__Hreset_vec 4 0 CODE 0
+__Hreset_vec 6 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 __end_of_Interrupts_init 4B78 0 CODE 0
 _readColours 420C 0 CODE 0
@@ -797,7 +797,7 @@ ___fldiv@b 19 0 COMRAM 1
 _BAUD4CONbits EE9 0 ABS 0
 ___aodiv@dividend 1 0 COMRAM 1
 %segments
-reset_vec 0 3 CODE 0 0
+reset_vec 0 5 CODE 0 0
 intcode 8 11 CODE 8 0
 smallconst E00 E25 SMALLCONST E00 0
 cstackCOMRAM 1 5F COMRAM 1 1
@@ -806,9 +806,9 @@ bssBANK1 100 1D4 BANK1 100 1
 bssBANK2 200 263 BANK2 200 1
 text59 E26 4B78 CODE E26 0
 %locals
-dist/default/production\final-project-josh-and-edward.X.production.o
+dist/default/debug\final-project-josh-and-edward.X.debug.o
 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
-C:\Users\jford\AppData\Local\Temp\xcAsdn4.s
+C:\Users\jford\AppData\Local\Temp\xcAs9lg.s
 10983 4136 0 CODE 0
 10985 4136 0 CODE 0
 10988 4136 0 CODE 0
@@ -1997,7 +1997,7 @@ C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
 180 2A8C 0 CODE 0
 182 2A8E 0 CODE 0
 185 2A98 0 CODE 0
-C:\Users\jford\AppData\Local\Temp\xcAsdn4.s
+C:\Users\jford\AppData\Local\Temp\xcAs9lg.s
 26466 8 0 CODE 0
 interrupts.c
 59 8 0 CODE 0

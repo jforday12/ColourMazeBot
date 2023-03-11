@@ -1,4 +1,4 @@
-# 1 "timers.c"
+# 1 "interrupts.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "timers.c" 2
+# 1 "interrupts.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24229,20 +24229,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 2 3
-# 1 "timers.c" 2
-
-# 1 "./timers.h" 1
-
-
-
-
-
-
-
-void Timer0_init(void);
-void getTMR0val(void);
-extern volatile unsigned int move_count;
-# 2 "timers.c" 2
+# 1 "interrupts.c" 2
 
 # 1 "./interrupts.h" 1
 
@@ -24339,41 +24326,46 @@ extern volatile char ColourFlag;
 
 int low_threshold=0;
 int high_threshold=1000;
-# 3 "timers.c" 2
+# 2 "interrupts.c" 2
 
-# 1 "./Memory.h" 1
-# 18 "./Memory.h"
-char WayBack [50];
-int Time_forward[50];
-extern volatile unsigned int move_count;
+# 1 "./serial.h" 1
+# 13 "./serial.h"
+volatile char EUSART4RXbuf[20];
+volatile char RxBufWriteCnt=0;
+volatile char RxBufReadCnt=0;
 
-
-void go_Home (char *WayBack, int *Time_forward);
-# 4 "timers.c" 2
-
-
+volatile char EUSART4TXbuf[60];
+volatile char TxBufWriteCnt=0;
+volatile char TxBufReadCnt=0;
 
 
-void Timer0_init(void)
+
+void initUSART4(void);
+char getCharSerial4(void);
+void sendCharSerial4(char charToSend);
+void sendStringSerial4(char *string);
+
+
+char getCharFromRxBuf(void);
+void putCharToRxBuf(char byte);
+char isDataInRxBuf (void);
+
+
+char getCharFromTxBuf(void);
+void putCharToTxBuf(char byte);
+char isDataInTxBuf (void);
+void TxBufferedString(char *string);
+void sendTxBuf(void);
+
+volatile char DataFlag=1;
+# 3 "interrupts.c" 2
+# 12 "interrupts.c"
+void Interrupts_init(void)
 {
-    T0CON1bits.T0CS=0b010;
-    T0CON1bits.T0ASYNC=1;
-    T0CON1bits.T0CKPS=0b1110;
-    T0CON0bits.T016BIT=1;
-
-
-    TMR0H=0;
-    TMR0L=0;
-    T0CON0bits.T0EN=1;
+# 32 "interrupts.c"
 }
-# 28 "timers.c"
-void getTMR0val(void)
+# 59 "interrupts.c"
+void __attribute__((picinterrupt(("high_priority")))) HighISR()
 {
-    unsigned int temp= TMR0L;
-
-    int moving=TMR0H<<8;
-    Time_forward[move_count]=moving;
-
-
-
+# 78 "interrupts.c"
 }

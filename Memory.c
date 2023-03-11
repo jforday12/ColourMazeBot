@@ -7,11 +7,11 @@ void go_Home (char *WayBack, int *Time_forward){
         TMR0H=0;
         TMR0L=0;
         unsigned int time_temp=TMR0L;
-        int cur_time=TMR0H<<8;
-        while (cur_time<Time_forward[i]){
+        //int cur_time=TMR0H<<8;
+        while (TMR0H<<8<Time_forward[i]){
             fullSpeedAhead(&motorL,&motorR);
             time_temp=TMR0L;
-            cur_time=TMR0H<<8;
+            //TMR0H<<8;
         }
             
         if (WayBack[i]==0){

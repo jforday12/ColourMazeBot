@@ -1,4 +1,4 @@
-# 1 "timers.c"
+# 1 "i2c.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "timers.c" 2
+# 1 "i2c.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24229,65 +24229,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 2 3
-# 1 "timers.c" 2
-
-# 1 "./timers.h" 1
-
-
-
-
-
-
-
-void Timer0_init(void);
-void getTMR0val(void);
-extern volatile unsigned int move_count;
-# 2 "timers.c" 2
-
-# 1 "./interrupts.h" 1
-
-
-
-# 1 "./color.h" 1
-# 12 "./color.h"
-void color_click_init(void);
-
-
-
-
-
-
-void color_writetoaddr(char address, char value);
-
-
-
-
-
-unsigned int color_read_Red(void);
-unsigned int color_read_Blue(void);
-unsigned int color_read_Green(void);
-unsigned int color_read_lum(void);
-struct RGB{
-    int R;
-    int G;
-    int B;
-    int L;
-};
-
-
-struct RGB_rel{
-    float R;
-    float G;
-    float B;
-};
-
-
-
-void colour_rel(struct RGB *vals, struct RGB_rel *rel);
-
-int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
-void readColours (struct RGB *vals);
-# 4 "./interrupts.h" 2
+# 1 "i2c.c" 2
 
 # 1 "./i2c.h" 1
 # 13 "./i2c.h"
@@ -24322,58 +24264,65 @@ void I2C_2_Master_Write(unsigned char data_byte);
 
 
 unsigned char I2C_2_Master_Read(unsigned char ack);
-# 5 "./interrupts.h" 2
+# 2 "i2c.c" 2
 
 
-
-
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-
-void colour_interrupt_init(void);
-void clear_int(void);
-
-extern volatile char DataFlag;
-extern volatile char ColourFlag;
-
-int low_threshold=0;
-int high_threshold=1000;
-# 3 "timers.c" 2
-
-# 1 "./Memory.h" 1
-# 18 "./Memory.h"
-char WayBack [50];
-int Time_forward[50];
-extern volatile unsigned int move_count;
-
-
-void go_Home (char *WayBack, int *Time_forward);
-# 4 "timers.c" 2
-
-
-
-
-void Timer0_init(void)
+void I2C_2_Master_Init(void)
 {
-    T0CON1bits.T0CS=0b010;
-    T0CON1bits.T0ASYNC=1;
-    T0CON1bits.T0CKPS=0b1110;
-    T0CON0bits.T016BIT=1;
+
+  SSP2CON1bits.SSPM= 0b1000;
+  SSP2CON1bits.SSPEN = 1;
+  SSP2ADD = (64000000/(4*100000))-1;
 
 
-    TMR0H=0;
-    TMR0L=0;
-    T0CON0bits.T0EN=1;
+  TRISDbits.TRISD5 = 1;
+  TRISDbits.TRISD6 = 1;
+  ANSELDbits.ANSELD5=0;
+  ANSELDbits.ANSELD6=0;
+  SSP2DATPPS=0x1D;
+  SSP2CLKPPS=0x1E;
+  RD5PPS=0x1C;
+  RD6PPS=0x1B;
 }
-# 28 "timers.c"
-void getTMR0val(void)
+
+void I2C_2_Master_Idle(void)
 {
-    unsigned int temp= TMR0L;
+  while ((SSP2STAT & 0x04) || (SSP2CON2 & 0x1F));
+}
 
-    int moving=TMR0H<<8;
-    Time_forward[move_count]=moving;
+void I2C_2_Master_Start(void)
+{
+  I2C_2_Master_Idle();
+  SSP2CON2bits.SEN = 1;
+}
 
+void I2C_2_Master_RepStart(void)
+{
+  I2C_2_Master_Idle();
+  SSP2CON2bits.RSEN = 1;
+}
 
+void I2C_2_Master_Stop()
+{
+  I2C_2_Master_Idle();
+  SSP2CON2bits.PEN = 1;
+}
 
+void I2C_2_Master_Write(unsigned char data_byte)
+{
+  I2C_2_Master_Idle();
+  SSP2BUF = data_byte;
+}
+
+unsigned char I2C_2_Master_Read(unsigned char ack)
+{
+  unsigned char tmp;
+  I2C_2_Master_Idle();
+  SSP2CON2bits.RCEN = 1;
+  I2C_2_Master_Idle();
+  tmp = SSP2BUF;
+  I2C_2_Master_Idle();
+  SSP2CON2bits.ACKDT = !ack;
+  SSP2CON2bits.ACKEN = 1;
+  return tmp;
 }

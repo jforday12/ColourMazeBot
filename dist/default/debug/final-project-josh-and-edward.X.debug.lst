@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.40 build 20220703182018 
-                                                                                               Sat Mar 11 17:59:32 2023
+                                                                                               Sat Mar 11 17:55:54 2023
 
 Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1 
      1                           	processor	18F67K40
@@ -4371,10 +4371,10 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
   4202   004B50                     _I2C_2_Master_RepStart:
   4203                           	callstack 26
   4204   004B50                     
-  4205                           ;i2c.c: 35:   I2C_2_Master_Idle();;i2c.c: 35:   I2C_2_Master_Idle();
+  4205                           ;i2c.c: 35:   I2C_2_Master_Idle();
   4206   004B50  EC2D  F025         	call	_I2C_2_Master_Idle	;wreg free
   4207   004B54                     
-  4208                           ;i2c.c: 36:   SSP2CON2bits.RSEN = 1;;i2c.c: 36:   SSP2CON2bits.RSEN = 1;
+  4208                           ;i2c.c: 36:   SSP2CON2bits.RSEN = 1;
   4209   004B54  010E               	movlb	14	; () banked
   4210   004B56  83DA               	bsf	218,1,b	;volatile
   4211   004B58                     
@@ -4433,26 +4433,24 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
   4259                           ;I2C_2_Master_Read@ack stored from wreg
   4260   004886  6E03               	movwf	I2C_2_Master_Read@ack^0,c
   4261   004888                     
-  4262                           ;i2c.c: 51: unsigned char I2C_2_Master_Read(unsigned char ack);i2c.c: 51: unsigned char 
-      +                          I2C_2_Master_Read(unsigned char ack);i2c.c: 52: {;i2c.c: 52: {;i2c.c: 53:   unsigned cha
-      +                          r tmp;;i2c.c: 53:   unsigned char tmp;;i2c.c: 54:   I2C_2_Master_Idle();;i2c.c: 54:   I2
-      +                          C_2_Master_Idle();
+  4262                           ;i2c.c: 51: unsigned char I2C_2_Master_Read(unsigned char ack);i2c.c: 52: {;i2c.c: 53:  
+      +                           unsigned char tmp;;i2c.c: 54:   I2C_2_Master_Idle();
   4263   004888  EC2D  F025         	call	_I2C_2_Master_Idle	;wreg free
   4264   00488C                     
-  4265                           ;i2c.c: 55:   SSP2CON2bits.RCEN = 1;;i2c.c: 55:   SSP2CON2bits.RCEN = 1;
+  4265                           ;i2c.c: 55:   SSP2CON2bits.RCEN = 1;
   4266   00488C  010E               	movlb	14	; () banked
   4267   00488E  87DA               	bsf	218,3,b	;volatile
   4268                           
-  4269                           ;i2c.c: 56:   I2C_2_Master_Idle();;i2c.c: 56:   I2C_2_Master_Idle();
+  4269                           ;i2c.c: 56:   I2C_2_Master_Idle();
   4270   004890  EC2D  F025         	call	_I2C_2_Master_Idle	;wreg free
   4271   004894                     
-  4272                           ;i2c.c: 57:   tmp = SSP2BUF;;i2c.c: 57:   tmp = SSP2BUF;
+  4272                           ;i2c.c: 57:   tmp = SSP2BUF;
   4273   004894  CED5 F004          	movff	3797,I2C_2_Master_Read@tmp	;volatile
   4274                           
-  4275                           ;i2c.c: 58:   I2C_2_Master_Idle();;i2c.c: 58:   I2C_2_Master_Idle();
+  4275                           ;i2c.c: 58:   I2C_2_Master_Idle();
   4276   004898  EC2D  F025         	call	_I2C_2_Master_Idle	;wreg free
   4277   00489C                     
-  4278                           ;i2c.c: 59:   SSP2CON2bits.ACKDT = !ack;;i2c.c: 59:   SSP2CON2bits.ACKDT = !ack;
+  4278                           ;i2c.c: 59:   SSP2CON2bits.ACKDT = !ack;
   4279   00489C  5003               	movf	I2C_2_Master_Read@ack^0,w,c
   4280   00489E  B4D8               	btfsc	status,2,c
   4281   0048A0  EF54  F024         	goto	u2771
@@ -4474,11 +4472,11 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
   4297   0048C0  6FDA               	movwf	218,b	;volatile
   4298   0048C2                     
   4299                           ; BSR set to: 14
-  4300                           ;i2c.c: 60:   SSP2CON2bits.ACKEN = 1;;i2c.c: 60:   SSP2CON2bits.ACKEN = 1;
+  4300                           ;i2c.c: 60:   SSP2CON2bits.ACKEN = 1;
   4301   0048C2  89DA               	bsf	218,4,b	;volatile
   4302   0048C4                     
   4303                           ; BSR set to: 14
-  4304                           ;i2c.c: 61:   return tmp;;i2c.c: 61:   return tmp;
+  4304                           ;i2c.c: 61:   return tmp;
   4305   0048C4  5004               	movf	I2C_2_Master_Read@tmp^0,w,c
   4306   0048C6                     
   4307                           ; BSR set to: 14
@@ -6535,12 +6533,11 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
   6273                           ;I2C_2_Master_Write@data_byte stored from wreg
   6274   004B44  6E02               	movwf	I2C_2_Master_Write@data_byte^0,c
   6275   004B46                     
-  6276                           ;i2c.c: 45: void I2C_2_Master_Write(unsigned char data_byte);i2c.c: 45: void I2C_2_Maste
-      +                          r_Write(unsigned char data_byte);i2c.c: 46: {;i2c.c: 46: {;i2c.c: 47:   I2C_2_Master_Idl
-      +                          e();;i2c.c: 47:   I2C_2_Master_Idle();
+  6276                           ;i2c.c: 45: void I2C_2_Master_Write(unsigned char data_byte);i2c.c: 46: {;i2c.c: 47:   I
+      +                          2C_2_Master_Idle();
   6277   004B46  EC2D  F025         	call	_I2C_2_Master_Idle	;wreg free
   6278   004B4A                     
-  6279                           ;i2c.c: 48:   SSP2BUF = data_byte;;i2c.c: 48:   SSP2BUF = data_byte;
+  6279                           ;i2c.c: 48:   SSP2BUF = data_byte;
   6280   004B4A  C002  FED5         	movff	I2C_2_Master_Write@data_byte,3797	;volatile
   6281   004B4E  0012               	return		;funcret
   6282   004B50                     __end_of_I2C_2_Master_Write:
@@ -6591,10 +6588,10 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
   6322   004B5A                     _I2C_2_Master_Stop:
   6323                           	callstack 26
   6324   004B5A                     
-  6325                           ;i2c.c: 41:   I2C_2_Master_Idle();;i2c.c: 41:   I2C_2_Master_Idle();
+  6325                           ;i2c.c: 41:   I2C_2_Master_Idle();
   6326   004B5A  EC2D  F025         	call	_I2C_2_Master_Idle	;wreg free
   6327   004B5E                     
-  6328                           ;i2c.c: 42:   SSP2CON2bits.PEN = 1;;i2c.c: 42:   SSP2CON2bits.PEN = 1;
+  6328                           ;i2c.c: 42:   SSP2CON2bits.PEN = 1;
   6329   004B5E  010E               	movlb	14	; () banked
   6330   004B60  85DA               	bsf	218,2,b	;volatile
   6331   004B62                     
@@ -6648,10 +6645,10 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
   6374   004B64                     _I2C_2_Master_Start:
   6375                           	callstack 26
   6376   004B64                     
-  6377                           ;i2c.c: 29:   I2C_2_Master_Idle();;i2c.c: 29:   I2C_2_Master_Idle();
+  6377                           ;i2c.c: 29:   I2C_2_Master_Idle();
   6378   004B64  EC2D  F025         	call	_I2C_2_Master_Idle	;wreg free
   6379   004B68                     
-  6380                           ;i2c.c: 30:   SSP2CON2bits.SEN = 1;;i2c.c: 30:   SSP2CON2bits.SEN = 1;
+  6380                           ;i2c.c: 30:   SSP2CON2bits.SEN = 1;
   6381   004B68  010E               	movlb	14	; () banked
   6382   004B6A  81DA               	bsf	218,0,b	;volatile
   6383   004B6C                     
@@ -6771,7 +6768,7 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
   6487   004A30                     _I2C_2_Master_Init:
   6488                           	callstack 28
   6489   004A30                     
-  6490                           ;i2c.c: 7:   SSP2CON1bits.SSPM= 0b1000;;i2c.c: 7:   SSP2CON1bits.SSPM= 0b1000;
+  6490                           ;i2c.c: 7:   SSP2CON1bits.SSPM= 0b1000;
   6491   004A30  010E               	movlb	14	; () banked
   6492   004A32  51D9               	movf	217,w,b	;volatile
   6493   004A34  0BF0               	andlw	-16
@@ -6779,43 +6776,42 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
   6495   004A38  6FD9               	movwf	217,b	;volatile
   6496   004A3A                     
   6497                           ; BSR set to: 14
-  6498                           ;i2c.c: 8:   SSP2CON1bits.SSPEN = 1;;i2c.c: 8:   SSP2CON1bits.SSPEN = 1;
+  6498                           ;i2c.c: 8:   SSP2CON1bits.SSPEN = 1;
   6499   004A3A  8BD9               	bsf	217,5,b	;volatile
   6500                           
-  6501                           ;i2c.c: 9:   SSP2ADD = (64000000/(4*100000))-1;;i2c.c: 9:   SSP2ADD = (64000000/(4*10000
-      +                          0))-1;
+  6501                           ;i2c.c: 9:   SSP2ADD = (64000000/(4*100000))-1;
   6502   004A3C  0E9F               	movlw	159
   6503   004A3E  6FD6               	movwf	214,b	;volatile
   6504   004A40                     
   6505                           ; BSR set to: 14
-  6506                           ;i2c.c: 12:   TRISDbits.TRISD5 = 1;;i2c.c: 12:   TRISDbits.TRISD5 = 1;
+  6506                           ;i2c.c: 12:   TRISDbits.TRISD5 = 1;
   6507   004A40  8A84               	bsf	132,5,c	;volatile
   6508   004A42                     
   6509                           ; BSR set to: 14
-  6510                           ;i2c.c: 13:   TRISDbits.TRISD6 = 1;;i2c.c: 13:   TRISDbits.TRISD6 = 1;
+  6510                           ;i2c.c: 13:   TRISDbits.TRISD6 = 1;
   6511   004A42  8C84               	bsf	132,6,c	;volatile
   6512   004A44                     
   6513                           ; BSR set to: 14
-  6514                           ;i2c.c: 14:   ANSELDbits.ANSELD5=0;;i2c.c: 14:   ANSELDbits.ANSELD5=0;
+  6514                           ;i2c.c: 14:   ANSELDbits.ANSELD5=0;
   6515   004A44  9BA7               	bcf	167,5,b	;volatile
   6516   004A46                     
   6517                           ; BSR set to: 14
-  6518                           ;i2c.c: 15:   ANSELDbits.ANSELD6=0;;i2c.c: 15:   ANSELDbits.ANSELD6=0;
+  6518                           ;i2c.c: 15:   ANSELDbits.ANSELD6=0;
   6519   004A46  9DA7               	bcf	167,6,b	;volatile
   6520                           
-  6521                           ;i2c.c: 16:   SSP2DATPPS=0x1D;;i2c.c: 16:   SSP2DATPPS=0x1D;
+  6521                           ;i2c.c: 16:   SSP2DATPPS=0x1D;
   6522   004A48  0E1D               	movlw	29
   6523   004A4A  6F1D               	movwf	29,b	;volatile
   6524                           
-  6525                           ;i2c.c: 17:   SSP2CLKPPS=0x1E;;i2c.c: 17:   SSP2CLKPPS=0x1E;
+  6525                           ;i2c.c: 17:   SSP2CLKPPS=0x1E;
   6526   004A4C  0E1E               	movlw	30
   6527   004A4E  6F1C               	movwf	28,b	;volatile
   6528                           
-  6529                           ;i2c.c: 18:   RD5PPS=0x1C;;i2c.c: 18:   RD5PPS=0x1C;
+  6529                           ;i2c.c: 18:   RD5PPS=0x1C;
   6530   004A50  0E1C               	movlw	28
   6531   004A52  6F6F               	movwf	111,b	;volatile
   6532                           
-  6533                           ;i2c.c: 19:   RD6PPS=0x1B;;i2c.c: 19:   RD6PPS=0x1B;
+  6533                           ;i2c.c: 19:   RD6PPS=0x1B;
   6534   004A54  0E1B               	movlw	27
   6535   004A56  6F70               	movwf	112,b	;volatile
   6536   004A58                     
@@ -13447,7 +13443,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.40 build 20220703182018 
-Symbol Table                                                                                   Sat Mar 11 17:59:32 2023
+Symbol Table                                                                                   Sat Mar 11 17:55:54 2023
 
                _color_read_Red 46BE                   ___fldiv@aexp 0031                   ___fldiv@bexp 0030  
                _color_read_lum 466E                   ___fldiv@sign 0029                _color_read_Blue 475E  

@@ -4,13 +4,12 @@ Linker command line:
 
 -W-3 \
   --edf=C:\Program Files\Microchip\xc8\v2.40\pic\dat\20220703182018_en.msgs \
-  -cn \
-  -h+dist/default/production\final-project-josh-and-edward.X.production.sym \
-  --cmf=dist/default/production\final-project-josh-and-edward.X.production.cmf \
-  -z -Q18F67K40 -oC:\Users\jford\AppData\Local\Temp\xcAsdn4.4 \
+  -cn -h+dist/default/debug\final-project-josh-and-edward.X.debug.sym \
+  --cmf=dist/default/debug\final-project-josh-and-edward.X.debug.cmf -z \
+  -Q18F67K40 -oC:\Users\jford\AppData\Local\Temp\xcAs9lg.4 \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
-  -Mdist/default/production/final-project-josh-and-edward.X.production.map \
-  --md=C:\Users\jford\AppData\Local\Temp\xcAsdn4.dat -E1 -ver=XC8 Compiler \
+  -Mdist/default/debug/final-project-josh-and-edward.X.debug.map \
+  --md=C:\Users\jford\AppData\Local\Temp\xcAs9lg.dat -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=0E00h-0EFFhx498 -AMEDIUMCONST=0E00h-0FFFFh,010E00h-01FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0DE9h -ABIGRAM=01h-0DE9h \
@@ -30,8 +29,8 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\jford\AppData\Local\Temp\xcAsdn4.o \
-  dist/default/production\final-project-josh-and-edward.X.production.o 
+  C:\Users\jford\AppData\Local\Temp\xcAs9lg.o \
+  dist/default/debug\final-project-josh-and-edward.X.debug.o 
 
 Object code version is 3.11
 
@@ -40,12 +39,12 @@ Machine type is 18F67K40
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\jford\AppData\Local\Temp\xcAsdn4.o
+C:\Users\jford\AppData\Local\Temp\xcAs9lg.o
                 idloc                            200000   200000       10        0       5
                 config                           300000   300000        C        0       4
                 init                                  E        E        4        4       0
-                reset_vec                             0        0        4        0       0
-dist/default/production\final-project-josh-and-edward.X.production.o
+                reset_vec                             0        0        6        0       0
+dist/default/debug\final-project-josh-and-edward.X.debug.o
                 intcode                               8        8        6        4       0
                 idloc                            200000   200000       10        0       5
                 config                           300000   300000        C        0       4
@@ -134,7 +133,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   CODE           
                 intcode                               8        8        6         0
                 init                                  E        E        4         0
-                reset_vec                             0        0        4         0
+                reset_vec                             0        0        6         0
                 text66                             2700     2700      39A         0
                 text65                             3B9E     3B9E       AA         0
                 text64                             39D0     39D0      104         0
@@ -280,7 +279,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                reset_vec                      000000  000004  000004         0       0  CODE    
+                reset_vec                      000000  000006  000006         0       0  CODE    
                 cstackCOMRAM                   000001  00005F  000060         1       1  COMRAM  
                 intcode                        000008  00000A  000012         4       0  CODE    
                 cstackBANK0                    000060  00009F  0000FF        60       1  BANK0   
@@ -311,10 +310,10 @@ UNUSED ADDRESS RANGES
                          0001D5-0001FF               2B
                          000264-000DE9              B86
         BIGSFR           000DEF-000FFF              211
-        CODE             000004-000007                4
+        CODE             000006-000007                2
                          000012-000DFF              DEE
                          004B79-01FFFF            1B487
-        CONST            000004-000007                4
+        CONST            000006-000007                2
                          000012-000DFF              DEE
                          004B79-01FFFF            1B487
         EEDATA           310000-3103FF              400
@@ -533,7 +532,7 @@ __Hramtop                      ramtop       000E00
 __Hrbit                        rbit         000000
 __Hrbss                        rbss         000000
 __Hrdata                       rdata        000000
-__Hreset_vec                   reset_vec    000004
+__Hreset_vec                   reset_vec    000006
 __Hrparam                      rparam       000000
 __Hsfr                         sfr          000000
 __Hsmallconst                  smallconst   000E26
