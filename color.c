@@ -158,79 +158,79 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
         Hue=(4+(RGB_col[0]-RGB_col[1])/(Cmax-Cmin))*60;
     }
     
-
-    // if the hue is between the found ranges of red return that its red
-    if ((330<=Hue)&(Hue<=360)){
-        return 1; // red
-    }    
-    // if the hue is between the found ranges of orange return that its red
-    else if ((5<=Hue)&(Hue<=12)){
-        return 2; // orange
-    } 
-    // if the hue is between the found ranges of white, yellow or blue 
-    else if ((20<=Hue)&(Hue<=29)){
-        // check if the relative values lie in the white range if it does then its white
-        if ((0.20<=rel->R)&(rel->R<=0.23)){
-            return 0;//white
-        }
-        // otherwise if the absolute value of red is greater than 2000 then its yellow. this value was found through testing
-
-        else if(0.14<=rel->B){
-            return 4; //blue
-            }
-        else{
-            return 3; // yellow
-        }
-               
-    }
-    // if the hue is between the found ranges of green return green 
-    else if ((45<=Hue)&(Hue<=80)){
-        if(0.15<=rel->B){
-            return 4; //blue
-        }
-        else if (0.12<=rel->B){
-            return 6; // light blue
-        }
-        else{
-            return 5; // green
-        }
-        
-    } 
-    // if the hue is between the found ranges of light blue return light blue 
-    else if ((81<=Hue)&(Hue<=115)){
-        if(0.15<=rel->B){
-            return 4; //blue
-        }
-        else {
-             return 6; // light blue
-        }
-       
-    } 
-    // if the hue is between the found ranges of  blue return  blue 
-    else if (((30<=Hue)&(Hue<=58))|(120<=Hue)&(Hue<=220)){
-        return 4; //  blue
-    }
-    // if the hue is between the found ranges of white or pink 
-    else if ((14<=Hue)&(Hue<=19)){
-        // check if the relative values lie in the white range if it does then its white 
-        if ((0.20<=rel->R)&(rel->R<=0.23)){
-            return 0;//white
-        }
-        else if (0.15<=rel->B){
-            return 4; //blue
-        }else{
-        // otherwise it must be pink
-            return 7; // pink
-          }
-    }
-    else{
-        return 10; // could not recognise colour
-    }
-  
-    
-    
-    
-            
+    return Hue;
+//    // if the hue is between the found ranges of red return that its red
+//    if ((330<=Hue)&(Hue<=360)){
+//        return 1; // red
+//    }    
+//    // if the hue is between the found ranges of orange return that its red
+//    else if ((5<=Hue)&(Hue<=12)){
+//        return 2; // orange
+//    } 
+//    // if the hue is between the found ranges of white, yellow or blue 
+//    else if ((20<=Hue)&(Hue<=29)){
+//        // check if the relative values lie in the white range if it does then its white
+//        if ((0.20<=rel->R)&(rel->R<=0.23)){
+//            return 0;//white
+//        }
+//        // otherwise if the absolute value of red is greater than 2000 then its yellow. this value was found through testing
+//
+//        else if(0.14<=rel->B){
+//            return 4; //blue
+//            }
+//        else{
+//            return 3; // yellow
+//        }
+//               
+//    }
+//    // if the hue is between the found ranges of green return green 
+//    else if ((45<=Hue)&(Hue<=80)){
+//        if(0.15<=rel->B){
+//            return 4; //blue
+//        }
+//        else if (0.12<=rel->B){
+//            return 6; // light blue
+//        }
+//        else{
+//            return 5; // green
+//        }
+//        
+//    } 
+//    // if the hue is between the found ranges of light blue return light blue 
+//    else if ((81<=Hue)&(Hue<=115)){
+//        if(0.15<=rel->B){
+//            return 4; //blue
+//        }
+//        else {
+//             return 6; // light blue
+//        }
+//       
+//    } 
+//    // if the hue is between the found ranges of  blue return  blue 
+//    else if (((30<=Hue)&(Hue<=58))|(120<=Hue)&(Hue<=220)){
+//        return 4; //  blue
+//    }
+//    // if the hue is between the found ranges of white or pink 
+//    else if ((14<=Hue)&(Hue<=19)){
+//        // check if the relative values lie in the white range if it does then its white 
+//        if ((0.20<=rel->R)&(rel->R<=0.23)){
+//            return 0;//white
+//        }
+//        else if (0.15<=rel->B){
+//            return 4; //blue
+//        }else{
+//        // otherwise it must be pink
+//            return 7; // pink
+//          }
+//    }
+//    else{
+//        return 10; // could not recognise colour
+//    }
+//  
+//    
+//    
+//    
+//            
     
    
 } 

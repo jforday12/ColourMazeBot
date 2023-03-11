@@ -5,4 +5,5 @@ color.h  \
 i2c.h  \
 interrupts.h  \
 dc_motor.h  \
-Memory.h 
+Memory.h  \
+timers.h 

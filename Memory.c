@@ -1,8 +1,19 @@
 #include "Memory.h"
 #include "dc_motor.h"
-void go_Home (char *WayBack){
+#include "timers.h"
+void go_Home (char *WayBack, int *Time_forward){
     int i;
     for (i = move_count; i >= 0; i--){
+        TMR0H=0;
+        TMR0L=0;
+        unsigned int time_temp=TMR0L;
+        int cur_time=TMR0H<<8;
+        while (cur_time<Time_forward[i]){
+            fullSpeedAhead(&motorL,&motorR);
+            time_temp=TMR0L;
+            cur_time=TMR0H<<8;
+        }
+            
         if (WayBack[i]==0){
             Forwardhalfblock(&motorL,&motorR);
         }
@@ -31,3 +42,4 @@ void go_Home (char *WayBack){
 
   } 
 }
+

@@ -1,4 +1,4 @@
-# 1 "Memory.c"
+# 1 "timers.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,9 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Memory.c" 2
-# 1 "./Memory.h" 1
-# 11 "./Memory.h"
+# 1 "timers.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24231,67 +24229,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 2 3
-# 11 "./Memory.h" 2
-
-
-
-
-
-char WayBack [50];
-int Time_forward[50];
-extern volatile unsigned int move_count;
-
-void go_Home (char *WayBack, int *Time_forward);
-# 1 "Memory.c" 2
-
-# 1 "./dc_motor.h" 1
-
-
-
-
-
-
-
-struct DC_motor {
-    char power;
-    char direction;
-    char brakemode;
-    unsigned int PWMperiod;
-    unsigned char *posDutyHighByte;
-    unsigned char *negDutyHighByte;
-};
-
-struct DC_motor motorL, motorR;
-
-int power = 30;
-int Turn45Delay = 220;
-
-
-void initDCmotorsPWM(unsigned int PWMperiod);
-void setMotorPWM(struct DC_motor *m);
-void stop(struct DC_motor *mL,struct DC_motor *mR);
-void turnLeft(struct DC_motor *mL,struct DC_motor *mR);
-void turnRight(struct DC_motor *mL,struct DC_motor *mR);
-void fullSpeedAhead(struct DC_motor *mL,struct DC_motor *mR);
-void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
-
-void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
-void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
-void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
-void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
-void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
-void RedMove(struct DC_motor *mL,struct DC_motor *mR);
-void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
-void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
-void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
-void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
-void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
-void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
-void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
-void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
-void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
-void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
-# 2 "Memory.c" 2
+# 1 "timers.c" 2
 
 # 1 "./timers.h" 1
 
@@ -24304,46 +24242,137 @@ void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
 void Timer0_init(void);
 void getTMR0val(void);
 extern volatile unsigned int move_count;
-# 3 "Memory.c" 2
+# 2 "timers.c" 2
 
-void go_Home (char *WayBack, int *Time_forward){
-    int i;
-    for (i = move_count; i >= 0; i--){
-        TMR0H=0;
-        TMR0L=0;
-        unsigned int time_temp=TMR0L;
-        int cur_time=TMR0H<<8;
-        while (cur_time<Time_forward[i]){
-            fullSpeedAhead(&motorL,&motorR);
-            time_temp=TMR0L;
-            cur_time=TMR0H<<8;
-        }
-
-        if (WayBack[i]==0){
-            Forwardhalfblock(&motorL,&motorR);
-        }
-        else if (WayBack[i]==1){
-            GreenMove(&motorL, &motorR);
-        }
-        else if (WayBack[i]==2){
-            LightBlueMove(&motorL, &motorR);
-        }
-        else if (WayBack[i]==3){
-            ReverseYellow(&motorL, &motorR);
-        }
-        else if (WayBack[i]==4){
-            BlueMove(&motorL, &motorR);
-        }
-        else if (WayBack[i]==5){
-            RedMove(&motorL, &motorR);
-        }
-        else if (WayBack[i]==6){
-            OrangeMove(&motorL, &motorR);
-        }
-        else if (WayBack[i]==7){
-            ReversePink(&motorL, &motorR);
-        }
+# 1 "./interrupts.h" 1
 
 
-  }
+
+# 1 "./color.h" 1
+# 12 "./color.h"
+void color_click_init(void);
+
+
+
+
+
+
+void color_writetoaddr(char address, char value);
+
+
+
+
+
+unsigned int color_read_Red(void);
+unsigned int color_read_Blue(void);
+unsigned int color_read_Green(void);
+unsigned int color_read_lum(void);
+struct RGB{
+    int R;
+    int G;
+    int B;
+    int L;
+};
+
+
+struct RGB_rel{
+    float R;
+    float G;
+    float B;
+};
+
+
+
+void colour_rel(struct RGB *vals, struct RGB_rel *rel);
+
+int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
+void readColours (struct RGB *vals);
+# 4 "./interrupts.h" 2
+
+# 1 "./i2c.h" 1
+# 13 "./i2c.h"
+void I2C_2_Master_Init(void);
+
+
+
+
+void I2C_2_Master_Idle(void);
+
+
+
+
+void I2C_2_Master_Start(void);
+
+
+
+
+void I2C_2_Master_RepStart(void);
+
+
+
+
+void I2C_2_Master_Stop(void);
+
+
+
+
+void I2C_2_Master_Write(unsigned char data_byte);
+
+
+
+
+unsigned char I2C_2_Master_Read(unsigned char ack);
+# 5 "./interrupts.h" 2
+
+
+
+
+
+void Interrupts_init(void);
+void __attribute__((picinterrupt(("high_priority")))) HighISR();
+
+void colour_interrupt_init(void);
+void clear_int(void);
+
+extern volatile char DataFlag;
+extern volatile char ColourFlag;
+
+int low_threshold=0;
+int high_threshold=1000;
+# 3 "timers.c" 2
+
+# 1 "./Memory.h" 1
+# 16 "./Memory.h"
+char WayBack [50];
+int Time_forward[50];
+extern volatile unsigned int move_count;
+
+void go_Home (char *WayBack, int *Time_forward);
+# 4 "timers.c" 2
+
+
+
+
+void Timer0_init(void)
+{
+    T0CON1bits.T0CS=0b010;
+    T0CON1bits.T0ASYNC=1;
+    T0CON1bits.T0CKPS=0b1110;
+    T0CON0bits.T016BIT=1;
+
+
+    TMR0H=0;
+    TMR0L=0;
+    T0CON0bits.T0EN=1;
+}
+# 28 "timers.c"
+void getTMR0val(void)
+{
+    unsigned int temp= TMR0L;
+
+    int moving=TMR0H<<8;
+    Time_forward[move_count]=moving;
+
+
+
 }

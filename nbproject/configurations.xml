@@ -10,6 +10,7 @@
       <itemPath>interrupts.h</itemPath>
       <itemPath>dc_motor.h</itemPath>
       <itemPath>Memory.h</itemPath>
+      <itemPath>timers.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -25,6 +26,7 @@
       <itemPath>main.c</itemPath>
       <itemPath>dc_motor.c</itemPath>
       <itemPath>Memory.c</itemPath>
+      <itemPath>timers.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

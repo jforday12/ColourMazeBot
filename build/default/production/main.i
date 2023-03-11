@@ -24566,11 +24566,25 @@ void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
 
 # 1 "./Memory.h" 1
 # 16 "./Memory.h"
-char WayBack [250];
-volatile unsigned int move_count;
+char WayBack [50];
+int Time_forward[50];
+extern volatile unsigned int move_count;
 
-void go_Home (char *WayBack);
+void go_Home (char *WayBack, int *Time_forward);
 # 22 "main.c" 2
+
+# 1 "./timers.h" 1
+
+
+
+
+
+
+
+void Timer0_init(void);
+void getTMR0val(void);
+extern volatile unsigned int move_count;
+# 23 "main.c" 2
 
 
 
@@ -24583,6 +24597,7 @@ void main(void) {
     Interrupts_init();
     color_click_init();
     I2C_2_Master_Init();
+    Timer0_init();
     initDCmotorsPWM(200);
     char buf[100];
     TRISGbits.TRISG1 = 0;
@@ -24616,9 +24631,9 @@ void main(void) {
     _delay((unsigned long)((1000)*(64000000/4000.0)));
     while (run_flag)
     {
-        Forwardhalfblock(&motorL,&motorR);
-        move_count++;
-        WayBack[move_count]=0;
+
+        fullSpeedAhead(&motorL,&motorR);
+
 
 
 
@@ -24628,7 +24643,7 @@ void main(void) {
         colour_rel(&vals, &rel);
 
 
-        if (vals.L>=2200){
+        if (vals.L>=500){
             Forwardhalfblock(&motorL,&motorR);
 
             stop(&motorL, &motorR);
@@ -24637,6 +24652,8 @@ void main(void) {
 
 
 
+            move_count++;
+            getTMR0val();
             while (consecuitive<20){
                 int colour = Colour_decider(&vals, &rel);
                 if (colour==prev_colour){
@@ -24650,42 +24667,50 @@ void main(void) {
             }
             consecuitive=0;
 
+
             sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
             sendStringSerial4(buf);
 
             if (prev_colour==1){
                 RedMove(&motorL, &motorR);
-                move_count++;
+                TMR0H=0;
+                TMR0L=0;
                 WayBack[move_count]=1;
             }
             else if(prev_colour==2){
                 OrangeMove(&motorL, &motorR);
-                move_count++;
+                TMR0H=0;
+                TMR0L=0;
                 WayBack[move_count]=2;
             }
             else if(prev_colour==3){
                 YellowMove(&motorL, &motorR);
-                move_count++;
+                TMR0H=0;
+                TMR0L=0;
                 WayBack[move_count]=3;
             }
             else if(prev_colour==4){
                 BlueMove(&motorL, &motorR);
-                move_count++;
+                TMR0H=0;
+                TMR0L=0;
                 WayBack[move_count]=4;
             }
             else if(prev_colour==5){
                 GreenMove(&motorL, &motorR);
-                move_count++;
+                TMR0H=0;
+                TMR0L=0;
                 WayBack[move_count]=5;
             }
             else if(prev_colour==6){
                 LightBlueMove(&motorL, &motorR);
-                move_count++;
+                TMR0H=0;
+                TMR0L=0;
                 WayBack[move_count]=6;
             }
             else if(prev_colour==7){
                 PinkMove(&motorL, &motorR);
-                move_count++;
+                TMR0H=0;
+                TMR0L=0;
                 WayBack[move_count]=7;
             }
             else if (prev_colour==10){
@@ -24693,7 +24718,8 @@ void main(void) {
             }
             else if (prev_colour==0){
                 BlueMove(&motorL, &motorR);
-                go_Home(WayBack);
+                T0CON0bits.T0EN=0;
+                go_Home(WayBack, Time_forward);
                 stop(&motorL, &motorR);
                 run_flag=0;
             }

@@ -3,6 +3,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./dc_motor.h: 8: struct DC_motor {
 [s S2015 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
 [n S2015 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
+<<<<<<< Updated upstream
+=======
+"10 ./timers.h
+[; ;./timers.h: 10: extern volatile unsigned int move_count;
+[v _move_count `Vui ~T0 @X0 0 e ]
+"39326 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39326: extern volatile unsigned char TMR0H __attribute__((address(0xFD4)));
+[v _TMR0H `Vuc ~T0 @X0 0 e@4052 ]
+"39188
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39188: extern volatile unsigned char TMR0L __attribute__((address(0xFD3)));
+[v _TMR0L `Vuc ~T0 @X0 0 e@4051 ]
+"25 ./dc_motor.h
+[; ;./dc_motor.h: 25: void fullSpeedAhead(struct DC_motor *mL,struct DC_motor *mR);
+[v _fullSpeedAhead `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"40
+[; ;./dc_motor.h: 40: void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+[v _Forwardhalfblock `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"34
+[; ;./dc_motor.h: 34: void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _GreenMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"39
+[; ;./dc_motor.h: 39: void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _LightBlueMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"42
+[; ;./dc_motor.h: 42: void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
+[v _ReverseYellow `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"35
+[; ;./dc_motor.h: 35: void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _BlueMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"33
+[; ;./dc_motor.h: 33: void RedMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _RedMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"38
+[; ;./dc_motor.h: 38: void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _OrangeMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+>>>>>>> Stashed changes
 "43
 [; ;./dc_motor.h: 43: void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 [v _Forwardhalfblock `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
@@ -2002,15 +2038,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 40927: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "16 ./Memory.h
-[; ;./Memory.h: 16: char WayBack [250];
-[v _WayBack `uc ~T0 @X0 -> 250 `i e ]
+[; ;./Memory.h: 16: char WayBack [50];
+[v _WayBack `uc ~T0 @X0 -> 50 `i e ]
 "17
-[; ;./Memory.h: 17: volatile unsigned int move_count;
-[v _move_count `Vui ~T0 @X0 1 e ]
+[; ;./Memory.h: 17: int Time_forward[50];
+[v _Time_forward `i ~T0 @X0 -> 50 `i e ]
 "17 ./dc_motor.h
 [; ;./dc_motor.h: 17: struct DC_motor motorL, motorR;
 [v _motorL `S2015 ~T0 @X0 1 e ]
 [v _motorR `S2015 ~T0 @X0 1 e ]
+<<<<<<< Updated upstream
 "19
 [; ;./dc_motor.h: 19: int power = 30;
 [v _power `i ~T0 @X0 1 e ]
@@ -2026,131 +2063,173 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3 Memory.c
 [; ;Memory.c: 3: void go_Home (char *WayBack){
 [v _go_Home `(v ~T0 @X0 1 ef1`*uc ]
+=======
+"4 Memory.c
+[; ;Memory.c: 4: void go_Home (char *WayBack, int *Time_forward){
+[v _go_Home `(v ~T0 @X0 1 ef2`*uc`*i ]
+>>>>>>> Stashed changes
 {
 [e :U _go_Home ]
 [v _WayBack `*uc ~T0 @X0 1 r1 ]
+[v _Time_forward `*i ~T0 @X0 1 r2 ]
 [f ]
-"4
-[; ;Memory.c: 4:     int i;
-[v _i `i ~T0 @X0 1 a ]
 "5
-[; ;Memory.c: 5:     for (i = move_count; i >= 0; i--){
+[; ;Memory.c: 5:     int i;
+[v _i `i ~T0 @X0 1 a ]
+"6
+[; ;Memory.c: 6:     for (i = move_count; i >= 0; i--){
 {
 [e = _i -> _move_count `i ]
 [e $ >= _i -> 0 `i 2017  ]
 [e $U 2018  ]
 [e :U 2017 ]
 {
-"6
-[; ;Memory.c: 6:         if (WayBack[i]==0){
-[e $ ! == -> *U + _WayBack * -> _i `x -> -> # *U _WayBack `i `x `i -> 0 `i 2020  ]
-{
 "7
-[; ;Memory.c: 7:             Forwardhalfblock(&motorL,&motorR);
-[e ( _Forwardhalfblock (2 , &U _motorL &U _motorR ]
+[; ;Memory.c: 7:         TMR0H=0;
+[e = _TMR0H -> -> 0 `i `uc ]
 "8
-[; ;Memory.c: 8:         }
-}
-[e $U 2021  ]
+[; ;Memory.c: 8:         TMR0L=0;
+[e = _TMR0L -> -> 0 `i `uc ]
 "9
-[; ;Memory.c: 9:         else if (WayBack[i]==1){
-[e :U 2020 ]
-[e $ ! == -> *U + _WayBack * -> _i `x -> -> # *U _WayBack `i `x `i -> 1 `i 2022  ]
-{
+[; ;Memory.c: 9:         unsigned int time_temp=TMR0L;
+[v _time_temp `ui ~T0 @X0 1 a ]
+[e = _time_temp -> _TMR0L `ui ]
 "10
-[; ;Memory.c: 10:             GreenMove(&motorL, &motorR);
-[e ( _GreenMove (2 , &U _motorL &U _motorR ]
+[; ;Memory.c: 10:         int cur_time=TMR0H<<8;
+[v _cur_time `i ~T0 @X0 1 a ]
+[e = _cur_time << -> _TMR0H `i -> 8 `i ]
 "11
-[; ;Memory.c: 11:         }
-}
-[e $U 2023  ]
-"12
-[; ;Memory.c: 12:         else if (WayBack[i]==2){
-[e :U 2022 ]
-[e $ ! == -> *U + _WayBack * -> _i `x -> -> # *U _WayBack `i `x `i -> 2 `i 2024  ]
-{
-"13
-[; ;Memory.c: 13:             LightBlueMove(&motorL, &motorR);
-[e ( _LightBlueMove (2 , &U _motorL &U _motorR ]
-"14
-[; ;Memory.c: 14:         }
-}
-[e $U 2025  ]
-"15
-[; ;Memory.c: 15:         else if (WayBack[i]==3){
-[e :U 2024 ]
-[e $ ! == -> *U + _WayBack * -> _i `x -> -> # *U _WayBack `i `x `i -> 3 `i 2026  ]
-{
-"16
-[; ;Memory.c: 16:             ReverseYellow(&motorL, &motorR);
-[e ( _ReverseYellow (2 , &U _motorL &U _motorR ]
-"17
-[; ;Memory.c: 17:         }
-}
-[e $U 2027  ]
-"18
-[; ;Memory.c: 18:         else if (WayBack[i]==4){
-[e :U 2026 ]
-[e $ ! == -> *U + _WayBack * -> _i `x -> -> # *U _WayBack `i `x `i -> 4 `i 2028  ]
-{
-"19
-[; ;Memory.c: 19:             BlueMove(&motorL, &motorR);
-[e ( _BlueMove (2 , &U _motorL &U _motorR ]
-"20
-[; ;Memory.c: 20:         }
-}
-[e $U 2029  ]
-"21
-[; ;Memory.c: 21:         else if (WayBack[i]==5){
-[e :U 2028 ]
-[e $ ! == -> *U + _WayBack * -> _i `x -> -> # *U _WayBack `i `x `i -> 5 `i 2030  ]
-{
-"22
-[; ;Memory.c: 22:             RedMove(&motorL, &motorR);
-[e ( _RedMove (2 , &U _motorL &U _motorR ]
-"23
-[; ;Memory.c: 23:         }
-}
-[e $U 2031  ]
-"24
-[; ;Memory.c: 24:         else if (WayBack[i]==6){
-[e :U 2030 ]
-[e $ ! == -> *U + _WayBack * -> _i `x -> -> # *U _WayBack `i `x `i -> 6 `i 2032  ]
-{
-"25
-[; ;Memory.c: 25:             OrangeMove(&motorL, &motorR);
-[e ( _OrangeMove (2 , &U _motorL &U _motorR ]
-"26
-[; ;Memory.c: 26:         }
-}
-[e $U 2033  ]
-"27
-[; ;Memory.c: 27:         else if (WayBack[i]==7){
-[e :U 2032 ]
-[e $ ! == -> *U + _WayBack * -> _i `x -> -> # *U _WayBack `i `x `i -> 7 `i 2034  ]
-{
-"28
-[; ;Memory.c: 28:             ReversePink(&motorL, &motorR);
-[e ( _ReversePink (2 , &U _motorL &U _motorR ]
-"29
-[; ;Memory.c: 29:         }
-}
-[e :U 2034 ]
-[e :U 2033 ]
-[e :U 2031 ]
-[e :U 2029 ]
-[e :U 2027 ]
-[e :U 2025 ]
-[e :U 2023 ]
+[; ;Memory.c: 11:         while (cur_time<Time_forward[i]){
+[e $U 2020  ]
 [e :U 2021 ]
+{
+"12
+[; ;Memory.c: 12:             fullSpeedAhead(&motorL,&motorR);
+[e ( _fullSpeedAhead (2 , &U _motorL &U _motorR ]
+"13
+[; ;Memory.c: 13:             time_temp=TMR0L;
+[e = _time_temp -> _TMR0L `ui ]
+"14
+[; ;Memory.c: 14:             cur_time=TMR0H<<8;
+[e = _cur_time << -> _TMR0H `i -> 8 `i ]
+"15
+[; ;Memory.c: 15:         }
+}
+[e :U 2020 ]
+"11
+[; ;Memory.c: 11:         while (cur_time<Time_forward[i]){
+[e $ < _cur_time *U + _Time_forward * -> _i `x -> -> # *U _Time_forward `i `x 2021  ]
+[e :U 2022 ]
+"17
+[; ;Memory.c: 17:         if (WayBack[i]==0){
+[e $ ! == -> *U + _WayBack * -> _i `x -> -> # *U _WayBack `i `x `i -> 0 `i 2023  ]
+{
+"18
+[; ;Memory.c: 18:             Forwardhalfblock(&motorL,&motorR);
+[e ( _Forwardhalfblock (2 , &U _motorL &U _motorR ]
+"19
+[; ;Memory.c: 19:         }
+}
+[e $U 2024  ]
+"20
+[; ;Memory.c: 20:         else if (WayBack[i]==1){
+[e :U 2023 ]
+[e $ ! == -> *U + _WayBack * -> _i `x -> -> # *U _WayBack `i `x `i -> 1 `i 2025  ]
+{
+"21
+[; ;Memory.c: 21:             GreenMove(&motorL, &motorR);
+[e ( _GreenMove (2 , &U _motorL &U _motorR ]
+"22
+[; ;Memory.c: 22:         }
+}
+[e $U 2026  ]
+"23
+[; ;Memory.c: 23:         else if (WayBack[i]==2){
+[e :U 2025 ]
+[e $ ! == -> *U + _WayBack * -> _i `x -> -> # *U _WayBack `i `x `i -> 2 `i 2027  ]
+{
+"24
+[; ;Memory.c: 24:             LightBlueMove(&motorL, &motorR);
+[e ( _LightBlueMove (2 , &U _motorL &U _motorR ]
+"25
+[; ;Memory.c: 25:         }
+}
+[e $U 2028  ]
+"26
+[; ;Memory.c: 26:         else if (WayBack[i]==3){
+[e :U 2027 ]
+[e $ ! == -> *U + _WayBack * -> _i `x -> -> # *U _WayBack `i `x `i -> 3 `i 2029  ]
+{
+"27
+[; ;Memory.c: 27:             ReverseYellow(&motorL, &motorR);
+[e ( _ReverseYellow (2 , &U _motorL &U _motorR ]
+"28
+[; ;Memory.c: 28:         }
+}
+[e $U 2030  ]
+"29
+[; ;Memory.c: 29:         else if (WayBack[i]==4){
+[e :U 2029 ]
+[e $ ! == -> *U + _WayBack * -> _i `x -> -> # *U _WayBack `i `x `i -> 4 `i 2031  ]
+{
+"30
+[; ;Memory.c: 30:             BlueMove(&motorL, &motorR);
+[e ( _BlueMove (2 , &U _motorL &U _motorR ]
+"31
+[; ;Memory.c: 31:         }
+}
+[e $U 2032  ]
 "32
-[; ;Memory.c: 32:   }
+[; ;Memory.c: 32:         else if (WayBack[i]==5){
+[e :U 2031 ]
+[e $ ! == -> *U + _WayBack * -> _i `x -> -> # *U _WayBack `i `x `i -> 5 `i 2033  ]
+{
+"33
+[; ;Memory.c: 33:             RedMove(&motorL, &motorR);
+[e ( _RedMove (2 , &U _motorL &U _motorR ]
+"34
+[; ;Memory.c: 34:         }
+}
+[e $U 2034  ]
+"35
+[; ;Memory.c: 35:         else if (WayBack[i]==6){
+[e :U 2033 ]
+[e $ ! == -> *U + _WayBack * -> _i `x -> -> # *U _WayBack `i `x `i -> 6 `i 2035  ]
+{
+"36
+[; ;Memory.c: 36:             OrangeMove(&motorL, &motorR);
+[e ( _OrangeMove (2 , &U _motorL &U _motorR ]
+"37
+[; ;Memory.c: 37:         }
+}
+[e $U 2036  ]
+"38
+[; ;Memory.c: 38:         else if (WayBack[i]==7){
+[e :U 2035 ]
+[e $ ! == -> *U + _WayBack * -> _i `x -> -> # *U _WayBack `i `x `i -> 7 `i 2037  ]
+{
+"39
+[; ;Memory.c: 39:             ReversePink(&motorL, &motorR);
+[e ( _ReversePink (2 , &U _motorL &U _motorR ]
+"40
+[; ;Memory.c: 40:         }
+}
+[e :U 2037 ]
+[e :U 2036 ]
+[e :U 2034 ]
+[e :U 2032 ]
+[e :U 2030 ]
+[e :U 2028 ]
+[e :U 2026 ]
+[e :U 2024 ]
+"43
+[; ;Memory.c: 43:   }
 }
 [e -- _i -> 1 `i ]
 [e $ >= _i -> 0 `i 2017  ]
 [e :U 2018 ]
 }
-"33
-[; ;Memory.c: 33: }
+"44
+[; ;Memory.c: 44: }
 [e :UE 2016 ]
 }
