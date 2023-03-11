@@ -24259,7 +24259,8 @@ void setMotorPWM(struct DC_motor *m);
 void stop(struct DC_motor *mL,struct DC_motor *mR);
 void turnLeft(struct DC_motor *mL,struct DC_motor *mR);
 void turnRight(struct DC_motor *mL,struct DC_motor *mR);
-void fullSpeedAhead(struct DC_motor *mL,struct DC_motor *mR);
+void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR);
+void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time);
 void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
 
 void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
@@ -24280,6 +24281,19 @@ void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
 void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
 # 2 "dc_motor.c" 2
 
+# 1 "./timers.h" 1
+
+
+
+
+
+
+
+void Timer0_init(void);
+void getTMR0val(void);
+void delayed_ms(int time);
+extern volatile unsigned int move_count;
+# 3 "dc_motor.c" 2
 
 
 void initDCmotorsPWM(unsigned int PWMperiod){
@@ -24436,8 +24450,28 @@ void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR)
         setMotorPWM(mL);
         setMotorPWM(mR);
 
+
         _delay((unsigned long)((20)*(64000000/4000.0)));
     }
+
+}
+void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time)
+{
+
+    mL->direction =1;
+    mR->direction =1;
+    while (mL->power < power && mR->power < power){
+
+        mL->power+=10;
+        mR->power+=10;
+
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+
+
+        _delay((unsigned long)((20)*(64000000/4000.0)));
+    }
+    delayed_ms(time);
 }
 
 

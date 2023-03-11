@@ -11,13 +11,13 @@
  Intel Hex-file ranges:
   0h - 5h		(dist/default/debug\final-project-josh-and-edward.X.debug.hex)
   8h - 11h		(dist/default/debug\final-project-josh-and-edward.X.debug.hex)
-  E00h - 4B78h		(dist/default/debug\final-project-josh-and-edward.X.debug.hex)
+  E00h - 4B7Ch		(dist/default/debug\final-project-josh-and-edward.X.debug.hex)
   200000h - 20000Fh		(dist/default/debug\final-project-josh-and-edward.X.debug.hex)
   300000h - 30000Bh		(dist/default/debug\final-project-josh-and-edward.X.debug.hex)
  Unused ranges:
   6h - 7h
   12h - DFFh
-  4B79h - 1FFFFFh
+  4B7Dh - 1FFFFFh
   200010h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -1013,7 +1013,7 @@
 00004B40 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00004B50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00004B60 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00004B70 | H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- --
+00004B70 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------

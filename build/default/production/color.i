@@ -24335,7 +24335,8 @@ void setMotorPWM(struct DC_motor *m);
 void stop(struct DC_motor *mL,struct DC_motor *mR);
 void turnLeft(struct DC_motor *mL,struct DC_motor *mR);
 void turnRight(struct DC_motor *mL,struct DC_motor *mR);
-void fullSpeedAhead(struct DC_motor *mL,struct DC_motor *mR);
+void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR);
+void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time);
 void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
 
 void turnRight45(struct DC_motor *mL,struct DC_motor *mR);

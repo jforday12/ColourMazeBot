@@ -36,3 +36,8 @@ void getTMR0val(void)
 	//add your code to get the full 16 bit timer value here
 }
 
+void delayed_ms(int time){
+    for(unsigned int i=0;i<time;i++){
+        __delay_ms(1);
+    }
+}

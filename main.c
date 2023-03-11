@@ -81,6 +81,9 @@ void main(void) {
 
         // if the clear value is greater than 2500 (value obtained from lowest clear value card which was blue) then it has hit a wall so detect what colour it sees
         if (vals.L>=500){
+            move_count++; // increment index of move and timer arrays
+            getTMR0val(); // place time moving forward in time array
+            
             Forwardhalfblock(&motorL,&motorR);
             // stop the buggie
             stop(&motorL, &motorR);
@@ -89,8 +92,7 @@ void main(void) {
 //            int colour = Colour_decider(&vals, &rel);
 //            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour=%d \r\n",rel.R, rel.G,rel.B,vals.L,colour);
 //            sendStringSerial4(buf);
-            move_count++; // increment index of move and timer arrays
-            getTMR0val(); // place time moving forward in time array
+            
         
             while (consecuitive<20){
                 int colour = Colour_decider(&vals, &rel);

@@ -24543,7 +24543,8 @@ void setMotorPWM(struct DC_motor *m);
 void stop(struct DC_motor *mL,struct DC_motor *mR);
 void turnLeft(struct DC_motor *mL,struct DC_motor *mR);
 void turnRight(struct DC_motor *mL,struct DC_motor *mR);
-void fullSpeedAhead(struct DC_motor *mL,struct DC_motor *mR);
+void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR);
+void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time);
 void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
 
 void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
@@ -24584,6 +24585,7 @@ void go_Home (char *WayBack, int *Time_forward);
 
 void Timer0_init(void);
 void getTMR0val(void);
+void delayed_ms(int time);
 extern volatile unsigned int move_count;
 # 23 "main.c" 2
 
@@ -24647,6 +24649,9 @@ void main(void) {
 
 
         if (vals.L>=500){
+            move_count++;
+            getTMR0val();
+
             Forwardhalfblock(&motorL,&motorR);
 
             stop(&motorL, &motorR);
@@ -24655,8 +24660,7 @@ void main(void) {
 
 
 
-            move_count++;
-            getTMR0val();
+
 
             while (consecuitive<20){
                 int colour = Colour_decider(&vals, &rel);

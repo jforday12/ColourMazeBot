@@ -2064,8 +2064,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Memory.c: 9:         unsigned int time_temp=TMR0L;
 [v _time_temp `ui ~T0 @X0 1 a ]
 [e = _time_temp -> _TMR0L `ui ]
+"10
+[; ;Memory.c: 10:         int cur_time=TMR0H<<8;
+[v _cur_time `i ~T0 @X0 1 a ]
+[e = _cur_time << -> _TMR0H `i -> 8 `i ]
 "11
-[; ;Memory.c: 11:         while (TMR0H<<8<Time_forward[i]){
+[; ;Memory.c: 11:         while (cur_time<Time_forward[i]){
 [e $U 2020  ]
 [e :U 2021 ]
 {
@@ -2075,13 +2079,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13
 [; ;Memory.c: 13:             time_temp=TMR0L;
 [e = _time_temp -> _TMR0L `ui ]
+"14
+[; ;Memory.c: 14:             cur_time=TMR0H<<8;
+[e = _cur_time << -> _TMR0H `i -> 8 `i ]
 "15
 [; ;Memory.c: 15:         }
 }
 [e :U 2020 ]
 "11
-[; ;Memory.c: 11:         while (TMR0H<<8<Time_forward[i]){
-[e $ < << -> _TMR0H `i -> 8 `i *U + _Time_forward * -> _i `x -> -> # *U _Time_forward `i `x 2021  ]
+[; ;Memory.c: 11:         while (cur_time<Time_forward[i]){
+[e $ < _cur_time *U + _Time_forward * -> _i `x -> -> # *U _Time_forward `i `x 2021  ]
 [e :U 2022 ]
 "17
 [; ;Memory.c: 17:         if (WayBack[i]==0){

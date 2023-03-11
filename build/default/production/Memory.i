@@ -24275,7 +24275,8 @@ void setMotorPWM(struct DC_motor *m);
 void stop(struct DC_motor *mL,struct DC_motor *mR);
 void turnLeft(struct DC_motor *mL,struct DC_motor *mR);
 void turnRight(struct DC_motor *mL,struct DC_motor *mR);
-void fullSpeedAhead(struct DC_motor *mL,struct DC_motor *mR);
+void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR);
+void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time);
 void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
 
 void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
@@ -24306,44 +24307,38 @@ void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
 
 void Timer0_init(void);
 void getTMR0val(void);
+void delayed_ms(int time);
 extern volatile unsigned int move_count;
 # 3 "Memory.c" 2
 
 void go_Home (char *WayBack, int *Time_forward){
     int i;
     for (i = move_count; i >= 0; i--){
-        TMR0H=0;
-        TMR0L=0;
-        unsigned int time_temp=TMR0L;
+# 16 "Memory.c"
+        timed_forward(&motorL, &motorR,Time_forward[i]);
 
-        while (TMR0H<<8<Time_forward[i]){
-            fullSpeedAhead(&motorL,&motorR);
-            time_temp=TMR0L;
 
-        }
 
-        if (WayBack[i]==0){
-            Forwardhalfblock(&motorL,&motorR);
-        }
-        else if (WayBack[i]==1){
+
+        if (WayBack[i-1]==1){
             GreenMove(&motorL, &motorR);
         }
-        else if (WayBack[i]==2){
+        else if (WayBack[i-1]==2){
             LightBlueMove(&motorL, &motorR);
         }
-        else if (WayBack[i]==3){
+        else if (WayBack[i-1]==3){
             ReverseYellow(&motorL, &motorR);
         }
-        else if (WayBack[i]==4){
+        else if (WayBack[i-1]==4){
             BlueMove(&motorL, &motorR);
         }
-        else if (WayBack[i]==5){
+        else if (WayBack[i-1]==5){
             RedMove(&motorL, &motorR);
         }
-        else if (WayBack[i]==6){
+        else if (WayBack[i-1]==6){
             OrangeMove(&motorL, &motorR);
         }
-        else if (WayBack[i]==7){
+        else if (WayBack[i-1]==7){
             ReversePink(&motorL, &motorR);
         }
 

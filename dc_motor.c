@@ -1,6 +1,6 @@
 #include <xc.h>
 #include "dc_motor.h"
-
+#include "timers.h"
 // function initialise T2 and CCP for DC motor control
 void initDCmotorsPWM(unsigned int PWMperiod){
     //initialise your TRIS and LAT registers for PWM  
@@ -156,8 +156,28 @@ void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR)
         setMotorPWM(mL);
         setMotorPWM(mR);
         
+        
         __delay_ms(20);
     }
+
+}
+void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time)
+{
+
+    mL->direction =1;
+    mR->direction =1;
+    while (mL->power < power && mR->power < power){
+
+        mL->power+=10;
+        mR->power+=10;
+
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+        
+        
+        __delay_ms(20);
+    }
+    delayed_ms(time);
 }
 
 //function to make the robot go straight backward

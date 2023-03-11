@@ -24241,6 +24241,7 @@ unsigned char __t3rd16on(void);
 
 void Timer0_init(void);
 void getTMR0val(void);
+void delayed_ms(int time);
 extern volatile unsigned int move_count;
 # 2 "timers.c" 2
 
@@ -24376,4 +24377,10 @@ void getTMR0val(void)
 
 
 
+}
+
+void delayed_ms(int time){
+    for(unsigned int i=0;i<time;i++){
+        _delay((unsigned long)((1)*(64000000/4000.0)));
+    }
 }
