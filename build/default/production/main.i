@@ -24505,14 +24505,7 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
-void colour_interrupt_init(void);
-void clear_int(void);
-
-extern volatile char DataFlag;
-extern volatile char ColourFlag;
-
-int low_threshold=0;
-int high_threshold=1000;
+int lost_flag;
 # 20 "main.c" 2
 
 # 1 "./dc_motor.h" 1
@@ -24736,10 +24729,15 @@ void main(void) {
 
 
 
-        }else{
-            int colour = Colour_decider(&vals, &rel);
-            sprintf(buf,"red=%f green=%f blue=%f lum=%d  \r\n",rel.R, rel.G,rel.B,vals.L);
-            sendStringSerial4(buf);
+        }else if(lost_flag){
+            move_count++;
+            Time_forward[move_count]=65535;
+            BlueMove(&motorL, &motorR);
+            T0CON0bits.T0EN=0;
+            go_Home(WayBack, Time_forward);
+            stop(&motorL, &motorR);
+            run_flag=0;
+
         }
 
 

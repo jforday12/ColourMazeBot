@@ -167,10 +167,15 @@ void main(void) {
 
 
 
-        }else{
-            int colour = Colour_decider(&vals, &rel);
-            sprintf(buf,"red=%f green=%f blue=%f lum=%d  \r\n",rel.R, rel.G,rel.B,vals.L);
-            sendStringSerial4(buf);
+        }else if(lost_flag){
+            move_count++; // increment index of move and timer arrays
+            Time_forward[move_count]=65535;
+            BlueMove(&motorL, &motorR);
+            T0CON0bits.T0EN=0;
+            go_Home(WayBack, Time_forward);
+            stop(&motorL, &motorR);
+            run_flag=0;
+
         }
 //
 //

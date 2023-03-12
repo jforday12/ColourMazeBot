@@ -24332,14 +24332,7 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
-void colour_interrupt_init(void);
-void clear_int(void);
-
-extern volatile char DataFlag;
-extern volatile char ColourFlag;
-
-int low_threshold=0;
-int high_threshold=1000;
+int lost_flag;
 # 3 "timers.c" 2
 
 # 1 "./Memory.h" 1

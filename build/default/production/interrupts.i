@@ -24318,54 +24318,37 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
-void colour_interrupt_init(void);
-void clear_int(void);
-
-extern volatile char DataFlag;
-extern volatile char ColourFlag;
-
-int low_threshold=0;
-int high_threshold=1000;
+int lost_flag;
 # 2 "interrupts.c" 2
 
-# 1 "./serial.h" 1
-# 13 "./serial.h"
-volatile char EUSART4RXbuf[20];
-volatile char RxBufWriteCnt=0;
-volatile char RxBufReadCnt=0;
-
-volatile char EUSART4TXbuf[60];
-volatile char TxBufWriteCnt=0;
-volatile char TxBufReadCnt=0;
 
 
 
-void initUSART4(void);
-char getCharSerial4(void);
-void sendCharSerial4(char charToSend);
-void sendStringSerial4(char *string);
 
 
-char getCharFromRxBuf(void);
-void putCharToRxBuf(char byte);
-char isDataInRxBuf (void);
-
-
-char getCharFromTxBuf(void);
-void putCharToTxBuf(char byte);
-char isDataInTxBuf (void);
-void TxBufferedString(char *string);
-void sendTxBuf(void);
-
-volatile char DataFlag=1;
-# 3 "interrupts.c" 2
-# 12 "interrupts.c"
 void Interrupts_init(void)
 {
-# 32 "interrupts.c"
+    INTCONbits.IPEN=0;
+    PIE2bits.C1IE=1;
+    INTCONbits.PEIE=1;
+    INTCONbits.GIE=1;
+    PIE0bits.TMR0IE=1;
+
 }
-# 59 "interrupts.c"
+
+
+
+
+
+
+
 void __attribute__((picinterrupt(("high_priority")))) HighISR()
 {
-# 78 "interrupts.c"
+if (PIR0bits.TMR0IF){
+        lost_flag=1;
+        PIR0bits.TMR0IF=0;
+        PIE0bits.TMR0IE = 0;
+
+}
+
 }

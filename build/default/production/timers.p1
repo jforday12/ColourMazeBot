@@ -2024,18 +2024,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40927
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 40927: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"19 ./interrupts.h
-[; ;./interrupts.h: 19: int low_threshold=0;
-[v _low_threshold `i ~T0 @X0 1 e ]
-[i _low_threshold
--> 0 `i
-]
-"20
-[; ;./interrupts.h: 20: int high_threshold=1000;
-[v _high_threshold `i ~T0 @X0 1 e ]
-[i _high_threshold
--> 1000 `i
-]
+"13 ./interrupts.h
+[; ;./interrupts.h: 13: int lost_flag;
+[v _lost_flag `i ~T0 @X0 1 e ]
 "18 ./Memory.h
 [; ;./Memory.h: 18: char WayBack [50];
 [v _WayBack `uc ~T0 @X0 -> 50 `i e ]

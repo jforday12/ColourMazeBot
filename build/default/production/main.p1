@@ -2241,18 +2241,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _DataFlag
 -> -> 1 `i `uc
 ]
-"19 ./interrupts.h
-[; ;./interrupts.h: 19: int low_threshold=0;
-[v _low_threshold `i ~T0 @X0 1 e ]
-[i _low_threshold
--> 0 `i
-]
-"20
-[; ;./interrupts.h: 20: int high_threshold=1000;
-[v _high_threshold `i ~T0 @X0 1 e ]
-[i _high_threshold
--> 1000 `i
-]
+"13 ./interrupts.h
+[; ;./interrupts.h: 13: int lost_flag;
+[v _lost_flag `i ~T0 @X0 1 e ]
 "17 ./dc_motor.h
 [; ;./dc_motor.h: 17: struct DC_motor motorL, motorR;
 [v _motorL `S2019 ~T0 @X0 1 e ]
@@ -2693,37 +2684,49 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2036 ]
 [e :U 2034 ]
 "170
-[; ;main.c: 170:         }else{
+[; ;main.c: 170:         }else if(lost_flag){
 }
 [e $U 2050  ]
 [e :U 2027 ]
+[e $ ! != _lost_flag -> 0 `i 2051  ]
 {
 "171
-[; ;main.c: 171:             int colour = Colour_decider(&vals, &rel);
-[v _colour `i ~T0 @X0 1 a ]
-[e = _colour ( _Colour_decider (2 , &U _vals &U _rel ]
+[; ;main.c: 171:             move_count++;
+[e ++ _move_count -> -> 1 `i `Vui ]
 "172
-[; ;main.c: 172:             sprintf(buf,"red=%f green=%f blue=%f lum=%d  \r\n",rel.R, rel.G,rel.B,vals.L);
-[e ( _sprintf (1 , , , , (. , &U _buf :s 2C -> . _rel 0 `d -> . _rel 1 `d -> . _rel 2 `d . _vals 3 ]
+[; ;main.c: 172:             Time_forward[move_count]=65535;
+[e = *U + &U _Time_forward * -> _move_count `ux -> -> # *U &U _Time_forward `ui `ux -> -> 65535 `l `i ]
 "173
-[; ;main.c: 173:             sendStringSerial4(buf);
-[e ( _sendStringSerial4 (1 &U _buf ]
+[; ;main.c: 173:             BlueMove(&motorL, &motorR);
+[e ( _BlueMove (2 , &U _motorL &U _motorR ]
 "174
-[; ;main.c: 174:         }
+[; ;main.c: 174:             T0CON0bits.T0EN=0;
+[e = . . _T0CON0bits 0 4 -> -> 0 `i `uc ]
+"175
+[; ;main.c: 175:             go_Home(WayBack, Time_forward);
+[e ( _go_Home (2 , &U _WayBack &U _Time_forward ]
+"176
+[; ;main.c: 176:             stop(&motorL, &motorR);
+[e ( _stop (2 , &U _motorL &U _motorR ]
+"177
+[; ;main.c: 177:             run_flag=0;
+[e = _run_flag -> 0 `i ]
+"179
+[; ;main.c: 179:         }
 }
+[e :U 2051 ]
 [e :U 2050 ]
-"178
-[; ;main.c: 178: }
+"183
+[; ;main.c: 183: }
 }
 [e :U 2024 ]
 "69
 [; ;main.c: 69:     while (run_flag)
 [e $ != _run_flag -> 0 `i 2025  ]
 [e :U 2026 ]
-"179
-[; ;main.c: 179:     }
+"184
+[; ;main.c: 184:     }
 [e :UE 2020 ]
 }
-[p f _sprintf 8396928 ]
+[p f _sprintf 8388736 ]
 [a 1C 114 101 100 61 37 100 32 103 114 101 101 110 61 37 100 32 98 108 117 101 61 37 100 32 116 105 109 101 114 61 37 100 32 13 10 0 ]
-[a 2C 114 101 100 61 37 102 32 103 114 101 101 110 61 37 102 32 98 108 117 101 61 37 102 32 108 117 109 61 37 100 32 32 13 10 0 ]
