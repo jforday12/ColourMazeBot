@@ -24235,81 +24235,6 @@ unsigned char __t3rd16on(void);
 
 
 
-# 1 "./color.h" 1
-# 12 "./color.h"
-void color_click_init(void);
-
-
-
-
-
-
-void color_writetoaddr(char address, char value);
-
-
-
-
-
-unsigned int color_read_Red(void);
-unsigned int color_read_Blue(void);
-unsigned int color_read_Green(void);
-unsigned int color_read_lum(void);
-struct RGB{
-    int R;
-    int G;
-    int B;
-    int L;
-};
-
-
-struct RGB_rel{
-    float R;
-    float G;
-    float B;
-};
-
-
-
-void colour_rel(struct RGB *vals, struct RGB_rel *rel);
-
-int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
-void readColours (struct RGB *vals);
-# 4 "./interrupts.h" 2
-
-# 1 "./i2c.h" 1
-# 13 "./i2c.h"
-void I2C_2_Master_Init(void);
-
-
-
-
-void I2C_2_Master_Idle(void);
-
-
-
-
-void I2C_2_Master_Start(void);
-
-
-
-
-void I2C_2_Master_RepStart(void);
-
-
-
-
-void I2C_2_Master_Stop(void);
-
-
-
-
-void I2C_2_Master_Write(unsigned char data_byte);
-
-
-
-
-unsigned char I2C_2_Master_Read(unsigned char ack);
-# 5 "./interrupts.h" 2
 
 
 
@@ -24317,118 +24242,9 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
-extern volatile unsigned int move_count;
+
+int lost_flag=0;
 # 2 "interrupts.c" 2
-
-# 1 "./serial.h" 1
-# 13 "./serial.h"
-volatile char EUSART4RXbuf[20];
-volatile char RxBufWriteCnt=0;
-volatile char RxBufReadCnt=0;
-
-volatile char EUSART4TXbuf[60];
-volatile char TxBufWriteCnt=0;
-volatile char TxBufReadCnt=0;
-
-
-
-void initUSART4(void);
-char getCharSerial4(void);
-void sendCharSerial4(char charToSend);
-void sendStringSerial4(char *string);
-
-
-char getCharFromRxBuf(void);
-void putCharToRxBuf(char byte);
-char isDataInRxBuf (void);
-
-
-char getCharFromTxBuf(void);
-void putCharToTxBuf(char byte);
-char isDataInTxBuf (void);
-void TxBufferedString(char *string);
-void sendTxBuf(void);
-
-volatile char DataFlag=1;
-# 3 "interrupts.c" 2
-
-# 1 "./Memory.h" 1
-# 18 "./Memory.h"
-char WayBack [50];
-int Time_forward[50];
-extern volatile unsigned int move_count;
-int run_flag=1;
-
-void go_Home (char *WayBack, int *Time_forward);
-# 4 "interrupts.c" 2
-
-# 1 "./timers.h" 1
-
-
-
-
-
-
-
-void Timer0_init(void);
-void getTMR0val(void);
-void delayed_ms(int time);
-extern volatile unsigned int move_count;
-# 5 "interrupts.c" 2
-
-# 1 "./dc_motor.h" 1
-
-
-
-
-
-
-
-struct DC_motor {
-    char power;
-    char direction;
-    char brakemode;
-    unsigned int PWMperiod;
-    unsigned char *posDutyHighByte;
-    unsigned char *negDutyHighByte;
-};
-
-struct DC_motor motorL, motorR;
-
-int power = 30;
-int Turn45Delay = 220;
-int RunOneBlockTime = 2000;
-
-
-void initDCmotorsPWM(unsigned int PWMperiod);
-void setMotorPWM(struct DC_motor *m);
-void stop(struct DC_motor *mL,struct DC_motor *mR);
-void turnLeft(struct DC_motor *mL,struct DC_motor *mR);
-void turnRight(struct DC_motor *mL,struct DC_motor *mR);
-void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR);
-void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time);
-void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
-
-void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
-void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
-void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
-void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
-void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
-void RedMove(struct DC_motor *mL,struct DC_motor *mR);
-void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
-void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
-void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
-void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
-void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
-void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
-void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
-void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
-void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
-void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
-
-void turnCalibration(struct DC_motor *mL,struct DC_motor *mR);
-void TurnDelay(int Turn45Delay);
-# 6 "interrupts.c" 2
 
 
 
@@ -24438,29 +24254,10 @@ void TurnDelay(int Turn45Delay);
 
 void Interrupts_init(void)
 {
-    INTCONbits.IPEN=0;
-    PIE2bits.C1IE=1;
-    INTCONbits.PEIE=1;
-    INTCONbits.GIE=1;
-    PIE0bits.TMR0IE=1;
-
-
-}
 
 
 
 
-
-void __attribute__((picinterrupt(("high_priority")))) HighISR()
-{
-    if (PIR0bits.TMR0IF){
-        move_count++;
-        Time_forward[move_count]=65535;
-        PIR0bits.TMR0IF=0;
-        PIE0bits.TMR0IE = 0;
-        go_Home(WayBack, Time_forward);
-
-    }
 
 
 

@@ -24315,101 +24315,8 @@ void delayed_ms(int time);
 extern volatile unsigned int move_count;
 # 3 "Memory.c" 2
 
-# 1 "./interrupts.h" 1
-
-
-
-# 1 "./color.h" 1
-# 12 "./color.h"
-void color_click_init(void);
-
-
-
-
-
-
-void color_writetoaddr(char address, char value);
-
-
-
-
-
-unsigned int color_read_Red(void);
-unsigned int color_read_Blue(void);
-unsigned int color_read_Green(void);
-unsigned int color_read_lum(void);
-struct RGB{
-    int R;
-    int G;
-    int B;
-    int L;
-};
-
-
-struct RGB_rel{
-    float R;
-    float G;
-    float B;
-};
-
-
-
-void colour_rel(struct RGB *vals, struct RGB_rel *rel);
-
-int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
-void readColours (struct RGB *vals);
-# 4 "./interrupts.h" 2
-
-# 1 "./i2c.h" 1
-# 13 "./i2c.h"
-void I2C_2_Master_Init(void);
-
-
-
-
-void I2C_2_Master_Idle(void);
-
-
-
-
-void I2C_2_Master_Start(void);
-
-
-
-
-void I2C_2_Master_RepStart(void);
-
-
-
-
-void I2C_2_Master_Stop(void);
-
-
-
-
-void I2C_2_Master_Write(unsigned char data_byte);
-
-
-
-
-unsigned char I2C_2_Master_Read(unsigned char ack);
-# 5 "./interrupts.h" 2
-
-
-
-
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-extern volatile unsigned int move_count;
-# 4 "Memory.c" 2
-
 void go_Home (char *WayBack, int *Time_forward){
     int i;
-    BlueMove(&motorL, &motorR);
-    T0CON0bits.T0EN=0;
-
-
         for (i = move_count; i >= 0; i--){
 
 
@@ -24447,6 +24354,5 @@ void go_Home (char *WayBack, int *Time_forward){
 
 
       }
-        stop(&motorL, &motorR);
-        run_flag=0;
+
     }

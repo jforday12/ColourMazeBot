@@ -2024,6 +2024,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40927
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 40927: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"12 ./interrupts.h
+[; ;./interrupts.h: 12: int lost_flag=0;
+[v _lost_flag `i ~T0 @X0 1 e ]
+[i _lost_flag
+-> 0 `i
+]
 "18 ./Memory.h
 [; ;./Memory.h: 18: char WayBack [50];
 [v _WayBack `uc ~T0 @X0 -> 50 `i e ]
@@ -2067,7 +2073,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
 "19
 [; ;timers.c: 19: }
-[e :UE 2017 ]
+[e :UE 2015 ]
 }
 "28
 [; ;timers.c: 28: void getTMR0val(void)
@@ -2090,7 +2096,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + &U _Time_forward * -> _move_count `ux -> -> # *U &U _Time_forward `ui `ux _moving ]
 "37
 [; ;timers.c: 37: }
-[e :UE 2018 ]
+[e :UE 2016 ]
 }
 "39
 [; ;timers.c: 39: void delayed_ms(int time){
@@ -2104,8 +2110,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `ui ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `ui ]
-[e $U 2023  ]
-[e :U 2020 ]
+[e $U 2021  ]
+[e :U 2018 ]
 {
 "41
 [; ;timers.c: 41:         _delay((unsigned long)((1)*(64000000/4000.0)));
@@ -2114,11 +2120,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;timers.c: 42:     }
 }
 [e ++ _i -> -> 1 `i `ui ]
-[e :U 2023 ]
-[e $ < _i -> _time `ui 2020  ]
 [e :U 2021 ]
+[e $ < _i -> _time `ui 2018  ]
+[e :U 2019 ]
 }
 "43
 [; ;timers.c: 43: }
-[e :UE 2019 ]
+[e :UE 2017 ]
 }

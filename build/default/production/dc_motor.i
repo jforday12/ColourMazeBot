@@ -24569,26 +24569,26 @@ void reverseDetect(struct DC_motor *mL,struct DC_motor *mR){
 
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedBack(mL,mR);
-    delayed_ms(RunOneBlockTime);
+    _delay((unsigned long)((RunOneBlockTime)*(64000000/4000.0)));
     stop(&motorL, &motorR);
     _delay((unsigned long)((50)*(64000000/4000.0)));
 }
 void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedAhead(mL,mR);
-    delayed_ms(RunOneBlockTime);
+    _delay((unsigned long)((RunOneBlockTime)*(64000000/4000.0)));
     stop(&motorL, &motorR);
     _delay((unsigned long)((50)*(64000000/4000.0)));
 }
 
 void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedAhead(mL,mR);
-    delayed_ms(RunOneBlockTime/2);
+    _delay((unsigned long)((RunOneBlockTime/2)*(64000000/4000.0)));
     stop(&motorL, &motorR);
     _delay((unsigned long)((50)*(64000000/4000.0)));
 }
 void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedBack(mL,mR);
-    delayed_ms(RunOneBlockTime/2);
+    _delay((unsigned long)((RunOneBlockTime/2)*(64000000/4000.0)));
     stop(&motorL, &motorR);
     _delay((unsigned long)((50)*(64000000/4000.0)));
 }

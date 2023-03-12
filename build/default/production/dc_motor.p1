@@ -2931,8 +2931,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 233:     fullSpeedBack(mL,mR);
 [e ( _fullSpeedBack (2 , _mL _mR ]
 "234
-[; ;dc_motor.c: 234:     delayed_ms(RunOneBlockTime);
-[e ( _delayed_ms (1 _RunOneBlockTime ]
+[; ;dc_motor.c: 234:     _delay((unsigned long)((RunOneBlockTime)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> _RunOneBlockTime `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "235
 [; ;dc_motor.c: 235:     stop(&motorL, &motorR);
 [e ( _stop (2 , &U _motorL &U _motorR ]
@@ -2955,8 +2955,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 239:     fullSpeedAhead(mL,mR);
 [e ( _fullSpeedAhead (2 , _mL _mR ]
 "240
-[; ;dc_motor.c: 240:     delayed_ms(RunOneBlockTime);
-[e ( _delayed_ms (1 _RunOneBlockTime ]
+[; ;dc_motor.c: 240:     _delay((unsigned long)((RunOneBlockTime)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> _RunOneBlockTime `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "241
 [; ;dc_motor.c: 241:     stop(&motorL, &motorR);
 [e ( _stop (2 , &U _motorL &U _motorR ]
@@ -2979,8 +2979,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 246:     fullSpeedAhead(mL,mR);
 [e ( _fullSpeedAhead (2 , _mL _mR ]
 "247
-[; ;dc_motor.c: 247:     delayed_ms(RunOneBlockTime/2);
-[e ( _delayed_ms (1 / _RunOneBlockTime -> 2 `i ]
+[; ;dc_motor.c: 247:     _delay((unsigned long)((RunOneBlockTime/2)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> / _RunOneBlockTime -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "248
 [; ;dc_motor.c: 248:     stop(&motorL, &motorR);
 [e ( _stop (2 , &U _motorL &U _motorR ]
@@ -3003,8 +3003,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 252:     fullSpeedBack(mL,mR);
 [e ( _fullSpeedBack (2 , _mL _mR ]
 "253
-[; ;dc_motor.c: 253:     delayed_ms(RunOneBlockTime/2);
-[e ( _delayed_ms (1 / _RunOneBlockTime -> 2 `i ]
+[; ;dc_motor.c: 253:     _delay((unsigned long)((RunOneBlockTime/2)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> / _RunOneBlockTime -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "254
 [; ;dc_motor.c: 254:     stop(&motorL, &motorR);
 [e ( _stop (2 , &U _motorL &U _motorR ]

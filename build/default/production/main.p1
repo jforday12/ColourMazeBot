@@ -15,8 +15,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23 ./serial.h
 [; ;./serial.h: 23: void initUSART4(void);
 [v _initUSART4 `(v ~T0 @X0 0 ef ]
-"10 ./interrupts.h
-[; ;./interrupts.h: 10: void Interrupts_init(void);
+"9 ./interrupts.h
+[; ;./interrupts.h: 9: void Interrupts_init(void);
 [v _Interrupts_init `(v ~T0 @X0 0 ef ]
 "12 ./color.h
 [; ;./color.h: 12: void color_click_init(void);
@@ -275,17 +275,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "42
 [; ;./dc_motor.h: 42: void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _PinkMove `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
-"4548 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 4548:     struct {
-[s S262 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S262 . INT0IE INT1IE INT2IE INT3IE IOCIE TMR0IE ]
-"4547
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 4547: typedef union {
-[u S261 `S262 1 ]
-[n S261 . . ]
-"4557
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 4557: extern volatile PIE0bits_t PIE0bits __attribute__((address(0xE29)));
-[v _PIE0bits `VS261 ~T0 @X0 0 e@3625 ]
+"39586 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39586:     struct {
+[s S1922 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1922 . T0OUTPS T016BIT T0OUT . T0EN ]
+"39593
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39593:     struct {
+[s S1923 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1923 . T0OUTPS0 T0OUTPS1 T0OUTPS2 T0OUTPS3 ]
+"39585
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39585: typedef union {
+[u S1921 `S1922 1 `S1923 1 ]
+[n S1921 . . . ]
+"39600
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39600: extern volatile T0CON0bits_t T0CON0bits __attribute__((address(0xFD5)));
+[v _T0CON0bits `VS1921 ~T0 @X0 0 e@4053 ]
 "23 ./Memory.h
 [; ;./Memory.h: 23: void go_Home (char *WayBack, int *Time_forward);
 [v _go_Home `(v ~T0 @X0 0 ef2`*uc`*i ]
@@ -2308,6 +2312,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _DataFlag
 -> -> 1 `i `uc
 ]
+"12 ./interrupts.h
+[; ;./interrupts.h: 12: int lost_flag=0;
+[v _lost_flag `i ~T0 @X0 1 e ]
+[i _lost_flag
+-> 0 `i
+]
 "17 ./dc_motor.h
 [; ;./dc_motor.h: 17: struct DC_motor motorL, motorR;
 [v _motorL `S2019 ~T0 @X0 1 e ]
@@ -2607,9 +2617,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "137
 [; ;main.c: 137:             consecuitive=0;
 [e = _consecuitive -> 0 `i ]
-"141
-[; ;main.c: 141:             sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
-[e ( _sprintf (1 , , , , , (. , &U _buf :s 1C -> . _rel 0 `d -> . _rel 1 `d -> . _rel 2 `d . _vals 3 _prev_colour ]
+"138
+[; ;main.c: 138:             int temp=TMR0L;
+[v _temp `i ~T0 @X0 1 a ]
+[e = _temp -> _TMR0L `i ]
+"139
+[; ;main.c: 139:             sprintf(buf,"red=%d green=%d blue=%d colour=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
+[e ( _sprintf (1 , , , , (. , &U _buf :s 1C . _vals 0 . _vals 1 . _vals 2 -> _TMR0H `i ]
 "142
 [; ;main.c: 142:             sendStringSerial4(buf);
 [e ( _sendStringSerial4 (1 &U _buf ]
@@ -2772,35 +2786,53 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == _lost_count -> 4 `i 2048  ]
 {
 "189
-[; ;main.c: 189:                     PIE0bits.TMR0IE = 0;
-[e = . . _PIE0bits 0 5 -> -> 0 `i `uc ]
+[; ;main.c: 189:                     BlueMove(&motorL, &motorR);
+[e ( _BlueMove (2 , &U _motorL &U _motorR ]
 "190
-[; ;main.c: 190:                     go_Home(WayBack, Time_forward);
-[e ( _go_Home (2 , &U _WayBack &U _Time_forward ]
+[; ;main.c: 190:                     T0CON0bits.T0EN=0;
+[e = . . _T0CON0bits 0 4 -> -> 0 `i `uc ]
 "191
-[; ;main.c: 191:                 }
+[; ;main.c: 191:                     go_Home(WayBack, Time_forward);
+[e ( _go_Home (2 , &U _WayBack &U _Time_forward ]
+"192
+[; ;main.c: 192:                     stop(&motorL, &motorR);
+[e ( _stop (2 , &U _motorL &U _motorR ]
+"193
+[; ;main.c: 193:                     run_flag=0;
+[e = _run_flag -> 0 `i ]
+"194
+[; ;main.c: 194:                 }
 }
 [e :U 2048 ]
-"192
-[; ;main.c: 192:                 RetryMove(&motorL, &motorR);
+"195
+[; ;main.c: 195:                 RetryMove(&motorL, &motorR);
 [e ( _RetryMove (2 , &U _motorL &U _motorR ]
-"193
-[; ;main.c: 193:             }
+"196
+[; ;main.c: 196:             }
 }
 [e $U 2049  ]
-"194
-[; ;main.c: 194:             else if (prev_colour==0){
+"197
+[; ;main.c: 197:             else if (prev_colour==0){
 [e :U 2047 ]
 [e $ ! == _prev_colour -> 0 `i 2050  ]
 {
-"195
-[; ;main.c: 195:                 PIE0bits.TMR0IE = 0;
-[e = . . _PIE0bits 0 5 -> -> 0 `i `uc ]
-"196
-[; ;main.c: 196:                 go_Home(WayBack, Time_forward);
+"198
+[; ;main.c: 198:                 BlueMove(&motorL, &motorR);
+[e ( _BlueMove (2 , &U _motorL &U _motorR ]
+"199
+[; ;main.c: 199:                 T0CON0bits.T0EN=0;
+[e = . . _T0CON0bits 0 4 -> -> 0 `i `uc ]
+"200
+[; ;main.c: 200:                 go_Home(WayBack, Time_forward);
 [e ( _go_Home (2 , &U _WayBack &U _Time_forward ]
-"197
-[; ;main.c: 197:             }
+"201
+[; ;main.c: 201:                 stop(&motorL, &motorR);
+[e ( _stop (2 , &U _motorL &U _motorR ]
+"202
+[; ;main.c: 202:                 run_flag=0;
+[e = _run_flag -> 0 `i ]
+"203
+[; ;main.c: 203:             }
 }
 [e :U 2050 ]
 [e :U 2049 ]
@@ -2811,27 +2843,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2038 ]
 [e :U 2036 ]
 [e :U 2034 ]
-"198
-[; ;main.c: 198:         }else {
+"204
+[; ;main.c: 204:             }else{
 }
 [e $U 2051  ]
 [e :U 2027 ]
 {
-"202
-[; ;main.c: 202:         }
+"205
+[; ;main.c: 205:                 int colour = Colour_decider(&vals, &rel);
+[v _colour `i ~T0 @X0 1 a ]
+[e = _colour ( _Colour_decider (2 , &U _vals &U _rel ]
+"206
+[; ;main.c: 206:                 sprintf(buf,"red=%f green=%f blue=%f lum=%d  \r\n",rel.R, rel.G,rel.B,vals.L);
+[e ( _sprintf (1 , , , , (. , &U _buf :s 2C -> . _rel 0 `d -> . _rel 1 `d -> . _rel 2 `d . _vals 3 ]
+"207
+[; ;main.c: 207:                 sendStringSerial4(buf);
+[e ( _sendStringSerial4 (1 &U _buf ]
+"216
+[; ;main.c: 216:         }
 }
 [e :U 2051 ]
-"205
-[; ;main.c: 205:     }
+"219
+[; ;main.c: 219:     }
 }
 [e :U 2024 ]
 "99
 [; ;main.c: 99:     while (run_flag)
 [e $ != _run_flag -> 0 `i 2025  ]
 [e :U 2026 ]
-"206
-[; ;main.c: 206: }
+"220
+[; ;main.c: 220: }
 [e :UE 2020 ]
 }
 [p f _sprintf 8396928 ]
-[a 1C 114 101 100 61 37 102 32 103 114 101 101 110 61 37 102 32 98 108 117 101 61 37 102 32 108 117 109 61 37 100 32 99 111 108 111 117 114 49 61 37 100 32 13 10 0 ]
+[a 1C 114 101 100 61 37 100 32 103 114 101 101 110 61 37 100 32 98 108 117 101 61 37 100 32 99 111 108 111 117 114 61 37 100 32 13 10 0 ]
+[a 2C 114 101 100 61 37 102 32 103 114 101 101 110 61 37 102 32 98 108 117 101 61 37 102 32 108 117 109 61 37 100 32 32 13 10 0 ]

@@ -135,10 +135,10 @@ void main(void) {
                 __delay_ms(50); 
             }
             consecuitive=0;
-//            int temp=TMR0L;
-////            sprintf(buf,"red=%d green=%d blue=%d colour=%d \r\n",vals.R, vals.G,vals.B,prev_colour);
-////            sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,prev_colour);
-            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+            int temp=TMR0L;
+            sprintf(buf,"red=%d green=%d blue=%d colour=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
+//            sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,prev_colour);
+            //sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
             sendStringSerial4(buf);
 //                //give move instruction based on returned colour
             if (prev_colour==1){ //red
@@ -186,16 +186,30 @@ void main(void) {
             else if (prev_colour==10){// undecided colour
                 lost_count++;
                 if (lost_count==4){
-                    PIE0bits.TMR0IE = 0;
+                    BlueMove(&motorL, &motorR);
+                    T0CON0bits.T0EN=0;
                     go_Home(WayBack, Time_forward);
+                    stop(&motorL, &motorR);
+                    run_flag=0;
                 }
                 RetryMove(&motorL, &motorR);
             }
             else if (prev_colour==0){
-                PIE0bits.TMR0IE = 0;
+                BlueMove(&motorL, &motorR);
+                T0CON0bits.T0EN=0;
                 go_Home(WayBack, Time_forward);
+                stop(&motorL, &motorR);
+                run_flag=0;
             }
-        }else {
+            }else{
+                int colour = Colour_decider(&vals, &rel);
+                sprintf(buf,"red=%f green=%f blue=%f lum=%d  \r\n",rel.R, rel.G,rel.B,vals.L);
+                sendStringSerial4(buf);
+//            move_count++; // increment index of move and timer arrays
+//            Time_forward[move_count]=65535; // as timer overflow ammount so need to retravel this ammount in a straight line to go home
+//            go_Home(WayBack, Time_forward);
+//            PIE0bits.TMR0IE = 0;
+            
 //            int temp=TMR0L;
 //            sprintf(buf,"red=%d green=%d blue=%d timer=%d \r\n",vals.R, vals.G,vals.B,prev_colour);
 //            sendStringSerial4(buf);

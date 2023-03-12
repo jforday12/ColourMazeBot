@@ -24501,10 +24501,18 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 # 19 "main.c" 2
 
 # 1 "./interrupts.h" 1
-# 10 "./interrupts.h"
+
+
+
+
+
+
+
+
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
-extern volatile unsigned int move_count;
+
+int lost_flag=0;
 # 20 "main.c" 2
 
 # 1 "./dc_motor.h" 1
@@ -24699,10 +24707,10 @@ void main(void) {
                 _delay((unsigned long)((50)*(64000000/4000.0)));
             }
             consecuitive=0;
+            int temp=TMR0L;
+            sprintf(buf,"red=%d green=%d blue=%d colour=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
 
 
-
-            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
             sendStringSerial4(buf);
 
             if (prev_colour==1){
@@ -24750,19 +24758,26 @@ void main(void) {
             else if (prev_colour==10){
                 lost_count++;
                 if (lost_count==4){
-                    PIE0bits.TMR0IE = 0;
+                    BlueMove(&motorL, &motorR);
+                    T0CON0bits.T0EN=0;
                     go_Home(WayBack, Time_forward);
+                    stop(&motorL, &motorR);
+                    run_flag=0;
                 }
                 RetryMove(&motorL, &motorR);
             }
             else if (prev_colour==0){
-                PIE0bits.TMR0IE = 0;
+                BlueMove(&motorL, &motorR);
+                T0CON0bits.T0EN=0;
                 go_Home(WayBack, Time_forward);
+                stop(&motorL, &motorR);
+                run_flag=0;
             }
-        }else {
-
-
-
+            }else{
+                int colour = Colour_decider(&vals, &rel);
+                sprintf(buf,"red=%f green=%f blue=%f lum=%d  \r\n",rel.R, rel.G,rel.B,vals.L);
+                sendStringSerial4(buf);
+# 216 "main.c"
         }
 
 
