@@ -2570,8 +2570,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2029 ]
 {
 "127
-[; ;main.c: 127:                 _delay((unsigned long)((50)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 127:                 _delay((unsigned long)((300)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "128
 [; ;main.c: 128:                 int colour = Colour_decider(&vals, &rel);
 [v _colour `i ~T0 @X0 1 a ]

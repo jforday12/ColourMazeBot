@@ -124,7 +124,7 @@ void main(void) {
             
         
             while (consecuitive<3){
-                __delay_ms(50);
+                __delay_ms(300);
                 int colour = Colour_decider(&vals, &rel);
                 if (colour==prev_colour){
                     consecuitive++;

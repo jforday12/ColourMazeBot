@@ -24696,7 +24696,7 @@ void main(void) {
 
 
             while (consecuitive<3){
-                _delay((unsigned long)((50)*(64000000/4000.0)));
+                _delay((unsigned long)((300)*(64000000/4000.0)));
                 int colour = Colour_decider(&vals, &rel);
                 if (colour==prev_colour){
                     consecuitive++;
