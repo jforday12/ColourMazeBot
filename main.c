@@ -35,16 +35,44 @@ void main(void) {
     Timer0_init();
     initDCmotorsPWM(200);
     char buf[100];
+    
     TRISGbits.TRISG1 = 0; // Set TRIS value for red LED (output)
     TRISAbits.TRISA4 = 0; // Set TRIS value for green LED (output)
     TRISFbits.TRISF7 = 0; // Set TRIS value for blue LED (output)
     TRISFbits.TRISF2 = 1; // Set Tris value for RF2 Button (input)
+//    LATFbits.LATF2=1;
     ANSELFbits.ANSELF2=0;
+    TRISFbits.TRISF3 = 1; // Set Tris value for RF3 Button (input)
+//    LATFbits.LATF3=1;
+    ANSELFbits.ANSELF3=0;
     RED_LED=1; // sets RED LED on 
     GREEN_LED=1; // sets green LED on
     BLUE_LED=1; // sets Blue LED on
     
-
+    // clicker board LEDs
+    LATDbits.LATD7=0;   //set initial output state for led 1 
+    TRISDbits.TRISD7=0; //set TRIS value for pin (output)
+    LATHbits.LATH3=0;   //set initial output state for led 2
+    TRISHbits.TRISH3=0; //set TRIS value for pin (output)
+    
+    //right signal lights RH0
+    LATHbits.LATH0=1;   //set initial output state for led 1 
+    TRISHbits.TRISH0=0; //set TRIS value for pin (output)
+    
+    //left signal lights RF0
+    LATFbits.LATF0=1;   //set initial output state for led 1 
+    TRISFbits.TRISF0=0; //set TRIS value for pin (output)
+    
+    // break light RD4
+    LATDbits.LATD4=1;   //set initial output state for led 1 
+    TRISDbits.TRISD4=0; //set TRIS value for pin (output)
+    
+    //beam light RD3
+    LATDbits.LATD3=0;   //set initial output state for led 1 
+    TRISDbits.TRISD3=0; //set TRIS value for pin (output)
+    
+    
+    
     //create structure for dc motors
     motorL.power=0; 						//zero power to start
     motorL.direction=1; 					//set default motor direction
@@ -58,11 +86,15 @@ void main(void) {
     motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);  //store address of CCP1 duty high byte
     motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);  //store address of CCP2 duty high byte
     motorR.PWMperiod=200; 			//store PWMperiod for motor (value of T2PR in this case)
+    
     int consecuitive=0; // variable to register how many consecuitive readings there are
     int prev_colour =0; // variable to decide what the previous colour is 
     int run_flag=1;
     move_count=-1;
-    while (RF2_button);
+    
+    turnCalibration(&motorL,&motorR);
+    while (RF2_button); // PORTFbits.RF2
+    
     __delay_ms(1000);
     TMR0H=0; // reset timer values
     TMR0L=0;

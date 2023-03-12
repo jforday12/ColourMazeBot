@@ -24356,6 +24356,9 @@ void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
 void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
 void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
+
+void turnCalibration(struct DC_motor *mL,struct DC_motor *mR);
+void TurnDelay(int Turn45Delay);
 # 4 "color.c" 2
 
 

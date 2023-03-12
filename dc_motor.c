@@ -1,6 +1,7 @@
 #include <xc.h>
 #include "dc_motor.h"
 #include "timers.h"
+#include "color.h"
 // function initialise T2 and CCP for DC motor control
 void initDCmotorsPWM(unsigned int PWMperiod){
     //initialise your TRIS and LAT registers for PWM  
@@ -198,16 +199,25 @@ void fullSpeedBack(struct DC_motor *mL, struct DC_motor *mR)
     }
 }
 
+
+
+void TurnDelay(Turn45Delay){
+    while (Turn45Delay>0){
+        __delay_ms(1);
+        Turn45Delay--;
+    }
+}
+
 void turnRight45(struct DC_motor *mL,struct DC_motor *mR){
     turnRight(mL,mR);
-    __delay_ms(Turn45Delay);
+    TurnDelay(Turn45Delay);
     stop(&motorL, &motorR);
     __delay_ms(1000); 
 }
 
 void turnLeft45(struct DC_motor *mL,struct DC_motor *mR){
     turnLeft(mL,mR);
-    __delay_ms(Turn45Delay);
+    TurnDelay(Turn45Delay);
     stop(&motorL, &motorR);
     __delay_ms(1000);
 }
@@ -330,4 +340,47 @@ void ReversePink(struct DC_motor *mL,struct DC_motor *mR){
     turnRight45(&motorL, &motorR);
     turnRight45(&motorL, &motorR);
     ForwardOneBlock(&motorL, &motorR);
+}
+
+void turnCalibration (struct DC_motor *mL,struct DC_motor *mR){
+    LATDbits.LATD3=1; // beam light to show it entered the loop
+    __delay_ms(1000);
+    LATDbits.LATD3=0;
+    __delay_ms(1000);
+    while (!(RF2_button & RF3_button)){
+        LATDbits.LATD3=1;
+        // turn 180 degrees
+        turnLeft45(&motorL, &motorR);
+        turnLeft45(&motorL, &motorR);
+        turnLeft45(&motorL, &motorR);
+        turnLeft45(&motorL, &motorR);
+        
+        while (!(RF2_button || RF3_button)){
+//            LATDbits.LATD7=1;
+//            LATHbits.LATH3=1;
+        
+            __delay_ms(2000);
+            if(RF3_button & RF2_button){
+                LATHbits.LATH3=1;
+                LATDbits.LATD7=1;
+                __delay_ms(1000);
+                LATHbits.LATH3=1;
+                LATDbits.LATD7=0;
+            }
+            if (RF3_button){
+                Turn45Delay+=10;
+                LATHbits.LATH3=1;
+                __delay_ms(1000);
+                LATHbits.LATH3=0;
+            }
+
+            else if (RF2_button){
+                Turn45Delay-=10;
+                LATDbits.LATD7=1;
+                __delay_ms(1000);
+                LATDbits.LATD7=0;
+            }
+        }
+        __delay_ms(2000);
+    }
 }
