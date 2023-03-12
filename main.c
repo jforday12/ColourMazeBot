@@ -96,6 +96,7 @@ void main(void) {
     
     LATFbits.LATF0=0;  // turn off left signal
     __delay_ms(1000);
+    while (!RF2_button); // PORTFbits.RF2
     
     while (RF2_button); // PORTFbits.RF2
     

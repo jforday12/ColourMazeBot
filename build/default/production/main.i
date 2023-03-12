@@ -24668,6 +24668,7 @@ void main(void) {
 
     LATFbits.LATF0=0;
     _delay((unsigned long)((1000)*(64000000/4000.0)));
+    while (!!PORTFbits.RF2);
 
     while (!PORTFbits.RF2);
 
