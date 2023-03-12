@@ -24331,15 +24331,7 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
-
-void colour_interrupt_init(void);
-void clear_int(void);
-
-extern volatile char DataFlag;
-extern volatile char ColourFlag;
-
-int low_threshold=0;
-int high_threshold=1000;
+extern volatile unsigned int move_count;
 # 3 "timers.c" 2
 
 # 1 "./Memory.h" 1
@@ -24347,7 +24339,7 @@ int high_threshold=1000;
 char WayBack [50];
 int Time_forward[50];
 extern volatile unsigned int move_count;
-
+int run_flag=1;
 
 void go_Home (char *WayBack, int *Time_forward);
 # 4 "timers.c" 2

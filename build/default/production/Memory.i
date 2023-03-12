@@ -24242,7 +24242,7 @@ unsigned char __t3rd16on(void);
 char WayBack [50];
 int Time_forward[50];
 extern volatile unsigned int move_count;
-
+int run_flag=1;
 
 void go_Home (char *WayBack, int *Time_forward);
 # 1 "Memory.c" 2
@@ -24315,37 +24315,138 @@ void delayed_ms(int time);
 extern volatile unsigned int move_count;
 # 3 "Memory.c" 2
 
+# 1 "./interrupts.h" 1
+
+
+
+# 1 "./color.h" 1
+# 12 "./color.h"
+void color_click_init(void);
+
+
+
+
+
+
+void color_writetoaddr(char address, char value);
+
+
+
+
+
+unsigned int color_read_Red(void);
+unsigned int color_read_Blue(void);
+unsigned int color_read_Green(void);
+unsigned int color_read_lum(void);
+struct RGB{
+    int R;
+    int G;
+    int B;
+    int L;
+};
+
+
+struct RGB_rel{
+    float R;
+    float G;
+    float B;
+};
+
+
+
+void colour_rel(struct RGB *vals, struct RGB_rel *rel);
+
+int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
+void readColours (struct RGB *vals);
+# 4 "./interrupts.h" 2
+
+# 1 "./i2c.h" 1
+# 13 "./i2c.h"
+void I2C_2_Master_Init(void);
+
+
+
+
+void I2C_2_Master_Idle(void);
+
+
+
+
+void I2C_2_Master_Start(void);
+
+
+
+
+void I2C_2_Master_RepStart(void);
+
+
+
+
+void I2C_2_Master_Stop(void);
+
+
+
+
+void I2C_2_Master_Write(unsigned char data_byte);
+
+
+
+
+unsigned char I2C_2_Master_Read(unsigned char ack);
+# 5 "./interrupts.h" 2
+
+
+
+
+
+void Interrupts_init(void);
+void __attribute__((picinterrupt(("high_priority")))) HighISR();
+extern volatile unsigned int move_count;
+# 4 "Memory.c" 2
+
 void go_Home (char *WayBack, int *Time_forward){
     int i;
-    for (i = move_count; i >= 0; i--){
-# 16 "Memory.c"
-        timed_forward(&motorL, &motorR,Time_forward[i]);
+    BlueMove(&motorL, &motorR);
+    T0CON0bits.T0EN=0;
 
 
+        for (i = move_count; i >= 0; i--){
 
 
-        if (WayBack[i-1]==1){
-            GreenMove(&motorL, &motorR);
-        }
-        else if (WayBack[i-1]==2){
-            LightBlueMove(&motorL, &motorR);
-        }
-        else if (WayBack[i-1]==3){
-            ReverseYellow(&motorL, &motorR);
-        }
-        else if (WayBack[i-1]==4){
-            BlueMove(&motorL, &motorR);
-        }
-        else if (WayBack[i-1]==5){
-            RedMove(&motorL, &motorR);
-        }
-        else if (WayBack[i-1]==6){
-            OrangeMove(&motorL, &motorR);
-        }
-        else if (WayBack[i-1]==7){
-            ReversePink(&motorL, &motorR);
-        }
+            timed_forward(&motorL, &motorR,Time_forward[i]);
 
 
-  }
-}
+            if (WayBack[i-1]==1){
+                reverseDetect(&motorL, &motorR);
+                GreenMove(&motorL, &motorR);
+            }
+            else if (WayBack[i-1]==2){
+                reverseDetect(&motorL, &motorR);
+                LightBlueMove(&motorL, &motorR);
+            }
+            else if (WayBack[i-1]==3){
+                reverseDetect(&motorL, &motorR);
+                ReverseYellow(&motorL, &motorR);
+            }
+            else if (WayBack[i-1]==4){
+                reverseDetect(&motorL, &motorR);
+                BlueMove(&motorL, &motorR);
+            }
+            else if (WayBack[i-1]==5){
+                reverseDetect(&motorL, &motorR);
+                RedMove(&motorL, &motorR);
+            }
+            else if (WayBack[i-1]==6){
+                reverseDetect(&motorL, &motorR);
+                OrangeMove(&motorL, &motorR);
+            }
+            else if (WayBack[i-1]==7){
+                reverseDetect(&motorL, &motorR);
+                ReversePink(&motorL, &motorR);
+            }
+
+
+      }
+        stop(&motorL, &motorR);
+        run_flag=0;
+    }

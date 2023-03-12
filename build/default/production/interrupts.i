@@ -24317,15 +24317,7 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
-
-void colour_interrupt_init(void);
-void clear_int(void);
-
-extern volatile char DataFlag;
-extern volatile char ColourFlag;
-
-int low_threshold=0;
-int high_threshold=1000;
+extern volatile unsigned int move_count;
 # 2 "interrupts.c" 2
 
 # 1 "./serial.h" 1
@@ -24359,13 +24351,117 @@ void sendTxBuf(void);
 
 volatile char DataFlag=1;
 # 3 "interrupts.c" 2
-# 12 "interrupts.c"
+
+# 1 "./Memory.h" 1
+# 18 "./Memory.h"
+char WayBack [50];
+int Time_forward[50];
+extern volatile unsigned int move_count;
+int run_flag=1;
+
+void go_Home (char *WayBack, int *Time_forward);
+# 4 "interrupts.c" 2
+
+# 1 "./timers.h" 1
+
+
+
+
+
+
+
+void Timer0_init(void);
+void getTMR0val(void);
+void delayed_ms(int time);
+extern volatile unsigned int move_count;
+# 5 "interrupts.c" 2
+
+# 1 "./dc_motor.h" 1
+
+
+
+
+
+
+
+struct DC_motor {
+    char power;
+    char direction;
+    char brakemode;
+    unsigned int PWMperiod;
+    unsigned char *posDutyHighByte;
+    unsigned char *negDutyHighByte;
+};
+
+struct DC_motor motorL, motorR;
+
+int power = 30;
+int Turn45Delay = 220;
+int RunOneBlockTime = 2000;
+
+
+void initDCmotorsPWM(unsigned int PWMperiod);
+void setMotorPWM(struct DC_motor *m);
+void stop(struct DC_motor *mL,struct DC_motor *mR);
+void turnLeft(struct DC_motor *mL,struct DC_motor *mR);
+void turnRight(struct DC_motor *mL,struct DC_motor *mR);
+void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR);
+void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time);
+void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
+
+void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
+void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
+void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
+void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
+void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
+void RedMove(struct DC_motor *mL,struct DC_motor *mR);
+void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
+void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
+void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
+void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
+void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
+void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
+void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
+void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
+void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
+
+void turnCalibration(struct DC_motor *mL,struct DC_motor *mR);
+void TurnDelay(int Turn45Delay);
+# 6 "interrupts.c" 2
+
+
+
+
+
+
+
 void Interrupts_init(void)
 {
-# 32 "interrupts.c"
+    INTCONbits.IPEN=0;
+    PIE2bits.C1IE=1;
+    INTCONbits.PEIE=1;
+    INTCONbits.GIE=1;
+    PIE0bits.TMR0IE=1;
+
+
 }
-# 59 "interrupts.c"
+
+
+
+
+
 void __attribute__((picinterrupt(("high_priority")))) HighISR()
 {
-# 78 "interrupts.c"
+    if (PIR0bits.TMR0IF){
+        move_count++;
+        Time_forward[move_count]=65535;
+        PIR0bits.TMR0IF=0;
+        PIE0bits.TMR0IE = 0;
+        go_Home(WayBack, Time_forward);
+
+    }
+
+
+
 }

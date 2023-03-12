@@ -9,14 +9,9 @@
 
 void Interrupts_init(void);
 void __interrupt(high_priority) HighISR();
+extern volatile unsigned int move_count;
 
-void colour_interrupt_init(void);
-void clear_int(void);
 
-extern volatile char DataFlag;
-extern volatile char ColourFlag;
 
-int low_threshold=0;
-int high_threshold=1000;
 
 #endif

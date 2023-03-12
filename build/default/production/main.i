@@ -24504,15 +24504,7 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 # 10 "./interrupts.h"
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
-
-void colour_interrupt_init(void);
-void clear_int(void);
-
-extern volatile char DataFlag;
-extern volatile char ColourFlag;
-
-int low_threshold=0;
-int high_threshold=1000;
+extern volatile unsigned int move_count;
 # 20 "main.c" 2
 
 # 1 "./dc_motor.h" 1
@@ -24574,7 +24566,7 @@ void TurnDelay(int Turn45Delay);
 char WayBack [50];
 int Time_forward[50];
 extern volatile unsigned int move_count;
-
+int run_flag=1;
 
 void go_Home (char *WayBack, int *Time_forward);
 # 22 "main.c" 2
@@ -24604,7 +24596,6 @@ void main(void) {
     Interrupts_init();
     color_click_init();
     I2C_2_Master_Init();
-    Timer0_init();
     initDCmotorsPWM(200);
     char buf[100];
 
@@ -24612,10 +24603,8 @@ void main(void) {
     TRISAbits.TRISA4 = 0;
     TRISFbits.TRISF7 = 0;
     TRISFbits.TRISF2 = 1;
-
     ANSELFbits.ANSELF2=0;
     TRISFbits.TRISF3 = 1;
-
     ANSELFbits.ANSELF3=0;
     LATGbits.LATG1=1;
     LATAbits.LATA4=1;
@@ -24661,27 +24650,22 @@ void main(void) {
 
     int consecuitive=0;
     int prev_colour =0;
-    int run_flag=1;
     move_count=-1;
-
+    int lost_count=0;
     turnCalibration(&motorL,&motorR);
 
     LATFbits.LATF0=0;
     _delay((unsigned long)((1000)*(64000000/4000.0)));
+
     while (!!PORTFbits.RF2);
-
-    while (!PORTFbits.RF2);
-
     _delay((unsigned long)((1000)*(64000000/4000.0)));
-    TMR0H=0;
-    TMR0L=0;
+    Timer0_init();
     while (run_flag)
     {
-
+        TMR0H=0;
+        TMR0L=0;
+        lost_count=0;
         fullSpeedAhead(&motorL,&motorR);
-
-
-
 
         readColours(&vals);
 
@@ -24715,10 +24699,10 @@ void main(void) {
                 _delay((unsigned long)((50)*(64000000/4000.0)));
             }
             consecuitive=0;
-            int temp=TMR0L;
-            sprintf(buf,"red=%d green=%d blue=%d timer=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
 
 
+
+            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
             sendStringSerial4(buf);
 
             if (prev_colour==1){
@@ -24764,22 +24748,21 @@ void main(void) {
                 WayBack[move_count]=7;
             }
             else if (prev_colour==10){
+                lost_count++;
+                if (lost_count==4){
+                    PIE0bits.TMR0IE = 0;
+                    go_Home(WayBack, Time_forward);
+                }
                 RetryMove(&motorL, &motorR);
             }
             else if (prev_colour==0){
-                BlueMove(&motorL, &motorR);
-                T0CON0bits.T0EN=0;
+                PIE0bits.TMR0IE = 0;
                 go_Home(WayBack, Time_forward);
-                stop(&motorL, &motorR);
-                run_flag=0;
             }
+        }else {
 
 
 
-        }else{
-            int temp=TMR0L;
-            sprintf(buf,"red=%d green=%d blue=%d timer=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
-            sendStringSerial4(buf);
         }
 
 

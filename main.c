@@ -32,7 +32,6 @@ void main(void) {
     Interrupts_init();
     color_click_init();
     I2C_2_Master_Init();
-    Timer0_init();
     initDCmotorsPWM(200);
     char buf[100];
     
@@ -40,10 +39,8 @@ void main(void) {
     TRISAbits.TRISA4 = 0; // Set TRIS value for green LED (output)
     TRISFbits.TRISF7 = 0; // Set TRIS value for blue LED (output)
     TRISFbits.TRISF2 = 1; // Set Tris value for RF2 Button (input)
-//    LATFbits.LATF2=1;
     ANSELFbits.ANSELF2=0;
     TRISFbits.TRISF3 = 1; // Set Tris value for RF3 Button (input)
-//    LATFbits.LATF3=1;
     ANSELFbits.ANSELF3=0;
     RED_LED=1; // sets RED LED on 
     GREEN_LED=1; // sets green LED on
@@ -89,27 +86,22 @@ void main(void) {
     
     int consecuitive=0; // variable to register how many consecuitive readings there are
     int prev_colour =0; // variable to decide what the previous colour is 
-    int run_flag=1;
     move_count=-1;
-    
+    int lost_count=0;
     turnCalibration(&motorL,&motorR);
     
     LATFbits.LATF0=0;  // turn off left signal
     __delay_ms(1000);
+    
     while (!RF2_button); // PORTFbits.RF2
-    
-    while (RF2_button); // PORTFbits.RF2
-    
     __delay_ms(1000);
-    TMR0H=0; // reset timer values
-    TMR0L=0;
+    Timer0_init();
     while (run_flag)
     {
-//        Forwardhalfblock(&motorL,&motorR);
+        TMR0H=0; // reset timer values
+        TMR0L=0;
+        lost_count=0;
         fullSpeedAhead(&motorL,&motorR);
-//        WayBack[move_count]=0;
-        //fullSpeedAhead(&motorL, &motorR);
-
         // read the colours and store it in the struct vals
         readColours(&vals);
 
@@ -143,12 +135,12 @@ void main(void) {
                 __delay_ms(50); 
             }
             consecuitive=0;
-            int temp=TMR0L;
-            sprintf(buf,"red=%d green=%d blue=%d timer=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
-            //sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,prev_colour);
-            //sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+//            int temp=TMR0L;
+////            sprintf(buf,"red=%d green=%d blue=%d colour=%d \r\n",vals.R, vals.G,vals.B,prev_colour);
+////            sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,prev_colour);
+            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
             sendStringSerial4(buf);
-                //give move instruction based on returned colour
+//                //give move instruction based on returned colour
             if (prev_colour==1){ //red
                 RedMove(&motorL, &motorR); 
                 TMR0H=0; // reset timer values
@@ -192,22 +184,21 @@ void main(void) {
                 WayBack[move_count]=7;
             }
             else if (prev_colour==10){// undecided colour
+                lost_count++;
+                if (lost_count==4){
+                    PIE0bits.TMR0IE = 0;
+                    go_Home(WayBack, Time_forward);
+                }
                 RetryMove(&motorL, &motorR);
             }
             else if (prev_colour==0){
-                BlueMove(&motorL, &motorR);
-                T0CON0bits.T0EN=0;
+                PIE0bits.TMR0IE = 0;
                 go_Home(WayBack, Time_forward);
-                stop(&motorL, &motorR);
-                run_flag=0;
             }
-
-
-
-        }else{
-            int temp=TMR0L;
-            sprintf(buf,"red=%d green=%d blue=%d timer=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
-            sendStringSerial4(buf);
+        }else {
+//            int temp=TMR0L;
+//            sprintf(buf,"red=%d green=%d blue=%d timer=%d \r\n",vals.R, vals.G,vals.B,prev_colour);
+//            sendStringSerial4(buf);
         }
 
 
