@@ -24,7 +24,7 @@ void go_Home (char *WayBack, int *Time_forward){
         }
         else if (WayBack[i-1]==2){
             reverseDetect(&motorL, &motorR);
-            LightBlueMove(&motorL, &motorR); // opposite of light blue move]
+            LightBlueMove(&motorL, &motorR); // opposite of orange move
         }
         else if (WayBack[i-1]==3){
             reverseDetect(&motorL, &motorR);
@@ -40,7 +40,7 @@ void go_Home (char *WayBack, int *Time_forward){
         }
         else if (WayBack[i-1]==6){
             reverseDetect(&motorL, &motorR);
-            OrangeMove(&motorL, &motorR); // opposite of lightblue move
+            OrangeMove(&motorL, &motorR); // opposite of light blue move
         }
         else if (WayBack[i-1]==7){
             reverseDetect(&motorL, &motorR);

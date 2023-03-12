@@ -202,47 +202,47 @@ void turnRight45(struct DC_motor *mL,struct DC_motor *mR){
     turnRight(mL,mR);
     __delay_ms(Turn45Delay);
     stop(&motorL, &motorR);
-    __delay_ms(1000); 
+    __delay_ms(50); 
 }
 
 void turnLeft45(struct DC_motor *mL,struct DC_motor *mR){
     turnLeft(mL,mR);
     __delay_ms(Turn45Delay);
     stop(&motorL, &motorR);
-    __delay_ms(1000);
+    __delay_ms(50);
 }
 
 void reverseDetect(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedBack(mL,mR);
     __delay_ms(200);
     stop(&motorL, &motorR);
-    __delay_ms(1000); 
+    __delay_ms(50); 
 }
 
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedBack(mL,mR);
     __delay_ms(RunOneBlockTime); // reverse time period needs to be calibrated
     stop(&motorL, &motorR);
-    __delay_ms(1000); 
+    __delay_ms(50); 
 }
 void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedAhead(mL,mR);
     __delay_ms(RunOneBlockTime); // reverse time period needs to be calibrated
     stop(&motorL, &motorR);
-    __delay_ms(1000); 
+    __delay_ms(50); 
 }
 
 void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedAhead(mL,mR);
     __delay_ms(RunOneBlockTime/2); // reverse time period needs to be calibrated
     stop(&motorL, &motorR);
-    __delay_ms(1000); 
+    __delay_ms(50); 
 }
 void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedBack(mL,mR);
     __delay_ms(RunOneBlockTime/2); // reverse time period needs to be calibrated
     stop(&motorL, &motorR);
-    __delay_ms(1000); 
+    __delay_ms(50); 
 }
 
 
@@ -313,18 +313,16 @@ void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR){
 }
 
 void RetryMove(struct DC_motor *mL,struct DC_motor *mR){
-    fullSpeedBack(mL,mR);
-    __delay_ms(500); // reverse time period needs to be calibrated
-    stop(&motorL, &motorR);
-    fullSpeedAhead(mL,mR);
-    __delay_ms(500); // reverse time period needs to be calibrated
-    stop(&motorL, &motorR);
+    Backhalfblock(&motorL, &motorR);
+    Forwardhalfblock(&motorL, &motorR);
 }
 
 void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR){
+    reverseDetect(&motorL, &motorR);
     turnRight45(&motorL, &motorR);
     turnRight45(&motorL, &motorR);
     ForwardOneBlock(&motorL, &motorR);
+    reverseDetect(&motorL, &motorR);
     turnRight45(&motorL, &motorR);
     turnRight45(&motorL, &motorR);
     turnRight45(&motorL, &motorR);
@@ -332,9 +330,11 @@ void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR){
     
 }
 void ReversePink(struct DC_motor *mL,struct DC_motor *mR){
+    reverseDetect(&motorL, &motorR);
     turnLeft45(&motorL, &motorR);
     turnLeft45(&motorL, &motorR);
     ForwardOneBlock(&motorL, &motorR);
+    reverseDetect(&motorL, &motorR);
     turnLeft45(&motorL, &motorR);
     turnLeft45(&motorL, &motorR);
     turnLeft45(&motorL, &motorR);

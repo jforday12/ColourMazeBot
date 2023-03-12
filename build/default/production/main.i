@@ -24737,11 +24737,12 @@ void main(void) {
 
 
         }else{
-            int temp=TMR0L;
-            sprintf(buf,"red=%d green=%d blue=%d timer=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
+            int colour = Colour_decider(&vals, &rel);
+            sprintf(buf,"red=%f green=%f blue=%f lum=%d  \r\n",rel.R, rel.G,rel.B,vals.L);
             sendStringSerial4(buf);
         }
 
 
-    }
+
 }
+    }

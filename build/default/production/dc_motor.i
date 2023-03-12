@@ -24497,47 +24497,47 @@ void turnRight45(struct DC_motor *mL,struct DC_motor *mR){
     turnRight(mL,mR);
     _delay((unsigned long)((Turn45Delay)*(64000000/4000.0)));
     stop(&motorL, &motorR);
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
+    _delay((unsigned long)((50)*(64000000/4000.0)));
 }
 
 void turnLeft45(struct DC_motor *mL,struct DC_motor *mR){
     turnLeft(mL,mR);
     _delay((unsigned long)((Turn45Delay)*(64000000/4000.0)));
     stop(&motorL, &motorR);
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
+    _delay((unsigned long)((50)*(64000000/4000.0)));
 }
 
 void reverseDetect(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedBack(mL,mR);
     _delay((unsigned long)((200)*(64000000/4000.0)));
     stop(&motorL, &motorR);
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
+    _delay((unsigned long)((50)*(64000000/4000.0)));
 }
 
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedBack(mL,mR);
     _delay((unsigned long)((RunOneBlockTime)*(64000000/4000.0)));
     stop(&motorL, &motorR);
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
+    _delay((unsigned long)((50)*(64000000/4000.0)));
 }
 void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedAhead(mL,mR);
     _delay((unsigned long)((RunOneBlockTime)*(64000000/4000.0)));
     stop(&motorL, &motorR);
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
+    _delay((unsigned long)((50)*(64000000/4000.0)));
 }
 
 void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedAhead(mL,mR);
     _delay((unsigned long)((RunOneBlockTime/2)*(64000000/4000.0)));
     stop(&motorL, &motorR);
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
+    _delay((unsigned long)((50)*(64000000/4000.0)));
 }
 void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedBack(mL,mR);
     _delay((unsigned long)((RunOneBlockTime/2)*(64000000/4000.0)));
     stop(&motorL, &motorR);
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
+    _delay((unsigned long)((50)*(64000000/4000.0)));
 }
 
 
@@ -24608,18 +24608,16 @@ void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR){
 }
 
 void RetryMove(struct DC_motor *mL,struct DC_motor *mR){
-    fullSpeedBack(mL,mR);
-    _delay((unsigned long)((500)*(64000000/4000.0)));
-    stop(&motorL, &motorR);
-    fullSpeedAhead(mL,mR);
-    _delay((unsigned long)((500)*(64000000/4000.0)));
-    stop(&motorL, &motorR);
+    Backhalfblock(&motorL, &motorR);
+    Forwardhalfblock(&motorL, &motorR);
 }
 
 void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR){
+    reverseDetect(&motorL, &motorR);
     turnRight45(&motorL, &motorR);
     turnRight45(&motorL, &motorR);
     ForwardOneBlock(&motorL, &motorR);
+    reverseDetect(&motorL, &motorR);
     turnRight45(&motorL, &motorR);
     turnRight45(&motorL, &motorR);
     turnRight45(&motorL, &motorR);
@@ -24627,9 +24625,11 @@ void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR){
 
 }
 void ReversePink(struct DC_motor *mL,struct DC_motor *mR){
+    reverseDetect(&motorL, &motorR);
     turnLeft45(&motorL, &motorR);
     turnLeft45(&motorL, &motorR);
     ForwardOneBlock(&motorL, &motorR);
+    reverseDetect(&motorL, &motorR);
     turnLeft45(&motorL, &motorR);
     turnLeft45(&motorL, &motorR);
     turnLeft45(&motorL, &motorR);
