@@ -24574,7 +24574,7 @@ void TurnDelay(int Turn45Delay);
 char WayBack [50];
 int Time_forward[50];
 extern volatile unsigned int move_count;
-int run_flag=1;
+
 
 void go_Home (char *WayBack, int *Time_forward);
 # 22 "main.c" 2
@@ -24605,6 +24605,7 @@ void main(void) {
     color_click_init();
     I2C_2_Master_Init();
     initDCmotorsPWM(200);
+    Timer0_init();
     char buf[100];
 
     TRISGbits.TRISG1 = 0;
@@ -24658,6 +24659,7 @@ void main(void) {
 
     int consecuitive=0;
     int prev_colour =0;
+    int run_flag=1;
     move_count=-1;
     int lost_count=0;
     turnCalibration(&motorL,&motorR);
@@ -24667,11 +24669,9 @@ void main(void) {
 
     while (!!PORTFbits.RF2);
     _delay((unsigned long)((1000)*(64000000/4000.0)));
-    Timer0_init();
+    T0CON0bits.T0EN=1;
     while (run_flag)
     {
-        TMR0H=0;
-        TMR0L=0;
         lost_count=0;
         fullSpeedAhead(&motorL,&motorR);
 
@@ -24695,7 +24695,8 @@ void main(void) {
 
 
 
-            while (consecuitive<20){
+            while (consecuitive<3){
+                _delay((unsigned long)((50)*(64000000/4000.0)));
                 int colour = Colour_decider(&vals, &rel);
                 if (colour==prev_colour){
                     consecuitive++;
@@ -24704,7 +24705,7 @@ void main(void) {
                     consecuitive=0;
                 }
                 prev_colour=colour;
-                _delay((unsigned long)((50)*(64000000/4000.0)));
+                RetryMove(&motorL, &motorR);
             }
             consecuitive=0;
             int temp=TMR0L;
@@ -24777,7 +24778,11 @@ void main(void) {
                 int colour = Colour_decider(&vals, &rel);
                 sprintf(buf,"red=%f green=%f blue=%f lum=%d  \r\n",rel.R, rel.G,rel.B,vals.L);
                 sendStringSerial4(buf);
-# 216 "main.c"
+
+
+
+
+
         }
 
 

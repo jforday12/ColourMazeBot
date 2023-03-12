@@ -1,4 +1,4 @@
-# 1 "timers.c"
+# 1 "color.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "timers.c" 2
+# 1 "color.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24229,76 +24229,367 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 2 3
-# 1 "timers.c" 2
+# 1 "color.c" 2
 
-# 1 "./timers.h" 1
-
-
-
-
-
-
-
-void Timer0_init(void);
-void getTMR0val(void);
-void delayed_ms(int time);
-extern volatile unsigned int move_count;
-# 2 "timers.c" 2
-
-# 1 "./interrupts.h" 1
+# 1 "./color.h" 1
+# 12 "./color.h"
+void color_click_init(void);
 
 
 
 
 
 
-
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-
-int lost_flag=0;
-# 3 "timers.c" 2
-
-# 1 "./Memory.h" 1
-# 18 "./Memory.h"
-char WayBack [50];
-int Time_forward[50];
-extern volatile unsigned int move_count;
-
-
-void go_Home (char *WayBack, int *Time_forward);
-# 4 "timers.c" 2
+void color_writetoaddr(char address, char value);
 
 
 
 
-void Timer0_init(void)
+
+unsigned int color_read_Red(void);
+unsigned int color_read_Blue(void);
+unsigned int color_read_Green(void);
+unsigned int color_read_lum(void);
+struct RGB{
+    int R;
+    int G;
+    int B;
+    int L;
+};
+
+
+struct RGB_rel{
+    float R;
+    float G;
+    float B;
+};
+
+
+
+void colour_rel(struct RGB *vals, struct RGB_rel *rel);
+
+int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
+void readColours (struct RGB *vals);
+# 2 "color.c" 2
+
+# 1 "./i2c.h" 1
+# 13 "./i2c.h"
+void I2C_2_Master_Init(void);
+
+
+
+
+void I2C_2_Master_Idle(void);
+
+
+
+
+void I2C_2_Master_Start(void);
+
+
+
+
+void I2C_2_Master_RepStart(void);
+
+
+
+
+void I2C_2_Master_Stop(void);
+
+
+
+
+void I2C_2_Master_Write(unsigned char data_byte);
+
+
+
+
+unsigned char I2C_2_Master_Read(unsigned char ack);
+# 3 "color.c" 2
+
+# 1 "./dc_motor.h" 1
+
+
+
+
+
+
+
+struct DC_motor {
+    char power;
+    char direction;
+    char brakemode;
+    unsigned int PWMperiod;
+    unsigned char *posDutyHighByte;
+    unsigned char *negDutyHighByte;
+};
+
+struct DC_motor motorL, motorR;
+
+int power = 30;
+int Turn45Delay = 220;
+int RunOneBlockTime = 2000;
+
+
+void initDCmotorsPWM(unsigned int PWMperiod);
+void setMotorPWM(struct DC_motor *m);
+void stop(struct DC_motor *mL,struct DC_motor *mR);
+void turnLeft(struct DC_motor *mL,struct DC_motor *mR);
+void turnRight(struct DC_motor *mL,struct DC_motor *mR);
+void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR);
+void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time);
+void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
+
+void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
+void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
+void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
+void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
+void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
+void RedMove(struct DC_motor *mL,struct DC_motor *mR);
+void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
+void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
+void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
+void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
+void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
+void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
+void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
+void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
+void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
+
+void turnCalibration(struct DC_motor *mL,struct DC_motor *mR);
+void TurnDelay(int Turn45Delay);
+# 4 "color.c" 2
+
+
+
+void color_click_init(void)
 {
-    T0CON1bits.T0CS=0b010;
-    T0CON1bits.T0ASYNC=1;
-    T0CON1bits.T0CKPS=0b1110;
-    T0CON0bits.T016BIT=1;
+
+    I2C_2_Master_Init();
+
+  color_writetoaddr(0x00, 0x01);
+    _delay((unsigned long)((3)*(64000000/4000.0)));
+
+ color_writetoaddr(0x00, 0x03);
+
+ color_writetoaddr(0x01, 0xD5);
+
+    color_writetoaddr(0x0F, 0x00);
+
+    TRISGbits.TRISG1 = 0;
+    TRISAbits.TRISA4 = 0;
+    TRISFbits.TRISF7 = 0;
+
+    TRISDbits.TRISD3 = 0;
+    TRISDbits.TRISD4 = 0;
+
+    LATGbits.LATG1=0;
+    LATFbits.LATF7=0;
+    LATAbits.LATA4=0;
+
+    LATDbits.LATD3=0;
+    LATDbits.LATD4=0;
 
 
-    TMR0H=0;
-    TMR0L=0;
-    T0CON0bits.T0EN=0;
+
+
+
 }
-# 28 "timers.c"
-void getTMR0val(void)
+
+void color_writetoaddr(char address, char value){
+    I2C_2_Master_Start();
+    I2C_2_Master_Write(0x52 | 0x00);
+    I2C_2_Master_Write(0x80 | address);
+    I2C_2_Master_Write(value);
+    I2C_2_Master_Stop();
+}
+
+unsigned int color_read_lum(void)
 {
-    unsigned int temp= TMR0L;
+ unsigned int tmp;
+ I2C_2_Master_Start();
+ I2C_2_Master_Write(0x52 | 0x00);
+ I2C_2_Master_Write(0xA0 | 0x14);
+ I2C_2_Master_RepStart();
+ I2C_2_Master_Write(0x52 | 0x01);
+ tmp=I2C_2_Master_Read(1);
+ tmp=tmp | (I2C_2_Master_Read(0)<<8);
+ I2C_2_Master_Stop();
+ return tmp;
+}
 
-    int moving=TMR0H<<8;
-    Time_forward[move_count]=moving;
+unsigned int color_read_Red(void)
+{
+ unsigned int tmp;
+ I2C_2_Master_Start();
+ I2C_2_Master_Write(0x52 | 0x00);
+ I2C_2_Master_Write(0xA0 | 0x16);
+ I2C_2_Master_RepStart();
+ I2C_2_Master_Write(0x52 | 0x01);
+ tmp=I2C_2_Master_Read(1);
+ tmp=tmp | (I2C_2_Master_Read(0)<<8);
+ I2C_2_Master_Stop();
+ return tmp;
+}
+unsigned int color_read_Green(void)
+{
+ unsigned int tmp;
+ I2C_2_Master_Start();
+ I2C_2_Master_Write(0x52 | 0x00);
+ I2C_2_Master_Write(0xA0 | 0x18);
+ I2C_2_Master_RepStart();
+ I2C_2_Master_Write(0x52 | 0x01);
+ tmp=I2C_2_Master_Read(1);
+ tmp=tmp | (I2C_2_Master_Read(0)<<8);
+ I2C_2_Master_Stop();
+ return tmp;
+}
+
+unsigned int color_read_Blue(void)
+{
+ unsigned int tmp;
+ I2C_2_Master_Start();
+ I2C_2_Master_Write(0x52 | 0x00);
+ I2C_2_Master_Write(0xA0 | 0x1A);
+ I2C_2_Master_RepStart();
+ I2C_2_Master_Write(0x52 | 0x01);
+ tmp=I2C_2_Master_Read(1);
+ tmp=tmp | (I2C_2_Master_Read(0)<<8);
+ I2C_2_Master_Stop();
+ return tmp;
+}
 
 
+void readColours (struct RGB *vals) {
+
+    vals ->R = color_read_Red();
+    vals ->B = color_read_Blue();
+    vals ->G = color_read_Green();
+    vals ->L = color_read_lum();
+}
+
+
+void colour_rel(struct RGB *vals, struct RGB_rel *rel){
+    float R = vals->R;
+    float G = vals->G;
+    float B = vals->B;
+    float L = vals->L;
+    rel -> R = R/(R+G+B+L);
+    rel -> B = B/(R+G+B+L);
+    rel -> G = G/(R+G+B+L);
 
 }
 
-void delayed_ms(int time){
-    for(unsigned int i=0;i<time;i++){
-        _delay((unsigned long)((1)*(64000000/4000.0)));
+int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
+    float Cmax = 0;
+    float Cmin= 100000;
+    int Cmax_i =4;
+
+    int i;
+    float RGB_col[3]={vals->R,vals->G,vals->B};
+    float Hue;
+
+
+    for (i=0; i<3 ;i++){
+        if (RGB_col[i]>Cmax){
+            Cmax=RGB_col[i];
+            Cmax_i=i;
+        }
+        if (RGB_col[i]<Cmin){Cmin=RGB_col[i];}
     }
+
+    if (Cmax-Cmin==0){return 0;}
+
+
+    if (Cmax_i==0){
+        Hue = 60 * ((RGB_col[1]-RGB_col[2])/(Cmax-Cmin));
+
+        if (Hue < 0) {Hue += 360;}
+    }
+
+    else if (Cmax_i==1){
+        Hue=60*(2+(RGB_col[2]-RGB_col[0])/(Cmax-Cmin));
+
+    }
+
+    else {
+        Hue=(4+(RGB_col[0]-RGB_col[1])/(Cmax-Cmin))*60;
+    }
+
+
+
+    if ((330<=Hue)&(Hue<=360)){
+        return 1;
+    }
+
+    else if ((5<=Hue)&(Hue<=12)){
+        return 2;
+    }
+
+    else if ((20<=Hue)&(Hue<=29)){
+
+        if ((0.20<=rel->R)&(rel->R<=0.25)){
+            return 0;
+        }
+
+
+        else if(0.14<=rel->B){
+            return 4;
+            }
+        else{
+            return 3;
+        }
+
+    }
+
+    else if ((45<=Hue)&(Hue<=80)){
+        if(0.15<=rel->B){
+            return 4;
+        }
+        else if (0.12<=rel->B){
+            return 6;
+        }
+        else{
+            return 5;
+        }
+
+    }
+
+    else if ((81<=Hue)&(Hue<=115)){
+        if(0.15<=rel->B){
+            return 4;
+        }
+        else {
+             return 6;
+        }
+
+    }
+
+    else if (((30<=Hue)&(Hue<=58))|(120<=Hue)&(Hue<=220)){
+        return 4;
+    }
+
+    else if ((14<=Hue)&(Hue<=19)){
+
+        if ((0.20<=rel->R)&(rel->R<=0.23)){
+            return 0;
+        }
+        else if (0.15<=rel->B){
+            return 4;
+        }else{
+
+            return 7;
+          }
+    }
+    else{
+        return 10;
+    }
+
+
+
+
+
+
+
 }

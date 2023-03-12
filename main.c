@@ -33,6 +33,7 @@ void main(void) {
     color_click_init();
     I2C_2_Master_Init();
     initDCmotorsPWM(200);
+    Timer0_init();
     char buf[100];
     
     TRISGbits.TRISG1 = 0; // Set TRIS value for red LED (output)
@@ -86,6 +87,7 @@ void main(void) {
     
     int consecuitive=0; // variable to register how many consecuitive readings there are
     int prev_colour =0; // variable to decide what the previous colour is 
+    int run_flag=1;
     move_count=-1;
     int lost_count=0;
     turnCalibration(&motorL,&motorR);
@@ -95,11 +97,9 @@ void main(void) {
     
     while (!RF2_button); // PORTFbits.RF2
     __delay_ms(1000);
-    Timer0_init();
+    T0CON0bits.T0EN=1;
     while (run_flag)
     {
-        TMR0H=0; // reset timer values
-        TMR0L=0;
         lost_count=0;
         fullSpeedAhead(&motorL,&motorR);
         // read the colours and store it in the struct vals
@@ -123,7 +123,8 @@ void main(void) {
 //            sendStringSerial4(buf);
             
         
-            while (consecuitive<20){
+            while (consecuitive<3){
+                __delay_ms(50);
                 int colour = Colour_decider(&vals, &rel);
                 if (colour==prev_colour){
                     consecuitive++;
@@ -132,7 +133,7 @@ void main(void) {
                     consecuitive=0;
                 }
                 prev_colour=colour;
-                __delay_ms(50); 
+                RetryMove(&motorL, &motorR);
             }
             consecuitive=0;
             int temp=TMR0L;
@@ -208,11 +209,8 @@ void main(void) {
 //            move_count++; // increment index of move and timer arrays
 //            Time_forward[move_count]=65535; // as timer overflow ammount so need to retravel this ammount in a straight line to go home
 //            go_Home(WayBack, Time_forward);
-//            PIE0bits.TMR0IE = 0;
+              //T0CON0bits.T0EN=0;
             
-//            int temp=TMR0L;
-//            sprintf(buf,"red=%d green=%d blue=%d timer=%d \r\n",vals.R, vals.G,vals.B,prev_colour);
-//            sendStringSerial4(buf);
         }
 
 

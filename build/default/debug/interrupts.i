@@ -1,4 +1,4 @@
-# 1 "timers.c"
+# 1 "interrupts.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "timers.c" 2
+# 1 "interrupts.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24229,21 +24229,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 2 3
-# 1 "timers.c" 2
-
-# 1 "./timers.h" 1
-
-
-
-
-
-
-
-void Timer0_init(void);
-void getTMR0val(void);
-void delayed_ms(int time);
-extern volatile unsigned int move_count;
-# 2 "timers.c" 2
+# 1 "interrupts.c" 2
 
 # 1 "./interrupts.h" 1
 
@@ -24258,47 +24244,21 @@ void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 int lost_flag=0;
-# 3 "timers.c" 2
-
-# 1 "./Memory.h" 1
-# 18 "./Memory.h"
-char WayBack [50];
-int Time_forward[50];
-extern volatile unsigned int move_count;
-
-
-void go_Home (char *WayBack, int *Time_forward);
-# 4 "timers.c" 2
+# 2 "interrupts.c" 2
 
 
 
 
-void Timer0_init(void)
+
+
+
+void Interrupts_init(void)
 {
-    T0CON1bits.T0CS=0b010;
-    T0CON1bits.T0ASYNC=1;
-    T0CON1bits.T0CKPS=0b1110;
-    T0CON0bits.T016BIT=1;
-
-
-    TMR0H=0;
-    TMR0L=0;
-    T0CON0bits.T0EN=0;
-}
-# 28 "timers.c"
-void getTMR0val(void)
-{
-    unsigned int temp= TMR0L;
-
-    int moving=TMR0H<<8;
-    Time_forward[move_count]=moving;
 
 
 
-}
 
-void delayed_ms(int time){
-    for(unsigned int i=0;i<time;i++){
-        _delay((unsigned long)((1)*(64000000/4000.0)));
-    }
+
+
+
 }

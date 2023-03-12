@@ -2063,8 +2063,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;timers.c: 17:     TMR0L=0;
 [e = _TMR0L -> -> 0 `i `uc ]
 "18
-[; ;timers.c: 18:     T0CON0bits.T0EN=0;
-[e = . . _T0CON0bits 0 4 -> -> 0 `i `uc ]
+[; ;timers.c: 18:     T0CON0bits.T0EN=1;
+[e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
 "19
 [; ;timers.c: 19: }
 [e :UE 2015 ]

@@ -1,55 +1,77 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"39651 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39651:     struct {
-[s S1925 :4 `uc 1 :1 `uc 1 :3 `uc 1 ]
-[n S1925 . T0CKPS T0ASYNC T0CS ]
-"39656
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39656:     struct {
-[s S1926 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1926 . T0CKPS0 T0CKPS1 T0CKPS2 T0CKPS3 . T0CS0 T0CS1 T0CS2 ]
-"39666
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39666:     struct {
-[s S1927 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1927 . T0PS0 T0PS1 T0PS2 T0PS3 ]
-"39672
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39672:     struct {
-[s S1928 :4 `uc 1 ]
-[n S1928 . T0PS ]
-"39650
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39650: typedef union {
-[u S1924 `S1925 1 `S1926 1 `S1927 1 `S1928 1 ]
-[n S1924 . . . . . ]
-"39676
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39676: extern volatile T0CON1bits_t T0CON1bits __attribute__((address(0xFD6)));
-[v _T0CON1bits `VS1924 ~T0 @X0 0 e@4054 ]
-"39586
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39586:     struct {
-[s S1922 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1922 . T0OUTPS T016BIT T0OUT . T0EN ]
-"39593
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39593:     struct {
-[s S1923 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1923 . T0OUTPS0 T0OUTPS1 T0OUTPS2 T0OUTPS3 ]
-"39585
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39585: typedef union {
-[u S1921 `S1922 1 `S1923 1 ]
-[n S1921 . . . ]
-"39600
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39600: extern volatile T0CON0bits_t T0CON0bits __attribute__((address(0xFD5)));
-[v _T0CON0bits `VS1921 ~T0 @X0 0 e@4053 ]
-"39326
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39326: extern volatile unsigned char TMR0H __attribute__((address(0xFD4)));
-[v _TMR0H `Vuc ~T0 @X0 0 e@4052 ]
-"39188
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39188: extern volatile unsigned char TMR0L __attribute__((address(0xFD3)));
-[v _TMR0L `Vuc ~T0 @X0 0 e@4051 ]
-"20 ./Memory.h
-[; ;./Memory.h: 20: extern volatile unsigned int move_count;
-[v _move_count `Vui ~T0 @X0 0 e ]
-[v F192 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\builtins.h
-[v __delay `JF192 ~T0 @X0 0 e ]
-[p i __delay ]
+"7858 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 7858: extern volatile unsigned char RC0PPS __attribute__((address(0xE62)));
+[v _RC0PPS `Vuc ~T0 @X0 0 e@3682 ]
+"3182
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 3182: extern volatile unsigned char RX4PPS __attribute__((address(0xE15)));
+[v _RX4PPS `Vuc ~T0 @X0 0 e@3605 ]
+"16200
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 16200:     struct {
+[s S759 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S759 . ABDEN WUE . BRG16 SCKP . RCIDL ABDOVF ]
+"16199
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 16199: typedef union {
+[u S758 `S759 1 ]
+[n S758 . . ]
+"16211
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 16211: extern volatile BAUD4CONbits_t BAUD4CONbits __attribute__((address(0xEE9)));
+[v _BAUD4CONbits `VS758 ~T0 @X0 0 e@3817 ]
+"16074
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 16074:     struct {
+[s S755 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S755 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"16073
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 16073: typedef union {
+[u S754 `S755 1 ]
+[n S754 . . ]
+"16085
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 16085: extern volatile TX4STAbits_t TX4STAbits __attribute__((address(0xEE8)));
+[v _TX4STAbits `VS754 ~T0 @X0 0 e@3816 ]
+"15865
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 15865: extern volatile unsigned char SP4BRGL __attribute__((address(0xEE5)));
+[v _SP4BRGL `Vuc ~T0 @X0 0 e@3813 ]
+"15903
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 15903: extern volatile unsigned char SP4BRGH __attribute__((address(0xEE6)));
+[v _SP4BRGH `Vuc ~T0 @X0 0 e@3814 ]
+"15952
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 15952:     struct {
+[s S751 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S751 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"15951
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 15951: typedef union {
+[u S750 `S751 1 ]
+[n S750 . . ]
+"15963
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 15963: extern volatile RC4STAbits_t RC4STAbits __attribute__((address(0xEE7)));
+[v _RC4STAbits `VS750 ~T0 @X0 0 e@3815 ]
+"5323
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 5323:     struct {
+[s S297 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S297 . TX3IF RC3IF TX4IF RC4IF TX5IF RC5IF ]
+"5322
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 5322: typedef union {
+[u S296 `S297 1 ]
+[n S296 . . ]
+"5332
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 5332: extern volatile PIR4bits_t PIR4bits __attribute__((address(0xE37)));
+[v _PIR4bits `VS296 ~T0 @X0 0 e@3639 ]
+"15782
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 15782: extern volatile unsigned char RC4REG __attribute__((address(0xEE3)));
+[v _RC4REG `Vuc ~T0 @X0 0 e@3811 ]
+"15820
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 15820: extern volatile unsigned char TX4REG __attribute__((address(0xEE4)));
+[v _TX4REG `Vuc ~T0 @X0 0 e@3812 ]
+"4810
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 4810:     struct {
+[s S274 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S274 . TX3IE RC3IE TX4IE RC4IE TX5IE RC5IE ]
+"4809
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 4809: typedef union {
+[u S273 `S274 1 ]
+[n S273 . . ]
+"4819
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 4819: extern volatile PIE4bits_t PIE4bits __attribute__((address(0xE2D)));
+[v _PIE4bits `VS273 ~T0 @X0 0 e@3629 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2024,101 +2046,313 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40927
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 40927: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"12 ./interrupts.h
-[; ;./interrupts.h: 12: int lost_flag=0;
-[v _lost_flag `i ~T0 @X0 1 e ]
-[i _lost_flag
--> 0 `i
+"13 ./serial.h
+[; ;./serial.h: 13: volatile char EUSART4RXbuf[20];
+[v _EUSART4RXbuf `Vuc ~T0 @X0 -> 20 `i e ]
+"14
+[; ;./serial.h: 14: volatile char RxBufWriteCnt=0;
+[v _RxBufWriteCnt `Vuc ~T0 @X0 1 e ]
+[i _RxBufWriteCnt
+-> -> 0 `i `uc
 ]
-"18 ./Memory.h
-[; ;./Memory.h: 18: char WayBack [50];
-[v _WayBack `uc ~T0 @X0 -> 50 `i e ]
-"19
-[; ;./Memory.h: 19: int Time_forward[50];
-[v _Time_forward `i ~T0 @X0 -> 50 `i e ]
-"8 timers.c
-[; ;timers.c: 8: void Timer0_init(void)
-[v _Timer0_init `(v ~T0 @X0 1 ef ]
-"9
-[; ;timers.c: 9: {
-{
-[e :U _Timer0_init ]
-[f ]
-"10
-[; ;timers.c: 10:     T0CON1bits.T0CS=0b010;
-[e = . . _T0CON1bits 0 2 -> -> 2 `i `uc ]
-"11
-[; ;timers.c: 11:     T0CON1bits.T0ASYNC=1;
-[e = . . _T0CON1bits 0 1 -> -> 1 `i `uc ]
-"12
-[; ;timers.c: 12:     T0CON1bits.T0CKPS=0b1110;
-[e = . . _T0CON1bits 0 0 -> -> 14 `i `uc ]
-"13
-[; ;timers.c: 13:     T0CON0bits.T016BIT=1;
-[e = . . _T0CON0bits 0 1 -> -> 1 `i `uc ]
-"16
-[; ;timers.c: 16:     TMR0H=0;
-[e = _TMR0H -> -> 0 `i `uc ]
+"15
+[; ;./serial.h: 15: volatile char RxBufReadCnt=0;
+[v _RxBufReadCnt `Vuc ~T0 @X0 1 e ]
+[i _RxBufReadCnt
+-> -> 0 `i `uc
+]
 "17
-[; ;timers.c: 17:     TMR0L=0;
-[e = _TMR0L -> -> 0 `i `uc ]
+[; ;./serial.h: 17: volatile char EUSART4TXbuf[60];
+[v _EUSART4TXbuf `Vuc ~T0 @X0 -> 60 `i e ]
 "18
-[; ;timers.c: 18:     T0CON0bits.T0EN=0;
-[e = . . _T0CON0bits 0 4 -> -> 0 `i `uc ]
+[; ;./serial.h: 18: volatile char TxBufWriteCnt=0;
+[v _TxBufWriteCnt `Vuc ~T0 @X0 1 e ]
+[i _TxBufWriteCnt
+-> -> 0 `i `uc
+]
 "19
-[; ;timers.c: 19: }
+[; ;./serial.h: 19: volatile char TxBufReadCnt=0;
+[v _TxBufReadCnt `Vuc ~T0 @X0 1 e ]
+[i _TxBufReadCnt
+-> -> 0 `i `uc
+]
+"40
+[; ;./serial.h: 40: volatile char DataFlag=1;
+[v _DataFlag `Vuc ~T0 @X0 1 e ]
+[i _DataFlag
+-> -> 1 `i `uc
+]
+"4 serial.c
+[; ;serial.c: 4: void initUSART4(void) {
+[v _initUSART4 `(v ~T0 @X0 1 ef ]
+{
+[e :U _initUSART4 ]
+[f ]
+"5
+[; ;serial.c: 5:     RC0PPS = 0x12;
+[e = _RC0PPS -> -> 18 `i `uc ]
+"6
+[; ;serial.c: 6:     RX4PPS = 0x11;
+[e = _RX4PPS -> -> 17 `i `uc ]
+"7
+[; ;serial.c: 7:     BAUD4CONbits.BRG16 = 0;
+[e = . . _BAUD4CONbits 0 3 -> -> 0 `i `uc ]
+"8
+[; ;serial.c: 8:     TX4STAbits.BRGH = 0;
+[e = . . _TX4STAbits 0 2 -> -> 0 `i `uc ]
+"9
+[; ;serial.c: 9:     SP4BRGL = 51;
+[e = _SP4BRGL -> -> 51 `i `uc ]
+"10
+[; ;serial.c: 10:     SP4BRGH = 0;
+[e = _SP4BRGH -> -> 0 `i `uc ]
+"12
+[; ;serial.c: 12:     RC4STAbits.CREN = 1;
+[e = . . _RC4STAbits 0 4 -> -> 1 `i `uc ]
+"13
+[; ;serial.c: 13:     TX4STAbits.TXEN = 1;
+[e = . . _TX4STAbits 0 5 -> -> 1 `i `uc ]
+"14
+[; ;serial.c: 14:     RC4STAbits.SPEN = 1;
+[e = . . _RC4STAbits 0 7 -> -> 1 `i `uc ]
+"17
+[; ;serial.c: 17: }
 [e :UE 2015 ]
 }
-"28
-[; ;timers.c: 28: void getTMR0val(void)
-[v _getTMR0val `(v ~T0 @X0 1 ef ]
-"29
-[; ;timers.c: 29: {
+"20
+[; ;serial.c: 20: char getCharSerial4(void) {
+[v _getCharSerial4 `(uc ~T0 @X0 1 ef ]
 {
-[e :U _getTMR0val ]
+[e :U _getCharSerial4 ]
 [f ]
-"30
-[; ;timers.c: 30:     unsigned int temp= TMR0L;
-[v _temp `ui ~T0 @X0 1 a ]
-[e = _temp -> _TMR0L `ui ]
-"32
-[; ;timers.c: 32:     int moving=TMR0H<<8;
-[v _moving `i ~T0 @X0 1 a ]
-[e = _moving << -> _TMR0H `i -> 8 `i ]
-"33
-[; ;timers.c: 33:     Time_forward[move_count]=moving;
-[e = *U + &U _Time_forward * -> _move_count `ux -> -> # *U &U _Time_forward `ui `ux _moving ]
-"37
-[; ;timers.c: 37: }
+"21
+[; ;serial.c: 21:     while (!PIR4bits.RC4IF);
+[e $U 2017  ]
+[e :U 2018 ]
+[e :U 2017 ]
+[e $ ! != -> . . _PIR4bits 0 3 `i -> 0 `i 2018  ]
+[e :U 2019 ]
+"22
+[; ;serial.c: 22:     return RC4REG;
+[e ) -> _RC4REG `uc ]
+[e $UE 2016  ]
+"23
+[; ;serial.c: 23: }
 [e :UE 2016 ]
 }
-"39
-[; ;timers.c: 39: void delayed_ms(int time){
-[v _delayed_ms `(v ~T0 @X0 1 ef1`i ]
+"26
+[; ;serial.c: 26: void sendCharSerial4(char charToSend) {
+[v _sendCharSerial4 `(v ~T0 @X0 1 ef1`uc ]
 {
-[e :U _delayed_ms ]
-[v _time `i ~T0 @X0 1 r1 ]
+[e :U _sendCharSerial4 ]
+[v _charToSend `uc ~T0 @X0 1 r1 ]
 [f ]
-"40
-[; ;timers.c: 40:     for(unsigned int i=0;i<time;i++){
-{
-[v _i `ui ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `ui ]
+"27
+[; ;serial.c: 27:     while (!PIR4bits.TX4IF);
 [e $U 2021  ]
-[e :U 2018 ]
-{
-"41
-[; ;timers.c: 41:         _delay((unsigned long)((1)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"42
-[; ;timers.c: 42:     }
-}
-[e ++ _i -> -> 1 `i `ui ]
+[e :U 2022 ]
 [e :U 2021 ]
-[e $ < _i -> _time `ui 2018  ]
-[e :U 2019 ]
+[e $ ! != -> . . _PIR4bits 0 2 `i -> 0 `i 2022  ]
+[e :U 2023 ]
+"28
+[; ;serial.c: 28:     TX4REG = charToSend;
+[e = _TX4REG -> _charToSend `uc ]
+"29
+[; ;serial.c: 29: }
+[e :UE 2020 ]
 }
-"43
-[; ;timers.c: 43: }
-[e :UE 2017 ]
+"33
+[; ;serial.c: 33: void sendStringSerial4(char *string){
+[v _sendStringSerial4 `(v ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _sendStringSerial4 ]
+[v _string `*uc ~T0 @X0 1 r1 ]
+[f ]
+"34
+[; ;serial.c: 34:     while (*string!=0){
+[e $U 2025  ]
+[e :U 2026 ]
+{
+"35
+[; ;serial.c: 35:         sendCharSerial4(*string++);
+[e ( _sendCharSerial4 (1 *U ++ _string * -> -> 1 `i `x -> -> # *U _string `i `x ]
+"36
+[; ;serial.c: 36:     }
+}
+[e :U 2025 ]
+"34
+[; ;serial.c: 34:     while (*string!=0){
+[e $ != -> *U _string `i -> 0 `i 2026  ]
+[e :U 2027 ]
+"39
+[; ;serial.c: 39: }
+[e :UE 2024 ]
+}
+"46
+[; ;serial.c: 46: char getCharFromRxBuf(void){
+[v _getCharFromRxBuf `(uc ~T0 @X0 1 ef ]
+{
+[e :U _getCharFromRxBuf ]
+[f ]
+"47
+[; ;serial.c: 47:     if (RxBufReadCnt>=20) {RxBufReadCnt=0;}
+[e $ ! >= -> _RxBufReadCnt `i -> 20 `i 2029  ]
+{
+[e = _RxBufReadCnt -> -> 0 `i `uc ]
+}
+[e :U 2029 ]
+"48
+[; ;serial.c: 48:     return EUSART4RXbuf[RxBufReadCnt++];
+[e ) *U + &U _EUSART4RXbuf * -> ++ _RxBufReadCnt -> -> 1 `i `Vuc `ux -> -> # *U &U _EUSART4RXbuf `ui `ux ]
+[e $UE 2028  ]
+"49
+[; ;serial.c: 49: }
+[e :UE 2028 ]
+}
+"52
+[; ;serial.c: 52: void putCharToRxBuf(char byte){
+[v _putCharToRxBuf `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _putCharToRxBuf ]
+[v _byte `uc ~T0 @X0 1 r1 ]
+[f ]
+"53
+[; ;serial.c: 53:     if (RxBufWriteCnt>=20) {RxBufWriteCnt=0;}
+[e $ ! >= -> _RxBufWriteCnt `i -> 20 `i 2031  ]
+{
+[e = _RxBufWriteCnt -> -> 0 `i `uc ]
+}
+[e :U 2031 ]
+"54
+[; ;serial.c: 54:     EUSART4RXbuf[RxBufWriteCnt++]=byte;
+[e = *U + &U _EUSART4RXbuf * -> ++ _RxBufWriteCnt -> -> 1 `i `Vuc `ux -> -> # *U &U _EUSART4RXbuf `ui `ux _byte ]
+"55
+[; ;serial.c: 55: }
+[e :UE 2030 ]
+}
+"60
+[; ;serial.c: 60: char isDataInRxBuf (void){
+[v _isDataInRxBuf `(uc ~T0 @X0 1 ef ]
+{
+[e :U _isDataInRxBuf ]
+[f ]
+"61
+[; ;serial.c: 61:     return (RxBufWriteCnt!=RxBufReadCnt);
+[e ) -> -> != -> _RxBufWriteCnt `i -> _RxBufReadCnt `i `i `uc ]
+[e $UE 2032  ]
+"62
+[; ;serial.c: 62: }
+[e :UE 2032 ]
+}
+"66
+[; ;serial.c: 66: char getCharFromTxBuf(void){
+[v _getCharFromTxBuf `(uc ~T0 @X0 1 ef ]
+{
+[e :U _getCharFromTxBuf ]
+[f ]
+"67
+[; ;serial.c: 67:     if (TxBufReadCnt>=60) {TxBufReadCnt=0;}
+[e $ ! >= -> _TxBufReadCnt `i -> 60 `i 2034  ]
+{
+[e = _TxBufReadCnt -> -> 0 `i `uc ]
+}
+[e :U 2034 ]
+"68
+[; ;serial.c: 68:     return EUSART4TXbuf[TxBufReadCnt++];
+[e ) *U + &U _EUSART4TXbuf * -> ++ _TxBufReadCnt -> -> 1 `i `Vuc `ux -> -> # *U &U _EUSART4TXbuf `ui `ux ]
+[e $UE 2033  ]
+"69
+[; ;serial.c: 69: }
+[e :UE 2033 ]
+}
+"72
+[; ;serial.c: 72: void putCharToTxBuf(char byte){
+[v _putCharToTxBuf `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _putCharToTxBuf ]
+[v _byte `uc ~T0 @X0 1 r1 ]
+[f ]
+"73
+[; ;serial.c: 73:     if (TxBufWriteCnt>=60) {TxBufWriteCnt=0;}
+[e $ ! >= -> _TxBufWriteCnt `i -> 60 `i 2036  ]
+{
+[e = _TxBufWriteCnt -> -> 0 `i `uc ]
+}
+[e :U 2036 ]
+"74
+[; ;serial.c: 74:     EUSART4TXbuf[TxBufWriteCnt++]=byte;
+[e = *U + &U _EUSART4TXbuf * -> ++ _TxBufWriteCnt -> -> 1 `i `Vuc `ux -> -> # *U &U _EUSART4TXbuf `ui `ux _byte ]
+"75
+[; ;serial.c: 75: }
+[e :UE 2035 ]
+}
+"80
+[; ;serial.c: 80: char isDataInTxBuf (void){
+[v _isDataInTxBuf `(uc ~T0 @X0 1 ef ]
+{
+[e :U _isDataInTxBuf ]
+[f ]
+"81
+[; ;serial.c: 81:     return (TxBufWriteCnt!=TxBufReadCnt);
+[e ) -> -> != -> _TxBufWriteCnt `i -> _TxBufReadCnt `i `i `uc ]
+[e $UE 2037  ]
+"82
+[; ;serial.c: 82: }
+[e :UE 2037 ]
+}
+"85
+[; ;serial.c: 85: void TxBufferedString(char *string){
+[v _TxBufferedString `(v ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _TxBufferedString ]
+[v _string `*uc ~T0 @X0 1 r1 ]
+[f ]
+"86
+[; ;serial.c: 86:  while (*string!=0){
+[e $U 2039  ]
+[e :U 2040 ]
+{
+"87
+[; ;serial.c: 87:         putCharToTxBuf(*string++);
+[e ( _putCharToTxBuf (1 *U ++ _string * -> -> 1 `i `x -> -> # *U _string `i `x ]
+"88
+[; ;serial.c: 88:     }
+}
+[e :U 2039 ]
+"86
+[; ;serial.c: 86:  while (*string!=0){
+[e $ != -> *U _string `i -> 0 `i 2040  ]
+[e :U 2041 ]
+"89
+[; ;serial.c: 89: }
+[e :UE 2038 ]
+}
+"93
+[; ;serial.c: 93: void sendTxBuf(void){
+[v _sendTxBuf `(v ~T0 @X0 1 ef ]
+{
+[e :U _sendTxBuf ]
+[f ]
+"94
+[; ;serial.c: 94:     if (isDataInTxBuf()) {PIE4bits.TX4IE=1;
+[e $ ! != -> ( _isDataInTxBuf ..  `i -> 0 `i 2043  ]
+{
+[e = . . _PIE4bits 0 2 -> -> 1 `i `uc ]
+"95
+[; ;serial.c: 95:     DataFlag =1;}
+[e = _DataFlag -> -> 1 `i `uc ]
+}
+[e $U 2044  ]
+"96
+[; ;serial.c: 96:     else{
+[e :U 2043 ]
+{
+"97
+[; ;serial.c: 97:         DataFlag=0;}
+[e = _DataFlag -> -> 0 `i `uc ]
+}
+[e :U 2044 ]
+"99
+[; ;serial.c: 99:     }
+[e :UE 2042 ]
 }

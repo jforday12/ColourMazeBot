@@ -24242,7 +24242,7 @@ unsigned char __t3rd16on(void);
 char WayBack [50];
 int Time_forward[50];
 extern volatile unsigned int move_count;
-int run_flag=1;
+
 
 void go_Home (char *WayBack, int *Time_forward);
 # 1 "Memory.c" 2
@@ -24317,42 +24317,41 @@ extern volatile unsigned int move_count;
 
 void go_Home (char *WayBack, int *Time_forward){
     int i;
-        for (i = move_count; i >= 0; i--){
+    for (i = move_count; i >= 0; i--){
+        timed_forward(&motorL, &motorR,Time_forward[i]);
 
 
-            timed_forward(&motorL, &motorR,Time_forward[i]);
 
 
-            if (WayBack[i-1]==1){
-                reverseDetect(&motorL, &motorR);
-                GreenMove(&motorL, &motorR);
-            }
-            else if (WayBack[i-1]==2){
-                reverseDetect(&motorL, &motorR);
-                LightBlueMove(&motorL, &motorR);
-            }
-            else if (WayBack[i-1]==3){
-                reverseDetect(&motorL, &motorR);
-                ReverseYellow(&motorL, &motorR);
-            }
-            else if (WayBack[i-1]==4){
-                reverseDetect(&motorL, &motorR);
-                BlueMove(&motorL, &motorR);
-            }
-            else if (WayBack[i-1]==5){
-                reverseDetect(&motorL, &motorR);
-                RedMove(&motorL, &motorR);
-            }
-            else if (WayBack[i-1]==6){
-                reverseDetect(&motorL, &motorR);
-                OrangeMove(&motorL, &motorR);
-            }
-            else if (WayBack[i-1]==7){
-                reverseDetect(&motorL, &motorR);
-                ReversePink(&motorL, &motorR);
-            }
+        if (WayBack[i-1]==1){
+            reverseDetect(&motorL, &motorR);
+            GreenMove(&motorL, &motorR);
+        }
+        else if (WayBack[i-1]==2){
+            reverseDetect(&motorL, &motorR);
+            LightBlueMove(&motorL, &motorR);
+        }
+        else if (WayBack[i-1]==3){
+            reverseDetect(&motorL, &motorR);
+            ReverseYellow(&motorL, &motorR);
+        }
+        else if (WayBack[i-1]==4){
+            reverseDetect(&motorL, &motorR);
+            BlueMove(&motorL, &motorR);
+        }
+        else if (WayBack[i-1]==5){
+            reverseDetect(&motorL, &motorR);
+            RedMove(&motorL, &motorR);
+        }
+        else if (WayBack[i-1]==6){
+            reverseDetect(&motorL, &motorR);
+            OrangeMove(&motorL, &motorR);
+        }
+        else if (WayBack[i-1]==7){
+            reverseDetect(&motorL, &motorR);
+            ReversePink(&motorL, &motorR);
+        }
 
 
-      }
-
-    }
+  }
+}

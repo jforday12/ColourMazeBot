@@ -15,7 +15,7 @@ void Timer0_init(void)
     // it's a good idea to initialise the timer registers so we know we are at 0
     TMR0H=0;            //write High reg first, update happens when low reg is written to
     TMR0L=0; //25535 as need to find the time at 0
-    T0CON0bits.T0EN=1;	//start the timer
+    T0CON0bits.T0EN=0;	//start the timer
 }
 
 /************************************

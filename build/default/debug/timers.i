@@ -24283,7 +24283,7 @@ void Timer0_init(void)
 
     TMR0H=0;
     TMR0L=0;
-    T0CON0bits.T0EN=0;
+    T0CON0bits.T0EN=1;
 }
 # 28 "timers.c"
 void getTMR0val(void)
