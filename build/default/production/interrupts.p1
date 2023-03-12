@@ -2042,6 +2042,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _Interrupts_init ]
 [f ]
+<<<<<<< Updated upstream
 "10
 [; ;interrupts.c: 10:     INTCONbits.IPEN=0;
 [e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
@@ -2090,4 +2091,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "33
 [; ;interrupts.c: 33: }
 [e :UE 2018 ]
+=======
+"34
+[; ;interrupts.c: 34: }
+[e :UE 2015 ]
+>>>>>>> Stashed changes
 }

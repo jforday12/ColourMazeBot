@@ -24242,7 +24242,7 @@ unsigned char __t3rd16on(void);
 char WayBack [50];
 int Time_forward[50];
 extern volatile unsigned int move_count;
-
+int run_flag;
 
 void go_Home (char *WayBack, int *Time_forward);
 # 1 "Memory.c" 2
@@ -24312,8 +24312,11 @@ void delayed_ms(int time);
 extern volatile unsigned int move_count;
 # 3 "Memory.c" 2
 
+
 void go_Home (char *WayBack, int *Time_forward){
     int i;
+    BlueMove(&motorL, &motorR);
+    T0CON0bits.T0EN=0;
     for (i = move_count; i >= 0; i--){
 # 16 "Memory.c"
         timed_forward(&motorL, &motorR,Time_forward[i]);
@@ -24349,7 +24352,7 @@ void go_Home (char *WayBack, int *Time_forward){
             reverseDetect(&motorL, &motorR);
             ReversePink(&motorL, &motorR);
         }
-
-
   }
+    stop(&motorL, &motorR);
+    run_flag=0;
 }

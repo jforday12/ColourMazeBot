@@ -24328,6 +24328,7 @@ int lost_flag;
 
 void Interrupts_init(void)
 {
+<<<<<<< Updated upstream
     INTCONbits.IPEN=0;
     PIE2bits.C1IE=1;
     INTCONbits.PEIE=1;
@@ -24351,4 +24352,7 @@ if (PIR0bits.TMR0IF){
 
 }
 
+=======
+# 34 "interrupts.c"
+>>>>>>> Stashed changes
 }

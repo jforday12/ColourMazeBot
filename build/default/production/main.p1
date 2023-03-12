@@ -2272,6 +2272,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19
 [; ;./Memory.h: 19: int Time_forward[50];
 [v _Time_forward `i ~T0 @X0 -> 50 `i e ]
+"21
+[; ;./Memory.h: 21: int run_flag;
+[v _run_flag `i ~T0 @X0 1 e ]
 "27 main.c
 [; ;main.c: 27: struct RGB_rel rel;
 [v _rel `S2018 ~T0 @X0 1 e ]
@@ -2377,9 +2380,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 62:     int prev_colour =0;
 [v _prev_colour `i ~T0 @X0 1 a ]
 [e = _prev_colour -> 0 `i ]
+<<<<<<< Updated upstream
 "63
 [; ;main.c: 63:     int run_flag=1;
 [v _run_flag `i ~T0 @X0 1 a ]
+=======
+"90
+[; ;main.c: 90:     run_flag=1;
+>>>>>>> Stashed changes
 [e = _run_flag -> 1 `i ]
 "64
 [; ;main.c: 64:     move_count=-1;
@@ -2435,6 +2443,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "90
 [; ;main.c: 90:             _delay((unsigned long)((200)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+<<<<<<< Updated upstream
 "97
 [; ;main.c: 97:             while (consecuitive<20){
 [e $U 2028  ]
@@ -2607,10 +2616,83 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _LightBlueMove (2 , &U _motorL &U _motorR ]
 "147
 [; ;main.c: 147:                 TMR0H=0;
+=======
+"125
+[; ;main.c: 125:             while (consecuitive<3){
+[e $U 2028  ]
+[e :U 2029 ]
+{
+"126
+[; ;main.c: 126:                 _delay((unsigned long)((300)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"127
+[; ;main.c: 127:                 int colour = Colour_decider(&vals, &rel);
+[v _colour `i ~T0 @X0 1 a ]
+[e = _colour ( _Colour_decider (2 , &U _vals &U _rel ]
+"128
+[; ;main.c: 128:                 if (colour==prev_colour){
+[e $ ! == _colour _prev_colour 2031  ]
+{
+"129
+[; ;main.c: 129:                     consecuitive++;
+[e ++ _consecuitive -> 1 `i ]
+"130
+[; ;main.c: 130:                 }
+}
+[e $U 2032  ]
+"131
+[; ;main.c: 131:                 else{
+[e :U 2031 ]
+{
+"132
+[; ;main.c: 132:                     consecuitive=0;
+[e = _consecuitive -> 0 `i ]
+"133
+[; ;main.c: 133:                 }
+}
+[e :U 2032 ]
+"134
+[; ;main.c: 134:                 prev_colour=colour;
+[e = _prev_colour _colour ]
+"135
+[; ;main.c: 135:                 RetryMove(&motorL, &motorR);
+[e ( _RetryMove (2 , &U _motorL &U _motorR ]
+"136
+[; ;main.c: 136:             }
+}
+[e :U 2028 ]
+"125
+[; ;main.c: 125:             while (consecuitive<3){
+[e $ < _consecuitive -> 3 `i 2029  ]
+[e :U 2030 ]
+"137
+[; ;main.c: 137:             consecuitive=0;
+[e = _consecuitive -> 0 `i ]
+"138
+[; ;main.c: 138:             int temp=TMR0L;
+[v _temp `i ~T0 @X0 1 a ]
+[e = _temp -> _TMR0L `i ]
+"139
+[; ;main.c: 139:             sprintf(buf,"red=%d green=%d blue=%d colour=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
+[e ( _sprintf (1 , , , , (. , &U _buf :s 1C . _vals 0 . _vals 1 . _vals 2 -> _TMR0H `i ]
+"142
+[; ;main.c: 142:             sendStringSerial4(buf);
+[e ( _sendStringSerial4 (1 &U _buf ]
+"144
+[; ;main.c: 144:             if (prev_colour==1){
+[e $ ! == _prev_colour -> 1 `i 2033  ]
+{
+"145
+[; ;main.c: 145:                 RedMove(&motorL, &motorR);
+[e ( _RedMove (2 , &U _motorL &U _motorR ]
+"146
+[; ;main.c: 146:                 TMR0H=0;
+>>>>>>> Stashed changes
 [e = _TMR0H -> -> 0 `i `uc ]
-"148
-[; ;main.c: 148:                 TMR0L=0;
+"147
+[; ;main.c: 147:                 TMR0L=0;
 [e = _TMR0L -> -> 0 `i `uc ]
+<<<<<<< Updated upstream
 "149
 [; ;main.c: 149:                 WayBack[move_count]=6;
 [e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 6 `i `uc ]
@@ -2628,10 +2710,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _PinkMove (2 , &U _motorL &U _motorR ]
 "153
 [; ;main.c: 153:                 TMR0H=0;
+=======
+"148
+[; ;main.c: 148:                 WayBack[move_count]=1;
+[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 1 `i `uc ]
+"149
+[; ;main.c: 149:             }
+}
+[e $U 2034  ]
+"150
+[; ;main.c: 150:             else if(prev_colour==2){
+[e :U 2033 ]
+[e $ ! == _prev_colour -> 2 `i 2035  ]
+{
+"151
+[; ;main.c: 151:                 OrangeMove(&motorL, &motorR);
+[e ( _OrangeMove (2 , &U _motorL &U _motorR ]
+"152
+[; ;main.c: 152:                 TMR0H=0;
+>>>>>>> Stashed changes
 [e = _TMR0H -> -> 0 `i `uc ]
-"154
-[; ;main.c: 154:                 TMR0L=0;
+"153
+[; ;main.c: 153:                 TMR0L=0;
 [e = _TMR0L -> -> 0 `i `uc ]
+<<<<<<< Updated upstream
 "155
 [; ;main.c: 155:                 WayBack[move_count]=7;
 [e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 7 `i `uc ]
@@ -2653,9 +2755,152 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 2048  ]
 "160
 [; ;main.c: 160:             else if (prev_colour==0){
+=======
+"154
+[; ;main.c: 154:                 WayBack[move_count]=2;
+[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 2 `i `uc ]
+"155
+[; ;main.c: 155:             }
+}
+[e $U 2036  ]
+"156
+[; ;main.c: 156:             else if(prev_colour==3){
+[e :U 2035 ]
+[e $ ! == _prev_colour -> 3 `i 2037  ]
+{
+"157
+[; ;main.c: 157:                 YellowMove(&motorL, &motorR);
+[e ( _YellowMove (2 , &U _motorL &U _motorR ]
+"158
+[; ;main.c: 158:                 TMR0H=0;
+[e = _TMR0H -> -> 0 `i `uc ]
+"159
+[; ;main.c: 159:                 TMR0L=0;
+[e = _TMR0L -> -> 0 `i `uc ]
+"160
+[; ;main.c: 160:                 WayBack[move_count]=3;
+[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 3 `i `uc ]
+"161
+[; ;main.c: 161:             }
+}
+[e $U 2038  ]
+"162
+[; ;main.c: 162:             else if(prev_colour==4){
+[e :U 2037 ]
+[e $ ! == _prev_colour -> 4 `i 2039  ]
+{
+"163
+[; ;main.c: 163:                 BlueMove(&motorL, &motorR);
+[e ( _BlueMove (2 , &U _motorL &U _motorR ]
+"164
+[; ;main.c: 164:                 TMR0H=0;
+[e = _TMR0H -> -> 0 `i `uc ]
+"165
+[; ;main.c: 165:                 TMR0L=0;
+[e = _TMR0L -> -> 0 `i `uc ]
+"166
+[; ;main.c: 166:                 WayBack[move_count]=4;
+[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 4 `i `uc ]
+"167
+[; ;main.c: 167:             }
+}
+[e $U 2040  ]
+"168
+[; ;main.c: 168:             else if(prev_colour==5){
+[e :U 2039 ]
+[e $ ! == _prev_colour -> 5 `i 2041  ]
+{
+"169
+[; ;main.c: 169:                 GreenMove(&motorL, &motorR);
+[e ( _GreenMove (2 , &U _motorL &U _motorR ]
+"170
+[; ;main.c: 170:                 TMR0H=0;
+[e = _TMR0H -> -> 0 `i `uc ]
+"171
+[; ;main.c: 171:                 TMR0L=0;
+[e = _TMR0L -> -> 0 `i `uc ]
+"172
+[; ;main.c: 172:                 WayBack[move_count]=5;
+[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 5 `i `uc ]
+"173
+[; ;main.c: 173:             }
+}
+[e $U 2042  ]
+"174
+[; ;main.c: 174:             else if(prev_colour==6){
+[e :U 2041 ]
+[e $ ! == _prev_colour -> 6 `i 2043  ]
+{
+"175
+[; ;main.c: 175:                 LightBlueMove(&motorL, &motorR);
+[e ( _LightBlueMove (2 , &U _motorL &U _motorR ]
+"176
+[; ;main.c: 176:                 TMR0H=0;
+[e = _TMR0H -> -> 0 `i `uc ]
+"177
+[; ;main.c: 177:                 TMR0L=0;
+[e = _TMR0L -> -> 0 `i `uc ]
+"178
+[; ;main.c: 178:                 WayBack[move_count]=6;
+[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 6 `i `uc ]
+"179
+[; ;main.c: 179:             }
+}
+[e $U 2044  ]
+"180
+[; ;main.c: 180:             else if(prev_colour==7){
+[e :U 2043 ]
+[e $ ! == _prev_colour -> 7 `i 2045  ]
+{
+"181
+[; ;main.c: 181:                 PinkMove(&motorL, &motorR);
+[e ( _PinkMove (2 , &U _motorL &U _motorR ]
+"182
+[; ;main.c: 182:                 TMR0H=0;
+[e = _TMR0H -> -> 0 `i `uc ]
+"183
+[; ;main.c: 183:                 TMR0L=0;
+[e = _TMR0L -> -> 0 `i `uc ]
+"184
+[; ;main.c: 184:                 WayBack[move_count]=7;
+[e = *U + &U _WayBack * -> _move_count `ux -> -> # *U &U _WayBack `ui `ux -> -> 7 `i `uc ]
+"185
+[; ;main.c: 185:             }
+}
+[e $U 2046  ]
+"186
+[; ;main.c: 186:             else if (prev_colour==10){
+[e :U 2045 ]
+[e $ ! == _prev_colour -> 10 `i 2047  ]
+{
+"187
+[; ;main.c: 187:                 lost_count++;
+[e ++ _lost_count -> 1 `i ]
+"188
+[; ;main.c: 188:                 if (lost_count==4){
+[e $ ! == _lost_count -> 4 `i 2048  ]
+{
+"189
+[; ;main.c: 189:                     go_Home(WayBack, Time_forward);
+[e ( _go_Home (2 , &U _WayBack &U _Time_forward ]
+"190
+[; ;main.c: 190:                 }
+}
+[e :U 2048 ]
+"191
+[; ;main.c: 191:                 RetryMove(&motorL, &motorR);
+[e ( _RetryMove (2 , &U _motorL &U _motorR ]
+"192
+[; ;main.c: 192:             }
+}
+[e $U 2049  ]
+"193
+[; ;main.c: 193:             else if (prev_colour==0){
+>>>>>>> Stashed changes
 [e :U 2047 ]
 [e $ ! == _prev_colour -> 0 `i 2049  ]
 {
+<<<<<<< Updated upstream
 "161
 [; ;main.c: 161:                 BlueMove(&motorL, &motorR);
 [e ( _BlueMove (2 , &U _motorL &U _motorR ]
@@ -2673,6 +2918,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _run_flag -> 0 `i ]
 "166
 [; ;main.c: 166:             }
+=======
+"194
+[; ;main.c: 194:                 go_Home(WayBack, Time_forward);
+[e ( _go_Home (2 , &U _WayBack &U _Time_forward ]
+"195
+[; ;main.c: 195:             }
+>>>>>>> Stashed changes
 }
 [e :U 2049 ]
 [e :U 2048 ]
@@ -2683,11 +2935,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2038 ]
 [e :U 2036 ]
 [e :U 2034 ]
+<<<<<<< Updated upstream
 "170
 [; ;main.c: 170:         }else if(lost_flag){
+=======
+"196
+[; ;main.c: 196:             }else if (lost_flag){
+>>>>>>> Stashed changes
 }
 [e $U 2050  ]
 [e :U 2027 ]
+<<<<<<< Updated upstream
 [e $ ! != _lost_flag -> 0 `i 2051  ]
 {
 "171
@@ -2713,19 +2971,58 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _run_flag -> 0 `i ]
 "179
 [; ;main.c: 179:         }
+=======
+[e $ ! != _lost_flag -> 0 `i 2052  ]
+{
+"197
+[; ;main.c: 197:                 int colour = Colour_decider(&vals, &rel);
+[v _colour `i ~T0 @X0 1 a ]
+[e = _colour ( _Colour_decider (2 , &U _vals &U _rel ]
+"198
+[; ;main.c: 198:                 sprintf(buf,"red=%f green=%f blue=%f lum=%d  \r\n",rel.R, rel.G,rel.B,vals.L);
+[e ( _sprintf (1 , , , , (. , &U _buf :s 2C -> . _rel 0 `d -> . _rel 1 `d -> . _rel 2 `d . _vals 3 ]
+"199
+[; ;main.c: 199:                 sendStringSerial4(buf);
+[e ( _sendStringSerial4 (1 &U _buf ]
+"200
+[; ;main.c: 200:             move_count++;
+[e ++ _move_count -> -> 1 `i `Vui ]
+"201
+[; ;main.c: 201:             Time_forward[move_count]=65535;
+[e = *U + &U _Time_forward * -> _move_count `ux -> -> # *U &U _Time_forward `ui `ux -> -> 65535 `l `i ]
+"202
+[; ;main.c: 202:             T0CON0bits.T0EN=0;
+[e = . . _T0CON0bits 0 4 -> -> 0 `i `uc ]
+"203
+[; ;main.c: 203:             go_Home(WayBack, Time_forward);
+[e ( _go_Home (2 , &U _WayBack &U _Time_forward ]
+"206
+[; ;main.c: 206:         }
+>>>>>>> Stashed changes
 }
+[e :U 2052 ]
 [e :U 2051 ]
+<<<<<<< Updated upstream
 [e :U 2050 ]
 "183
 [; ;main.c: 183: }
+=======
+"209
+[; ;main.c: 209:     }
+>>>>>>> Stashed changes
 }
 [e :U 2024 ]
 "69
 [; ;main.c: 69:     while (run_flag)
 [e $ != _run_flag -> 0 `i 2025  ]
 [e :U 2026 ]
+<<<<<<< Updated upstream
 "184
 [; ;main.c: 184:     }
+=======
+"210
+[; ;main.c: 210: }
+>>>>>>> Stashed changes
 [e :UE 2020 ]
 }
 [p f _sprintf 8388736 ]

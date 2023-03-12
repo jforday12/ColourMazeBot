@@ -60,7 +60,7 @@ void main(void) {
     motorR.PWMperiod=200; 			//store PWMperiod for motor (value of T2PR in this case)
     int consecuitive=0; // variable to register how many consecuitive readings there are
     int prev_colour =0; // variable to decide what the previous colour is 
-    int run_flag=1;
+    run_flag=1;
     move_count=-1;
     while (RF2_button);
     __delay_ms(1000);
@@ -92,9 +92,15 @@ void main(void) {
 //            int colour = Colour_decider(&vals, &rel);
 //            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour=%d \r\n",rel.R, rel.G,rel.B,vals.L,colour);
 //            sendStringSerial4(buf);
+<<<<<<< Updated upstream
             
         
             while (consecuitive<20){
+=======
+
+            while (consecuitive<3){
+                __delay_ms(300);
+>>>>>>> Stashed changes
                 int colour = Colour_decider(&vals, &rel);
                 if (colour==prev_colour){
                     consecuitive++;
@@ -155,15 +161,19 @@ void main(void) {
                 WayBack[move_count]=7;
             }
             else if (prev_colour==10){// undecided colour
+<<<<<<< Updated upstream
+=======
+                lost_count++;
+                if (lost_count==4){
+                    go_Home(WayBack, Time_forward);
+                }
+>>>>>>> Stashed changes
                 RetryMove(&motorL, &motorR);
             }
             else if (prev_colour==0){
-                BlueMove(&motorL, &motorR);
-                T0CON0bits.T0EN=0;
                 go_Home(WayBack, Time_forward);
-                stop(&motorL, &motorR);
-                run_flag=0;
             }
+<<<<<<< Updated upstream
 
 
 
@@ -176,6 +186,18 @@ void main(void) {
             stop(&motorL, &motorR);
             run_flag=0;
 
+=======
+            }else if (lost_flag){
+                int colour = Colour_decider(&vals, &rel);
+                sprintf(buf,"red=%f green=%f blue=%f lum=%d  \r\n",rel.R, rel.G,rel.B,vals.L);
+                sendStringSerial4(buf);
+            move_count++; // increment index of move and timer arrays
+            Time_forward[move_count]=65535; // as timer overflow ammount so need to retravel this ammount in a straight line to go home
+            T0CON0bits.T0EN=0;
+            go_Home(WayBack, Time_forward);
+            
+            
+>>>>>>> Stashed changes
         }
 //
 //

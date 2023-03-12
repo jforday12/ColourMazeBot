@@ -1,7 +1,12 @@
 
 Memory Summary:
+<<<<<<< Updated upstream
     Program space        used  4033h ( 16435) of 20000h bytes   ( 12.5%)
     Data space           used   235h (   565) of   DEAh bytes   ( 15.9%)
+=======
+    Program space        used  531Bh ( 21275) of 20000h bytes   ( 16.2%)
+    Data space           used   2C3h (   707) of   DEAh bytes   ( 19.8%)
+>>>>>>> Stashed changes
     Configuration bits   used     6h (     6) of     6h words   (100.0%)
     EEPROM space         used     0h (     0) of   400h bytes   (  0.0%)
     ID Location space    used    10h (    16) of    10h bytes   (100.0%)

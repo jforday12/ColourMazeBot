@@ -1,8 +1,11 @@
 #include "Memory.h"
 #include "dc_motor.h"
 #include "timers.h"
+
 void go_Home (char *WayBack, int *Time_forward){
     int i;
+    BlueMove(&motorL, &motorR);
+    T0CON0bits.T0EN=0;
     for (i = move_count; i >= 0; i--){
 //        TMR0H=0;
 //        TMR0L=0;
@@ -46,8 +49,15 @@ void go_Home (char *WayBack, int *Time_forward){
             reverseDetect(&motorL, &motorR);
             ReversePink(&motorL, &motorR);
         }
+<<<<<<< Updated upstream
 
 
   } 
 }
 
+=======
+  }
+    stop(&motorL, &motorR);
+    run_flag=0;
+}
+>>>>>>> Stashed changes

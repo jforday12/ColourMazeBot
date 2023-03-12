@@ -24564,7 +24564,7 @@ void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
 char WayBack [50];
 int Time_forward[50];
 extern volatile unsigned int move_count;
-
+int run_flag;
 
 void go_Home (char *WayBack, int *Time_forward);
 # 22 "main.c" 2
@@ -24622,7 +24622,7 @@ void main(void) {
     motorR.PWMperiod=200;
     int consecuitive=0;
     int prev_colour =0;
-    int run_flag=1;
+    run_flag=1;
     move_count=-1;
     while (PORTFbits.RF2);
     _delay((unsigned long)((1000)*(64000000/4000.0)));
@@ -24655,8 +24655,13 @@ void main(void) {
 
 
 
+<<<<<<< Updated upstream
 
             while (consecuitive<20){
+=======
+            while (consecuitive<3){
+                _delay((unsigned long)((300)*(64000000/4000.0)));
+>>>>>>> Stashed changes
                 int colour = Colour_decider(&vals, &rel);
                 if (colour==prev_colour){
                     consecuitive++;
@@ -24717,17 +24722,31 @@ void main(void) {
                 WayBack[move_count]=7;
             }
             else if (prev_colour==10){
+<<<<<<< Updated upstream
+=======
+                lost_count++;
+                if (lost_count==4){
+                    go_Home(WayBack, Time_forward);
+                }
+>>>>>>> Stashed changes
                 RetryMove(&motorL, &motorR);
             }
             else if (prev_colour==0){
-                BlueMove(&motorL, &motorR);
-                T0CON0bits.T0EN=0;
                 go_Home(WayBack, Time_forward);
-                stop(&motorL, &motorR);
-                run_flag=0;
             }
+<<<<<<< Updated upstream
 
 
+=======
+            }else if (lost_flag){
+                int colour = Colour_decider(&vals, &rel);
+                sprintf(buf,"red=%f green=%f blue=%f lum=%d  \r\n",rel.R, rel.G,rel.B,vals.L);
+                sendStringSerial4(buf);
+            move_count++;
+            Time_forward[move_count]=65535;
+            T0CON0bits.T0EN=0;
+            go_Home(WayBack, Time_forward);
+>>>>>>> Stashed changes
 
         }else if(lost_flag){
             move_count++;
