@@ -250,7 +250,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "10 ./timers.h
 [; ;./timers.h: 10: void delayed_ms(int time);
 [v _delayed_ms `(v ~T0 @X0 0 ef1`i ]
-"28810 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
+"29034 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29034:     struct {
+[s S1355 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1355 . LATF0 LATF1 LATF2 LATF3 LATF4 LATF5 LATF6 LATF7 ]
+"29044
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29044:     struct {
+[s S1356 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1356 . LF0 LF1 LF2 LF3 LF4 LF5 LF6 LF7 ]
+"29033
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29033: typedef union {
+[u S1354 `S1355 1 `S1356 1 ]
+[n S1354 . . . ]
+"29055
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29055: extern volatile LATFbits_t LATFbits __attribute__((address(0xF7E)));
+[v _LATFbits `VS1354 ~T0 @X0 0 e@3966 ]
+"28810
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 28810:     struct {
 [s S1349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1349 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
@@ -2467,11 +2482,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! != -> . *U _m 1 `i -> 0 `i 2022  ]
 {
 "83
-[; ;dc_motor.c: 83:         *(m->posDutyHighByte)=posDuty;
-[e = *U . *U _m 4 _posDuty ]
+[; ;dc_motor.c: 83:         *(m->posDutyHighByte)=negDuty;
+[e = *U . *U _m 4 _negDuty ]
 "84
-[; ;dc_motor.c: 84:         *(m->negDutyHighByte)=negDuty;
-[e = *U . *U _m 5 _negDuty ]
+[; ;dc_motor.c: 84:         *(m->negDutyHighByte)=posDuty;
+[e = *U . *U _m 5 _posDuty ]
 "86
 [; ;dc_motor.c: 86:     } else {
 }
@@ -2479,11 +2494,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2022 ]
 {
 "87
-[; ;dc_motor.c: 87:         *(m->posDutyHighByte)=negDuty;
-[e = *U . *U _m 4 _negDuty ]
+[; ;dc_motor.c: 87:         *(m->posDutyHighByte)=posDuty;
+[e = *U . *U _m 4 _posDuty ]
 "88
-[; ;dc_motor.c: 88:         *(m->negDutyHighByte)=posDuty;
-[e = *U . *U _m 5 _posDuty ]
+[; ;dc_motor.c: 88:         *(m->negDutyHighByte)=negDuty;
+[e = *U . *U _m 5 _negDuty ]
 "89
 [; ;dc_motor.c: 89:     }
 }
@@ -3246,25 +3261,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [f ]
 "346
-[; ;dc_motor.c: 346:     LATDbits.LATD3=1;
-[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+[; ;dc_motor.c: 346:     LATFbits.LATF0=1;
+[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
 "347
 [; ;dc_motor.c: 347:     _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"348
-[; ;dc_motor.c: 348:     LATDbits.LATD3=0;
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
 "349
-[; ;dc_motor.c: 349:     _delay((unsigned long)((1000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"350
-[; ;dc_motor.c: 350:     while (!(!PORTFbits.RF2 & !PORTFbits.RF3)){
+[; ;dc_motor.c: 349:     while (!(!PORTFbits.RF2 & !PORTFbits.RF3)){
 [e $U 2070  ]
 [e :U 2071 ]
 {
-"351
-[; ;dc_motor.c: 351:         LATDbits.LATD3=1;
+"350
+[; ;dc_motor.c: 350:         LATDbits.LATD3=1;
 [e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+"352
+[; ;dc_motor.c: 352:         turnLeft45(&motorL, &motorR);
+[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
 "353
 [; ;dc_motor.c: 353:         turnLeft45(&motorL, &motorR);
 [e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
@@ -3274,90 +3286,93 @@ Version 4.0 HI-TECH Software Intermediate Code
 "355
 [; ;dc_motor.c: 355:         turnLeft45(&motorL, &motorR);
 [e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
-"356
-[; ;dc_motor.c: 356:         turnLeft45(&motorL, &motorR);
-[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
-"358
-[; ;dc_motor.c: 358:         while (!(!PORTFbits.RF2 || !PORTFbits.RF3)){
+"357
+[; ;dc_motor.c: 357:         while (!(!PORTFbits.RF2 || !PORTFbits.RF3)){
 [e $U 2073  ]
 [e :U 2074 ]
 {
-"362
-[; ;dc_motor.c: 362:             _delay((unsigned long)((2000)*(64000000/4000.0)));
+"360
+[; ;dc_motor.c: 360:               LATDbits.LATD4=1;
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
+"361
+[; ;dc_motor.c: 361:             _delay((unsigned long)((2000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"363
-[; ;dc_motor.c: 363:             if(!PORTFbits.RF3 & !PORTFbits.RF2){
+"362
+[; ;dc_motor.c: 362:             if(!PORTFbits.RF3 & !PORTFbits.RF2){
 [e $ ! & ! != -> . . _PORTFbits 0 3 `i -> 0 `i ! != -> . . _PORTFbits 0 2 `i -> 0 `i 2076  ]
 {
+"363
+[; ;dc_motor.c: 363:                 LATHbits.LATH3=1;
+[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
 "364
-[; ;dc_motor.c: 364:                 LATHbits.LATH3=1;
-[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"365
-[; ;dc_motor.c: 365:                 LATDbits.LATD7=1;
+[; ;dc_motor.c: 364:                 LATDbits.LATD7=1;
 [e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
-"366
-[; ;dc_motor.c: 366:                 _delay((unsigned long)((1000)*(64000000/4000.0)));
+"365
+[; ;dc_motor.c: 365:                 _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"366
+[; ;dc_motor.c: 366:                 LATHbits.LATH3=0;
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 "367
-[; ;dc_motor.c: 367:                 LATHbits.LATH3=1;
-[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"368
-[; ;dc_motor.c: 368:                 LATDbits.LATD7=0;
+[; ;dc_motor.c: 367:                 LATDbits.LATD7=0;
 [e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
-"369
-[; ;dc_motor.c: 369:             }
+"368
+[; ;dc_motor.c: 368:             }
 }
 [e :U 2076 ]
-"370
-[; ;dc_motor.c: 370:             if (!PORTFbits.RF3){
+"369
+[; ;dc_motor.c: 369:             if (!PORTFbits.RF3){
 [e $ ! ! != -> . . _PORTFbits 0 3 `i -> 0 `i 2077  ]
 {
-"371
-[; ;dc_motor.c: 371:                 Turn45Delay+=10;
+"370
+[; ;dc_motor.c: 370:                 Turn45Delay+=10;
 [e =+ _Turn45Delay -> 10 `i ]
-"372
-[; ;dc_motor.c: 372:                 LATHbits.LATH3=1;
+"371
+[; ;dc_motor.c: 371:                 LATHbits.LATH3=1;
 [e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"373
-[; ;dc_motor.c: 373:                 _delay((unsigned long)((1000)*(64000000/4000.0)));
+"372
+[; ;dc_motor.c: 372:                 _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"374
-[; ;dc_motor.c: 374:                 LATHbits.LATH3=0;
+"373
+[; ;dc_motor.c: 373:                 LATHbits.LATH3=0;
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"375
-[; ;dc_motor.c: 375:             }
+"374
+[; ;dc_motor.c: 374:             }
 }
 [e $U 2078  ]
-"377
-[; ;dc_motor.c: 377:             else if (!PORTFbits.RF2){
+"376
+[; ;dc_motor.c: 376:             else if (!PORTFbits.RF2){
 [e :U 2077 ]
 [e $ ! ! != -> . . _PORTFbits 0 2 `i -> 0 `i 2079  ]
 {
-"378
-[; ;dc_motor.c: 378:                 Turn45Delay-=10;
+"377
+[; ;dc_motor.c: 377:                 Turn45Delay-=10;
 [e =- _Turn45Delay -> 10 `i ]
-"379
-[; ;dc_motor.c: 379:                 LATDbits.LATD7=1;
+"378
+[; ;dc_motor.c: 378:                 LATDbits.LATD7=1;
 [e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
-"380
-[; ;dc_motor.c: 380:                 _delay((unsigned long)((1000)*(64000000/4000.0)));
+"379
+[; ;dc_motor.c: 379:                 _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"381
-[; ;dc_motor.c: 381:                 LATDbits.LATD7=0;
+"380
+[; ;dc_motor.c: 380:                 LATDbits.LATD7=0;
 [e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
-"382
-[; ;dc_motor.c: 382:             }
+"381
+[; ;dc_motor.c: 381:             }
 }
 [e :U 2079 ]
 [e :U 2078 ]
-"383
-[; ;dc_motor.c: 383:         }
+"382
+[; ;dc_motor.c: 382:         }
 }
 [e :U 2073 ]
-"358
-[; ;dc_motor.c: 358:         while (!(!PORTFbits.RF2 || !PORTFbits.RF3)){
+"357
+[; ;dc_motor.c: 357:         while (!(!PORTFbits.RF2 || !PORTFbits.RF3)){
 [e $ ! || ! != -> . . _PORTFbits 0 2 `i -> 0 `i ! != -> . . _PORTFbits 0 3 `i -> 0 `i 2074  ]
 [e :U 2075 ]
+"383
+[; ;dc_motor.c: 383:         LATDbits.LATD4=0;
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
 "384
 [; ;dc_motor.c: 384:         _delay((unsigned long)((2000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
@@ -3365,11 +3380,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 385:     }
 }
 [e :U 2070 ]
-"350
-[; ;dc_motor.c: 350:     while (!(!PORTFbits.RF2 & !PORTFbits.RF3)){
+"349
+[; ;dc_motor.c: 349:     while (!(!PORTFbits.RF2 & !PORTFbits.RF3)){
 [e $ ! & ! != -> . . _PORTFbits 0 2 `i -> 0 `i ! != -> . . _PORTFbits 0 3 `i -> 0 `i 2071  ]
 [e :U 2072 ]
 "386
-[; ;dc_motor.c: 386: }
+[; ;dc_motor.c: 386:     LATDbits.LATD3=0;
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+"387
+[; ;dc_motor.c: 387:     _delay((unsigned long)((2000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"388
+[; ;dc_motor.c: 388: }
 [e :UE 2069 ]
 }

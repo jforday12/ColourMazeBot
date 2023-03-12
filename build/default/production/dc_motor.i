@@ -24418,12 +24418,12 @@ void setMotorPWM(struct DC_motor *m)
 
     if (m->direction) {
 
-        *(m->posDutyHighByte)=posDuty;
-        *(m->negDutyHighByte)=negDuty;
-
-    } else {
         *(m->posDutyHighByte)=negDuty;
         *(m->negDutyHighByte)=posDuty;
+
+    } else {
+        *(m->posDutyHighByte)=posDuty;
+        *(m->negDutyHighByte)=negDuty;
     }
 }
 
@@ -24681,10 +24681,9 @@ void ReversePink(struct DC_motor *mL,struct DC_motor *mR){
 }
 
 void turnCalibration (struct DC_motor *mL,struct DC_motor *mR){
-    LATDbits.LATD3=1;
+    LATFbits.LATF0=1;
     _delay((unsigned long)((1000)*(64000000/4000.0)));
-    LATDbits.LATD3=0;
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
+
     while (!(!PORTFbits.RF2 & !PORTFbits.RF3)){
         LATDbits.LATD3=1;
 
@@ -24696,13 +24695,13 @@ void turnCalibration (struct DC_motor *mL,struct DC_motor *mR){
         while (!(!PORTFbits.RF2 || !PORTFbits.RF3)){
 
 
-
+              LATDbits.LATD4=1;
             _delay((unsigned long)((2000)*(64000000/4000.0)));
             if(!PORTFbits.RF3 & !PORTFbits.RF2){
                 LATHbits.LATH3=1;
                 LATDbits.LATD7=1;
                 _delay((unsigned long)((1000)*(64000000/4000.0)));
-                LATHbits.LATH3=1;
+                LATHbits.LATH3=0;
                 LATDbits.LATD7=0;
             }
             if (!PORTFbits.RF3){
@@ -24719,6 +24718,9 @@ void turnCalibration (struct DC_motor *mL,struct DC_motor *mR){
                 LATDbits.LATD7=0;
             }
         }
+        LATDbits.LATD4=0;
         _delay((unsigned long)((2000)*(64000000/4000.0)));
     }
+    LATDbits.LATD3=0;
+    _delay((unsigned long)((2000)*(64000000/4000.0)));
 }

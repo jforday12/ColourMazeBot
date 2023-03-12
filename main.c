@@ -56,15 +56,15 @@ void main(void) {
     TRISHbits.TRISH3=0; //set TRIS value for pin (output)
     
     //right signal lights RH0
-    LATHbits.LATH0=1;   //set initial output state for led 1 
+    LATHbits.LATH0=0;   //set initial output state for led 1 
     TRISHbits.TRISH0=0; //set TRIS value for pin (output)
     
     //left signal lights RF0
-    LATFbits.LATF0=1;   //set initial output state for led 1 
+    LATFbits.LATF0=0;   //set initial output state for led 1 
     TRISFbits.TRISF0=0; //set TRIS value for pin (output)
     
     // break light RD4
-    LATDbits.LATD4=1;   //set initial output state for led 1 
+    LATDbits.LATD4=0;   //set initial output state for led 1 
     TRISDbits.TRISD4=0; //set TRIS value for pin (output)
     
     //beam light RD3
@@ -93,6 +93,10 @@ void main(void) {
     move_count=-1;
     
     turnCalibration(&motorL,&motorR);
+    
+    LATFbits.LATF0=0;  // turn off left signal
+    __delay_ms(1000);
+    
     while (RF2_button); // PORTFbits.RF2
     
     __delay_ms(1000);

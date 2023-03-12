@@ -24628,15 +24628,15 @@ void main(void) {
     TRISHbits.TRISH3=0;
 
 
-    LATHbits.LATH0=1;
+    LATHbits.LATH0=0;
     TRISHbits.TRISH0=0;
 
 
-    LATFbits.LATF0=1;
+    LATFbits.LATF0=0;
     TRISFbits.TRISF0=0;
 
 
-    LATDbits.LATD4=1;
+    LATDbits.LATD4=0;
     TRISDbits.TRISD4=0;
 
 
@@ -24665,6 +24665,10 @@ void main(void) {
     move_count=-1;
 
     turnCalibration(&motorL,&motorR);
+
+    LATFbits.LATF0=0;
+    _delay((unsigned long)((1000)*(64000000/4000.0)));
+
     while (!PORTFbits.RF2);
 
     _delay((unsigned long)((1000)*(64000000/4000.0)));
