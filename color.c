@@ -169,14 +169,9 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
     // if the hue is between the found ranges of white, yellow or blue 
     else if ((18<=Hue)&(Hue<=25)){
         // check if the relative values lie in the white range if it does then its white
-        if ((rel->R<=0.26)&&(rel->B>0.10)){
+        if ((rel->R<=0.26)&&(rel->B>0.10)&&(vals->L>1000)){
             return 0;//white
         }
-        // otherwise if the absolute value of red is greater than 2000 then its yellow. this value was found through testing
-
-//        else if(0.14<=rel->B){
-//            return 4; //blue
-//            }
         else if ((rel->R>=0.26)&&(rel->B<0.10)){
             return 3; // yellow
         }
@@ -187,15 +182,9 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
     }
         // if the hue is between the found ranges of light blue return light blue 
     else if ((85<=Hue)&(Hue<=160)){
-//        if(0.15<=rel->B){
-            return 4; //blue
-//        }
+        return 4; //blue
     }
-        //else {
-//             return 6; // light blue
-//        }
-       
-//    } 
+
     // if the hue is between the found ranges of green return green 
     else if ((60<=Hue)&(Hue<=77)){
         if ((0.12<=rel->B)&(0.21>rel->G)){
@@ -209,17 +198,8 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
         }
         
     }
-      
     // if the hue is between the found ranges of white or pink 
     else if ((12<=Hue)&(Hue<=17)){
-        // check if the relative values lie in the white range if it does then its white 
-//        if ((0.20<=rel->R)&(rel->R<=0.25)){
-//            return 0;//white
-//        }
-//        else if (0.15<=rel->B){
-//            return 4; //blue
-//        }else{
-        // otherwise it must be pink
             return 7; // pink
           }
     //}

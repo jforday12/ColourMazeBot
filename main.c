@@ -100,7 +100,7 @@ void main(void) {
     while (run_flag)
     {
         consecuitive=0;
-        lost_count=0;
+        
         fullSpeedAhead(&motorL,&motorR);
         // read the colours and store it in the struct vals
         readColours(&vals);
@@ -109,17 +109,16 @@ void main(void) {
         colour_rel(&vals, &rel);
 
         // if the clear value is greater than 2500 (value obtained from lowest clear value card which was blue) then it has hit a wall so detect what colour it sees
-        if (vals.L>=500){
+        if (vals.L>=350){
             move_count++; // increment index of move and timer arrays
             getTMR0val(); // place time moving forward in time array
             
             Forwardhalfblock(&motorL,&motorR);
             // stop the buggy
             stop(&motorL, &motorR);
- //            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour=%d \r\n",rel.R, rel.G,rel.B,vals.L,colour);
+//            int colour= Colour_decider(&vals, &rel);
+//            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour=%d \r\n",rel.R, rel.G,rel.B,vals.L,colour);
 //            sendStringSerial4(buf);
-            
-            //__delay_ms(2000);
         
             while (consecuitive<20){
                 __delay_ms(100);
@@ -133,8 +132,6 @@ void main(void) {
                     consecuitive=0;
                 }
                 prev_colour=colour;
-                //RetryMove(&motorL, &motorR);
-//                __delay_ms(50);
             }
             //int temp=TMR0L;
             //sprintf(buf,"red=%d green=%d blue=%d colour=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
@@ -147,45 +144,60 @@ void main(void) {
                 TMR0H=0; // reset timer values
                 TMR0L=0;
                 WayBack[move_count]=1;
+                lost_count=0;
             }
             else if(prev_colour==2){ //orange
                 OrangeMove(&motorL, &motorR);
                 TMR0H=0; // reset timer values
                 TMR0L=0;
                 WayBack[move_count]=2;
+                lost_count=0;
             }
             else if(prev_colour==3){ //yellow
                 YellowMove(&motorL, &motorR);
                 TMR0H=0; // reset timer values
                 TMR0L=0;
                 WayBack[move_count]=3;
+                lost_count=0;
             }
             else if(prev_colour==4){ //blue
                 BlueMove(&motorL, &motorR);
                 TMR0H=0; // reset timer values
                 TMR0L=0;
                 WayBack[move_count]=4;
+                lost_count=0;
             }
             else if(prev_colour==5){ //green
                 GreenMove(&motorL, &motorR);
                 TMR0H=0; // reset timer values
                 TMR0L=0;
                 WayBack[move_count]=5;
+                lost_count=0;
             }
             else if(prev_colour==6){ //light blue
                 LightBlueMove(&motorL, &motorR);
                 TMR0H=0; // reset timer values
                 TMR0L=0;
                 WayBack[move_count]=6;
+                lost_count=0;
             }
             else if(prev_colour==7){ //pink
                 PinkMove(&motorL, &motorR);
                 TMR0H=0; // reset timer values
                 TMR0L=0;
                 WayBack[move_count]=7;
+                lost_count=0;
             }
             else if (prev_colour==10){// undecided colour
-                RetryMove(&motorL, &motorR);
+                lost_count++;
+                if (lost_count>=3){
+                    go_Home(WayBack, Time_forward);
+                }
+                else{
+                    RetryMove(&motorL, &motorR);
+                    TMR0H=0; // reset timer values
+                    TMR0L=0;
+                }
             }
             else if (prev_colour==0){
                 go_Home(WayBack, Time_forward);

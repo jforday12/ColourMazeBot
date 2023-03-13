@@ -887,15 +887,17 @@
 "30
 [v _main main `(v  1 e 1 0 ]
 {
-"128
+"127
 [v main@colour colour `i  1 a 2 102 ]
 "37
 [v main@buf buf `[100]uc  1 a 100 0 ]
 "88
-[v main@prev_colour prev_colour `i  1 a 2 104 ]
+[v main@prev_colour prev_colour `i  1 a 2 106 ]
+"91
+[v main@lost_count lost_count `i  1 a 2 104 ]
 "87
 [v main@consecuitive consecuitive `i  1 a 2 100 ]
-"200
+"212
 } 0
 "356 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\dc_motor.c
 [v _turnCalibration turnCalibration `(v  1 e 1 0 ]
@@ -1558,7 +1560,7 @@
 [v Colour_decider@vals vals `*.39S307  1 p 2 74 ]
 [s S312 RGB_rel 12 `f 1 R 4 0 `f 1 G 4 4 `f 1 B 4 8 ]
 [v Colour_decider@rel rel `*.39S312  1 p 2 76 ]
-"239
+"219
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]

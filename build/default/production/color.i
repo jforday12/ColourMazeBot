@@ -24529,14 +24529,9 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
 
     else if ((18<=Hue)&(Hue<=25)){
 
-        if ((rel->R<=0.26)&&(rel->B>0.10)){
+        if ((rel->R<=0.26)&&(rel->B>0.10)&&(vals->L>1000)){
             return 0;
         }
-
-
-
-
-
         else if ((rel->R>=0.26)&&(rel->B<0.10)){
             return 3;
         }
@@ -24547,14 +24542,8 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
     }
 
     else if ((85<=Hue)&(Hue<=160)){
-
-            return 4;
-
+        return 4;
     }
-
-
-
-
 
 
     else if ((60<=Hue)&(Hue<=77)){
@@ -24570,9 +24559,7 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
 
     }
 
-
     else if ((12<=Hue)&(Hue<=17)){
-# 223 "color.c"
             return 7;
           }
 

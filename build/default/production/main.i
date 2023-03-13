@@ -24659,7 +24659,7 @@ void main(void) {
     while (run_flag)
     {
         consecuitive=0;
-        lost_count=0;
+
         fullSpeedAhead(&motorL,&motorR);
 
         readColours(&vals);
@@ -24668,14 +24668,13 @@ void main(void) {
         colour_rel(&vals, &rel);
 
 
-        if (vals.L>=500){
+        if (vals.L>=350){
             move_count++;
             getTMR0val();
 
             Forwardhalfblock(&motorL,&motorR);
 
             stop(&motorL, &motorR);
-
 
 
 
@@ -24692,8 +24691,6 @@ void main(void) {
                     consecuitive=0;
                 }
                 prev_colour=colour;
-
-
             }
 
 
@@ -24706,45 +24703,60 @@ void main(void) {
                 TMR0H=0;
                 TMR0L=0;
                 WayBack[move_count]=1;
+                lost_count=0;
             }
             else if(prev_colour==2){
                 OrangeMove(&motorL, &motorR);
                 TMR0H=0;
                 TMR0L=0;
                 WayBack[move_count]=2;
+                lost_count=0;
             }
             else if(prev_colour==3){
                 YellowMove(&motorL, &motorR);
                 TMR0H=0;
                 TMR0L=0;
                 WayBack[move_count]=3;
+                lost_count=0;
             }
             else if(prev_colour==4){
                 BlueMove(&motorL, &motorR);
                 TMR0H=0;
                 TMR0L=0;
                 WayBack[move_count]=4;
+                lost_count=0;
             }
             else if(prev_colour==5){
                 GreenMove(&motorL, &motorR);
                 TMR0H=0;
                 TMR0L=0;
                 WayBack[move_count]=5;
+                lost_count=0;
             }
             else if(prev_colour==6){
                 LightBlueMove(&motorL, &motorR);
                 TMR0H=0;
                 TMR0L=0;
                 WayBack[move_count]=6;
+                lost_count=0;
             }
             else if(prev_colour==7){
                 PinkMove(&motorL, &motorR);
                 TMR0H=0;
                 TMR0L=0;
                 WayBack[move_count]=7;
+                lost_count=0;
             }
             else if (prev_colour==10){
-                RetryMove(&motorL, &motorR);
+                lost_count++;
+                if (lost_count>=3){
+                    go_Home(WayBack, Time_forward);
+                }
+                else{
+                    RetryMove(&motorL, &motorR);
+                    TMR0H=0;
+                    TMR0L=0;
+                }
             }
             else if (prev_colour==0){
                 go_Home(WayBack, Time_forward);

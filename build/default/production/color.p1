@@ -2611,8 +2611,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! & <= -> -> 18 `i `f _Hue <= _Hue -> -> 25 `i `f 2042  ]
 {
 "172
-[; ;color.c: 172:         if ((rel->R<=0.26)&&(rel->B>0.10)){
-[e $ ! && <= -> . *U _rel 0 `d .0.26 > -> . *U _rel 2 `d .0.10 2043  ]
+[; ;color.c: 172:         if ((rel->R<=0.26)&&(rel->B>0.10)&&(vals->L>1000)){
+[e $ ! && && <= -> . *U _rel 0 `d .0.26 > -> . *U _rel 2 `d .0.10 > . *U _vals 3 -> 1000 `i 2043  ]
 {
 "173
 [; ;color.c: 173:             return 0;
@@ -2622,132 +2622,132 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;color.c: 174:         }
 }
 [e $U 2044  ]
-"180
-[; ;color.c: 180:         else if ((rel->R>=0.26)&&(rel->B<0.10)){
+"175
+[; ;color.c: 175:         else if ((rel->R>=0.26)&&(rel->B<0.10)){
 [e :U 2043 ]
 [e $ ! && >= -> . *U _rel 0 `d .0.26 < -> . *U _rel 2 `d .0.10 2045  ]
 {
-"181
-[; ;color.c: 181:             return 3;
+"176
+[; ;color.c: 176:             return 3;
 [e ) -> 3 `i ]
 [e $UE 2026  ]
-"182
-[; ;color.c: 182:         }
+"177
+[; ;color.c: 177:         }
 }
 [e $U 2046  ]
-"183
-[; ;color.c: 183:         else{
+"178
+[; ;color.c: 178:         else{
 [e :U 2045 ]
 {
-"184
-[; ;color.c: 184:             return 10;
+"179
+[; ;color.c: 179:             return 10;
 [e ) -> 10 `i ]
 [e $UE 2026  ]
-"185
-[; ;color.c: 185:         }
+"180
+[; ;color.c: 180:         }
 }
 [e :U 2046 ]
 [e :U 2044 ]
-"187
-[; ;color.c: 187:     }
+"182
+[; ;color.c: 182:     }
 }
 [e $U 2047  ]
-"189
-[; ;color.c: 189:     else if ((85<=Hue)&(Hue<=160)){
+"184
+[; ;color.c: 184:     else if ((85<=Hue)&(Hue<=160)){
 [e :U 2042 ]
 [e $ ! & <= -> -> 85 `i `f _Hue <= _Hue -> -> 160 `i `f 2048  ]
 {
-"191
-[; ;color.c: 191:             return 4;
+"185
+[; ;color.c: 185:         return 4;
 [e ) -> 4 `i ]
 [e $UE 2026  ]
-"193
-[; ;color.c: 193:     }
+"186
+[; ;color.c: 186:     }
 }
 [e $U 2049  ]
-"200
-[; ;color.c: 200:     else if ((60<=Hue)&(Hue<=77)){
+"189
+[; ;color.c: 189:     else if ((60<=Hue)&(Hue<=77)){
 [e :U 2048 ]
 [e $ ! & <= -> -> 60 `i `f _Hue <= _Hue -> -> 77 `i `f 2050  ]
 {
-"201
-[; ;color.c: 201:         if ((0.12<=rel->B)&(0.21>rel->G)){
+"190
+[; ;color.c: 190:         if ((0.12<=rel->B)&(0.21>rel->G)){
 [e $ ! & <= .0.12 -> . *U _rel 2 `d > .0.21 -> . *U _rel 1 `d 2051  ]
 {
-"202
-[; ;color.c: 202:             return 6;
+"191
+[; ;color.c: 191:             return 6;
 [e ) -> 6 `i ]
 [e $UE 2026  ]
-"203
-[; ;color.c: 203:         }
+"192
+[; ;color.c: 192:         }
 }
 [e $U 2052  ]
-"204
-[; ;color.c: 204:         else if ((0.12>rel->B)&(0.21<rel->G)){
+"193
+[; ;color.c: 193:         else if ((0.12>rel->B)&(0.21<rel->G)){
 [e :U 2051 ]
 [e $ ! & > .0.12 -> . *U _rel 2 `d < .0.21 -> . *U _rel 1 `d 2053  ]
 {
-"205
-[; ;color.c: 205:             return 5;
+"194
+[; ;color.c: 194:             return 5;
 [e ) -> 5 `i ]
 [e $UE 2026  ]
-"206
-[; ;color.c: 206:         }
+"195
+[; ;color.c: 195:         }
 }
 [e $U 2054  ]
-"207
-[; ;color.c: 207:         else{
+"196
+[; ;color.c: 196:         else{
 [e :U 2053 ]
 {
-"208
-[; ;color.c: 208:             return 10;
+"197
+[; ;color.c: 197:             return 10;
 [e ) -> 10 `i ]
 [e $UE 2026  ]
-"209
-[; ;color.c: 209:         }
+"198
+[; ;color.c: 198:         }
 }
 [e :U 2054 ]
 [e :U 2052 ]
-"211
-[; ;color.c: 211:     }
+"200
+[; ;color.c: 200:     }
 }
 [e $U 2055  ]
-"214
-[; ;color.c: 214:     else if ((12<=Hue)&(Hue<=17)){
+"202
+[; ;color.c: 202:     else if ((12<=Hue)&(Hue<=17)){
 [e :U 2050 ]
 [e $ ! & <= -> -> 12 `i `f _Hue <= _Hue -> -> 17 `i `f 2056  ]
 {
-"223
-[; ;color.c: 223:             return 7;
+"203
+[; ;color.c: 203:             return 7;
 [e ) -> 7 `i ]
 [e $UE 2026  ]
-"224
-[; ;color.c: 224:           }
+"204
+[; ;color.c: 204:           }
 }
 [e $U 2057  ]
-"226
-[; ;color.c: 226:     else if ((22<=Hue)&(Hue<=24)){
+"206
+[; ;color.c: 206:     else if ((22<=Hue)&(Hue<=24)){
 [e :U 2056 ]
 [e $ ! & <= -> -> 22 `i `f _Hue <= _Hue -> -> 24 `i `f 2058  ]
 {
-"227
-[; ;color.c: 227:         return 0;
+"207
+[; ;color.c: 207:         return 0;
 [e ) -> 0 `i ]
 [e $UE 2026  ]
-"228
-[; ;color.c: 228:     }
+"208
+[; ;color.c: 208:     }
 }
 [e $U 2059  ]
-"229
-[; ;color.c: 229:     else{
+"209
+[; ;color.c: 209:     else{
 [e :U 2058 ]
 {
-"230
-[; ;color.c: 230:         return 10;
+"210
+[; ;color.c: 210:         return 10;
 [e ) -> 10 `i ]
 [e $UE 2026  ]
-"231
-[; ;color.c: 231:     }
+"211
+[; ;color.c: 211:     }
 }
 [e :U 2059 ]
 [e :U 2057 ]
@@ -2756,7 +2756,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2047 ]
 [e :U 2041 ]
 [e :U 2039 ]
-"239
-[; ;color.c: 239: }
+"219
+[; ;color.c: 219: }
 [e :UE 2026 ]
 }
