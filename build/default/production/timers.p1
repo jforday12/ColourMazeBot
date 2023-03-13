@@ -2036,6 +2036,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19
 [; ;./Memory.h: 19: int Time_forward[50];
 [v _Time_forward `i ~T0 @X0 -> 50 `i e ]
+"21
+[; ;./Memory.h: 21: int run_flag;
+[v _run_flag `i ~T0 @X0 1 e ]
 "8 timers.c
 [; ;timers.c: 8: void Timer0_init(void)
 [v _Timer0_init `(v ~T0 @X0 1 ef ]

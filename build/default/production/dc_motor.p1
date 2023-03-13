@@ -2300,24 +2300,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40927
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 40927: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"17 ./dc_motor.h
-[; ;./dc_motor.h: 17: struct DC_motor motorL, motorR;
+"18 ./dc_motor.h
+[; ;./dc_motor.h: 18: struct DC_motor motorL, motorR;
 [v _motorL `S2015 ~T0 @X0 1 e ]
 [v _motorR `S2015 ~T0 @X0 1 e ]
-"19
-[; ;./dc_motor.h: 19: int power = 30;
+"20
+[; ;./dc_motor.h: 20: int power = 30;
 [v _power `i ~T0 @X0 1 e ]
 [i _power
 -> 30 `i
 ]
-"20
-[; ;./dc_motor.h: 20: int Turn45Delay = 220;
+"21
+[; ;./dc_motor.h: 21: int Turn45Delay = 220;
 [v _Turn45Delay `i ~T0 @X0 1 e ]
 [i _Turn45Delay
 -> 220 `i
 ]
-"21
-[; ;./dc_motor.h: 21: int RunOneBlockTime = 2000;
+"22
+[; ;./dc_motor.h: 22: int RunOneBlockTime = 2000;
 [v _RunOneBlockTime `i ~T0 @X0 1 e ]
 [i _RunOneBlockTime
 -> 2000 `i
@@ -3189,50 +3189,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [f ]
 "326
-[; ;dc_motor.c: 326:     fullSpeedBack(mL,mR);
-[e ( _fullSpeedBack (2 , _mL _mR ]
+[; ;dc_motor.c: 326:     reverseDetect(&motorL, &motorR);
+[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
 "327
-[; ;dc_motor.c: 327:     _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 327:     stop(&motorL, &motorR);
+[e ( _stop (2 , &U _motorL &U _motorR ]
 "328
-[; ;dc_motor.c: 328:     stop(&motorL, &motorR);
-[e ( _stop (2 , &U _motorL &U _motorR ]
-"329
-[; ;dc_motor.c: 329:     fullSpeedAhead(mL,mR);
+[; ;dc_motor.c: 328:     fullSpeedAhead(mL,mR);
 [e ( _fullSpeedAhead (2 , _mL _mR ]
-"330
-[; ;dc_motor.c: 330:     _delay((unsigned long)((500)*(64000000/4000.0)));
+"329
+[; ;dc_motor.c: 329:     _delay((unsigned long)((500)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"331
-[; ;dc_motor.c: 331:     stop(&motorL, &motorR);
+"330
+[; ;dc_motor.c: 330:     stop(&motorL, &motorR);
 [e ( _stop (2 , &U _motorL &U _motorR ]
-"332
-[; ;dc_motor.c: 332: }
+"331
+[; ;dc_motor.c: 331: }
 [e :UE 2066 ]
 }
-"334
-[; ;dc_motor.c: 334: void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR){
+"333
+[; ;dc_motor.c: 333: void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR){
 [v _ReverseYellow `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
 {
 [e :U _ReverseYellow ]
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [f ]
-"335
-[; ;dc_motor.c: 335:     reverseDetect(&motorL, &motorR);
+"334
+[; ;dc_motor.c: 334:     reverseDetect(&motorL, &motorR);
 [e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+"335
+[; ;dc_motor.c: 335:     turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
 "336
 [; ;dc_motor.c: 336:     turnRight45(&motorL, &motorR);
 [e ( _turnRight45 (2 , &U _motorL &U _motorR ]
 "337
-[; ;dc_motor.c: 337:     turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"338
-[; ;dc_motor.c: 338:     ForwardOneBlock(&motorL, &motorR);
+[; ;dc_motor.c: 337:     ForwardOneBlock(&motorL, &motorR);
 [e ( _ForwardOneBlock (2 , &U _motorL &U _motorR ]
-"339
-[; ;dc_motor.c: 339:     reverseDetect(&motorL, &motorR);
+"338
+[; ;dc_motor.c: 338:     reverseDetect(&motorL, &motorR);
 [e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+"339
+[; ;dc_motor.c: 339:     turnRight45(&motorL, &motorR);
+[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
 "340
 [; ;dc_motor.c: 340:     turnRight45(&motorL, &motorR);
 [e ( _turnRight45 (2 , &U _motorL &U _motorR ]
@@ -3243,35 +3243,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 342:     turnRight45(&motorL, &motorR);
 [e ( _turnRight45 (2 , &U _motorL &U _motorR ]
 "343
-[; ;dc_motor.c: 343:     turnRight45(&motorL, &motorR);
-[e ( _turnRight45 (2 , &U _motorL &U _motorR ]
-"344
-[; ;dc_motor.c: 344: }
+[; ;dc_motor.c: 343: }
 [e :UE 2067 ]
 }
-"345
-[; ;dc_motor.c: 345: void ReversePink(struct DC_motor *mL,struct DC_motor *mR){
+"344
+[; ;dc_motor.c: 344: void ReversePink(struct DC_motor *mL,struct DC_motor *mR){
 [v _ReversePink `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
 {
 [e :U _ReversePink ]
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [f ]
-"346
-[; ;dc_motor.c: 346:     reverseDetect(&motorL, &motorR);
+"345
+[; ;dc_motor.c: 345:     reverseDetect(&motorL, &motorR);
 [e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+"346
+[; ;dc_motor.c: 346:     turnLeft45(&motorL, &motorR);
+[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
 "347
 [; ;dc_motor.c: 347:     turnLeft45(&motorL, &motorR);
 [e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
 "348
-[; ;dc_motor.c: 348:     turnLeft45(&motorL, &motorR);
-[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
-"349
-[; ;dc_motor.c: 349:     ForwardOneBlock(&motorL, &motorR);
+[; ;dc_motor.c: 348:     ForwardOneBlock(&motorL, &motorR);
 [e ( _ForwardOneBlock (2 , &U _motorL &U _motorR ]
-"350
-[; ;dc_motor.c: 350:     reverseDetect(&motorL, &motorR);
+"349
+[; ;dc_motor.c: 349:     reverseDetect(&motorL, &motorR);
 [e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+"350
+[; ;dc_motor.c: 350:     turnLeft45(&motorL, &motorR);
+[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
 "351
 [; ;dc_motor.c: 351:     turnLeft45(&motorL, &motorR);
 [e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
@@ -3282,34 +3282,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 353:     turnLeft45(&motorL, &motorR);
 [e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
 "354
-[; ;dc_motor.c: 354:     turnLeft45(&motorL, &motorR);
-[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
-"355
-[; ;dc_motor.c: 355: }
+[; ;dc_motor.c: 354: }
 [e :UE 2068 ]
 }
-"357
-[; ;dc_motor.c: 357: void turnCalibration (struct DC_motor *mL,struct DC_motor *mR){
+"356
+[; ;dc_motor.c: 356: void turnCalibration (struct DC_motor *mL,struct DC_motor *mR){
 [v _turnCalibration `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
 {
 [e :U _turnCalibration ]
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [f ]
-"358
-[; ;dc_motor.c: 358:     LATFbits.LATF0=1;
+"357
+[; ;dc_motor.c: 357:     LATFbits.LATF0=1;
 [e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
-"359
-[; ;dc_motor.c: 359:     _delay((unsigned long)((1000)*(64000000/4000.0)));
+"358
+[; ;dc_motor.c: 358:     _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"361
-[; ;dc_motor.c: 361:     while (!(!PORTFbits.RF2 & !PORTFbits.RF3)){
+"360
+[; ;dc_motor.c: 360:     while (!(!PORTFbits.RF2 & !PORTFbits.RF3)){
 [e $U 2070  ]
 [e :U 2071 ]
 {
-"362
-[; ;dc_motor.c: 362:         LATDbits.LATD3=1;
+"361
+[; ;dc_motor.c: 361:         LATDbits.LATD3=1;
 [e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+"363
+[; ;dc_motor.c: 363:         turnLeft45(&motorL, &motorR);
+[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
 "364
 [; ;dc_motor.c: 364:         turnLeft45(&motorL, &motorR);
 [e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
@@ -3319,116 +3319,113 @@ Version 4.0 HI-TECH Software Intermediate Code
 "366
 [; ;dc_motor.c: 366:         turnLeft45(&motorL, &motorR);
 [e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
-"367
-[; ;dc_motor.c: 367:         turnLeft45(&motorL, &motorR);
-[e ( _turnLeft45 (2 , &U _motorL &U _motorR ]
-"369
-[; ;dc_motor.c: 369:         while (!(!PORTFbits.RF2 || !PORTFbits.RF3)){
+"368
+[; ;dc_motor.c: 368:         while (!(!PORTFbits.RF2 || !PORTFbits.RF3)){
 [e $U 2073  ]
 [e :U 2074 ]
 {
-"372
-[; ;dc_motor.c: 372:               LATDbits.LATD4=1;
+"371
+[; ;dc_motor.c: 371:               LATDbits.LATD4=1;
 [e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-"373
-[; ;dc_motor.c: 373:             _delay((unsigned long)((2000)*(64000000/4000.0)));
+"372
+[; ;dc_motor.c: 372:             _delay((unsigned long)((2000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"374
-[; ;dc_motor.c: 374:             if(!PORTFbits.RF3 & !PORTFbits.RF2){
+"373
+[; ;dc_motor.c: 373:             if(!PORTFbits.RF3 & !PORTFbits.RF2){
 [e $ ! & ! != -> . . _PORTFbits 0 3 `i -> 0 `i ! != -> . . _PORTFbits 0 2 `i -> 0 `i 2076  ]
 {
-"375
-[; ;dc_motor.c: 375:                 LATHbits.LATH3=1;
+"374
+[; ;dc_motor.c: 374:                 LATHbits.LATH3=1;
 [e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"376
-[; ;dc_motor.c: 376:                 LATDbits.LATD7=1;
+"375
+[; ;dc_motor.c: 375:                 LATDbits.LATD7=1;
 [e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
-"377
-[; ;dc_motor.c: 377:                 _delay((unsigned long)((1000)*(64000000/4000.0)));
+"376
+[; ;dc_motor.c: 376:                 _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"378
-[; ;dc_motor.c: 378:                 LATHbits.LATH3=0;
+"377
+[; ;dc_motor.c: 377:                 LATHbits.LATH3=0;
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"379
-[; ;dc_motor.c: 379:                 LATDbits.LATD7=0;
+"378
+[; ;dc_motor.c: 378:                 LATDbits.LATD7=0;
 [e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
-"380
-[; ;dc_motor.c: 380:             }
+"379
+[; ;dc_motor.c: 379:             }
 }
 [e $U 2077  ]
-"382
-[; ;dc_motor.c: 382:             else if (!PORTFbits.RF3){
+"381
+[; ;dc_motor.c: 381:             else if (!PORTFbits.RF3){
 [e :U 2076 ]
 [e $ ! ! != -> . . _PORTFbits 0 3 `i -> 0 `i 2078  ]
 {
-"383
-[; ;dc_motor.c: 383:                 Turn45Delay+=10;
+"382
+[; ;dc_motor.c: 382:                 Turn45Delay+=10;
 [e =+ _Turn45Delay -> 10 `i ]
-"384
-[; ;dc_motor.c: 384:                 LATHbits.LATH3=1;
+"383
+[; ;dc_motor.c: 383:                 LATHbits.LATH3=1;
 [e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"385
-[; ;dc_motor.c: 385:                 _delay((unsigned long)((1000)*(64000000/4000.0)));
+"384
+[; ;dc_motor.c: 384:                 _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"386
-[; ;dc_motor.c: 386:                 LATHbits.LATH3=0;
+"385
+[; ;dc_motor.c: 385:                 LATHbits.LATH3=0;
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"387
-[; ;dc_motor.c: 387:             }
+"386
+[; ;dc_motor.c: 386:             }
 }
 [e $U 2079  ]
-"389
-[; ;dc_motor.c: 389:             else if (!PORTFbits.RF2){
+"388
+[; ;dc_motor.c: 388:             else if (!PORTFbits.RF2){
 [e :U 2078 ]
 [e $ ! ! != -> . . _PORTFbits 0 2 `i -> 0 `i 2080  ]
 {
-"390
-[; ;dc_motor.c: 390:                 Turn45Delay-=10;
+"389
+[; ;dc_motor.c: 389:                 Turn45Delay-=10;
 [e =- _Turn45Delay -> 10 `i ]
-"391
-[; ;dc_motor.c: 391:                 LATDbits.LATD7=1;
+"390
+[; ;dc_motor.c: 390:                 LATDbits.LATD7=1;
 [e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
-"392
-[; ;dc_motor.c: 392:                 _delay((unsigned long)((1000)*(64000000/4000.0)));
+"391
+[; ;dc_motor.c: 391:                 _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"393
-[; ;dc_motor.c: 393:                 LATDbits.LATD7=0;
+"392
+[; ;dc_motor.c: 392:                 LATDbits.LATD7=0;
 [e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
-"394
-[; ;dc_motor.c: 394:             }
+"393
+[; ;dc_motor.c: 393:             }
 }
 [e :U 2080 ]
 [e :U 2079 ]
 [e :U 2077 ]
-"395
-[; ;dc_motor.c: 395:         }
+"394
+[; ;dc_motor.c: 394:         }
 }
 [e :U 2073 ]
-"369
-[; ;dc_motor.c: 369:         while (!(!PORTFbits.RF2 || !PORTFbits.RF3)){
+"368
+[; ;dc_motor.c: 368:         while (!(!PORTFbits.RF2 || !PORTFbits.RF3)){
 [e $ ! || ! != -> . . _PORTFbits 0 2 `i -> 0 `i ! != -> . . _PORTFbits 0 3 `i -> 0 `i 2074  ]
 [e :U 2075 ]
-"396
-[; ;dc_motor.c: 396:         LATDbits.LATD4=0;
+"395
+[; ;dc_motor.c: 395:         LATDbits.LATD4=0;
 [e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
-"397
-[; ;dc_motor.c: 397:         _delay((unsigned long)((2000)*(64000000/4000.0)));
+"396
+[; ;dc_motor.c: 396:         _delay((unsigned long)((2000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"398
-[; ;dc_motor.c: 398:     }
+"397
+[; ;dc_motor.c: 397:     }
 }
 [e :U 2070 ]
-"361
-[; ;dc_motor.c: 361:     while (!(!PORTFbits.RF2 & !PORTFbits.RF3)){
+"360
+[; ;dc_motor.c: 360:     while (!(!PORTFbits.RF2 & !PORTFbits.RF3)){
 [e $ ! & ! != -> . . _PORTFbits 0 2 `i -> 0 `i ! != -> . . _PORTFbits 0 3 `i -> 0 `i 2071  ]
 [e :U 2072 ]
-"399
-[; ;dc_motor.c: 399:     LATDbits.LATD3=0;
+"398
+[; ;dc_motor.c: 398:     LATDbits.LATD3=0;
 [e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
-"400
-[; ;dc_motor.c: 400:     _delay((unsigned long)((2000)*(64000000/4000.0)));
+"399
+[; ;dc_motor.c: 399:     _delay((unsigned long)((2000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"401
-[; ;dc_motor.c: 401: }
+"400
+[; ;dc_motor.c: 400: }
 [e :UE 2069 ]
 }

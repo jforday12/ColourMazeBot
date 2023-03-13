@@ -323,8 +323,7 @@ void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR){
 }
 
 void RetryMove(struct DC_motor *mL,struct DC_motor *mR){
-    fullSpeedBack(mL,mR);
-    __delay_ms(500); // reverse time period needs to be calibrated
+    reverseDetect(&motorL, &motorR); // reverse time period needs to be calibrated
     stop(&motorL, &motorR);
     fullSpeedAhead(mL,mR);
     __delay_ms(500); // reverse time period needs to be calibrated

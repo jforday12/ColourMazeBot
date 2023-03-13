@@ -24324,6 +24324,7 @@ struct DC_motor {
     unsigned char *negDutyHighByte;
 };
 
+
 struct DC_motor motorL, motorR;
 
 int power = 30;
@@ -24518,7 +24519,6 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
     }
 
 
-
     if ((330<=Hue)&(Hue<=360)){
         return 1;
     }
@@ -24527,7 +24527,7 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
         return 2;
     }
 
-    else if ((20<=Hue)&(Hue<=29)){
+    else if ((18<=Hue)&(Hue<=29)){
 
         if ((0.20<=rel->R)&(rel->R<=0.25)){
             return 0;
@@ -24543,7 +24543,7 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
 
     }
 
-    else if ((45<=Hue)&(Hue<=80)){
+    else if ((45<=Hue)&(Hue<=85)){
         if(0.15<=rel->B){
             return 4;
         }
@@ -24572,7 +24572,7 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
 
     else if ((14<=Hue)&(Hue<=19)){
 
-        if ((0.20<=rel->R)&(rel->R<=0.23)){
+        if ((0.20<=rel->R)&(rel->R<=0.25)){
             return 0;
         }
         else if (0.15<=rel->B){

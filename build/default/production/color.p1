@@ -2114,24 +2114,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40927
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 40927: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"17 ./dc_motor.h
-[; ;./dc_motor.h: 17: struct DC_motor motorL, motorR;
+"18 ./dc_motor.h
+[; ;./dc_motor.h: 18: struct DC_motor motorL, motorR;
 [v _motorL `S2017 ~T0 @X0 1 e ]
 [v _motorR `S2017 ~T0 @X0 1 e ]
-"19
-[; ;./dc_motor.h: 19: int power = 30;
+"20
+[; ;./dc_motor.h: 20: int power = 30;
 [v _power `i ~T0 @X0 1 e ]
 [i _power
 -> 30 `i
 ]
-"20
-[; ;./dc_motor.h: 20: int Turn45Delay = 220;
+"21
+[; ;./dc_motor.h: 21: int Turn45Delay = 220;
 [v _Turn45Delay `i ~T0 @X0 1 e ]
 [i _Turn45Delay
 -> 220 `i
 ]
-"21
-[; ;./dc_motor.h: 21: int RunOneBlockTime = 2000;
+"22
+[; ;./dc_motor.h: 22: int RunOneBlockTime = 2000;
 [v _RunOneBlockTime `i ~T0 @X0 1 e ]
 [i _RunOneBlockTime
 -> 2000 `i
@@ -2580,226 +2580,226 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2037 ]
 [e :U 2035 ]
-"163
-[; ;color.c: 163:     if ((330<=Hue)&(Hue<=360)){
+"162
+[; ;color.c: 162:     if ((330<=Hue)&(Hue<=360)){
 [e $ ! & <= -> -> 330 `i `f _Hue <= _Hue -> -> 360 `i `f 2038  ]
 {
-"164
-[; ;color.c: 164:         return 1;
+"163
+[; ;color.c: 163:         return 1;
 [e ) -> 1 `i ]
 [e $UE 2026  ]
-"165
-[; ;color.c: 165:     }
+"164
+[; ;color.c: 164:     }
 }
 [e $U 2039  ]
-"167
-[; ;color.c: 167:     else if ((5<=Hue)&(Hue<=12)){
+"166
+[; ;color.c: 166:     else if ((5<=Hue)&(Hue<=12)){
 [e :U 2038 ]
 [e $ ! & <= -> -> 5 `i `f _Hue <= _Hue -> -> 12 `i `f 2040  ]
 {
-"168
-[; ;color.c: 168:         return 2;
+"167
+[; ;color.c: 167:         return 2;
 [e ) -> 2 `i ]
 [e $UE 2026  ]
-"169
-[; ;color.c: 169:     }
+"168
+[; ;color.c: 168:     }
 }
 [e $U 2041  ]
-"171
-[; ;color.c: 171:     else if ((20<=Hue)&(Hue<=29)){
+"170
+[; ;color.c: 170:     else if ((18<=Hue)&(Hue<=29)){
 [e :U 2040 ]
-[e $ ! & <= -> -> 20 `i `f _Hue <= _Hue -> -> 29 `i `f 2042  ]
+[e $ ! & <= -> -> 18 `i `f _Hue <= _Hue -> -> 29 `i `f 2042  ]
 {
-"173
-[; ;color.c: 173:         if ((0.20<=rel->R)&(rel->R<=0.25)){
+"172
+[; ;color.c: 172:         if ((0.20<=rel->R)&(rel->R<=0.25)){
 [e $ ! & <= .0.20 -> . *U _rel 0 `d <= -> . *U _rel 0 `d .0.25 2043  ]
 {
-"174
-[; ;color.c: 174:             return 0;
+"173
+[; ;color.c: 173:             return 0;
 [e ) -> 0 `i ]
 [e $UE 2026  ]
-"175
-[; ;color.c: 175:         }
+"174
+[; ;color.c: 174:         }
 }
 [e $U 2044  ]
-"178
-[; ;color.c: 178:         else if(0.14<=rel->B){
+"177
+[; ;color.c: 177:         else if(0.14<=rel->B){
 [e :U 2043 ]
 [e $ ! <= .0.14 -> . *U _rel 2 `d 2045  ]
 {
-"179
-[; ;color.c: 179:             return 4;
+"178
+[; ;color.c: 178:             return 4;
 [e ) -> 4 `i ]
 [e $UE 2026  ]
-"180
-[; ;color.c: 180:             }
+"179
+[; ;color.c: 179:             }
 }
 [e $U 2046  ]
-"181
-[; ;color.c: 181:         else{
+"180
+[; ;color.c: 180:         else{
 [e :U 2045 ]
 {
-"182
-[; ;color.c: 182:             return 3;
+"181
+[; ;color.c: 181:             return 3;
 [e ) -> 3 `i ]
 [e $UE 2026  ]
-"183
-[; ;color.c: 183:         }
+"182
+[; ;color.c: 182:         }
 }
 [e :U 2046 ]
 [e :U 2044 ]
-"185
-[; ;color.c: 185:     }
+"184
+[; ;color.c: 184:     }
 }
 [e $U 2047  ]
-"187
-[; ;color.c: 187:     else if ((45<=Hue)&(Hue<=80)){
+"186
+[; ;color.c: 186:     else if ((45<=Hue)&(Hue<=85)){
 [e :U 2042 ]
-[e $ ! & <= -> -> 45 `i `f _Hue <= _Hue -> -> 80 `i `f 2048  ]
+[e $ ! & <= -> -> 45 `i `f _Hue <= _Hue -> -> 85 `i `f 2048  ]
 {
-"188
-[; ;color.c: 188:         if(0.15<=rel->B){
+"187
+[; ;color.c: 187:         if(0.15<=rel->B){
 [e $ ! <= .0.15 -> . *U _rel 2 `d 2049  ]
 {
-"189
-[; ;color.c: 189:             return 4;
+"188
+[; ;color.c: 188:             return 4;
 [e ) -> 4 `i ]
 [e $UE 2026  ]
-"190
-[; ;color.c: 190:         }
+"189
+[; ;color.c: 189:         }
 }
 [e $U 2050  ]
-"191
-[; ;color.c: 191:         else if (0.12<=rel->B){
+"190
+[; ;color.c: 190:         else if (0.12<=rel->B){
 [e :U 2049 ]
 [e $ ! <= .0.12 -> . *U _rel 2 `d 2051  ]
 {
-"192
-[; ;color.c: 192:             return 6;
+"191
+[; ;color.c: 191:             return 6;
 [e ) -> 6 `i ]
 [e $UE 2026  ]
-"193
-[; ;color.c: 193:         }
+"192
+[; ;color.c: 192:         }
 }
 [e $U 2052  ]
-"194
-[; ;color.c: 194:         else{
+"193
+[; ;color.c: 193:         else{
 [e :U 2051 ]
 {
-"195
-[; ;color.c: 195:             return 5;
+"194
+[; ;color.c: 194:             return 5;
 [e ) -> 5 `i ]
 [e $UE 2026  ]
-"196
-[; ;color.c: 196:         }
+"195
+[; ;color.c: 195:         }
 }
 [e :U 2052 ]
 [e :U 2050 ]
-"198
-[; ;color.c: 198:     }
+"197
+[; ;color.c: 197:     }
 }
 [e $U 2053  ]
-"200
-[; ;color.c: 200:     else if ((81<=Hue)&(Hue<=115)){
+"199
+[; ;color.c: 199:     else if ((81<=Hue)&(Hue<=115)){
 [e :U 2048 ]
 [e $ ! & <= -> -> 81 `i `f _Hue <= _Hue -> -> 115 `i `f 2054  ]
 {
-"201
-[; ;color.c: 201:         if(0.15<=rel->B){
+"200
+[; ;color.c: 200:         if(0.15<=rel->B){
 [e $ ! <= .0.15 -> . *U _rel 2 `d 2055  ]
 {
-"202
-[; ;color.c: 202:             return 4;
+"201
+[; ;color.c: 201:             return 4;
 [e ) -> 4 `i ]
 [e $UE 2026  ]
-"203
-[; ;color.c: 203:         }
+"202
+[; ;color.c: 202:         }
 }
 [e $U 2056  ]
-"204
-[; ;color.c: 204:         else {
+"203
+[; ;color.c: 203:         else {
 [e :U 2055 ]
 {
-"205
-[; ;color.c: 205:              return 6;
+"204
+[; ;color.c: 204:              return 6;
 [e ) -> 6 `i ]
 [e $UE 2026  ]
-"206
-[; ;color.c: 206:         }
+"205
+[; ;color.c: 205:         }
 }
 [e :U 2056 ]
-"208
-[; ;color.c: 208:     }
+"207
+[; ;color.c: 207:     }
 }
 [e $U 2057  ]
-"210
-[; ;color.c: 210:     else if (((30<=Hue)&(Hue<=58))|(120<=Hue)&(Hue<=220)){
+"209
+[; ;color.c: 209:     else if (((30<=Hue)&(Hue<=58))|(120<=Hue)&(Hue<=220)){
 [e :U 2054 ]
 [e $ ! | & <= -> -> 30 `i `f _Hue <= _Hue -> -> 58 `i `f & <= -> -> 120 `i `f _Hue <= _Hue -> -> 220 `i `f 2058  ]
 {
-"211
-[; ;color.c: 211:         return 4;
+"210
+[; ;color.c: 210:         return 4;
 [e ) -> 4 `i ]
 [e $UE 2026  ]
-"212
-[; ;color.c: 212:     }
+"211
+[; ;color.c: 211:     }
 }
 [e $U 2059  ]
-"214
-[; ;color.c: 214:     else if ((14<=Hue)&(Hue<=19)){
+"213
+[; ;color.c: 213:     else if ((14<=Hue)&(Hue<=19)){
 [e :U 2058 ]
 [e $ ! & <= -> -> 14 `i `f _Hue <= _Hue -> -> 19 `i `f 2060  ]
 {
-"216
-[; ;color.c: 216:         if ((0.20<=rel->R)&(rel->R<=0.23)){
-[e $ ! & <= .0.20 -> . *U _rel 0 `d <= -> . *U _rel 0 `d .0.23 2061  ]
+"215
+[; ;color.c: 215:         if ((0.20<=rel->R)&(rel->R<=0.25)){
+[e $ ! & <= .0.20 -> . *U _rel 0 `d <= -> . *U _rel 0 `d .0.25 2061  ]
 {
-"217
-[; ;color.c: 217:             return 0;
+"216
+[; ;color.c: 216:             return 0;
 [e ) -> 0 `i ]
 [e $UE 2026  ]
-"218
-[; ;color.c: 218:         }
+"217
+[; ;color.c: 217:         }
 }
 [e $U 2062  ]
-"219
-[; ;color.c: 219:         else if (0.15<=rel->B){
+"218
+[; ;color.c: 218:         else if (0.15<=rel->B){
 [e :U 2061 ]
 [e $ ! <= .0.15 -> . *U _rel 2 `d 2063  ]
 {
-"220
-[; ;color.c: 220:             return 4;
+"219
+[; ;color.c: 219:             return 4;
 [e ) -> 4 `i ]
 [e $UE 2026  ]
-"221
-[; ;color.c: 221:         }else{
+"220
+[; ;color.c: 220:         }else{
 }
 [e $U 2064  ]
 [e :U 2063 ]
 {
-"223
-[; ;color.c: 223:             return 7;
+"222
+[; ;color.c: 222:             return 7;
 [e ) -> 7 `i ]
 [e $UE 2026  ]
-"224
-[; ;color.c: 224:           }
+"223
+[; ;color.c: 223:           }
 }
 [e :U 2064 ]
 [e :U 2062 ]
-"225
-[; ;color.c: 225:     }
+"224
+[; ;color.c: 224:     }
 }
 [e $U 2065  ]
-"226
-[; ;color.c: 226:     else{
+"225
+[; ;color.c: 225:     else{
 [e :U 2060 ]
 {
-"227
-[; ;color.c: 227:         return 10;
+"226
+[; ;color.c: 226:         return 10;
 [e ) -> 10 `i ]
 [e $UE 2026  ]
-"228
-[; ;color.c: 228:     }
+"227
+[; ;color.c: 227:     }
 }
 [e :U 2065 ]
 [e :U 2059 ]
@@ -2808,7 +2808,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2047 ]
 [e :U 2041 ]
 [e :U 2039 ]
-"236
-[; ;color.c: 236: }
+"235
+[; ;color.c: 235: }
 [e :UE 2026 ]
 }

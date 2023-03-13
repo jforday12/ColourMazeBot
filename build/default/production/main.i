@@ -24408,20 +24408,6 @@ void initUSART4(void);
 char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
-
-
-char getCharFromRxBuf(void);
-void putCharToRxBuf(char byte);
-char isDataInRxBuf (void);
-
-
-char getCharFromTxBuf(void);
-void putCharToTxBuf(char byte);
-char isDataInTxBuf (void);
-void TxBufferedString(char *string);
-void sendTxBuf(void);
-
-volatile char DataFlag=1;
 # 17 "main.c" 2
 
 # 1 "./color.h" 1
@@ -24532,6 +24518,7 @@ struct DC_motor {
     unsigned char *negDutyHighByte;
 };
 
+
 struct DC_motor motorL, motorR;
 
 int power = 30;
@@ -24574,7 +24561,7 @@ void TurnDelay(int Turn45Delay);
 char WayBack [50];
 int Time_forward[50];
 extern volatile unsigned int move_count;
-
+int run_flag;
 
 void go_Home (char *WayBack, int *Time_forward);
 # 22 "main.c" 2
@@ -24643,7 +24630,6 @@ void main(void) {
 
 
 
-
     motorL.power=0;
     motorL.direction=1;
     motorL.brakemode=1;
@@ -24659,7 +24645,7 @@ void main(void) {
 
     int consecuitive=0;
     int prev_colour =0;
-    int run_flag=1;
+    run_flag=1;
     move_count=-1;
     int lost_count=0;
     turnCalibration(&motorL,&motorR);
@@ -24695,7 +24681,7 @@ void main(void) {
 
 
 
-            while (consecuitive<3){
+            while (consecuitive<4){
                 _delay((unsigned long)((300)*(64000000/4000.0)));
                 int colour = Colour_decider(&vals, &rel);
                 if (colour==prev_colour){
@@ -24708,10 +24694,10 @@ void main(void) {
                 RetryMove(&motorL, &motorR);
             }
             consecuitive=0;
-            int temp=TMR0L;
-            sprintf(buf,"red=%d green=%d blue=%d colour=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
 
 
+
+            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
             sendStringSerial4(buf);
 
             if (prev_colour==1){
@@ -24759,32 +24745,18 @@ void main(void) {
             else if (prev_colour==10){
                 lost_count++;
                 if (lost_count==4){
-                    BlueMove(&motorL, &motorR);
-                    T0CON0bits.T0EN=0;
                     go_Home(WayBack, Time_forward);
-                    stop(&motorL, &motorR);
-                    run_flag=0;
                 }
                 RetryMove(&motorL, &motorR);
             }
             else if (prev_colour==0){
-                BlueMove(&motorL, &motorR);
-                T0CON0bits.T0EN=0;
                 go_Home(WayBack, Time_forward);
-                stop(&motorL, &motorR);
-                run_flag=0;
             }
-            }else{
-                int colour = Colour_decider(&vals, &rel);
-                sprintf(buf,"red=%f green=%f blue=%f lum=%d  \r\n",rel.R, rel.G,rel.B,vals.L);
-                sendStringSerial4(buf);
+        }else if (lost_flag){
+            move_count++;
+            Time_forward[move_count]=65535;
+            go_Home(WayBack, Time_forward);
 
-
-
-
-
-        }
-
-
+    }
     }
 }

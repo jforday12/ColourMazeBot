@@ -71,7 +71,6 @@ void main(void) {
     
     
     
-    //create structure for dc motors
     motorL.power=0; 						//zero power to start
     motorL.direction=1; 					//set default motor direction
     motorL.brakemode=1;						// brake mode (slow decay)
@@ -87,7 +86,7 @@ void main(void) {
     
     int consecuitive=0; // variable to register how many consecuitive readings there are
     int prev_colour =0; // variable to decide what the previous colour is 
-    int run_flag=1;
+    run_flag=1;
     move_count=-1;
     int lost_count=0;
     turnCalibration(&motorL,&motorR);
@@ -100,6 +99,7 @@ void main(void) {
     T0CON0bits.T0EN=1;
     while (run_flag)
     {
+        consecuitive=0;
         lost_count=0;
         fullSpeedAhead(&motorL,&motorR);
         // read the colours and store it in the struct vals
@@ -121,9 +121,9 @@ void main(void) {
 //            int colour = Colour_decider(&vals, &rel);
 //            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour=%d \r\n",rel.R, rel.G,rel.B,vals.L,colour);
 //            sendStringSerial4(buf);
-            
+//            
         
-            while (consecuitive<3){
+            while (consecuitive<4){
                 __delay_ms(300);
                 int colour = Colour_decider(&vals, &rel);
                 if (colour==prev_colour){
@@ -135,11 +135,10 @@ void main(void) {
                 prev_colour=colour;
                 RetryMove(&motorL, &motorR);
             }
-            consecuitive=0;
-            int temp=TMR0L;
-            sprintf(buf,"red=%d green=%d blue=%d colour=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
+            //int temp=TMR0L;
+            //sprintf(buf,"red=%d green=%d blue=%d colour=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
 //            sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,prev_colour);
-            //sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
             sendStringSerial4(buf);
 //                //give move instruction based on returned colour
             if (prev_colour==1){ //red
@@ -187,33 +186,19 @@ void main(void) {
             else if (prev_colour==10){// undecided colour
                 lost_count++;
                 if (lost_count==4){
-                    BlueMove(&motorL, &motorR);
-                    T0CON0bits.T0EN=0;
                     go_Home(WayBack, Time_forward);
-                    stop(&motorL, &motorR);
-                    run_flag=0;
                 }
                 RetryMove(&motorL, &motorR);
             }
             else if (prev_colour==0){
-                BlueMove(&motorL, &motorR);
-                T0CON0bits.T0EN=0;
                 go_Home(WayBack, Time_forward);
-                stop(&motorL, &motorR);
-                run_flag=0;
             }
-            }else{
-                int colour = Colour_decider(&vals, &rel);
-                sprintf(buf,"red=%f green=%f blue=%f lum=%d  \r\n",rel.R, rel.G,rel.B,vals.L);
-                sendStringSerial4(buf);
-//            move_count++; // increment index of move and timer arrays
-//            Time_forward[move_count]=65535; // as timer overflow ammount so need to retravel this ammount in a straight line to go home
-//            go_Home(WayBack, Time_forward);
-              //T0CON0bits.T0EN=0;
-            
-        }
+        }else if (lost_flag){
+            move_count++; // increment index of move and timer arrays
+            Time_forward[move_count]=65535; // as timer overflow ammount so need to retravel this ammount in a straight line to go home
+            go_Home(WayBack, Time_forward);
 
-
+    }
     }
 }
 

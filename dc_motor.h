@@ -13,6 +13,7 @@ struct DC_motor { //definition of DC_motor structure
     unsigned char *posDutyHighByte; //PWM duty address for motor +ve side
     unsigned char *negDutyHighByte; //PWM duty address for motor -ve side
 };
+//create structure for dc motors
 
 struct DC_motor motorL, motorR; //declare two DC_motor structures 
 

@@ -157,7 +157,6 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
     else {
         Hue=(4+(RGB_col[0]-RGB_col[1])/(Cmax-Cmin))*60;
     }
-    
     //return Hue;
     // if the hue is between the found ranges of red return that its red
     if ((330<=Hue)&(Hue<=360)){
@@ -168,7 +167,7 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
         return 2; // orange
     } 
     // if the hue is between the found ranges of white, yellow or blue 
-    else if ((20<=Hue)&(Hue<=29)){
+    else if ((18<=Hue)&(Hue<=29)){
         // check if the relative values lie in the white range if it does then its white
         if ((0.20<=rel->R)&(rel->R<=0.25)){
             return 0;//white
@@ -184,7 +183,7 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
                
     }
     // if the hue is between the found ranges of green return green 
-    else if ((45<=Hue)&(Hue<=80)){
+    else if ((45<=Hue)&(Hue<=85)){
         if(0.15<=rel->B){
             return 4; //blue
         }
@@ -213,7 +212,7 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
     // if the hue is between the found ranges of white or pink 
     else if ((14<=Hue)&(Hue<=19)){
         // check if the relative values lie in the white range if it does then its white 
-        if ((0.20<=rel->R)&(rel->R<=0.23)){
+        if ((0.20<=rel->R)&(rel->R<=0.25)){
             return 0;//white
         }
         else if (0.15<=rel->B){

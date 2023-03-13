@@ -18,7 +18,7 @@
 char WayBack [50];
 int Time_forward[50];
 extern volatile unsigned int move_count;
-
+int run_flag;
 
 void go_Home (char *WayBack, int *Time_forward);
 
