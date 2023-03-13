@@ -24251,9 +24251,9 @@ struct DC_motor {
 
 struct DC_motor motorL, motorR;
 
-int power = 30;
-int Turn45Delay = 220;
-int RunOneBlockTime = 2000;
+int power = 50;
+int Turn45Delay = 80;
+int RunOneBlockTime = 1050;
 
 
 void initDCmotorsPWM(unsigned int PWMperiod);

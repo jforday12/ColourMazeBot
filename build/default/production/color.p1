@@ -2119,22 +2119,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _motorL `S2017 ~T0 @X0 1 e ]
 [v _motorR `S2017 ~T0 @X0 1 e ]
 "20
-[; ;./dc_motor.h: 20: int power = 30;
+[; ;./dc_motor.h: 20: int power = 50;
 [v _power `i ~T0 @X0 1 e ]
 [i _power
--> 30 `i
+-> 50 `i
 ]
 "21
-[; ;./dc_motor.h: 21: int Turn45Delay = 220;
+[; ;./dc_motor.h: 21: int Turn45Delay = 80;
 [v _Turn45Delay `i ~T0 @X0 1 e ]
 [i _Turn45Delay
--> 220 `i
+-> 80 `i
 ]
 "22
-[; ;./dc_motor.h: 22: int RunOneBlockTime = 2000;
+[; ;./dc_motor.h: 22: int RunOneBlockTime = 1050;
 [v _RunOneBlockTime `i ~T0 @X0 1 e ]
 [i _RunOneBlockTime
--> 2000 `i
+-> 1050 `i
 ]
 "7 color.c
 [; ;color.c: 7: void color_click_init(void)

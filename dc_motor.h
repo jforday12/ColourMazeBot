@@ -17,9 +17,9 @@ struct DC_motor { //definition of DC_motor structure
 
 struct DC_motor motorL, motorR; //declare two DC_motor structures 
 
-int power = 30; // forward backward, turning motor power
-int Turn45Delay = 220; //time delay in ms for a 45 degree turn
-int RunOneBlockTime = 2000; // time delay to run one block
+int power = 50; // forward backward, turning motor power
+int Turn45Delay = 80; //time delay in ms for a 45 degree turn
+int RunOneBlockTime = 1050; // time delay to run one block
 
 //function prototypes
 void initDCmotorsPWM(unsigned int PWMperiod); // function to setup PWM
