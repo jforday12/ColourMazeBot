@@ -1,5 +1,37 @@
 # Course project - Mine navigation search and rescue
 
+Overview of the ".c/.h" files
+
+main.c: Sets up initialisation functions and initialises motor structure, calls calibration procedures before going into main operating loop
+
+color.c/.h: Contains functions to configure the color click module, functions that recognize colour from colour click reading
+
+interrupts.c/.h Functions to initialise interrupts sources and a high priority interrupt service routine for the timer overflow
+
+i2c.c/.h Set up of the I2C serial communication interface in order to read RGBC values from the TCS3471 color click module during testing
+
+serial.c/.h
+
+timers.c/.h Set up of the Timer0 source, function to read timer value
+
+dc_motor.c/.h Define motor structure, configuration of dc motor, functions for specific basic moves e.g. turn left 45 and a calibration routine depending on the surface, functions for moves corresponding to each colour recognition
+
+Memory.c/.h create arrays to store route information, function to let the buggie return to base by calling arrays
+
+
+Main Operating Procedure
+	Main Loop:
+
+features 
+	motor calibration
+
+	distinction of colours
+
+	memory operation
+
+performance
+
+
 ## Challenge brief
 
 Your task is to develop an autonomous robot that can navigate a "mine" using a series of instructions coded in coloured cards and return to its starting position.  Your robot must be able to perform the following: 
