@@ -24517,7 +24517,7 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
         Hue=(4+(RGB_col[0]-RGB_col[1])/(Cmax-Cmin))*60;
     }
 
-
+    return Hue;
 
     if ((330<=Hue)&(Hue<=360)){
         return 1;

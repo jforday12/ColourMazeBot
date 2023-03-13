@@ -24673,7 +24673,7 @@ void main(void) {
     while (run_flag)
     {
         lost_count=0;
-        fullSpeedAhead(&motorL,&motorR);
+
 
         readColours(&vals);
 
@@ -24685,87 +24685,19 @@ void main(void) {
             move_count++;
             getTMR0val();
 
-            Forwardhalfblock(&motorL,&motorR);
+
 
             stop(&motorL, &motorR);
             _delay((unsigned long)((200)*(64000000/4000.0)));
 
-
-
-
-
-
-            while (consecuitive<4){
-                _delay((unsigned long)((300)*(64000000/4000.0)));
-                int colour = Colour_decider(&vals, &rel);
-                if (colour==prev_colour){
-                    consecuitive++;
-                }
-                else{
-                    consecuitive=0;
-                }
-                prev_colour=colour;
-                RetryMove(&motorL, &motorR);
-            }
-            consecuitive=0;
-            int temp=TMR0L;
-
-
-            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+            int colour = Colour_decider(&vals, &rel);
+            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour=%d \r\n",rel.R, rel.G,rel.B,vals.L,colour);
             sendStringSerial4(buf);
-
-            if (prev_colour==1){
-                RedMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=1;
-            }
-            else if(prev_colour==2){
-                OrangeMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=2;
-            }
-            else if(prev_colour==3){
-                YellowMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=3;
-            }
-            else if(prev_colour==4){
-                BlueMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=4;
-            }
-            else if(prev_colour==5){
-                GreenMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=5;
-            }
-            else if(prev_colour==6){
-                LightBlueMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=6;
-            }
-            else if(prev_colour==7){
-                PinkMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=7;
-            }
-            else if (prev_colour==10){
-                go_Home(WayBack, Time_forward);
-            }
-            else if (prev_colour==0){
-                go_Home(WayBack, Time_forward);
-            }
-            }else{
-                int colour = Colour_decider(&vals, &rel);
-                sprintf(buf,"red=%f green=%f blue=%f lum=%d  \r\n",rel.R, rel.G,rel.B,vals.L);
-                sendStringSerial4(buf);
+# 193 "main.c"
+        }else{
+            int colour = Colour_decider(&vals, &rel);
+            sprintf(buf,"red=%f green=%f blue=%f lum=%d  \r\n",rel.R, rel.G,rel.B,vals.L);
+            sendStringSerial4(buf);
 
 
 

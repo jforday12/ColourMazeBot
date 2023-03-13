@@ -2580,6 +2580,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2037 ]
 [e :U 2035 ]
+"161
+[; ;color.c: 161:     return Hue;
+[e ) -> _Hue `i ]
+[e $UE 2026  ]
 "163
 [; ;color.c: 163:     if ((330<=Hue)&(Hue<=360)){
 [e $ ! & <= -> -> 330 `i `f _Hue <= _Hue -> -> 360 `i `f 2038  ]
