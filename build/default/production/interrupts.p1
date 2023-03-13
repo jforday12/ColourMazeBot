@@ -2040,8 +2040,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;interrupts.c: 11:     INTCONbits.IPEN=0;
 [e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
 "12
-[; ;interrupts.c: 12:     INTCONbits.PEIE=1;
-[e = . . _INTCONbits 1 1 -> -> 1 `i `uc ]
+[; ;interrupts.c: 12:     INTCONbits.PEIE=0;
+[e = . . _INTCONbits 1 1 -> -> 0 `i `uc ]
 "13
 [; ;interrupts.c: 13:     INTCONbits.GIE=1;
 [e = . . _INTCONbits 1 2 -> -> 1 `i `uc ]

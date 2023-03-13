@@ -9,7 +9,7 @@
 void Interrupts_init(void)
 {
     INTCONbits.IPEN=0;
-    INTCONbits.PEIE=1;
+    INTCONbits.PEIE=0;
     INTCONbits.GIE=1;//turn on interrupts globally (when this is off, all interrupts are deactivated)
     PIE0bits.TMR0IE=1;
 //	// turn on global interrupts, peripheral interrupts and the interrupt source 

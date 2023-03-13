@@ -24658,6 +24658,7 @@ void main(void) {
     T0CON0bits.T0EN=1;
     while (run_flag)
     {
+        consecuitive=0;
         lost_count=0;
         fullSpeedAhead(&motorL,&motorR);
 
@@ -24674,15 +24675,15 @@ void main(void) {
             Forwardhalfblock(&motorL,&motorR);
 
             stop(&motorL, &motorR);
-            _delay((unsigned long)((200)*(64000000/4000.0)));
 
 
 
 
 
-
-            while (consecuitive<4){
-                _delay((unsigned long)((300)*(64000000/4000.0)));
+            while (consecuitive<20){
+                _delay((unsigned long)((100)*(64000000/4000.0)));
+                readColours(&vals);
+                colour_rel(&vals, &rel);
                 int colour = Colour_decider(&vals, &rel);
                 if (colour==prev_colour){
                     consecuitive++;
@@ -24691,13 +24692,13 @@ void main(void) {
                     consecuitive=0;
                 }
                 prev_colour=colour;
-                RetryMove(&motorL, &motorR);
+
+
             }
-            consecuitive=0;
 
 
 
-            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+            sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
             sendStringSerial4(buf);
 
             if (prev_colour==1){
@@ -24743,10 +24744,6 @@ void main(void) {
                 WayBack[move_count]=7;
             }
             else if (prev_colour==10){
-                lost_count++;
-                if (lost_count==4){
-                    go_Home(WayBack, Time_forward);
-                }
                 RetryMove(&motorL, &motorR);
             }
             else if (prev_colour==0){
@@ -24757,6 +24754,6 @@ void main(void) {
             Time_forward[move_count]=65535;
             go_Home(WayBack, Time_forward);
 
-    }
+        }
     }
 }

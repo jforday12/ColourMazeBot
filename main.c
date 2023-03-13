@@ -114,17 +114,17 @@ void main(void) {
             getTMR0val(); // place time moving forward in time array
             
             Forwardhalfblock(&motorL,&motorR);
-            // stop the buggie
+            // stop the buggy
             stop(&motorL, &motorR);
-            __delay_ms(200); 
-
-//            int colour = Colour_decider(&vals, &rel);
-//            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour=%d \r\n",rel.R, rel.G,rel.B,vals.L,colour);
+ //            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour=%d \r\n",rel.R, rel.G,rel.B,vals.L,colour);
 //            sendStringSerial4(buf);
-//            
+            
+            //__delay_ms(2000);
         
-            while (consecuitive<4){
-                __delay_ms(300);
+            while (consecuitive<20){
+                __delay_ms(100);
+                readColours(&vals);
+                colour_rel(&vals, &rel);
                 int colour = Colour_decider(&vals, &rel);
                 if (colour==prev_colour){
                     consecuitive++;
@@ -133,14 +133,15 @@ void main(void) {
                     consecuitive=0;
                 }
                 prev_colour=colour;
-                RetryMove(&motorL, &motorR);
+                //RetryMove(&motorL, &motorR);
+//                __delay_ms(50);
             }
             //int temp=TMR0L;
             //sprintf(buf,"red=%d green=%d blue=%d colour=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
-//            sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,prev_colour);
-            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+            //sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,prev_colour);
+            sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
             sendStringSerial4(buf);
-//                //give move instruction based on returned colour
+                //give move instruction based on returned colour
             if (prev_colour==1){ //red
                 RedMove(&motorL, &motorR); 
                 TMR0H=0; // reset timer values
@@ -184,10 +185,6 @@ void main(void) {
                 WayBack[move_count]=7;
             }
             else if (prev_colour==10){// undecided colour
-                lost_count++;
-                if (lost_count==4){
-                    go_Home(WayBack, Time_forward);
-                }
                 RetryMove(&motorL, &motorR);
             }
             else if (prev_colour==0){
@@ -198,7 +195,7 @@ void main(void) {
             Time_forward[move_count]=65535; // as timer overflow ammount so need to retravel this ammount in a straight line to go home
             go_Home(WayBack, Time_forward);
 
-    }
+        }
     }
 }
 

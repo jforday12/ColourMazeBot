@@ -24523,64 +24523,61 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
         return 1;
     }
 
-    else if ((5<=Hue)&(Hue<=12)){
+    else if ((5<=Hue)&(Hue<=11)){
         return 2;
     }
 
-    else if ((18<=Hue)&(Hue<=29)){
+    else if ((18<=Hue)&(Hue<=25)){
 
-        if ((0.20<=rel->R)&(rel->R<=0.25)){
+        if ((rel->R<=0.26)&&(rel->B>0.10)){
             return 0;
         }
 
 
-        else if(0.14<=rel->B){
-            return 4;
-            }
-        else{
+
+
+
+        else if ((rel->R>=0.26)&&(rel->B<0.10)){
             return 3;
         }
+        else{
+            return 10;
+        }
 
     }
 
-    else if ((45<=Hue)&(Hue<=85)){
-        if(0.15<=rel->B){
+    else if ((85<=Hue)&(Hue<=160)){
+
             return 4;
-        }
-        else if (0.12<=rel->B){
+
+    }
+
+
+
+
+
+
+    else if ((60<=Hue)&(Hue<=77)){
+        if ((0.12<=rel->B)&(0.21>rel->G)){
             return 6;
         }
-        else{
+        else if ((0.12>rel->B)&(0.21<rel->G)){
             return 5;
         }
-
-    }
-
-    else if ((81<=Hue)&(Hue<=115)){
-        if(0.15<=rel->B){
-            return 4;
-        }
-        else {
-             return 6;
+        else{
+            return 10;
         }
 
     }
 
-    else if (((30<=Hue)&(Hue<=58))|(120<=Hue)&(Hue<=220)){
-        return 4;
-    }
 
-    else if ((14<=Hue)&(Hue<=19)){
-
-        if ((0.20<=rel->R)&(rel->R<=0.25)){
-            return 0;
-        }
-        else if (0.15<=rel->B){
-            return 4;
-        }else{
-
+    else if ((12<=Hue)&(Hue<=17)){
+# 223 "color.c"
             return 7;
           }
+
+    else if ((22<=Hue)&(Hue<=24)){
+        return 0;
     }
     else{
         return 10;

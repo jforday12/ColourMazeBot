@@ -24255,7 +24255,7 @@ int lost_flag=0;
 void Interrupts_init(void)
 {
     INTCONbits.IPEN=0;
-    INTCONbits.PEIE=1;
+    INTCONbits.PEIE=0;
     INTCONbits.GIE=1;
     PIE0bits.TMR0IE=1;
 

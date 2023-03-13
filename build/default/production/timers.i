@@ -24277,7 +24277,7 @@ void Timer0_init(void)
 {
     T0CON1bits.T0CS=0b010;
     T0CON1bits.T0ASYNC=1;
-    T0CON1bits.T0CKPS=0b1110;
+    T0CON1bits.T0CKPS=0b1101;
     T0CON0bits.T016BIT=1;
 
 
@@ -24299,6 +24299,6 @@ void getTMR0val(void)
 
 void delayed_ms(int time){
     for(unsigned int i=0;i<time;i++){
-        _delay((unsigned long)((1)*(64000000/4000.0)));
+        _delay((unsigned long)((500)*(64000000/4000000.0)));
     }
 }

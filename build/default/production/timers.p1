@@ -2054,8 +2054,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;timers.c: 11:     T0CON1bits.T0ASYNC=1;
 [e = . . _T0CON1bits 0 1 -> -> 1 `i `uc ]
 "12
-[; ;timers.c: 12:     T0CON1bits.T0CKPS=0b1110;
-[e = . . _T0CON1bits 0 0 -> -> 14 `i `uc ]
+[; ;timers.c: 12:     T0CON1bits.T0CKPS=0b1101;
+[e = . . _T0CON1bits 0 0 -> -> 13 `i `uc ]
 "13
 [; ;timers.c: 13:     T0CON0bits.T016BIT=1;
 [e = . . _T0CON0bits 0 1 -> -> 1 `i `uc ]
@@ -2111,8 +2111,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2018 ]
 {
 "41
-[; ;timers.c: 41:         _delay((unsigned long)((1)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;timers.c: 41:         _delay((unsigned long)((500)*(64000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
 "42
 [; ;timers.c: 42:     }
 }
