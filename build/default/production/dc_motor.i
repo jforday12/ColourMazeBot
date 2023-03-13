@@ -24661,8 +24661,8 @@ void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR){
 }
 
 void RetryMove(struct DC_motor *mL,struct DC_motor *mR){
-    fullSpeedBack(mL,mR);
-    _delay((unsigned long)((500)*(64000000/4000.0)));
+    reverseDetect(&motorL, &motorR);
+    _delay((unsigned long)((50)*(64000000/4000.0)));
     stop(&motorL, &motorR);
     fullSpeedAhead(mL,mR);
     _delay((unsigned long)((500)*(64000000/4000.0)));

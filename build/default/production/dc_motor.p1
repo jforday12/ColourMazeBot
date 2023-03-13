@@ -3189,11 +3189,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [f ]
 "326
-[; ;dc_motor.c: 326:     fullSpeedBack(mL,mR);
-[e ( _fullSpeedBack (2 , _mL _mR ]
+[; ;dc_motor.c: 326:     reverseDetect(&motorL, &motorR);
+[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
 "327
-[; ;dc_motor.c: 327:     _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 327:     _delay((unsigned long)((50)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "328
 [; ;dc_motor.c: 328:     stop(&motorL, &motorR);
 [e ( _stop (2 , &U _motorL &U _motorR ]

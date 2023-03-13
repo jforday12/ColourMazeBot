@@ -87,7 +87,7 @@ void main(void) {
     
     int consecuitive=0; // variable to register how many consecuitive readings there are
     int prev_colour =0; // variable to decide what the previous colour is 
-    int run_flag=1;
+    run_flag=1;
     move_count=-1;
     int lost_count=0;
     turnCalibration(&motorL,&motorR);
@@ -123,7 +123,7 @@ void main(void) {
 //            sendStringSerial4(buf);
             
         
-            while (consecuitive<3){
+            while (consecuitive<4){
                 __delay_ms(300);
                 int colour = Colour_decider(&vals, &rel);
                 if (colour==prev_colour){
@@ -137,9 +137,9 @@ void main(void) {
             }
             consecuitive=0;
             int temp=TMR0L;
-            sprintf(buf,"red=%d green=%d blue=%d colour=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
+            //sprintf(buf,"red=%d green=%d blue=%d colour=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
 //            sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,prev_colour);
-            //sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour1=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
             sendStringSerial4(buf);
 //                //give move instruction based on returned colour
             if (prev_colour==1){ //red
@@ -185,22 +185,10 @@ void main(void) {
                 WayBack[move_count]=7;
             }
             else if (prev_colour==10){// undecided colour
-                lost_count++;
-                if (lost_count==4){
-                    BlueMove(&motorL, &motorR);
-                    T0CON0bits.T0EN=0;
-                    go_Home(WayBack, Time_forward);
-                    stop(&motorL, &motorR);
-                    run_flag=0;
-                }
-                RetryMove(&motorL, &motorR);
+                go_Home(WayBack, Time_forward);
             }
             else if (prev_colour==0){
-                BlueMove(&motorL, &motorR);
-                T0CON0bits.T0EN=0;
                 go_Home(WayBack, Time_forward);
-                stop(&motorL, &motorR);
-                run_flag=0;
             }
             }else{
                 int colour = Colour_decider(&vals, &rel);
