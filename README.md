@@ -145,7 +145,7 @@ Hue calculation:
             	Cmax_i=i;
         	}
         	if (RGB_col[i]<Cmin){Cmin=RGB_col[i];}           
-    		}
+	}
     	// if Cmax and Cmin are equal to each other then the colour is white so return 0
     	if (Cmax-Cmin==0){return 0;}
     	// if the max colour is red calculate the hue based on the formula
@@ -157,7 +157,7 @@ Hue calculation:
     	// if the max colour is green then calculate the hue based on the formula
     	else if (Cmax_i==1){
        	 	Hue=60*(2+(RGB_col[2]-RGB_col[0])/(Cmax-Cmin));
-   	 }
+   	 	}
     	// otherwise the max colour must be blue and calculate it off this formula
     	else {
         	Hue=(4+(RGB_col[0]-RGB_col[1])/(Cmax-Cmin))*60;
