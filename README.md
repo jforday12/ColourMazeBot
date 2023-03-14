@@ -24,6 +24,89 @@
 	
 
 ## Motor calibration
+The motor calibration routine is run on start and does a 180 degree turn after this it then waits until either RF2 or RF3 button is pressed and. If the buggy is short of 180 degrees the RF3 button is pressed and held until the red light comes on and off. This increases the timing of the right motor so it turns longer while RF2 button makes it turn shorter with the same associated buttons. 
+
+After both buttons are pressed and held both red lights come on and wait until the headlights and left signal lights turn off. This exists the calibration routine and the buggy now waits for the RF2 button to be pressed to start the maze. 
+
+	void turnCalibration (struct DC_motor *mL,struct DC_motor *mR){
+    LATFbits.LATF0=1;  // turn on left signal
+    __delay_ms(1000);
+    
+    while (!(RF2_button && RF3_button)){
+        LATDbits.LATD3=1; // turn on beam light
+        // turn 180 degrees
+        turnLeft45(&motorL, &motorR);
+        turnLeft45(&motorL, &motorR);
+        turnLeft45(&motorL, &motorR);
+        turnLeft45(&motorL, &motorR);
+        
+        while (!(RF2_button || RF3_button)){
+              LATDbits.LATD4=1; // turn on break light
+            __delay_ms(2000);
+            if(RF3_button && RF2_button){
+                LATHbits.LATH3=1;
+                LATDbits.LATD7=1;
+                __delay_ms(1000);
+                LATHbits.LATH3=0;
+                LATDbits.LATD7=0;
+            }
+            
+            else if (RF3_button){
+                Turn45Delay+=10;
+                LATHbits.LATH3=1;
+                __delay_ms(1000);
+                LATHbits.LATH3=0;
+            }
+
+            else if (RF2_button){
+                Turn45Delay-=10;
+                LATDbits.LATD7=1;
+                __delay_ms(1000);
+                LATDbits.LATD7=0;
+            }
+        }
+        LATDbits.LATD4=0; // turn off break light
+        __delay_ms(2000);
+    }
+    LATDbits.LATD3=0; // turn off beam light
+    __delay_ms(2000);
+    }
+
+## dc_motor.c
+This file has the associated motor functions that turn left, right and go forward. The most critical commands being used are turn left 45 , turn right 45 , fullspeedAhead and timed_forward. 
+
+Turn left and right 45 activate the right turn function for a specified ammount of time that is calibrated in the motor calibration routine: 
+
+	void turnRight45(struct DC_motor *mL,struct DC_motor *mR){
+	    turnRight(mL,mR);
+	    TurnDelay(Turn45Delay);
+	    stop(&motorL, &motorR);
+	    __delay_ms(50); 
+	}
+
+The fullspeedAhead function is the function that is run in the main code and will ramp up the speed of the car until the specified power at which point the car will move continuouslly forward until another instruction is received. 
+
+	void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR)
+	{
+
+    mL->direction =1;
+    mR->direction =1;
+    while (mL->power < power && mR->power < power){
+
+        mL->power+=10;
+        mR->power+=10;
+
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+        
+        
+        __delay_ms(20);
+    }
+
+	}
+	
+Finally the timed_forward function does a similar role as the fullspeedAhead but runs for a specified ammount of time. This is used when returning home to travel forward after a specified ammount of time until a turn is required. 
+	
 
 ## Distinction of colours
 The code hear reads 4 different value (R,G,B,C) standing for Red, Green, Blue, Clear respectively. The values are read in the functiion 
@@ -52,6 +135,7 @@ White | 0
 Black/Unknown colour | 10
 
 To achieve this we place the RGB values in an array and itterate through them to find the min and max values. We then execute the equation depending on whether R G or B is found to be the maximum. 
+
 
 Hue calculation:
 
@@ -99,8 +183,67 @@ Light Blue and Green:
     }
 
 
+## Timers
 
 ##  Memory operation
+The go home function is in charge of returning the buggy home once called. It does this through 2 arrays, Time_forward and WayBack. The first array stores a series of time values and the second array stores the array of turns taken. It first turns the buggy arround through executing the blue command and stops the timer. After this it runs through a for loop itterating backwards starting at the most recent move_count index and working backwards. 
+
+It first accesses the current time and runs the timed_forward function to run the buggy forward for that speciefied ammount of time. After this it then accesses the WayBack array at the index move_count-1. This is because the forward command is always reccorded first and then its associated turn command is executed. The forward array will always be one greater than then the WayBack array because the white card is not stored in the WayBack array. 
+
+After identifing the WayBack array it then executes the reverse move of the colour listed below
+
+Colour | Reverse instruction
+---------|---------
+Red | Green
+Orange | Light Blue
+Yellow | Reverse Yellow
+Blue | Blue
+Green | Red
+Light blue | Orange
+Pink | Reverse Pink
+
+After it has run through the for loop it then stops the motor and turns the run flag off to prevent accidental restarts. 
+
+	    int i;
+    BlueMove(&motorL, &motorR);
+    T0CON0bits.T0EN=0;
+    for (i = move_count; i >= 0; i--){
+        timed_forward(&motorL, &motorR,Time_forward[i]);
+            
+        if (WayBack[i-1]==1){
+            reverseDetect(&motorL, &motorR);
+            GreenMove(&motorL, &motorR); // opposite of red move
+        }
+        else if (WayBack[i-1]==2){
+            reverseDetect(&motorL, &motorR);
+            LightBlueMove(&motorL, &motorR); // opposite of orange move
+        }
+        else if (WayBack[i-1]==3){
+            reverseDetect(&motorL, &motorR);
+            ReverseYellow(&motorL, &motorR); // opposite of yellow move
+        }
+        else if (WayBack[i-1]==4){
+            reverseDetect(&motorL, &motorR);
+            BlueMove(&motorL, &motorR); // 180 degrees same either way
+        }
+        else if (WayBack[i-1]==5){
+            reverseDetect(&motorL, &motorR);
+            RedMove(&motorL, &motorR); //opposite of green move
+        }
+        else if (WayBack[i-1]==6){
+            reverseDetect(&motorL, &motorR);
+            OrangeMove(&motorL, &motorR); // opposite of light blue move
+        }
+        else if (WayBack[i-1]==7){
+            reverseDetect(&motorL, &motorR);
+            ReversePink(&motorL, &motorR);
+        }
+        stop(&motorL, &motorR);
+        run_flag=0;
+
+
+  	} 
+	}
 
 ## Exceptions
 
