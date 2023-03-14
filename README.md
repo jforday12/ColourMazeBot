@@ -197,8 +197,6 @@ The second function is the getTMR0val which is called whenever the buggy hits th
     
     	Time_forward[move_count]=moving;
     	// function to input TMR0H into the array
-    
-	//add your code to get the full 16 bit timer value here
 	}
 
 This function concatonates the upper and lower bit of the timer function and then subtracts 350ms off it if the time travelled forward is greater than this. This is because this avoids us hitting the wall on our return and helps slighlty undershoot which prevents it from crashing into the side of corners such as a 135 turn. It then puts the time into the Time_forward array. 
