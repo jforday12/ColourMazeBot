@@ -21,14 +21,90 @@
 
 ## Main Operating Procedure
 	Main Loop:
+	
 
-## motor calibration
+## Motor calibration
 
-## distinction of colours
+## Distinction of colours
+The code hear reads 4 different value (R,G,B,C) standing for Red, Green, Blue, Clear respectively. The values are read in the functiion 
+	readColours:
+	
+	void readColours (struct RGB *vals) {
+ 	vals ->R = color_read_Red(); // reads colour red and stores it in R location of struct
+    	vals ->B = color_read_Blue(); // reads colour Blue and stores it in B location of struct
+    	vals ->G = color_read_Green(); // reads colour Green and stores it in G location of struct
+   	 vals ->L = color_read_lum();        // reads colour Clear and stores it in L location of struct
+	}
 
-## memory operation
+These call the functions to read the colours and place them in the struct. There is a second function which calculates the relative values of the colours to make it less dependent on ambient light. 
 
-## performance
+Finally the colour decider function is the most critical function of this file and returns an associated number to indicate which colour it has seen. It does this by calculating the hue of the colour which equations were obtained from here: https://www.rapidtables.com/convert/color/rgb-to-hsl.html. 
+Colour | Instruction
+---------|---------
+Red | 1
+Orange | 2
+Yellow | 3
+Blue | 4
+Green | 5
+Light blue | 6
+Pink | 7
+White | 0
+Black/Unknown colour | 10
+
+To achieve this we place the RGB values in an array and itterate through them to find the min and max values. We then execute the equation depending on whether R G or B is found to be the maximum. 
+
+Hue calculation:
+
+	for (i=0; i<3 ;i++){
+        	if (RGB_col[i]>Cmax){
+            	Cmax=RGB_col[i];
+            	Cmax_i=i;
+        	}
+        	if (RGB_col[i]<Cmin){Cmin=RGB_col[i];}           
+    	}
+    	// if Cmax and Cmin are equal to each other then the colour is white so return 0
+    	if (Cmax-Cmin==0){return 0;}
+    	// if the max colour is red calculate the hue based on the formula
+    	if (Cmax_i==0){ 
+        	Hue = 60 * ((RGB_col[1]-RGB_col[2])/(Cmax-Cmin));
+        	// if the hue is negative add 360 as hue is based off a circle angle
+        	if (Hue < 0) {Hue += 360;}
+    	}
+    	// if the max colour is green then calculate the hue based on the formula
+    	else if (Cmax_i==1){
+       	 	Hue=60*(2+(RGB_col[2]-RGB_col[0])/(Cmax-Cmin));
+   	 }
+    	// otherwise the max colour must be blue and calculate it off this formula
+    	else {
+        	Hue=(4+(RGB_col[0]-RGB_col[1])/(Cmax-Cmin))*60;
+    	}
+After determining the hue it will then go through a series of if statements as each card has a certain hue range carved out for it. For example for red it is in between 330 and 360. 
+
+However there are exceptions with it where certain colours have hues that are very close toghether. Light blue and Green are one pair and White and pink are another pair that cannot be consistently distinguished on hue alone. Thus we rely on the realtive values to distinguish them and if they still cannot distinguish the colour then it returns 10 which stands for an unknown colour. For example for light blue and green:
+
+Light Blue and Green:
+
+	// if the hue is between the found ranges of green return green 
+    else if ((60<=Hue)&(Hue<=77)){
+        if ((0.12<=rel->B)&(0.21>rel->G)){
+            return 6; // light blue
+        }
+        else if ((0.12>rel->B)&(0.21<rel->G)){
+            return 5; // green
+        }
+        else{
+            return 10; // return unknown colour
+        }
+        
+    }
+
+
+
+##  Memory operation
+
+## Exceptions
+
+## Performance
 
 
 ## Challenge brief
