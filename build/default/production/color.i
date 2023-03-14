@@ -24362,6 +24362,21 @@ void turnCalibration(struct DC_motor *mL,struct DC_motor *mR);
 void TurnDelay(int Turn45Delay);
 # 4 "color.c" 2
 
+# 1 "./LED_buttons.h" 1
+
+
+
+
+
+
+
+
+void LED_init(void);
+
+
+void Buttons_init(void);
+# 5 "color.c" 2
+
 
 
 void color_click_init(void)

@@ -21,6 +21,7 @@
 #include "dc_motor.h"
 #include "Memory.h"
 #include "timers.h"
+#include "LED_buttons.h"
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
 
@@ -32,44 +33,11 @@ void main(void) {
     Interrupts_init();
     color_click_init();
     I2C_2_Master_Init();
+    LED_init(); // initialize LEDs
+    Buttons_init(); // initialize buttons
     initDCmotorsPWM(200);
     Timer0_init();
     char buf[100];
-    
-    TRISGbits.TRISG1 = 0; // Set TRIS value for red LED (output)
-    TRISAbits.TRISA4 = 0; // Set TRIS value for green LED (output)
-    TRISFbits.TRISF7 = 0; // Set TRIS value for blue LED (output)
-    TRISFbits.TRISF2 = 1; // Set Tris value for RF2 Button (input)
-    ANSELFbits.ANSELF2=0;
-    TRISFbits.TRISF3 = 1; // Set Tris value for RF3 Button (input)
-    ANSELFbits.ANSELF3=0;
-    RED_LED=1; // sets RED LED on 
-    GREEN_LED=1; // sets green LED on
-    BLUE_LED=1; // sets Blue LED on
-    
-    // clicker board LEDs
-    LATDbits.LATD7=0;   //set initial output state for led 1 
-    TRISDbits.TRISD7=0; //set TRIS value for pin (output)
-    LATHbits.LATH3=0;   //set initial output state for led 2
-    TRISHbits.TRISH3=0; //set TRIS value for pin (output)
-    
-    //right signal lights RH0
-    LATHbits.LATH0=0;   //set initial output state for led 1 
-    TRISHbits.TRISH0=0; //set TRIS value for pin (output)
-    
-    //left signal lights RF0
-    LATFbits.LATF0=0;   //set initial output state for led 1 
-    TRISFbits.TRISF0=0; //set TRIS value for pin (output)
-    
-    // break light RD4
-    LATDbits.LATD4=0;   //set initial output state for led 1 
-    TRISDbits.TRISD4=0; //set TRIS value for pin (output)
-    
-    //beam light RD3
-    LATDbits.LATD3=0;   //set initial output state for led 1 
-    TRISDbits.TRISD3=0; //set TRIS value for pin (output)
-    
-    
     
     motorL.power=0; 						//zero power to start
     motorL.direction=1; 					//set default motor direction
@@ -91,7 +59,7 @@ void main(void) {
     int lost_count=0;
     turnCalibration(&motorL,&motorR);
     
-    LATFbits.LATF0=0;  // turn off left signal
+    Left_Signal=0;  // turn off left signal
     __delay_ms(1000);
     
     while (!RF2_button); // PORTFbits.RF2
@@ -109,7 +77,7 @@ void main(void) {
         colour_rel(&vals, &rel);
 
         // if the clear value is greater than 2500 (value obtained from lowest clear value card which was blue) then it has hit a wall so detect what colour it sees
-        if (vals.L>=350){
+        if (vals.L>=500){
             move_count++; // increment index of move and timer arrays
             getTMR0val(); // place time moving forward in time array
             

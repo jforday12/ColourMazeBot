@@ -2,6 +2,7 @@
 #include "color.h"
 #include "i2c.h"
 #include "dc_motor.h"
+#include "LED_buttons.h"
 //initDCmotorsPWM(200);
 
 void color_click_init(void)

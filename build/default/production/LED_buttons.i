@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "LED_buttons.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,22 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
-
-
-
-
-
-
-
-#pragma config FEXTOSC = HS
-#pragma config RSTOSC = EXTOSC_4PLL
-
-
-#pragma config WDTE = OFF
-
-
+# 1 "LED_buttons.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24244,341 +24229,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 2 3
-# 15 "main.c" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 1 3
-
-
-
-
-
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 137 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long ssize_t;
-# 246 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long off_t;
-# 399 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-int ungetc(int, FILE *);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 16 "main.c" 2
-
-# 1 "./serial.h" 1
-# 13 "./serial.h"
-volatile char EUSART4RXbuf[20];
-volatile char RxBufWriteCnt=0;
-volatile char RxBufReadCnt=0;
-
-volatile char EUSART4TXbuf[60];
-volatile char TxBufWriteCnt=0;
-volatile char TxBufReadCnt=0;
-
-
-
-void initUSART4(void);
-char getCharSerial4(void);
-void sendCharSerial4(char charToSend);
-void sendStringSerial4(char *string);
-# 17 "main.c" 2
-
-# 1 "./color.h" 1
-# 12 "./color.h"
-void color_click_init(void);
-
-
-
-
-
-
-void color_writetoaddr(char address, char value);
-
-
-
-
-
-unsigned int color_read_Red(void);
-unsigned int color_read_Blue(void);
-unsigned int color_read_Green(void);
-unsigned int color_read_lum(void);
-struct RGB{
-    int R;
-    int G;
-    int B;
-    int L;
-};
-
-
-struct RGB_rel{
-    float R;
-    float G;
-    float B;
-};
-
-
-
-void colour_rel(struct RGB *vals, struct RGB_rel *rel);
-
-int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
-void readColours (struct RGB *vals);
-# 18 "main.c" 2
-
-# 1 "./i2c.h" 1
-# 13 "./i2c.h"
-void I2C_2_Master_Init(void);
-
-
-
-
-void I2C_2_Master_Idle(void);
-
-
-
-
-void I2C_2_Master_Start(void);
-
-
-
-
-void I2C_2_Master_RepStart(void);
-
-
-
-
-void I2C_2_Master_Stop(void);
-
-
-
-
-void I2C_2_Master_Write(unsigned char data_byte);
-
-
-
-
-unsigned char I2C_2_Master_Read(unsigned char ack);
-# 19 "main.c" 2
-
-# 1 "./interrupts.h" 1
-
-
-
-
-
-
-
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-
-int lost_flag=0;
-# 20 "main.c" 2
-
-# 1 "./dc_motor.h" 1
-
-
-
-
-
-
-
-struct DC_motor {
-    char power;
-    char direction;
-    char brakemode;
-    unsigned int PWMperiod;
-    unsigned char *posDutyHighByte;
-    unsigned char *negDutyHighByte;
-};
-
-
-struct DC_motor motorL, motorR;
-
-int power = 50;
-int Turn45Delay = 60;
-int RunOneBlockTime = 1050;
-
-
-void initDCmotorsPWM(unsigned int PWMperiod);
-void setMotorPWM(struct DC_motor *m);
-void stop(struct DC_motor *mL,struct DC_motor *mR);
-void turnLeft(struct DC_motor *mL,struct DC_motor *mR);
-void turnRight(struct DC_motor *mL,struct DC_motor *mR);
-void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR);
-void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time);
-void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
-
-void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
-void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
-void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
-void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
-void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
-void RedMove(struct DC_motor *mL,struct DC_motor *mR);
-void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
-void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
-void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
-void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
-void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
-void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
-void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
-void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
-void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
-void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
-
-void turnCalibration(struct DC_motor *mL,struct DC_motor *mR);
-void TurnDelay(int Turn45Delay);
-# 21 "main.c" 2
-
-# 1 "./Memory.h" 1
-# 18 "./Memory.h"
-char WayBack [50];
-int Time_forward[50];
-extern volatile unsigned int move_count;
-int run_flag;
-
-void go_Home (char *WayBack, int *Time_forward);
-# 22 "main.c" 2
-
-# 1 "./timers.h" 1
-
-
-
-
-
-
-
-void Timer0_init(void);
-void getTMR0val(void);
-void delayed_ms(int time);
-extern volatile unsigned int move_count;
-# 23 "main.c" 2
+# 1 "LED_buttons.c" 2
 
 # 1 "./LED_buttons.h" 1
 
@@ -24593,161 +24244,52 @@ void LED_init(void);
 
 
 void Buttons_init(void);
-# 24 "main.c" 2
+# 2 "LED_buttons.c" 2
 
 
 
 
-struct RGB_rel rel;
-struct RGB vals;
-volatile unsigned int move_count;
-void main(void) {
-    initUSART4();
-    Interrupts_init();
-    color_click_init();
-    I2C_2_Master_Init();
-    LED_init();
-    Buttons_init();
-    initDCmotorsPWM(200);
-    Timer0_init();
-    char buf[100];
+void LED_init(void)
+{
 
-    motorL.power=0;
-    motorL.direction=1;
-    motorL.brakemode=1;
-    motorL.posDutyHighByte=(unsigned char *)(&CCPR1H);
-    motorL.negDutyHighByte=(unsigned char *)(&CCPR2H);
-    motorL.PWMperiod=200;
-    motorR.power=0;
-    motorR.direction=1;
-    motorR.brakemode=1;
-    motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);
-    motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);
-    motorR.PWMperiod=200;
 
-    int consecuitive=0;
-    int prev_colour =0;
-    run_flag=1;
-    move_count=-1;
-    int lost_count=0;
-    turnCalibration(&motorL,&motorR);
+    TRISGbits.TRISG1 = 0;
+    TRISAbits.TRISA4 = 0;
+    TRISFbits.TRISF7 = 0;
+
+    LATGbits.LATG1=1;
+    LATAbits.LATA4=1;
+    LATFbits.LATF7=1;
+
+
+
+    LATDbits.LATD7=0;
+    TRISDbits.TRISD7=0;
+    LATHbits.LATH3=0;
+    TRISHbits.TRISH3=0;
+
+
+
+
+    LATHbits.LATH0=0;
+    TRISHbits.TRISH0=0;
 
     LATFbits.LATF0=0;
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
+    TRISFbits.TRISF0=0;
 
-    while (!!PORTFbits.RF2);
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
-    T0CON0bits.T0EN=1;
-    while (run_flag)
-    {
-        consecuitive=0;
-
-        fullSpeedAhead(&motorL,&motorR);
-
-        readColours(&vals);
+    LATDbits.LATD4=0;
+    TRISDbits.TRISD4=0;
 
 
-        colour_rel(&vals, &rel);
+    LATDbits.LATD3=0;
+    TRISDbits.TRISD3=0;
 
+}
 
-        if (vals.L>=500){
-            move_count++;
-            getTMR0val();
-
-            Forwardhalfblock(&motorL,&motorR);
-
-            stop(&motorL, &motorR);
-
-
-
-
-            while (consecuitive<20){
-                _delay((unsigned long)((100)*(64000000/4000.0)));
-                readColours(&vals);
-                colour_rel(&vals, &rel);
-                int colour = Colour_decider(&vals, &rel);
-                if (colour==prev_colour){
-                    consecuitive++;
-                }
-                else{
-                    consecuitive=0;
-                }
-                prev_colour=colour;
-            }
-
-
-
-            sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
-            sendStringSerial4(buf);
-
-            if (prev_colour==1){
-                RedMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=1;
-                lost_count=0;
-            }
-            else if(prev_colour==2){
-                OrangeMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=2;
-                lost_count=0;
-            }
-            else if(prev_colour==3){
-                YellowMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=3;
-                lost_count=0;
-            }
-            else if(prev_colour==4){
-                BlueMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=4;
-                lost_count=0;
-            }
-            else if(prev_colour==5){
-                GreenMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=5;
-                lost_count=0;
-            }
-            else if(prev_colour==6){
-                LightBlueMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=6;
-                lost_count=0;
-            }
-            else if(prev_colour==7){
-                PinkMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=7;
-                lost_count=0;
-            }
-            else if (prev_colour==10){
-                lost_count++;
-                if (lost_count>=3){
-                    go_Home(WayBack, Time_forward);
-                }
-                else{
-                    RetryMove(&motorL, &motorR);
-                    TMR0H=0;
-                    TMR0L=0;
-                }
-            }
-            else if (prev_colour==0){
-                go_Home(WayBack, Time_forward);
-            }
-        }else if (lost_flag){
-            move_count++;
-            Time_forward[move_count]=65535;
-            go_Home(WayBack, Time_forward);
-
-        }
-    }
+void Buttons_init(void)
+{
+    TRISFbits.TRISF2 = 1;
+    ANSELFbits.ANSELF2=0;
+    TRISFbits.TRISF3 = 1;
+    ANSELFbits.ANSELF3=0;
 }

@@ -2,6 +2,7 @@
 #include "dc_motor.h"
 #include "timers.h"
 #include "color.h"
+#include "LED_buttons.h"
 // function initialise T2 and CCP for DC motor control
 void initDCmotorsPWM(unsigned int PWMperiod){
     //initialise your TRIS and LAT registers for PWM  
@@ -354,11 +355,11 @@ void ReversePink(struct DC_motor *mL,struct DC_motor *mR){
 }
 
 void turnCalibration (struct DC_motor *mL,struct DC_motor *mR){
-    LATFbits.LATF0=1;  // turn on left signal
+    Left_Signal=1;  // turn on left signal
     __delay_ms(1000);
     
     while (!(RF2_button && RF3_button)){
-        LATDbits.LATD3=1; // turn on beam light
+        Beam_Light=1; // turn on beam light
         // turn 180 degrees
         turnLeft45(&motorL, &motorR);
         turnLeft45(&motorL, &motorR);
@@ -368,7 +369,7 @@ void turnCalibration (struct DC_motor *mL,struct DC_motor *mR){
         while (!(RF2_button || RF3_button)){
 //            LATDbits.LATD7=1;
 //            LATHbits.LATH3=1;
-              LATDbits.LATD4=1; // turn on break light
+              Break_Light=1; // turn on break light
             __delay_ms(2000);
             if(RF3_button && RF2_button){
                 LATHbits.LATH3=1;
@@ -392,9 +393,9 @@ void turnCalibration (struct DC_motor *mL,struct DC_motor *mR){
                 LATDbits.LATD7=0;
             }
         }
-        LATDbits.LATD4=0; // turn off break light
+        Break_Light=0; // turn off break light
         __delay_ms(2000);
     }
-    LATDbits.LATD3=0; // turn off beam light
+    Beam_Light=0; // turn off beam light
     __delay_ms(2000);
 } 

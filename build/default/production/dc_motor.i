@@ -24341,6 +24341,21 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
 void readColours (struct RGB *vals);
 # 4 "dc_motor.c" 2
 
+# 1 "./LED_buttons.h" 1
+
+
+
+
+
+
+
+
+void LED_init(void);
+
+
+void Buttons_init(void);
+# 5 "dc_motor.c" 2
+
 
 void initDCmotorsPWM(unsigned int PWMperiod){
 

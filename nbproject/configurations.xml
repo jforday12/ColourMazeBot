@@ -11,6 +11,8 @@
       <itemPath>dc_motor.h</itemPath>
       <itemPath>Memory.h</itemPath>
       <itemPath>timers.h</itemPath>
+      <itemPath>LED_buttons.h</itemPath>
+      <itemPath>colour_move.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -27,6 +29,8 @@
       <itemPath>dc_motor.c</itemPath>
       <itemPath>Memory.c</itemPath>
       <itemPath>timers.c</itemPath>
+      <itemPath>LED_buttons.c</itemPath>
+      <itemPath>colour_move.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

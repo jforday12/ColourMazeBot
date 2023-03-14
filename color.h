@@ -47,11 +47,7 @@ void colour_rel(struct RGB *vals, struct RGB_rel *rel);
 int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
 void readColours (struct RGB *vals);
 
-#define RED_LED LATGbits.LATG1
-#define GREEN_LED LATAbits.LATA4
-#define BLUE_LED LATFbits.LATF7
-#define RF2_button !PORTFbits.RF2
-#define RF3_button !PORTFbits.RF3
+
 
 
 #endif
