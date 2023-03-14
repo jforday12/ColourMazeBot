@@ -84,7 +84,36 @@ Turn left and right 45 activate the right turn function for a specified ammount 
 	    __delay_ms(50); 
 	}
 
-The fullspeedAhead function is the function that is run in the main code and will ramp up the speed of the car until the specified power at which point the car will move continuouslly forward until another instruction is received. 
+We use the turn right and left 45 degrees in order to execute the different colour commands. We used 45 degree bursts as the motors handle shorter bursts better and more accurately thus we can achieve a higher level of precision. For example for the red card. 
+
+	void RedMove(struct DC_motor *mL,struct DC_motor *mR){
+    	reverseDetect(&motorL, &motorR);
+    	// turn right 90 degrees
+    	turnRight45(&motorL, &motorR);
+    	turnRight45(&motorL, &motorR);
+	}
+
+ 
+
+The reverse detect function backs up the buggy slightly to avoid turning into or hitting the wall. We calibrated the length of time to back up to be 200ms. 
+
+	void reverseDetect(struct DC_motor *mL,struct DC_motor *mR){
+    fullSpeedBack(mL,mR);
+    __delay_ms(200);
+    stop(&motorL, &motorR);
+    __delay_ms(50); 
+	}
+
+Another reverse function to the reverseDetect is the reverse 1 block. This is used for the yellow and pink movements and we use the variable RunOneBlockTime to calibrate how long a block is. 
+
+	void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR){
+    fullSpeedBack(mL,mR);
+    __delay_ms(RunOneBlockTime); // reverse time period needs to be calibrated
+    stop(&motorL, &motorR);
+    __delay_ms(50); 
+	}
+
+In regarding forward movemnt the first function we have is full speed ahead. The fullspeedAhead function is the function that is run in the main code and will ramp up the speed of the car until the specified power at which point the car will move continuouslly forward until another instruction is received. 
 
 	void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR)
 	{
@@ -105,7 +134,40 @@ The fullspeedAhead function is the function that is run in the main code and wil
 
 	}
 	
-Finally the timed_forward function does a similar role as the fullspeedAhead but runs for a specified ammount of time. This is used when returning home to travel forward after a specified ammount of time until a turn is required. 
+The timed_forward function does a similar role as the fullspeedAhead but runs for a specified ammount of time. This is used when returning home to travel forward after a specified ammount of time until a turn is required.  
+
+Similar to the reverseOneBlock function we have a Forwardhalfblock function and a ForwardOneBlock function. The Forwardhalfblock is used once we our clear value readings have risen above the ambient level and thus to ensure we align ourselves perpendicular to the wall and remove any ambient light we take an extra half block step forward to ensure maximum enclosure. This is in case our clear value readings rise above the threshold not exactly at the wall. 
+
+The ForwardOneBlock function is used when doing the reverse of each yellow and pink as we now need to move forward instead of backwards. 
+
+#Reverse movment
+
+In handeling reverse movement as stated in the memory function most colours can be handled by executing their complementary colours. However, for reverse Yellow and reverse Pink this is not possible. Thus two new move functions our created that do the opposite of these cards as shown below:
+
+	void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR){
+	    reverseDetect(&motorL, &motorR);
+	    turnRight45(&motorL, &motorR);
+	    turnRight45(&motorL, &motorR);
+	    ForwardOneBlock(&motorL, &motorR);
+	    reverseDetect(&motorL, &motorR);
+	    turnRight45(&motorL, &motorR);
+	    turnRight45(&motorL, &motorR);
+	    turnRight45(&motorL, &motorR);
+	    turnRight45(&motorL, &motorR);
+	}
+	void ReversePink(struct DC_motor *mL,struct DC_motor *mR){
+	    reverseDetect(&motorL, &motorR);
+	    turnLeft45(&motorL, &motorR);
+	    turnLeft45(&motorL, &motorR);
+	    ForwardOneBlock(&motorL, &motorR);
+	    reverseDetect(&motorL, &motorR);
+	    turnLeft45(&motorL, &motorR);
+	    turnLeft45(&motorL, &motorR);
+	    turnLeft45(&motorL, &motorR);
+	    turnLeft45(&motorL, &motorR);
+	}
+
+	
 	
 
 ## Distinction of colours
@@ -113,10 +175,10 @@ The code hear reads 4 different value (R,G,B,C) standing for Red, Green, Blue, C
 	readColours:
 	
 	void readColours (struct RGB *vals) {
- 	vals ->R = color_read_Red(); // reads colour red and stores it in R location of struct
-    	vals ->B = color_read_Blue(); // reads colour Blue and stores it in B location of struct
-    	vals ->G = color_read_Green(); // reads colour Green and stores it in G location of struct
-   	 vals ->L = color_read_lum();        // reads colour Clear and stores it in L location of struct
+	vals ->R = color_read_Red(); // reads colour red and stores it in R location of struct
+	vals ->B = color_read_Blue(); // reads colour Blue and stores it in B location of struct
+	vals ->G = color_read_Green(); // reads colour Green and stores it in G location of struct
+	vals ->L = color_read_lum();        // reads colour Clear and stores it in L location of struct
 	}
 
 These call the functions to read the colours and place them in the struct. There is a second function which calculates the relative values of the colours to make it less dependent on ambient light. 
