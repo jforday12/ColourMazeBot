@@ -203,8 +203,9 @@ Light blue | Orange
 Pink | Reverse Pink
 
 After it has run through the for loop it then stops the motor and turns the run flag off to prevent accidental restarts. 
+go_Home function:
 
-	    int i;
+    int i;
     BlueMove(&motorL, &motorR);
     T0CON0bits.T0EN=0;
     for (i = move_count; i >= 0; i--){
