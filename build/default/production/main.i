@@ -24522,7 +24522,7 @@ struct DC_motor {
 struct DC_motor motorL, motorR;
 
 int power = 50;
-int Turn45Delay = 80;
+int Turn45Delay = 60;
 int RunOneBlockTime = 1050;
 
 

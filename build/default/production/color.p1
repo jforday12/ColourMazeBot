@@ -2125,10 +2125,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 50 `i
 ]
 "21
-[; ;./dc_motor.h: 21: int Turn45Delay = 80;
+[; ;./dc_motor.h: 21: int Turn45Delay = 60;
 [v _Turn45Delay `i ~T0 @X0 1 e ]
 [i _Turn45Delay
--> 80 `i
+-> 60 `i
 ]
 "22
 [; ;./dc_motor.h: 22: int RunOneBlockTime = 1050;

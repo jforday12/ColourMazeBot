@@ -24252,7 +24252,7 @@ struct DC_motor {
 struct DC_motor motorL, motorR;
 
 int power = 50;
-int Turn45Delay = 80;
+int Turn45Delay = 60;
 int RunOneBlockTime = 1050;
 
 
@@ -24696,7 +24696,7 @@ void turnCalibration (struct DC_motor *mL,struct DC_motor *mR){
     LATFbits.LATF0=1;
     _delay((unsigned long)((1000)*(64000000/4000.0)));
 
-    while (!(!PORTFbits.RF2 & !PORTFbits.RF3)){
+    while (!(!PORTFbits.RF2 && !PORTFbits.RF3)){
         LATDbits.LATD3=1;
 
         turnLeft45(&motorL, &motorR);
@@ -24709,7 +24709,7 @@ void turnCalibration (struct DC_motor *mL,struct DC_motor *mR){
 
               LATDbits.LATD4=1;
             _delay((unsigned long)((2000)*(64000000/4000.0)));
-            if(!PORTFbits.RF3 & !PORTFbits.RF2){
+            if(!PORTFbits.RF3 && !PORTFbits.RF2){
                 LATHbits.LATH3=1;
                 LATDbits.LATD7=1;
                 _delay((unsigned long)((1000)*(64000000/4000.0)));

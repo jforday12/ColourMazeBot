@@ -2311,10 +2311,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 50 `i
 ]
 "21
-[; ;./dc_motor.h: 21: int Turn45Delay = 80;
+[; ;./dc_motor.h: 21: int Turn45Delay = 60;
 [v _Turn45Delay `i ~T0 @X0 1 e ]
 [i _Turn45Delay
--> 80 `i
+-> 60 `i
 ]
 "22
 [; ;./dc_motor.h: 22: int RunOneBlockTime = 1050;
@@ -3300,7 +3300,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 358:     _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "360
-[; ;dc_motor.c: 360:     while (!(!PORTFbits.RF2 & !PORTFbits.RF3)){
+[; ;dc_motor.c: 360:     while (!(!PORTFbits.RF2 && !PORTFbits.RF3)){
 [e $U 2070  ]
 [e :U 2071 ]
 {
@@ -3331,8 +3331,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 372:             _delay((unsigned long)((2000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "373
-[; ;dc_motor.c: 373:             if(!PORTFbits.RF3 & !PORTFbits.RF2){
-[e $ ! & ! != -> . . _PORTFbits 0 3 `i -> 0 `i ! != -> . . _PORTFbits 0 2 `i -> 0 `i 2076  ]
+[; ;dc_motor.c: 373:             if(!PORTFbits.RF3 && !PORTFbits.RF2){
+[e $ ! && ! != -> . . _PORTFbits 0 3 `i -> 0 `i ! != -> . . _PORTFbits 0 2 `i -> 0 `i 2076  ]
 {
 "374
 [; ;dc_motor.c: 374:                 LATHbits.LATH3=1;
@@ -3416,8 +3416,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2070 ]
 "360
-[; ;dc_motor.c: 360:     while (!(!PORTFbits.RF2 & !PORTFbits.RF3)){
-[e $ ! & ! != -> . . _PORTFbits 0 2 `i -> 0 `i ! != -> . . _PORTFbits 0 3 `i -> 0 `i 2071  ]
+[; ;dc_motor.c: 360:     while (!(!PORTFbits.RF2 && !PORTFbits.RF3)){
+[e $ ! && ! != -> . . _PORTFbits 0 2 `i -> 0 `i ! != -> . . _PORTFbits 0 3 `i -> 0 `i 2071  ]
 [e :U 2072 ]
 "398
 [; ;dc_motor.c: 398:     LATDbits.LATD3=0;

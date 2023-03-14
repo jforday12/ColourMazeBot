@@ -357,7 +357,7 @@ void turnCalibration (struct DC_motor *mL,struct DC_motor *mR){
     LATFbits.LATF0=1;  // turn on left signal
     __delay_ms(1000);
     
-    while (!(RF2_button & RF3_button)){
+    while (!(RF2_button && RF3_button)){
         LATDbits.LATD3=1; // turn on beam light
         // turn 180 degrees
         turnLeft45(&motorL, &motorR);
@@ -370,7 +370,7 @@ void turnCalibration (struct DC_motor *mL,struct DC_motor *mR){
 //            LATHbits.LATH3=1;
               LATDbits.LATD4=1; // turn on break light
             __delay_ms(2000);
-            if(RF3_button & RF2_button){
+            if(RF3_button && RF2_button){
                 LATHbits.LATH3=1;
                 LATDbits.LATD7=1;
                 __delay_ms(1000);
