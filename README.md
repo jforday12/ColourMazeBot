@@ -140,7 +140,7 @@ Similar to the reverseOneBlock function we have a Forwardhalfblock function and 
 
 The ForwardOneBlock function is used when doing the reverse of each yellow and pink as we now need to move forward instead of backwards. 
 
-### Reverse movement 3 ###
+### Reverse movement ###
 
 In handeling reverse movement as stated in the memory function most colours can be handled by executing their complementary colours. However, for reverse Yellow and reverse Pink this is not possible. Thus two new move functions our created that do the opposite of these cards as shown below:
 
