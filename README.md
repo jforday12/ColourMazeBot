@@ -184,6 +184,33 @@ Light Blue and Green:
 
 
 ## Timers
+The timers file consist of 3 functions. The first is the initilisation where the prescaler is set to 1:8192 or 0b1101 which gives us an T_int of 0.512ms. The timer is not started in the initilisation routine as we want to start it only once the calibration routine has ended and the RF2 button is clicked. 
+
+The second function is the getTMR0val which is called whenever the buggy hits the wall and obtains a value for how long the buggy has been going straight for. 
+
+	void getTMR0val(void){
+    	unsigned int temp= TMR0L;
+    	int moving=(TMR0H<<8)|(temp&0xff);
+    	if (moving>700){
+        	moving=moving-700;
+   	 }
+    
+    	Time_forward[move_count]=moving;
+    	// function to input TMR0H into the array
+    
+	//add your code to get the full 16 bit timer value here
+	}
+
+This function concatonates the upper and lower bit of the timer function and then subtracts 350ms off it if the time travelled forward is greater than this. This is because this avoids us hitting the wall on our return and helps slighlty undershoot which prevents it from crashing into the side of corners such as a 135 turn. It then puts the time into the Time_forward array. 
+
+The final function is delayed_ms which is simply a custom delay function which takes in the length of time to delay for and will delay for that set of time. As our Tint is 0.5ms the delay of the for loop is 500 microseconds. This function is used in the timed_forward command to run for that set period of time. 
+
+	void delayed_ms(int time){
+	for(unsigned int i=0;i<time;i++){
+		__delay_us(500);
+   	 }
+	}
+
 
 ##  Memory operation
 The go home function is in charge of returning the buggy home once called. It does this through 2 arrays, Time_forward and WayBack. The first array stores a series of time values and the second array stores the array of turns taken. It first turns the buggy arround through executing the blue command and stops the timer. After this it runs through a for loop itterating backwards starting at the most recent move_count index and working backwards. 
