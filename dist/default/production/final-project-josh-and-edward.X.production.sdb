@@ -177,7 +177,7 @@
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
 "28
 [v _getTMR0val getTMR0val `(v  1 e 1 0 ]
-"39
+"43
 [v _delayed_ms delayed_ms `(v  1 e 1 0 ]
 [s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 "18 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X/dc_motor.h
@@ -1246,14 +1246,14 @@
 [v timed_forward@time time `i  1 p 2 23 ]
 "182
 } 0
-"39 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\timers.c
+"43 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\timers.c
 [v _delayed_ms delayed_ms `(v  1 e 1 0 ]
 {
-"40
+"44
 [v delayed_ms@i i `ui  1 a 2 3 ]
-"39
-[v delayed_ms@time time `i  1 p 2 0 ]
 "43
+[v delayed_ms@time time `i  1 p 2 0 ]
+"47
 } 0
 "333 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\dc_motor.c
 [v _ReverseYellow ReverseYellow `(v  1 e 1 0 ]
@@ -1323,8 +1323,10 @@
 [v _getTMR0val getTMR0val `(v  1 e 1 0 ]
 {
 "32
-[v getTMR0val@moving moving `i  1 a 2 0 ]
-"37
+[v getTMR0val@moving moving `i  1 a 2 4 ]
+"30
+[v getTMR0val@temp temp `ui  1 a 2 2 ]
+"41
 } 0
 "114 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\color.c
 [v _colour_rel colour_rel `(v  1 e 1 0 ]

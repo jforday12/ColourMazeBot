@@ -2085,43 +2085,54 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _temp `ui ~T0 @X0 1 a ]
 [e = _temp -> _TMR0L `ui ]
 "32
-[; ;timers.c: 32:     int moving=TMR0H<<8;
+[; ;timers.c: 32:     int moving=(TMR0H<<8)|(temp&0xff);
 [v _moving `i ~T0 @X0 1 a ]
-[e = _moving << -> _TMR0H `i -> 8 `i ]
+[e = _moving -> | -> << -> _TMR0H `i -> 8 `i `ui & _temp -> -> 255 `i `ui `i ]
 "33
-[; ;timers.c: 33:     Time_forward[move_count]=moving;
-[e = *U + &U _Time_forward * -> _move_count `ux -> -> # *U &U _Time_forward `ui `ux _moving ]
+[; ;timers.c: 33:     if (moving>700){
+[e $ ! > _moving -> 700 `i 2017  ]
+{
+"34
+[; ;timers.c: 34:         moving=moving-700;
+[e = _moving - _moving -> 700 `i ]
+"35
+[; ;timers.c: 35:     }
+}
+[e :U 2017 ]
 "37
-[; ;timers.c: 37: }
+[; ;timers.c: 37:     Time_forward[move_count]=moving;
+[e = *U + &U _Time_forward * -> _move_count `ux -> -> # *U &U _Time_forward `ui `ux _moving ]
+"41
+[; ;timers.c: 41: }
 [e :UE 2016 ]
 }
-"39
-[; ;timers.c: 39: void delayed_ms(int time){
+"43
+[; ;timers.c: 43: void delayed_ms(int time){
 [v _delayed_ms `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _delayed_ms ]
 [v _time `i ~T0 @X0 1 r1 ]
 [f ]
-"40
-[; ;timers.c: 40:     for(unsigned int i=0;i<time;i++){
+"44
+[; ;timers.c: 44:     for(unsigned int i=0;i<time;i++){
 {
 [v _i `ui ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `ui ]
-[e $U 2021  ]
-[e :U 2018 ]
+[e $U 2022  ]
+[e :U 2019 ]
 {
-"41
-[; ;timers.c: 41:         _delay((unsigned long)((500)*(64000000/4000000.0)));
+"45
+[; ;timers.c: 45:         _delay((unsigned long)((500)*(64000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
-"42
-[; ;timers.c: 42:     }
+"46
+[; ;timers.c: 46:     }
 }
 [e ++ _i -> -> 1 `i `ui ]
-[e :U 2021 ]
-[e $ < _i -> _time `ui 2018  ]
-[e :U 2019 ]
+[e :U 2022 ]
+[e $ < _i -> _time `ui 2019  ]
+[e :U 2020 ]
 }
-"43
-[; ;timers.c: 43: }
-[e :UE 2017 ]
+"47
+[; ;timers.c: 47: }
+[e :UE 2018 ]
 }
