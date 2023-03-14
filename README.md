@@ -272,6 +272,25 @@ go_Home function:
 	}
 
 ## Exceptions
+There are two main exceptions which we handle in our code. The first is an overflow of the timer which occurs every approximately 33.5 seconds. As we reset the timer each time we hit a wall this means if we have overflowed we have been travelling for over 33.5 seconds which is highly unlikely. Thus we flag a return home function using the interrupt. 
+	
+	void __interrupt(high_priority) HighISR(){
+    		if (PIR0bits.TMR0IF){
+        		TMR0H=0;
+        		TMR0L=0;
+        		lost_flag=1;
+        		PIR0bits.TMR0IF=0;
+    		}
+	}
+
+The second exception handled is if we recieve from the colour decider function that it is an unknown card 3 times. If this occurs then the go home function is flagged. This is achieved through a variable lost_count incrementing each time we recieve a unknown flag and resetting once we recieve a known flag. 
+
+	    else if (prev_colour==10){// undecided colour
+                lost_count++;
+                if (lost_count>=3){
+                    go_Home(WayBack, Time_forward);
+		}
+
 
 ## Performance
 
