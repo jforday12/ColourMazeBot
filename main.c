@@ -75,7 +75,6 @@ void main(void) {
         readColours(&vals);
 
         // obtain the relative RGB values and store it in the struct RGB_rel vals
-        colour_rel(&vals, &rel); // can we get rid of this? it is done again in consecutive_read
 
         // if the clear value is greater than 2500 (value obtained from lowest clear value card which was blue) then it has hit a wall so detect what colour it sees
         if (vals.L>=500){
@@ -88,9 +87,6 @@ void main(void) {
                 getTMR0val(); // place time moving forward in time array
 
                 Forwardhalfblock(&motorL,&motorR);
-                // stop the buggy
-                stop(&motorL, &motorR);
-
                 while (consecuitive<20){
                     __delay_ms(100);
                     readColours(&vals);

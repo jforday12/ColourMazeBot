@@ -24546,6 +24546,7 @@ void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
 void homeReverse(struct DC_motor *mL,struct DC_motor *mR);
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
+void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 void quaterForward(struct DC_motor *mL,struct DC_motor *mR);
 
 void RedMove(struct DC_motor *mL,struct DC_motor *mR);
@@ -24665,7 +24666,6 @@ void main(void) {
         readColours(&vals);
 
 
-        colour_rel(&vals, &rel);
 
 
         if (vals.L>=500){
@@ -24678,9 +24678,6 @@ void main(void) {
                 getTMR0val();
 
                 Forwardhalfblock(&motorL,&motorR);
-
-                stop(&motorL, &motorR);
-
                 while (consecuitive<20){
                     _delay((unsigned long)((100)*(64000000/4000.0)));
                     readColours(&vals);

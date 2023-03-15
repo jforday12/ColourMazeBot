@@ -3,8 +3,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./dc_motor.h: 8: struct DC_motor {
 [s S2015 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
 [n S2015 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
-"42
-[; ;./dc_motor.h: 42: void RedMove(struct DC_motor *mL,struct DC_motor *mR);
+"43
+[; ;./dc_motor.h: 43: void RedMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _RedMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "39326 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39326: extern volatile unsigned char TMR0H __attribute__((address(0xFD4)));
@@ -12,29 +12,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39188
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39188: extern volatile unsigned char TMR0L __attribute__((address(0xFD3)));
 [v _TMR0L `Vuc ~T0 @X0 0 e@4051 ]
-"47 ./dc_motor.h
-[; ;./dc_motor.h: 47: void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
+"48 ./dc_motor.h
+[; ;./dc_motor.h: 48: void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _OrangeMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"45
-[; ;./dc_motor.h: 45: void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _YellowMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"44
-[; ;./dc_motor.h: 44: void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _BlueMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"43
-[; ;./dc_motor.h: 43: void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _GreenMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"48
-[; ;./dc_motor.h: 48: void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _LightBlueMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "46
-[; ;./dc_motor.h: 46: void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
+[; ;./dc_motor.h: 46: void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _YellowMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"45
+[; ;./dc_motor.h: 45: void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _BlueMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"44
+[; ;./dc_motor.h: 44: void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _GreenMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"49
+[; ;./dc_motor.h: 49: void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _LightBlueMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"47
+[; ;./dc_motor.h: 47: void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _PinkMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "23 ./Memory.h
 [; ;./Memory.h: 23: void go_Home (char *WayBack, int *Time_forward);
 [v _go_Home `(v ~T0 @X0 0 ef2`*uc`*i ]
-"50 ./dc_motor.h
-[; ;./dc_motor.h: 50: void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
+"51 ./dc_motor.h
+[; ;./dc_motor.h: 51: void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _RetryMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");

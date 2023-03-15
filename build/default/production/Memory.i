@@ -24287,6 +24287,7 @@ void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
 void homeReverse(struct DC_motor *mL,struct DC_motor *mR);
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
+void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 void quaterForward(struct DC_motor *mL,struct DC_motor *mR);
 
 void RedMove(struct DC_motor *mL,struct DC_motor *mR);
@@ -24331,30 +24332,37 @@ void go_Home (char *WayBack, int *Time_forward){
         if (WayBack[i-1]==1){
 
             GreenMove(&motorL, &motorR);
+            Backhalfblock(&motorL, &motorR);
         }
         else if (WayBack[i-1]==2){
 
             ReverseOrangeMove(&motorL, &motorR);
+            Backhalfblock(&motorL, &motorR);
         }
         else if (WayBack[i-1]==3){
 
             ReverseYellow(&motorL, &motorR);
+            Backhalfblock(&motorL, &motorR);
         }
         else if (WayBack[i-1]==4){
 
             BlueMove(&motorL, &motorR);
+            Backhalfblock(&motorL, &motorR);
         }
         else if (WayBack[i-1]==5){
 
             RedMove(&motorL, &motorR);
+            Backhalfblock(&motorL, &motorR);
         }
         else if (WayBack[i-1]==6){
 
             ReverseLightBlueMove(&motorL, &motorR);
+            Backhalfblock(&motorL, &motorR);
         }
         else if (WayBack[i-1]==7){
 
             ReversePink(&motorL, &motorR);
+            Backhalfblock(&motorL, &motorR);
         }
         stop(&motorL, &motorR);
         run_flag=0;
