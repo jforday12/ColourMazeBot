@@ -10,15 +10,13 @@
 
 #### i2c.c/.h: Set up of the I2C serial communication interface in order to read RGBC values from the TCS3471 color click module during testing
 
-#### serial.c/.h:
-
 #### timers.c/.h: Set up of the Timer0 source, function to read timer value
 
 #### dc_motor.c/.h: Define motor structure, configuration of dc motor, functions for specific basic moves e.g. turn left 45 and a calibration routine depending on the surface, functions for moves corresponding to each colour recognition
 
 #### Memory.c/.h: Create arrays to store route information, function to let the buggie return to base by calling arrays
 
-## physical modifications
+## Physical modifications
 
 ![image](https://user-images.githubusercontent.com/96208188/225457969-d8394f43-9aa3-4e4c-8f5c-e6457990b899.png)
 
