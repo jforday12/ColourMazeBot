@@ -19,9 +19,18 @@
 #### Memory.c/.h: Create arrays to store route information, function to let the buggie return to base by calling arrays
 
 
-## Main Operating Procedure
-	Main Loop:
-	
+## Instruction for the user
+1. Turn on Buggy and go through the motor calibration, to ensure desirable performance in different surface settings (explained below). 
+2. When done with motor calibration, press ButtonRF2 and ButtonRF3 until the left break light is turned off to exit motor calibration. 
+3. Once you are ready, set the buggy in the starting position and press ButtonRF2. The buggy will now commence the main operating loop
+
+## Main Loop:
+1. Reset timer and start timer. The buggy moves in a straight line.
+2. When luminance value gets larger than 500, which means a card is detected, stop timer, store timer value in list Time_forward
+3. Forward half a block to make sure the colour click cover is against the card.
+4. Read card colour and ask for 20 consecutive same reading before confirm coour recognition, store colour card in WayBack
+5. Give move instruction based on card colour.
+6. When detected white card, read values from lists Time_forward & WayBack to give buggie instrctions to go home.
 
 ## Motor calibration
 The motor calibration routine is run on start and does a 180 degree turn after this it then waits until either RF2 or RF3 button is pressed and. If the buggy is short of 180 degrees the RF3 button is pressed and held until the red light comes on and off. This increases the timing of the right motor so it turns longer while RF2 button makes it turn shorter with the same associated buttons. 
