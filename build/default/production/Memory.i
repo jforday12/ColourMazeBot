@@ -24325,31 +24325,31 @@ void go_Home (char *WayBack, int *Time_forward){
         timed_forward(&motorL, &motorR,Time_forward[i]);
 
         if (WayBack[i-1]==1){
-            homeReverse(&motorL, &motorR);
+
             GreenMove(&motorL, &motorR);
         }
         else if (WayBack[i-1]==2){
-            homeReverse(&motorL, &motorR);
+
             LightBlueMove(&motorL, &motorR);
         }
         else if (WayBack[i-1]==3){
-            homeReverse(&motorL, &motorR);
+
             ReverseYellow(&motorL, &motorR);
         }
         else if (WayBack[i-1]==4){
-            homeReverse(&motorL, &motorR);
+
             BlueMove(&motorL, &motorR);
         }
         else if (WayBack[i-1]==5){
-            homeReverse(&motorL, &motorR);
+
             RedMove(&motorL, &motorR);
         }
         else if (WayBack[i-1]==6){
-            homeReverse(&motorL, &motorR);
+
             OrangeMove(&motorL, &motorR);
         }
         else if (WayBack[i-1]==7){
-            homeReverse(&motorL, &motorR);
+
             ReversePink(&motorL, &motorR);
         }
         stop(&motorL, &motorR);

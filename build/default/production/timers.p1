@@ -2095,12 +2095,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _moving `i ~T0 @X0 1 a ]
 [e = _moving -> | -> << -> _TMR0H `i -> 8 `i `ui & _temp -> -> 255 `i `ui `i ]
 "33
-[; ;timers.c: 33:     if (moving>900){
-[e $ ! > _moving -> 900 `i 2017  ]
+[; ;timers.c: 33:     if (moving>1000){
+[e $ ! > _moving -> 1000 `i 2017  ]
 {
 "34
-[; ;timers.c: 34:         moving=moving-900;
-[e = _moving - _moving -> 900 `i ]
+[; ;timers.c: 34:         moving=moving-1000;
+[e = _moving - _moving -> 1000 `i ]
 "35
 [; ;timers.c: 35:     }
 }
