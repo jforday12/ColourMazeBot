@@ -18,6 +18,12 @@
 
 #### Memory.c/.h: Create arrays to store route information, function to let the buggie return to base by calling arrays
 
+## physical modifications
+
+![image](https://user-images.githubusercontent.com/96208188/225457969-d8394f43-9aa3-4e4c-8f5c-e6457990b899.png)
+
+1. 3D printed cover to remove ambient light
+2. Thermoplastic bumper to avoid damage
 
 ## Instruction for the user
 1. Turn on Buggy and go through the motor calibration, to ensure desirable performance in different surface settings (explained below). 
