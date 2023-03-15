@@ -229,6 +229,12 @@ void reverseDetect(struct DC_motor *mL,struct DC_motor *mR){
     stop(&motorL, &motorR);
     __delay_ms(50); 
 }
+void homeReverse(struct DC_motor *mL,struct DC_motor *mR){
+    fullSpeedBack(mL,mR);
+    __delay_ms(10);
+    stop(&motorL, &motorR);
+    __delay_ms(50); 
+}
 
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedBack(mL,mR);
@@ -283,6 +289,8 @@ void BlueMove(struct DC_motor *mL,struct DC_motor *mR){
     turnRight45(&motorL, &motorR);
     turnRight45(&motorL, &motorR);
     turnRight45(&motorL, &motorR);
+    
+    Backhalfblock(&motorL, &motorR);
 }
 
 // yellow move instruction Reverse 1 square and turn right 90

@@ -2490,8 +2490,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "131
 [; ;color.c: 131:     int i;
 [v _i `i ~T0 @X0 1 a ]
-[v F14364 `f ~T0 @X0 -> 3 `i s ]
-[i F14364
+[v F14367 `f ~T0 @X0 -> 3 `i s ]
+[i F14367
 :U ..
 "132
 [; ;color.c: 132:     float RGB_col[3]={vals->R,vals->G,vals->B};
@@ -2501,7 +2501,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _RGB_col `f ~T0 @X0 -> 3 `i a ]
-[e = _RGB_col F14364 ]
+[e = _RGB_col F14367 ]
 [e ; = *U + &U _RGB_col * -> -> -> 0 `i `ui `ux -> -> # *U &U _RGB_col `ui `ux -> . *U _vals 0 `f ; = *U + &U _RGB_col * -> -> -> 1 `i `ui `ux -> -> # *U &U _RGB_col `ui `ux -> . *U _vals 1 `f = *U + &U _RGB_col * -> -> -> 2 `i `ui `ux -> -> # *U &U _RGB_col `ui `ux -> . *U _vals 2 `f ]
 "133
 [; ;color.c: 133:     float Hue;
@@ -2737,105 +2737,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;color.c: 205:           }
 }
 [e $U 2057  ]
-"207
-[; ;color.c: 207:     else if ((22<=Hue)&(Hue<=24)){
-[e :U 2056 ]
-[e $ ! & <= -> -> 22 `i `f _Hue <= _Hue -> -> 24 `i `f 2058  ]
-{
 "208
-[; ;color.c: 208:         return 0;
-[e ) -> 0 `i ]
-[e $UE 2026  ]
-"209
-[; ;color.c: 209:     }
-}
-[e $U 2059  ]
-"210
-[; ;color.c: 210:     else{
-[e :U 2058 ]
+[; ;color.c: 208:     else{
+[e :U 2056 ]
 {
-"211
-[; ;color.c: 211:         return 10;
+"209
+[; ;color.c: 209:         return 10;
 [e ) -> 10 `i ]
 [e $UE 2026  ]
-"212
-[; ;color.c: 212:     }
+"210
+[; ;color.c: 210:     }
 }
-[e :U 2059 ]
 [e :U 2057 ]
 [e :U 2055 ]
 [e :U 2049 ]
 [e :U 2047 ]
 [e :U 2041 ]
 [e :U 2039 ]
-"220
-[; ;color.c: 220: }
+"218
+[; ;color.c: 218: }
 [e :UE 2026 ]
-}
-"223
-[; ;color.c: 223: int consecutive_read(struct RGB *vals, struct RGB_rel *rel){
-[v _consecutive_read `(i ~T0 @X0 1 ef2`*S2015`*S2016 ]
-{
-[e :U _consecutive_read ]
-[v _vals `*S2015 ~T0 @X0 1 r1 ]
-[v _rel `*S2016 ~T0 @X0 1 r2 ]
-[f ]
-"224
-[; ;color.c: 224:         while (consecuitive<20){
-[e $U 2061  ]
-[e :U 2062 ]
-{
-"225
-[; ;color.c: 225:             _delay((unsigned long)((100)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"226
-[; ;color.c: 226:             readColours(&vals);
-[e ( _readColours (1 -> &U _vals `*S2015 ]
-"227
-[; ;color.c: 227:             colour_rel(&vals, &rel);
-[e ( _colour_rel (2 , -> &U _vals `*S2015 -> &U _rel `*S2016 ]
-"228
-[; ;color.c: 228:             int colour = Colour_decider(&vals, &rel);
-[v _colour `i ~T0 @X0 1 a ]
-[e = _colour ( _Colour_decider (2 , -> &U _vals `*S2015 -> &U _rel `*S2016 ]
-"229
-[; ;color.c: 229:             if (colour==prev_colour){
-[e $ ! == _colour _prev_colour 2064  ]
-{
-"230
-[; ;color.c: 230:                 consecuitive++;
-[e ++ _consecuitive -> 1 `i ]
-"231
-[; ;color.c: 231:             }
-}
-[e $U 2065  ]
-"232
-[; ;color.c: 232:             else{
-[e :U 2064 ]
-{
-"233
-[; ;color.c: 233:                 consecuitive=0;
-[e = _consecuitive -> 0 `i ]
-"234
-[; ;color.c: 234:             }
-}
-[e :U 2065 ]
-"235
-[; ;color.c: 235:             prev_colour=colour;
-[e = _prev_colour _colour ]
-"236
-[; ;color.c: 236:         }
-}
-[e :U 2061 ]
-"224
-[; ;color.c: 224:         while (consecuitive<20){
-[e $ < _consecuitive -> 20 `i 2062  ]
-[e :U 2063 ]
-"238
-[; ;color.c: 238:     return(prev_colour);
-[e ) _prev_colour ]
-[e $UE 2060  ]
-"239
-[; ;color.c: 239: }
-[e :UE 2060 ]
 }

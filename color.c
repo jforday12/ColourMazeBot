@@ -204,9 +204,7 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
             return 7; // pink
           }
     //}
-    else if ((22<=Hue)&(Hue<=24)){
-        return 0;//
-    }
+
     else{
         return 10; // could not recognise colour
     }
@@ -219,21 +217,3 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){//added motor structur
    
 } 
     
-
-int consecutive_read(struct RGB *vals, struct RGB_rel *rel){
-        while (consecuitive<20){
-            __delay_ms(100);
-            readColours(&vals);
-            colour_rel(&vals, &rel);
-            int colour = Colour_decider(&vals, &rel);
-            if (colour==prev_colour){
-                consecuitive++;
-            }
-            else{
-                consecuitive=0;
-            }
-            prev_colour=colour;
-        }
-    
-    return(prev_colour);
-}

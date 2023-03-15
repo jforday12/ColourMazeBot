@@ -24284,6 +24284,7 @@ void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
 void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
 void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
 void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
+void homeReverse(struct DC_motor *mL,struct DC_motor *mR);
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void RedMove(struct DC_motor *mL,struct DC_motor *mR);
@@ -24324,31 +24325,31 @@ void go_Home (char *WayBack, int *Time_forward){
         timed_forward(&motorL, &motorR,Time_forward[i]);
 
         if (WayBack[i-1]==1){
-            reverseDetect(&motorL, &motorR);
+            homeReverse(&motorL, &motorR);
             GreenMove(&motorL, &motorR);
         }
         else if (WayBack[i-1]==2){
-            reverseDetect(&motorL, &motorR);
+            homeReverse(&motorL, &motorR);
             LightBlueMove(&motorL, &motorR);
         }
         else if (WayBack[i-1]==3){
-            reverseDetect(&motorL, &motorR);
+            homeReverse(&motorL, &motorR);
             ReverseYellow(&motorL, &motorR);
         }
         else if (WayBack[i-1]==4){
-            reverseDetect(&motorL, &motorR);
+            homeReverse(&motorL, &motorR);
             BlueMove(&motorL, &motorR);
         }
         else if (WayBack[i-1]==5){
-            reverseDetect(&motorL, &motorR);
+            homeReverse(&motorL, &motorR);
             RedMove(&motorL, &motorR);
         }
         else if (WayBack[i-1]==6){
-            reverseDetect(&motorL, &motorR);
+            homeReverse(&motorL, &motorR);
             OrangeMove(&motorL, &motorR);
         }
         else if (WayBack[i-1]==7){
-            reverseDetect(&motorL, &motorR);
+            homeReverse(&motorL, &motorR);
             ReversePink(&motorL, &motorR);
         }
         stop(&motorL, &motorR);

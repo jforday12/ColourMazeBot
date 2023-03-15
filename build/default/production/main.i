@@ -24543,6 +24543,7 @@ void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
 void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
 void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
 void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
+void homeReverse(struct DC_motor *mL,struct DC_motor *mR);
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void RedMove(struct DC_motor *mL,struct DC_motor *mR);
@@ -24641,8 +24642,6 @@ void main(void) {
     char buf[100];
 
 
-
-
     turnCalibration(&motorL,&motorR);
 
     LATFbits.LATF0=0;
@@ -24667,33 +24666,37 @@ void main(void) {
 
         if (vals.L>=500){
             move_count++;
-            getTMR0val();
-
-            Forwardhalfblock(&motorL,&motorR);
-
-            stop(&motorL, &motorR);
-
-            while (consecuitive<20){
-                _delay((unsigned long)((100)*(64000000/4000.0)));
-                readColours(&vals);
-                colour_rel(&vals, &rel);
-                int colour = Colour_decider(&vals, &rel);
-                if (colour==prev_colour){
-                    consecuitive++;
-                }
-                else{
-                    consecuitive=0;
-                }
-                prev_colour=colour;
+            if (move_count>98){
+                getTMR0val();
+                go_Home(WayBack, Time_forward);
             }
+            else{
+                getTMR0val();
+
+                Forwardhalfblock(&motorL,&motorR);
+
+                stop(&motorL, &motorR);
+
+                while (consecuitive<20){
+                    _delay((unsigned long)((100)*(64000000/4000.0)));
+                    readColours(&vals);
+                    colour_rel(&vals, &rel);
+                    int colour = Colour_decider(&vals, &rel);
+                    if (colour==prev_colour){
+                        consecuitive++;
+                    }
+                    else{
+                        consecuitive=0;
+                    }
+                    prev_colour=colour;
+                }
 
 
+                sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+                sendStringSerial4(buf);
 
-            sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
-            sendStringSerial4(buf);
-
-            colour_move (prev_colour);
-
+                colour_move (prev_colour);
+            }
         }else if (lost_flag){
             move_count++;
             Time_forward[move_count]=65535;

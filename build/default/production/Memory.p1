@@ -3,8 +3,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./dc_motor.h: 8: struct DC_motor {
 [s S2015 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
 [n S2015 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
-"41
-[; ;./dc_motor.h: 41: void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
+"42
+[; ;./dc_motor.h: 42: void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _BlueMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "39586 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39586:     struct {
@@ -27,26 +27,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "31 ./dc_motor.h
 [; ;./dc_motor.h: 31: void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time);
 [v _timed_forward `(v ~T0 @X0 0 ef3`*S2015`*S2015`i ]
-"36
-[; ;./dc_motor.h: 36: void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
-[v _reverseDetect `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"40
-[; ;./dc_motor.h: 40: void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
+"37
+[; ;./dc_motor.h: 37: void homeReverse(struct DC_motor *mL,struct DC_motor *mR);
+[v _homeReverse `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"41
+[; ;./dc_motor.h: 41: void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _GreenMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"45
-[; ;./dc_motor.h: 45: void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
+"46
+[; ;./dc_motor.h: 46: void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _LightBlueMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"48
-[; ;./dc_motor.h: 48: void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
-[v _ReverseYellow `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"39
-[; ;./dc_motor.h: 39: void RedMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _RedMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"44
-[; ;./dc_motor.h: 44: void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
-[v _OrangeMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "49
-[; ;./dc_motor.h: 49: void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
+[; ;./dc_motor.h: 49: void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
+[v _ReverseYellow `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"40
+[; ;./dc_motor.h: 40: void RedMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _RedMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"45
+[; ;./dc_motor.h: 45: void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
+[v _OrangeMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"50
+[; ;./dc_motor.h: 50: void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
 [v _ReversePink `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "27
 [; ;./dc_motor.h: 27: void stop(struct DC_motor *mL,struct DC_motor *mR);
@@ -2098,8 +2098,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> *U + _WayBack * -> - _i -> 1 `i `x -> -> # *U _WayBack `i `x `i -> 1 `i 2020  ]
 {
 "12
-[; ;Memory.c: 12:             reverseDetect(&motorL, &motorR);
-[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+[; ;Memory.c: 12:             homeReverse(&motorL, &motorR);
+[e ( _homeReverse (2 , &U _motorL &U _motorR ]
 "13
 [; ;Memory.c: 13:             GreenMove(&motorL, &motorR);
 [e ( _GreenMove (2 , &U _motorL &U _motorR ]
@@ -2113,8 +2113,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> *U + _WayBack * -> - _i -> 1 `i `x -> -> # *U _WayBack `i `x `i -> 2 `i 2022  ]
 {
 "16
-[; ;Memory.c: 16:             reverseDetect(&motorL, &motorR);
-[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+[; ;Memory.c: 16:             homeReverse(&motorL, &motorR);
+[e ( _homeReverse (2 , &U _motorL &U _motorR ]
 "17
 [; ;Memory.c: 17:             LightBlueMove(&motorL, &motorR);
 [e ( _LightBlueMove (2 , &U _motorL &U _motorR ]
@@ -2128,8 +2128,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> *U + _WayBack * -> - _i -> 1 `i `x -> -> # *U _WayBack `i `x `i -> 3 `i 2024  ]
 {
 "20
-[; ;Memory.c: 20:             reverseDetect(&motorL, &motorR);
-[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+[; ;Memory.c: 20:             homeReverse(&motorL, &motorR);
+[e ( _homeReverse (2 , &U _motorL &U _motorR ]
 "21
 [; ;Memory.c: 21:             ReverseYellow(&motorL, &motorR);
 [e ( _ReverseYellow (2 , &U _motorL &U _motorR ]
@@ -2143,8 +2143,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> *U + _WayBack * -> - _i -> 1 `i `x -> -> # *U _WayBack `i `x `i -> 4 `i 2026  ]
 {
 "24
-[; ;Memory.c: 24:             reverseDetect(&motorL, &motorR);
-[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+[; ;Memory.c: 24:             homeReverse(&motorL, &motorR);
+[e ( _homeReverse (2 , &U _motorL &U _motorR ]
 "25
 [; ;Memory.c: 25:             BlueMove(&motorL, &motorR);
 [e ( _BlueMove (2 , &U _motorL &U _motorR ]
@@ -2158,8 +2158,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> *U + _WayBack * -> - _i -> 1 `i `x -> -> # *U _WayBack `i `x `i -> 5 `i 2028  ]
 {
 "28
-[; ;Memory.c: 28:             reverseDetect(&motorL, &motorR);
-[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+[; ;Memory.c: 28:             homeReverse(&motorL, &motorR);
+[e ( _homeReverse (2 , &U _motorL &U _motorR ]
 "29
 [; ;Memory.c: 29:             RedMove(&motorL, &motorR);
 [e ( _RedMove (2 , &U _motorL &U _motorR ]
@@ -2173,8 +2173,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> *U + _WayBack * -> - _i -> 1 `i `x -> -> # *U _WayBack `i `x `i -> 6 `i 2030  ]
 {
 "32
-[; ;Memory.c: 32:             reverseDetect(&motorL, &motorR);
-[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+[; ;Memory.c: 32:             homeReverse(&motorL, &motorR);
+[e ( _homeReverse (2 , &U _motorL &U _motorR ]
 "33
 [; ;Memory.c: 33:             OrangeMove(&motorL, &motorR);
 [e ( _OrangeMove (2 , &U _motorL &U _motorR ]
@@ -2188,8 +2188,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> *U + _WayBack * -> - _i -> 1 `i `x -> -> # *U _WayBack `i `x `i -> 7 `i 2032  ]
 {
 "36
-[; ;Memory.c: 36:             reverseDetect(&motorL, &motorR);
-[e ( _reverseDetect (2 , &U _motorL &U _motorR ]
+[; ;Memory.c: 36:             homeReverse(&motorL, &motorR);
+[e ( _homeReverse (2 , &U _motorL &U _motorR ]
 "37
 [; ;Memory.c: 37:             ReversePink(&motorL, &motorR);
 [e ( _ReversePink (2 , &U _motorL &U _motorR ]

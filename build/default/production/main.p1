@@ -48,8 +48,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "21098
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 21098: extern volatile unsigned char CCPR4H __attribute__((address(0xF21)));
 [v _CCPR4H `Vuc ~T0 @X0 0 e@3873 ]
-"51 ./dc_motor.h
-[; ;./dc_motor.h: 51: void turnCalibration(struct DC_motor *mL,struct DC_motor *mR);
+"52 ./dc_motor.h
+[; ;./dc_motor.h: 52: void turnCalibration(struct DC_motor *mL,struct DC_motor *mR);
 [v _turnCalibration `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "29034 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29034:     struct {
@@ -112,8 +112,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9 ./timers.h
 [; ;./timers.h: 9: void getTMR0val(void);
 [v _getTMR0val `(v ~T0 @X0 0 ef ]
-"46 ./dc_motor.h
-[; ;./dc_motor.h: 46: void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+"23 ./Memory.h
+[; ;./Memory.h: 23: void go_Home (char *WayBack, int *Time_forward);
+[v _go_Home `(v ~T0 @X0 0 ef2`*uc`*i ]
+"47 ./dc_motor.h
+[; ;./dc_motor.h: 47: void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 [v _Forwardhalfblock `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "27
 [; ;./dc_motor.h: 27: void stop(struct DC_motor *mL,struct DC_motor *mR);
@@ -130,9 +133,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./colour_move.h
 [; ;./colour_move.h: 13: void colour_move (int recognized_colour);
 [v _colour_move `(v ~T0 @X0 0 ef1`i ]
-"23 ./Memory.h
-[; ;./Memory.h: 23: void go_Home (char *WayBack, int *Time_forward);
-[v _go_Home `(v ~T0 @X0 0 ef2`*uc`*i ]
 "9 main.c
 [p x FEXTOSC  =  HS      ]
 "10
@@ -2286,154 +2286,176 @@ Version 4.0 HI-TECH Software Intermediate Code
 "56
 [; ;main.c: 56:     char buf[100];
 [v _buf `uc ~T0 @X0 -> 100 `i a ]
-"61
-[; ;main.c: 61:     turnCalibration(&motorL,&motorR);
+"59
+[; ;main.c: 59:     turnCalibration(&motorL,&motorR);
 [e ( _turnCalibration (2 , &U _motorL &U _motorR ]
-"63
-[; ;main.c: 63:     LATFbits.LATF0=0;
+"61
+[; ;main.c: 61:     LATFbits.LATF0=0;
 [e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
-"64
-[; ;main.c: 64:     _delay((unsigned long)((1000)*(64000000/4000.0)));
+"62
+[; ;main.c: 62:     _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"67
-[; ;main.c: 67:     while (!!PORTFbits.RF2);
+"65
+[; ;main.c: 65:     while (!!PORTFbits.RF2);
 [e $U 2021  ]
 [e :U 2022 ]
 [e :U 2021 ]
 [e $ ! ! != -> . . _PORTFbits 0 2 `i -> 0 `i 2022  ]
 [e :U 2023 ]
-"68
-[; ;main.c: 68:     _delay((unsigned long)((1000)*(64000000/4000.0)));
+"66
+[; ;main.c: 66:     _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"70
-[; ;main.c: 70:     T0CON0bits.T0EN=1;
+"68
+[; ;main.c: 68:     T0CON0bits.T0EN=1;
 [e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
-"71
-[; ;main.c: 71:     while (run_flag)
+"69
+[; ;main.c: 69:     while (run_flag)
 [e $U 2024  ]
 [e :U 2025 ]
-"72
-[; ;main.c: 72:     {
+"70
+[; ;main.c: 70:     {
 {
-"73
-[; ;main.c: 73:         consecuitive=0;
+"71
+[; ;main.c: 71:         consecuitive=0;
 [e = _consecuitive -> 0 `i ]
-"75
-[; ;main.c: 75:         fullSpeedAhead(&motorL,&motorR);
+"73
+[; ;main.c: 73:         fullSpeedAhead(&motorL,&motorR);
 [e ( _fullSpeedAhead (2 , &U _motorL &U _motorR ]
-"77
-[; ;main.c: 77:         readColours(&vals);
+"75
+[; ;main.c: 75:         readColours(&vals);
 [e ( _readColours (1 &U _vals ]
-"80
-[; ;main.c: 80:         colour_rel(&vals, &rel);
+"78
+[; ;main.c: 78:         colour_rel(&vals, &rel);
 [e ( _colour_rel (2 , &U _vals &U _rel ]
-"83
-[; ;main.c: 83:         if (vals.L>=500){
+"81
+[; ;main.c: 81:         if (vals.L>=500){
 [e $ ! >= . _vals 3 -> 500 `i 2027  ]
 {
-"84
-[; ;main.c: 84:             move_count++;
+"82
+[; ;main.c: 82:             move_count++;
 [e ++ _move_count -> -> 1 `i `Vui ]
-"85
-[; ;main.c: 85:             getTMR0val();
+"83
+[; ;main.c: 83:             if (move_count>98){
+[e $ ! > _move_count -> -> 98 `i `ui 2028  ]
+{
+"84
+[; ;main.c: 84:                 getTMR0val();
 [e ( _getTMR0val ..  ]
-"87
-[; ;main.c: 87:             Forwardhalfblock(&motorL,&motorR);
-[e ( _Forwardhalfblock (2 , &U _motorL &U _motorR ]
-"89
-[; ;main.c: 89:             stop(&motorL, &motorR);
-[e ( _stop (2 , &U _motorL &U _motorR ]
-"91
-[; ;main.c: 91:             while (consecuitive<20){
-[e $U 2028  ]
-[e :U 2029 ]
-{
-"92
-[; ;main.c: 92:                 _delay((unsigned long)((100)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"93
-[; ;main.c: 93:                 readColours(&vals);
-[e ( _readColours (1 &U _vals ]
-"94
-[; ;main.c: 94:                 colour_rel(&vals, &rel);
-[e ( _colour_rel (2 , &U _vals &U _rel ]
-"95
-[; ;main.c: 95:                 int colour = Colour_decider(&vals, &rel);
-[v _colour `i ~T0 @X0 1 a ]
-[e = _colour ( _Colour_decider (2 , &U _vals &U _rel ]
-"96
-[; ;main.c: 96:                 if (colour==prev_colour){
-[e $ ! == _colour _prev_colour 2031  ]
-{
-"97
-[; ;main.c: 97:                     consecuitive++;
-[e ++ _consecuitive -> 1 `i ]
-"98
-[; ;main.c: 98:                 }
+"85
+[; ;main.c: 85:                 go_Home(WayBack, Time_forward);
+[e ( _go_Home (2 , &U _WayBack &U _Time_forward ]
+"86
+[; ;main.c: 86:             }
 }
-[e $U 2032  ]
-"99
-[; ;main.c: 99:                 else{
+[e $U 2029  ]
+"87
+[; ;main.c: 87:             else{
+[e :U 2028 ]
+{
+"88
+[; ;main.c: 88:                 getTMR0val();
+[e ( _getTMR0val ..  ]
+"90
+[; ;main.c: 90:                 Forwardhalfblock(&motorL,&motorR);
+[e ( _Forwardhalfblock (2 , &U _motorL &U _motorR ]
+"92
+[; ;main.c: 92:                 stop(&motorL, &motorR);
+[e ( _stop (2 , &U _motorL &U _motorR ]
+"94
+[; ;main.c: 94:                 while (consecuitive<20){
+[e $U 2030  ]
 [e :U 2031 ]
 {
-"100
-[; ;main.c: 100:                     consecuitive=0;
-[e = _consecuitive -> 0 `i ]
-"101
-[; ;main.c: 101:                 }
-}
-[e :U 2032 ]
-"102
-[; ;main.c: 102:                 prev_colour=colour;
-[e = _prev_colour _colour ]
-"103
-[; ;main.c: 103:             }
-}
-[e :U 2028 ]
-"91
-[; ;main.c: 91:             while (consecuitive<20){
-[e $ < _consecuitive -> 20 `i 2029  ]
-[e :U 2030 ]
-"107
-[; ;main.c: 107:             sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
-[e ( _sprintf (1 , , , , , (. , &U _buf :s 1C -> . _rel 0 `d -> . _rel 1 `d -> . _rel 2 `d . _vals 3 _prev_colour ]
-"108
-[; ;main.c: 108:             sendStringSerial4(buf);
-[e ( _sendStringSerial4 (1 &U _buf ]
-"110
-[; ;main.c: 110:             colour_move (prev_colour);
-[e ( _colour_move (1 _prev_colour ]
-"112
-[; ;main.c: 112:         }else if (lost_flag){
-}
-[e $U 2033  ]
-[e :U 2027 ]
-[e $ ! != _lost_flag -> 0 `i 2034  ]
+"95
+[; ;main.c: 95:                     _delay((unsigned long)((100)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"96
+[; ;main.c: 96:                     readColours(&vals);
+[e ( _readColours (1 &U _vals ]
+"97
+[; ;main.c: 97:                     colour_rel(&vals, &rel);
+[e ( _colour_rel (2 , &U _vals &U _rel ]
+"98
+[; ;main.c: 98:                     int colour = Colour_decider(&vals, &rel);
+[v _colour `i ~T0 @X0 1 a ]
+[e = _colour ( _Colour_decider (2 , &U _vals &U _rel ]
+"99
+[; ;main.c: 99:                     if (colour==prev_colour){
+[e $ ! == _colour _prev_colour 2033  ]
 {
-"113
-[; ;main.c: 113:             move_count++;
-[e ++ _move_count -> -> 1 `i `Vui ]
-"114
-[; ;main.c: 114:             Time_forward[move_count]=65535;
-[e = *U + &U _Time_forward * -> _move_count `ux -> -> # *U &U _Time_forward `ui `ux -> -> 65535 `l `i ]
-"115
-[; ;main.c: 115:             go_Home(WayBack, Time_forward);
-[e ( _go_Home (2 , &U _WayBack &U _Time_forward ]
-"117
-[; ;main.c: 117:         }
+"100
+[; ;main.c: 100:                         consecuitive++;
+[e ++ _consecuitive -> 1 `i ]
+"101
+[; ;main.c: 101:                     }
+}
+[e $U 2034  ]
+"102
+[; ;main.c: 102:                     else{
+[e :U 2033 ]
+{
+"103
+[; ;main.c: 103:                         consecuitive=0;
+[e = _consecuitive -> 0 `i ]
+"104
+[; ;main.c: 104:                     }
 }
 [e :U 2034 ]
-[e :U 2033 ]
-"118
-[; ;main.c: 118:     }
+"105
+[; ;main.c: 105:                     prev_colour=colour;
+[e = _prev_colour _colour ]
+"106
+[; ;main.c: 106:                 }
+}
+[e :U 2030 ]
+"94
+[; ;main.c: 94:                 while (consecuitive<20){
+[e $ < _consecuitive -> 20 `i 2031  ]
+[e :U 2032 ]
+"109
+[; ;main.c: 109:                 sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+[e ( _sprintf (1 , , , , , (. , &U _buf :s 1C -> . _rel 0 `d -> . _rel 1 `d -> . _rel 2 `d . _vals 3 _prev_colour ]
+"110
+[; ;main.c: 110:                 sendStringSerial4(buf);
+[e ( _sendStringSerial4 (1 &U _buf ]
+"112
+[; ;main.c: 112:                 colour_move (prev_colour);
+[e ( _colour_move (1 _prev_colour ]
+"113
+[; ;main.c: 113:             }
+}
+[e :U 2029 ]
+"114
+[; ;main.c: 114:         }else if (lost_flag){
+}
+[e $U 2035  ]
+[e :U 2027 ]
+[e $ ! != _lost_flag -> 0 `i 2036  ]
+{
+"115
+[; ;main.c: 115:             move_count++;
+[e ++ _move_count -> -> 1 `i `Vui ]
+"116
+[; ;main.c: 116:             Time_forward[move_count]=65535;
+[e = *U + &U _Time_forward * -> _move_count `ux -> -> # *U &U _Time_forward `ui `ux -> -> 65535 `l `i ]
+"117
+[; ;main.c: 117:             go_Home(WayBack, Time_forward);
+[e ( _go_Home (2 , &U _WayBack &U _Time_forward ]
+"119
+[; ;main.c: 119:         }
+}
+[e :U 2036 ]
+[e :U 2035 ]
+"120
+[; ;main.c: 120:     }
 }
 [e :U 2024 ]
-"71
-[; ;main.c: 71:     while (run_flag)
+"69
+[; ;main.c: 69:     while (run_flag)
 [e $ != _run_flag -> 0 `i 2025  ]
 [e :U 2026 ]
-"119
-[; ;main.c: 119: }
+"121
+[; ;main.c: 121: }
 [e :UE 2020 ]
 }
 [p f _sprintf 8396928 ]

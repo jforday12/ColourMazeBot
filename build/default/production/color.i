@@ -24349,6 +24349,7 @@ void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
 void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
 void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
 void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
+void homeReverse(struct DC_motor *mL,struct DC_motor *mR);
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void RedMove(struct DC_motor *mL,struct DC_motor *mR);
@@ -24583,9 +24584,7 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
             return 7;
           }
 
-    else if ((22<=Hue)&(Hue<=24)){
-        return 0;
-    }
+
     else{
         return 10;
     }
@@ -24596,23 +24595,4 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
 
 
 
-}
-
-
-int consecutive_read(struct RGB *vals, struct RGB_rel *rel){
-        while (consecuitive<20){
-            _delay((unsigned long)((100)*(64000000/4000.0)));
-            readColours(&vals);
-            colour_rel(&vals, &rel);
-            int colour = Colour_decider(&vals, &rel);
-            if (colour==prev_colour){
-                consecuitive++;
-            }
-            else{
-                consecuitive=0;
-            }
-            prev_colour=colour;
-        }
-
-    return(prev_colour);
 }

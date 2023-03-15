@@ -24291,8 +24291,8 @@ void getTMR0val(void)
     unsigned int temp= TMR0L;
 
     int moving=(TMR0H<<8)|(temp&0xff);
-    if (moving>700){
-        moving=moving-700;
+    if (moving>900){
+        moving=moving-900;
     }
 
     Time_forward[move_count]=moving;

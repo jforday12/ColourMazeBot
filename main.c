@@ -55,8 +55,6 @@ void main(void) {
     
     char buf[100];
     
-//    run_flag=1;
-//    move_count=-1;
     
     turnCalibration(&motorL,&motorR);
     
@@ -82,33 +80,37 @@ void main(void) {
         // if the clear value is greater than 2500 (value obtained from lowest clear value card which was blue) then it has hit a wall so detect what colour it sees
         if (vals.L>=500){
             move_count++; // increment index of move and timer arrays
-            getTMR0val(); // place time moving forward in time array
-            
-            Forwardhalfblock(&motorL,&motorR);
-            // stop the buggy
-            stop(&motorL, &motorR);
-            
-            while (consecuitive<20){
-                __delay_ms(100);
-                readColours(&vals);
-                colour_rel(&vals, &rel);
-                int colour = Colour_decider(&vals, &rel);
-                if (colour==prev_colour){
-                    consecuitive++;
-                }
-                else{
-                    consecuitive=0;
-                }
-                prev_colour=colour;
+            if (move_count>98){
+                getTMR0val();
+                go_Home(WayBack, Time_forward);
             }
-            //int recognized_colour = consecutive_read(&vals, &rel); // let buggie have consecutive reading to make sure colour reading is correct
-            
-            // serial communication for testing
-            sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
-            sendStringSerial4(buf);
-            
-            colour_move (prev_colour); // give buggie move instruction based on recognized colour
+            else{
+                getTMR0val(); // place time moving forward in time array
 
+                Forwardhalfblock(&motorL,&motorR);
+                // stop the buggy
+                stop(&motorL, &motorR);
+
+                while (consecuitive<20){
+                    __delay_ms(100);
+                    readColours(&vals);
+                    colour_rel(&vals, &rel);
+                    int colour = Colour_decider(&vals, &rel);
+                    if (colour==prev_colour){
+                        consecuitive++;
+                    }
+                    else{
+                        consecuitive=0;
+                    }
+                    prev_colour=colour;
+                }
+
+                // serial communication for testing
+                sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+                sendStringSerial4(buf);
+
+                colour_move (prev_colour); // give buggie move instruction based on recognized colour
+            }
         }else if (lost_flag){
             move_count++; // increment index of move and timer arrays
             Time_forward[move_count]=65535; // as timer overflow ammount so need to retravel this ammount in a straight line to go home
