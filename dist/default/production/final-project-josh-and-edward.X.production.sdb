@@ -119,35 +119,41 @@
 [v _turnLeft45 turnLeft45 `(v  1 e 1 0 ]
 "226
 [v _reverseDetect reverseDetect `(v  1 e 1 0 ]
-"239
+"240
 [v _reverseOneBlock reverseOneBlock `(v  1 e 1 0 ]
-"245
+"246
 [v _ForwardOneBlock ForwardOneBlock `(v  1 e 1 0 ]
-"252
+"253
 [v _Forwardhalfblock Forwardhalfblock `(v  1 e 1 0 ]
-"258
+"259
+[v _quaterForward quaterForward `(v  1 e 1 0 ]
+"265
 [v _Backhalfblock Backhalfblock `(v  1 e 1 0 ]
-"269
+"276
 [v _RedMove RedMove `(v  1 e 1 0 ]
-"277
+"284
 [v _GreenMove GreenMove `(v  1 e 1 0 ]
-"285
+"292
 [v _BlueMove BlueMove `(v  1 e 1 0 ]
-"297
+"305
 [v _YellowMove YellowMove `(v  1 e 1 0 ]
-"307
+"315
 [v _PinkMove PinkMove `(v  1 e 1 0 ]
-"317
+"325
 [v _OrangeMove OrangeMove `(v  1 e 1 0 ]
-"326
+"335
 [v _LightBlueMove LightBlueMove `(v  1 e 1 0 ]
-"334
+"344
 [v _RetryMove RetryMove `(v  1 e 1 0 ]
-"342
+"352
 [v _ReverseYellow ReverseYellow `(v  1 e 1 0 ]
-"353
+"363
 [v _ReversePink ReversePink `(v  1 e 1 0 ]
-"365
+"375
+[v _ReverseOrangeMove ReverseOrangeMove `(v  1 e 1 0 ]
+"384
+[v _ReverseLightBlueMove ReverseLightBlueMove `(v  1 e 1 0 ]
+"392
 [v _turnCalibration turnCalibration `(v  1 e 1 0 ]
 "4 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\i2c.c
 [v _I2C_2_Master_Init I2C_2_Master_Init `(v  1 e 1 0 ]
@@ -283,7 +289,7 @@
 "11513
 [u S519 . 1 `S510 1 . 1 0 ]
 [v _ANSELDbits ANSELDbits `VES519  1 e 1 @3751 ]
-[s S2238 . 1 `uc 1 ANSELF0 1 0 :1:0 
+[s S2248 . 1 `uc 1 ANSELF0 1 0 :1:0 
 `uc 1 ANSELF1 1 0 :1:1 
 `uc 1 ANSELF2 1 0 :1:2 
 `uc 1 ANSELF3 1 0 :1:3 
@@ -293,8 +299,8 @@
 `uc 1 ANSELF7 1 0 :1:7 
 ]
 "12319
-[u S2247 . 1 `S2238 1 . 1 0 ]
-[v _ANSELFbits ANSELFbits `VES2247  1 e 1 @3764 ]
+[u S2257 . 1 `S2248 1 . 1 0 ]
+[v _ANSELFbits ANSELFbits `VES2257  1 e 1 @3764 ]
 "14196
 [v _SSP2BUF SSP2BUF `VEuc  1 e 1 @3797 ]
 "14216
@@ -629,14 +635,14 @@
 "30018
 [u S56 . 1 `S47 1 . 1 0 ]
 [v _TRISGbits TRISGbits `VES56  1 e 1 @3975 ]
-[s S2225 . 1 `uc 1 TRISH0 1 0 :1:0 
+[s S2235 . 1 `uc 1 TRISH0 1 0 :1:0 
 `uc 1 TRISH1 1 0 :1:1 
 `uc 1 TRISH2 1 0 :1:2 
 `uc 1 TRISH3 1 0 :1:3 
 ]
 "30071
-[u S2230 . 1 `S2225 1 . 1 0 ]
-[v _TRISHbits TRISHbits `VES2230  1 e 1 @3976 ]
+[u S2240 . 1 `S2235 1 . 1 0 ]
+[v _TRISHbits TRISHbits `VES2240  1 e 1 @3976 ]
 [s S952 . 1 `uc 1 RF0 1 0 :1:0 
 `uc 1 RF1 1 0 :1:1 
 `uc 1 RF2 1 0 :1:2 
@@ -833,12 +839,12 @@
 "39600
 "39600
 [v _T0CON0bits T0CON0bits `VES993  1 e 1 @4053 ]
-[s S1982 . 1 `uc 1 T0CKPS 1 0 :4:0 
+[s S1992 . 1 `uc 1 T0CKPS 1 0 :4:0 
 `uc 1 T0ASYNC 1 0 :1:4 
 `uc 1 T0CS 1 0 :3:5 
 ]
 "39676
-[s S1986 . 1 `uc 1 T0CKPS0 1 0 :1:0 
+[s S1996 . 1 `uc 1 T0CKPS0 1 0 :1:0 
 `uc 1 T0CKPS1 1 0 :1:1 
 `uc 1 T0CKPS2 1 0 :1:2 
 `uc 1 T0CKPS3 1 0 :1:3 
@@ -848,19 +854,19 @@
 `uc 1 T0CS2 1 0 :1:7 
 ]
 "39676
-[s S1995 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S2005 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 ]
 "39676
-[s S2000 . 1 `uc 1 T0PS 1 0 :4:0 
+[s S2010 . 1 `uc 1 T0PS 1 0 :4:0 
 ]
 "39676
-[u S2002 . 1 `S1982 1 . 1 0 `S1986 1 . 1 0 `S1995 1 . 1 0 `S2000 1 . 1 0 ]
+[u S2012 . 1 `S1992 1 . 1 0 `S1996 1 . 1 0 `S2005 1 . 1 0 `S2010 1 . 1 0 ]
 "39676
 "39676
-[v _T0CON1bits T0CON1bits `VES2002  1 e 1 @4054 ]
+[v _T0CON1bits T0CON1bits `VES2012  1 e 1 @4054 ]
 [s S776 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
@@ -907,21 +913,21 @@
 [v main@buf buf `[100]uc  1 a 100 0 ]
 "121
 } 0
-"365 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\dc_motor.c
+"392 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\dc_motor.c
 [v _turnCalibration turnCalibration `(v  1 e 1 0 ]
 {
 [s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v turnCalibration@mL mL `*.39S24  1 p 2 31 ]
 [v turnCalibration@mR mR `*.39S24  1 p 2 33 ]
-"409
+"436
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S2751 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S2763 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
-[s S2754 _IO_FILE 11 `S2751 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S2754  1 a 11 102 ]
+[s S2766 _IO_FILE 11 `S2763 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S2766  1 a 11 102 ]
 "12
 [v sprintf@ap ap `[1]*.39v  1 a 2 100 ]
 "9
@@ -934,9 +940,9 @@
 {
 "1523
 [v vfprintf@cfmt cfmt `*.32uc  1 a 2 78 ]
-[s S2786 _IO_FILE 0 ]
+[s S2798 _IO_FILE 0 ]
 "1520
-[v vfprintf@fp fp `*.39S2786  1 p 2 72 ]
+[v vfprintf@fp fp `*.39S2798  1 p 2 72 ]
 [v vfprintf@fmt fmt `*.32Cuc  1 p 2 74 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 76 ]
 "1543
@@ -944,15 +950,15 @@
 "1007
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S2835 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
+[u S2847 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
 "1016
-[v vfpfcnvrt@convarg convarg `S2835  1 a 8 61 ]
+[v vfpfcnvrt@convarg convarg `S2847  1 a 8 61 ]
 "1009
 [v vfpfcnvrt@cp cp `*.32uc  1 a 2 70 ]
 [v vfpfcnvrt@c c `uc  1 a 1 69 ]
-[s S2786 _IO_FILE 0 ]
+[s S2798 _IO_FILE 0 ]
 "1007
-[v vfpfcnvrt@fp fp `*.39S2786  1 p 2 53 ]
+[v vfpfcnvrt@fp fp `*.39S2798  1 p 2 53 ]
 [v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 55 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 57 ]
 "1517
@@ -960,15 +966,15 @@
 "506
 [v _efgtoa efgtoa `(v  1 s 1 efgtoa ]
 {
-[u S2804 flui 4 `d 1 f 4 0 `l 1 u 4 0 ]
+[u S2816 flui 4 `d 1 f 4 0 `l 1 u 4 0 ]
 "511
-[v efgtoa@u u `S2804  1 a 4 49 ]
-[v efgtoa@g g `S2804  1 a 4 45 ]
+[v efgtoa@u u `S2816  1 a 4 49 ]
+[v efgtoa@g g `S2816  1 a 4 45 ]
 "510
 [v efgtoa@l l `d  1 a 4 38 ]
 [v efgtoa@h h `d  1 a 4 34 ]
 "511
-[v efgtoa@ou ou `S2804  1 a 4 28 ]
+[v efgtoa@ou ou `S2816  1 a 4 28 ]
 "509
 [v efgtoa@n n `i  1 a 2 43 ]
 [v efgtoa@i i `i  1 a 2 32 ]
@@ -984,9 +990,9 @@
 [v efgtoa@nmode nmode `uc  1 a 1 19 ]
 [v efgtoa@mode mode `uc  1 a 1 18 ]
 [v efgtoa@pp pp `uc  1 a 1 17 ]
-[s S2786 _IO_FILE 0 ]
+[s S2798 _IO_FILE 0 ]
 "506
-[v efgtoa@fp fp `*.39S2786  1 p 2 0 ]
+[v efgtoa@fp fp `*.39S2798  1 p 2 0 ]
 [v efgtoa@f f `d  1 p 4 2 ]
 [v efgtoa@c c `uc  1 p 1 6 ]
 "787
@@ -1027,9 +1033,9 @@
 "3 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\floorf.c
 [v _floorf floorf `(f  1 e 4 0 ]
 {
-[u S2922 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S2934 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "5
-[v floorf@u u `S2922  1 a 4 90 ]
+[v floorf@u u `S2934  1 a 4 90 ]
 "7
 [v floorf@m m `ul  1 a 4 84 ]
 "6
@@ -1037,21 +1043,21 @@
 "3
 [v floorf@x x `f  1 p 4 74 ]
 "4
-[v floorf@F526 F526 `S2922  1 s 4 F526 ]
+[v floorf@F526 F526 `S2934  1 s 4 F526 ]
 "27
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\__fpclassifyf.c
 [v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
 {
-[u S2922 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S2934 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "6
-[v ___fpclassifyf@u u `S2922  1 a 4 10 ]
+[v ___fpclassifyf@u u `S2934  1 a 4 10 ]
 "7
 [v ___fpclassifyf@e e `i  1 a 2 8 ]
 "4
 [v ___fpclassifyf@x x `f  1 p 4 0 ]
 "5
-[v ___fpclassifyf@F465 F465 `S2922  1 s 4 F465 ]
+[v ___fpclassifyf@F465 F465 `S2934  1 s 4 F465 ]
 "11
 } 0
 "43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
@@ -1081,9 +1087,9 @@
 [v dtoa@p p `i  1 a 2 47 ]
 "445
 [v dtoa@s s `uc  1 a 1 61 ]
-[s S2786 _IO_FILE 0 ]
+[s S2798 _IO_FILE 0 ]
 "443
-[v dtoa@fp fp `*.39S2786  1 p 2 27 ]
+[v dtoa@fp fp `*.39S2798  1 p 2 27 ]
 [v dtoa@d d `o  1 p 8 29 ]
 "502
 } 0
@@ -1093,9 +1099,9 @@
 "135
 [v pad@w w `i  1 a 2 25 ]
 [v pad@i i `i  1 a 2 23 ]
-[s S2786 _IO_FILE 0 ]
+[s S2798 _IO_FILE 0 ]
 "133
-[v pad@fp fp `*.39S2786  1 p 2 16 ]
+[v pad@fp fp `*.39S2798  1 p 2 16 ]
 [v pad@buf buf `*.39uc  1 p 2 18 ]
 [v pad@p p `i  1 p 2 20 ]
 "164
@@ -1109,18 +1115,18 @@
 [v fputs@c c `uc  1 a 1 13 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 9 ]
-[u S2751 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2754 _IO_FILE 11 `S2751 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.39S2754  1 p 2 11 ]
+[u S2763 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S2766 _IO_FILE 11 `S2763 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.39S2766  1 p 2 11 ]
 "19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[u S2751 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2754 _IO_FILE 11 `S2751 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S2754  1 p 2 2 ]
+[u S2763 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S2766 _IO_FILE 11 `S2763 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S2766  1 p 2 2 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\putch.c
@@ -1296,85 +1302,117 @@
 [v delayed_ms@time time `i  1 p 2 0 ]
 "47
 } 0
-"342 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\dc_motor.c
+"352 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\dc_motor.c
 [v _ReverseYellow ReverseYellow `(v  1 e 1 0 ]
 {
 [s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v ReverseYellow@mL mL `*.39S24  1 p 2 31 ]
 [v ReverseYellow@mR mR `*.39S24  1 p 2 33 ]
-"352
+"362
 } 0
-"353
+"363
 [v _ReversePink ReversePink `(v  1 e 1 0 ]
 {
 [s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v ReversePink@mL mL `*.39S24  1 p 2 31 ]
 [v ReversePink@mR mR `*.39S24  1 p 2 33 ]
-"363
+"373
 } 0
-"245
+"246
 [v _ForwardOneBlock ForwardOneBlock `(v  1 e 1 0 ]
 {
 [s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v ForwardOneBlock@mL mL `*.39S24  1 p 2 25 ]
 [v ForwardOneBlock@mR mR `*.39S24  1 p 2 27 ]
-"250
+"251
 } 0
-"269
+"375
+[v _ReverseOrangeMove ReverseOrangeMove `(v  1 e 1 0 ]
+{
+[s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
+[v ReverseOrangeMove@mL mL `*.39S24  1 p 2 31 ]
+[v ReverseOrangeMove@mR mR `*.39S24  1 p 2 33 ]
+"381
+} 0
+"384
+[v _ReverseLightBlueMove ReverseLightBlueMove `(v  1 e 1 0 ]
+{
+[s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
+[v ReverseLightBlueMove@mL mL `*.39S24  1 p 2 31 ]
+[v ReverseLightBlueMove@mR mR `*.39S24  1 p 2 33 ]
+"390
+} 0
+"276
 [v _RedMove RedMove `(v  1 e 1 0 ]
 {
 [s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v RedMove@mL mL `*.39S24  1 p 2 31 ]
 [v RedMove@mR mR `*.39S24  1 p 2 33 ]
-"274
+"281
 } 0
-"317
-[v _OrangeMove OrangeMove `(v  1 e 1 0 ]
-{
-[s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
-[v OrangeMove@mL mL `*.39S24  1 p 2 31 ]
-[v OrangeMove@mR mR `*.39S24  1 p 2 33 ]
-"323
-} 0
-"326
-[v _LightBlueMove LightBlueMove `(v  1 e 1 0 ]
-{
-[s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
-[v LightBlueMove@mL mL `*.39S24  1 p 2 31 ]
-[v LightBlueMove@mR mR `*.39S24  1 p 2 33 ]
-"332
-} 0
-"277
+"284
 [v _GreenMove GreenMove `(v  1 e 1 0 ]
 {
 [s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v GreenMove@mL mL `*.39S24  1 p 2 31 ]
 [v GreenMove@mR mR `*.39S24  1 p 2 33 ]
-"282
+"289
 } 0
-"285
+"292
 [v _BlueMove BlueMove `(v  1 e 1 0 ]
 {
 [s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v BlueMove@mL mL `*.39S24  1 p 2 31 ]
 [v BlueMove@mR mR `*.39S24  1 p 2 33 ]
-"294
+"302
 } 0
-"258
+"265
 [v _Backhalfblock Backhalfblock `(v  1 e 1 0 ]
 {
 [s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v Backhalfblock@mL mL `*.39S24  1 p 2 25 ]
 [v Backhalfblock@mR mR `*.39S24  1 p 2 27 ]
-"263
+"270
 } 0
-"297
+"305
 [v _YellowMove YellowMove `(v  1 e 1 0 ]
 {
 [s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v YellowMove@mL mL `*.39S24  1 p 2 31 ]
 [v YellowMove@mR mR `*.39S24  1 p 2 33 ]
-"304
+"312
+} 0
+"344
+[v _RetryMove RetryMove `(v  1 e 1 0 ]
+{
+[s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
+[v RetryMove@mL mL `*.39S24  1 p 2 31 ]
+[v RetryMove@mR mR `*.39S24  1 p 2 33 ]
+"350
+} 0
+"315
+[v _PinkMove PinkMove `(v  1 e 1 0 ]
+{
+[s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
+[v PinkMove@mL mL `*.39S24  1 p 2 31 ]
+[v PinkMove@mR mR `*.39S24  1 p 2 33 ]
+"322
+} 0
+"240
+[v _reverseOneBlock reverseOneBlock `(v  1 e 1 0 ]
+{
+[s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
+[v reverseOneBlock@mL mL `*.39S24  1 p 2 25 ]
+[v reverseOneBlock@mR mR `*.39S24  1 p 2 27 ]
+"245
+} 0
+"325
+[v _OrangeMove OrangeMove `(v  1 e 1 0 ]
+{
+[s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
+[v OrangeMove@mL mL `*.39S24  1 p 2 31 ]
+[v OrangeMove@mR mR `*.39S24  1 p 2 33 ]
+"332
 } 0
 "212
 [v _turnRight45 turnRight45 `(v  1 e 1 0 ]
@@ -1392,21 +1430,13 @@
 [v turnRight@mR mR `*.39S24  1 p 2 21 ]
 "145
 } 0
-"334
-[v _RetryMove RetryMove `(v  1 e 1 0 ]
+"335
+[v _LightBlueMove LightBlueMove `(v  1 e 1 0 ]
 {
 [s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
-[v RetryMove@mL mL `*.39S24  1 p 2 31 ]
-[v RetryMove@mR mR `*.39S24  1 p 2 33 ]
-"340
-} 0
-"307
-[v _PinkMove PinkMove `(v  1 e 1 0 ]
-{
-[s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
-[v PinkMove@mL mL `*.39S24  1 p 2 31 ]
-[v PinkMove@mR mR `*.39S24  1 p 2 33 ]
-"314
+[v LightBlueMove@mL mL `*.39S24  1 p 2 31 ]
+[v LightBlueMove@mR mR `*.39S24  1 p 2 33 ]
+"342
 } 0
 "219
 [v _turnLeft45 turnLeft45 `(v  1 e 1 0 ]
@@ -1430,14 +1460,6 @@
 [v TurnDelay@Turn45Delay Turn45Delay `i  1 p 2 0 ]
 "210
 } 0
-"239
-[v _reverseOneBlock reverseOneBlock `(v  1 e 1 0 ]
-{
-[s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
-[v reverseOneBlock@mL mL `*.39S24  1 p 2 25 ]
-[v reverseOneBlock@mR mR `*.39S24  1 p 2 27 ]
-"244
-} 0
 "226
 [v _reverseDetect reverseDetect `(v  1 e 1 0 ]
 {
@@ -1453,6 +1475,14 @@
 [v fullSpeedBack@mL mL `*.39S24  1 p 2 19 ]
 [v fullSpeedBack@mR mR `*.39S24  1 p 2 21 ]
 "201
+} 0
+"259
+[v _quaterForward quaterForward `(v  1 e 1 0 ]
+{
+[s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
+[v quaterForward@mL mL `*.39S24  1 p 2 25 ]
+[v quaterForward@mR mR `*.39S24  1 p 2 27 ]
+"264
 } 0
 "8 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\color.c
 [v _color_click_init color_click_init `(v  1 e 1 0 ]
@@ -1512,13 +1542,13 @@
 {
 "17
 } 0
-"252 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\dc_motor.c
+"253 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\dc_motor.c
 [v _Forwardhalfblock Forwardhalfblock `(v  1 e 1 0 ]
 {
 [s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v Forwardhalfblock@mL mL `*.39S24  1 p 2 25 ]
 [v Forwardhalfblock@mR mR `*.39S24  1 p 2 27 ]
-"257
+"258
 } 0
 "94
 [v _stop stop `(v  1 e 1 0 ]
@@ -1632,17 +1662,17 @@
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S2616 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S2628 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S2621 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S2624 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2616 1 fAsBytes 4 0 `S2621 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S2624  1 a 4 35 ]
+[s S2633 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S2636 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2628 1 fAsBytes 4 0 `S2633 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S2636  1 a 4 35 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 29 ]
-[s S2692 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S2704 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S2695 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2692 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S2695  1 a 2 39 ]
+[u S2707 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2704 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S2707  1 a 2 39 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 34 ]
 "11

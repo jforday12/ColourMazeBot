@@ -48,8 +48,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "21098
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 21098: extern volatile unsigned char CCPR4H __attribute__((address(0xF21)));
 [v _CCPR4H `Vuc ~T0 @X0 0 e@3873 ]
-"52 ./dc_motor.h
-[; ;./dc_motor.h: 52: void turnCalibration(struct DC_motor *mL,struct DC_motor *mR);
+"56 ./dc_motor.h
+[; ;./dc_motor.h: 56: void turnCalibration(struct DC_motor *mL,struct DC_motor *mR);
 [v _turnCalibration `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "29034 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29034:     struct {
@@ -115,8 +115,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23 ./Memory.h
 [; ;./Memory.h: 23: void go_Home (char *WayBack, int *Time_forward);
 [v _go_Home `(v ~T0 @X0 0 ef2`*uc`*i ]
-"47 ./dc_motor.h
-[; ;./dc_motor.h: 47: void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+"49 ./dc_motor.h
+[; ;./dc_motor.h: 49: void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 [v _Forwardhalfblock `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "27
 [; ;./dc_motor.h: 27: void stop(struct DC_motor *mL,struct DC_motor *mR);

@@ -236,6 +236,7 @@ void homeReverse(struct DC_motor *mL,struct DC_motor *mR){
     __delay_ms(50); 
 }
 
+
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedBack(mL,mR);
     __delay_ms(RunOneBlockTime); // reverse time period needs to be calibrated
@@ -252,6 +253,12 @@ void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR){
 void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR){
     fullSpeedAhead(mL,mR);
     __delay_ms(RunOneBlockTime/2); // reverse time period needs to be calibrated
+    stop(&motorL, &motorR);
+    __delay_ms(50); 
+}
+void quaterForward(struct DC_motor *mL,struct DC_motor *mR){
+    fullSpeedAhead(mL,mR);
+    __delay_ms(300);
     stop(&motorL, &motorR);
     __delay_ms(50); 
 }
@@ -290,6 +297,7 @@ void BlueMove(struct DC_motor *mL,struct DC_motor *mR){
     turnRight45(&motorL, &motorR);
     turnRight45(&motorL, &motorR);
     
+    
     Backhalfblock(&motorL, &motorR);
 }
 
@@ -320,6 +328,7 @@ void OrangeMove(struct DC_motor *mL,struct DC_motor *mR){
     turnRight45(&motorL, &motorR);
     turnRight45(&motorL, &motorR);
     turnRight45(&motorL, &motorR);
+    quaterForward(&motorL, &motorR);
 }
 
 // light blue move instruction 	Turn Left 135
@@ -329,6 +338,7 @@ void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR){
     turnLeft45(&motorL, &motorR);
     turnLeft45(&motorL, &motorR);
     turnLeft45(&motorL, &motorR);
+    quaterForward(&motorL, &motorR);
 }
 
 void RetryMove(struct DC_motor *mL,struct DC_motor *mR){
@@ -360,6 +370,23 @@ void ReversePink(struct DC_motor *mL,struct DC_motor *mR){
     turnLeft45(&motorL, &motorR);
     turnLeft45(&motorL, &motorR);
     turnLeft45(&motorL, &motorR);
+}
+
+void ReverseOrangeMove(struct DC_motor *mL,struct DC_motor *mR){
+    reverseDetect(&motorL, &motorR);
+    // turn right 135 degree
+    turnLeft45(&motorL, &motorR);
+    turnLeft45(&motorL, &motorR);
+    turnLeft45(&motorL, &motorR);
+}
+
+// light blue move instruction 	Turn Left 135
+void ReverseLightBlueMove(struct DC_motor *mL,struct DC_motor *mR){
+    reverseDetect(&motorL, &motorR);
+    // turn left 135 degree
+    turnRight45(&motorL, &motorR);
+    turnRight45(&motorL, &motorR);
+    turnRight45(&motorL, &motorR);
 }
 
 void turnCalibration (struct DC_motor *mL,struct DC_motor *mR){
