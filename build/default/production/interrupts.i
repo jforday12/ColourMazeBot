@@ -24239,42 +24239,12 @@ unsigned char __t3rd16on(void);
 
 
 
+
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
-extern volatile char DataFlag;
+
+int lost_flag=0;
 # 2 "interrupts.c" 2
-
-# 1 "./serial.h" 1
-# 13 "./serial.h"
-volatile char EUSART4RXbuf[20];
-volatile char RxBufWriteCnt=0;
-volatile char RxBufReadCnt=0;
-
-volatile char EUSART4TXbuf[60];
-volatile char TxBufWriteCnt=0;
-volatile char TxBufReadCnt=0;
-
-
-
-void initUSART4(void);
-char getCharSerial4(void);
-void sendCharSerial4(char charToSend);
-void sendStringSerial4(char *string);
-
-
-char getCharFromRxBuf(void);
-void putCharToRxBuf(char byte);
-char isDataInRxBuf (void);
-
-
-char getCharFromTxBuf(void);
-void putCharToTxBuf(char byte);
-char isDataInTxBuf (void);
-void TxBufferedString(char *string);
-void sendTxBuf(void);
-
-volatile char DataFlag=1;
-# 3 "interrupts.c" 2
 
 
 
@@ -24285,10 +24255,9 @@ volatile char DataFlag=1;
 void Interrupts_init(void)
 {
     INTCONbits.IPEN=0;
-    PIE2bits.C1IE=1;
-    INTCONbits.PEIE=1;
+    INTCONbits.PEIE=0;
     INTCONbits.GIE=1;
-    PIE4bits.RC4IE=1;
+    PIE0bits.TMR0IE=1;
 
 
 }
@@ -24299,16 +24268,13 @@ void Interrupts_init(void)
 
 void __attribute__((picinterrupt(("high_priority")))) HighISR()
 {
-    if (PIR4bits.TX4IF){
-        TX4REG = getCharFromTxBuf();
+    if (PIR0bits.TMR0IF){
+        TMR0H=0;
+        TMR0L=0;
+        lost_flag=1;
+        PIR0bits.TMR0IF=0;
     }
-    if (DataFlag & 0){
-        PIE4bits.TX4IE=0;
-    }
-    if (PIR4bits.RC4IF){
-        putCharToRxBuf(RC4REG);
 
-   }
 
 
 }

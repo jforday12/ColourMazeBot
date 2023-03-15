@@ -24408,24 +24408,10 @@ void initUSART4(void);
 char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
-
-
-char getCharFromRxBuf(void);
-void putCharToRxBuf(char byte);
-char isDataInRxBuf (void);
-
-
-char getCharFromTxBuf(void);
-void putCharToTxBuf(char byte);
-char isDataInTxBuf (void);
-void TxBufferedString(char *string);
-void sendTxBuf(void);
-
-volatile char DataFlag=1;
 # 17 "main.c" 2
 
 # 1 "./color.h" 1
-# 12 "./color.h"
+# 13 "./color.h"
 void color_click_init(void);
 
 
@@ -24449,17 +24435,25 @@ struct RGB{
     int B;
     int L;
 };
+
+
 struct RGB_rel{
     float R;
     float G;
     float B;
 };
 
-struct RGB_rel rel;
-struct RGB vals;
+int prev_colour =0;
+int consecuitive=0;
+
+
 
 void colour_rel(struct RGB *vals, struct RGB_rel *rel);
+
+int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
 void readColours (struct RGB *vals);
+
+int consecutive_read(struct RGB *vals, struct RGB_rel *rel);
 # 18 "main.c" 2
 
 # 1 "./i2c.h" 1
@@ -24505,43 +24499,210 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 
+
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
-extern volatile char DataFlag;
+
+int lost_flag=0;
 # 20 "main.c" 2
 
+# 1 "./dc_motor.h" 1
 
 
-extern volatile char DataFlag;
 
+
+
+
+
+struct DC_motor {
+    char power;
+    char direction;
+    char brakemode;
+    unsigned int PWMperiod;
+    unsigned char *posDutyHighByte;
+    unsigned char *negDutyHighByte;
+};
+
+
+struct DC_motor motorL, motorR;
+
+int power = 50;
+int Turn45Delay = 60;
+int RunOneBlockTime = 1050;
+
+
+void initDCmotorsPWM(unsigned int PWMperiod);
+void setMotorPWM(struct DC_motor *m);
+void stop(struct DC_motor *mL,struct DC_motor *mR);
+void turnLeft(struct DC_motor *mL,struct DC_motor *mR);
+void turnRight(struct DC_motor *mL,struct DC_motor *mR);
+void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR);
+void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time);
+void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
+
+void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
+void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
+void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
+void homeReverse(struct DC_motor *mL,struct DC_motor *mR);
+void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
+void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
+void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+void quaterForward(struct DC_motor *mL,struct DC_motor *mR);
+
+void RedMove(struct DC_motor *mL,struct DC_motor *mR);
+void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
+void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
+void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
+void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
+void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
+void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
+void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
+void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
+void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
+void ReverseOrangeMove(struct DC_motor *mL,struct DC_motor *mR);
+void ReverseLightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
+
+void turnCalibration(struct DC_motor *mL,struct DC_motor *mR);
+void TurnDelay(int Turn45Delay);
+# 21 "main.c" 2
+
+# 1 "./Memory.h" 1
+# 18 "./Memory.h"
+char WayBack [50];
+int Time_forward[50];
+extern volatile unsigned int move_count=-1;
+int run_flag=1;
+
+void go_Home (char *WayBack, int *Time_forward);
+# 22 "main.c" 2
+
+# 1 "./timers.h" 1
+
+
+
+
+
+
+
+void Timer0_init(void);
+void getTMR0val(void);
+void delayed_ms(int time);
+extern volatile unsigned int move_count;
+# 23 "main.c" 2
+
+# 1 "./LED_buttons.h" 1
+
+
+
+
+
+
+
+
+void LED_init(void);
+
+
+void Buttons_init(void);
+# 24 "main.c" 2
+
+# 1 "./colour_move.h" 1
+# 10 "./colour_move.h"
+int lost_count=0;
+
+
+void colour_move (int recognized_colour);
+# 25 "main.c" 2
+
+
+
+
+
+struct RGB_rel rel;
+struct RGB vals;
+volatile unsigned int move_count;
 void main(void) {
     initUSART4();
     Interrupts_init();
     color_click_init();
     I2C_2_Master_Init();
-    char buf[50];
-    unsigned int int_part;
-    unsigned int frac_part;
-    unsigned int ADC;
+    LED_init();
+    Buttons_init();
+    initDCmotorsPWM(200);
+    Timer0_init();
 
-    while (1)
+    motorL.power=0;
+    motorL.direction=1;
+    motorL.brakemode=1;
+    motorL.posDutyHighByte=(unsigned char *)(&CCPR1H);
+    motorL.negDutyHighByte=(unsigned char *)(&CCPR2H);
+    motorL.PWMperiod=200;
+    motorR.power=0;
+    motorR.direction=1;
+    motorR.brakemode=1;
+    motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);
+    motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);
+    motorR.PWMperiod=200;
+
+    char buf[100];
+
+
+    turnCalibration(&motorL,&motorR);
+
+    LATFbits.LATF0=0;
+    _delay((unsigned long)((1000)*(64000000/4000.0)));
+
+
+    while (!!PORTFbits.RF2);
+    _delay((unsigned long)((1000)*(64000000/4000.0)));
+
+    T0CON0bits.T0EN=1;
+    while (run_flag)
     {
+        consecuitive=0;
+
+        fullSpeedAhead(&motorL,&motorR);
+
+        readColours(&vals);
 
 
 
 
-    readColours(&vals);
+        if (vals.L>=500){
+            move_count++;
+            if (move_count>98){
+                getTMR0val();
+                go_Home(WayBack, Time_forward);
+            }
+            else{
+                getTMR0val();
+
+                Forwardhalfblock(&motorL,&motorR);
+                while (consecuitive<20){
+                    _delay((unsigned long)((100)*(64000000/4000.0)));
+                    readColours(&vals);
+                    colour_rel(&vals, &rel);
+                    int colour = Colour_decider(&vals, &rel);
+                    if (colour==prev_colour){
+                        consecuitive++;
+                    }
+                    else{
+                        consecuitive=0;
+                    }
+                    prev_colour=colour;
+                }
 
 
+                sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+                sendStringSerial4(buf);
 
-    sprintf(buf,"red=%d green=%d blue=%d lum=%d\r\n",vals.R,vals.G,vals.B,vals.L);
-    TxBufferedString(buf);
+                colour_move (prev_colour);
+            }
+        }else if (lost_flag){
+            move_count++;
+            Time_forward[move_count]=65535;
+            go_Home(WayBack, Time_forward);
 
-    while (DataFlag){
-        sendTxBuf();
+        }
     }
-
-
-
-}
 }

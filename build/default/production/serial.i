@@ -24247,20 +24247,6 @@ void initUSART4(void);
 char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
-
-
-char getCharFromRxBuf(void);
-void putCharToRxBuf(char byte);
-char isDataInRxBuf (void);
-
-
-char getCharFromTxBuf(void);
-void putCharToTxBuf(char byte);
-char isDataInTxBuf (void);
-void TxBufferedString(char *string);
-void sendTxBuf(void);
-
-volatile char DataFlag=1;
 # 2 "serial.c" 2
 
 
@@ -24300,63 +24286,3 @@ void sendStringSerial4(char *string){
 
 
 }
-
-
-
-
-
-
-char getCharFromRxBuf(void){
-    if (RxBufReadCnt>=20) {RxBufReadCnt=0;}
-    return EUSART4RXbuf[RxBufReadCnt++];
-}
-
-
-void putCharToRxBuf(char byte){
-    if (RxBufWriteCnt>=20) {RxBufWriteCnt=0;}
-    EUSART4RXbuf[RxBufWriteCnt++]=byte;
-}
-
-
-
-
-char isDataInRxBuf (void){
-    return (RxBufWriteCnt!=RxBufReadCnt);
-}
-
-
-
-char getCharFromTxBuf(void){
-    if (TxBufReadCnt>=60) {TxBufReadCnt=0;}
-    return EUSART4TXbuf[TxBufReadCnt++];
-}
-
-
-void putCharToTxBuf(char byte){
-    if (TxBufWriteCnt>=60) {TxBufWriteCnt=0;}
-    EUSART4TXbuf[TxBufWriteCnt++]=byte;
-}
-
-
-
-
-char isDataInTxBuf (void){
-    return (TxBufWriteCnt!=TxBufReadCnt);
-}
-
-
-void TxBufferedString(char *string){
- while (*string!=0){
-        putCharToTxBuf(*string++);
-    }
-}
-
-
-
-void sendTxBuf(void){
-    if (isDataInTxBuf()) {PIE4bits.TX4IE=1;
-    DataFlag =1;}
-    else{
-        DataFlag=0;}
-
-    }

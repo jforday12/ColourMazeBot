@@ -24232,7 +24232,7 @@ unsigned char __t3rd16on(void);
 # 1 "color.c" 2
 
 # 1 "./color.h" 1
-# 12 "./color.h"
+# 13 "./color.h"
 void color_click_init(void);
 
 
@@ -24256,17 +24256,25 @@ struct RGB{
     int B;
     int L;
 };
+
+
 struct RGB_rel{
     float R;
     float G;
     float B;
 };
 
-struct RGB_rel rel;
-struct RGB vals;
+int prev_colour =0;
+int consecuitive=0;
+
+
 
 void colour_rel(struct RGB *vals, struct RGB_rel *rel);
+
+int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
 void readColours (struct RGB *vals);
+
+int consecutive_read(struct RGB *vals, struct RGB_rel *rel);
 # 2 "color.c" 2
 
 # 1 "./i2c.h" 1
@@ -24304,28 +24312,115 @@ void I2C_2_Master_Write(unsigned char data_byte);
 unsigned char I2C_2_Master_Read(unsigned char ack);
 # 3 "color.c" 2
 
+# 1 "./dc_motor.h" 1
+
+
+
+
+
+
+
+struct DC_motor {
+    char power;
+    char direction;
+    char brakemode;
+    unsigned int PWMperiod;
+    unsigned char *posDutyHighByte;
+    unsigned char *negDutyHighByte;
+};
+
+
+struct DC_motor motorL, motorR;
+
+int power = 50;
+int Turn45Delay = 60;
+int RunOneBlockTime = 1050;
+
+
+void initDCmotorsPWM(unsigned int PWMperiod);
+void setMotorPWM(struct DC_motor *m);
+void stop(struct DC_motor *mL,struct DC_motor *mR);
+void turnLeft(struct DC_motor *mL,struct DC_motor *mR);
+void turnRight(struct DC_motor *mL,struct DC_motor *mR);
+void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR);
+void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time);
+void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
+
+void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
+void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
+void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
+void homeReverse(struct DC_motor *mL,struct DC_motor *mR);
+void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
+void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
+void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+void quaterForward(struct DC_motor *mL,struct DC_motor *mR);
+
+void RedMove(struct DC_motor *mL,struct DC_motor *mR);
+void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
+void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
+void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
+void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
+void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
+void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
+void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
+void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
+void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
+void ReverseOrangeMove(struct DC_motor *mL,struct DC_motor *mR);
+void ReverseLightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
+
+void turnCalibration(struct DC_motor *mL,struct DC_motor *mR);
+void TurnDelay(int Turn45Delay);
+# 4 "color.c" 2
+
+# 1 "./LED_buttons.h" 1
+
+
+
+
+
+
+
+
+void LED_init(void);
+
+
+void Buttons_init(void);
+# 5 "color.c" 2
+
+
 
 void color_click_init(void)
 {
 
     I2C_2_Master_Init();
 
-
   color_writetoaddr(0x00, 0x01);
     _delay((unsigned long)((3)*(64000000/4000.0)));
 
-
  color_writetoaddr(0x00, 0x03);
-
 
  color_writetoaddr(0x01, 0xD5);
 
-    LATGbits.LATG1=0;
-    LATAbits.LATA4=0;
-    LATFbits.LATF7=0;
-    TRISGbits.TRISG1=0;
+    color_writetoaddr(0x0F, 0x00);
+
+    TRISGbits.TRISG1 = 0;
     TRISAbits.TRISA4 = 0;
     TRISFbits.TRISF7 = 0;
+
+    TRISDbits.TRISD3 = 0;
+    TRISDbits.TRISD4 = 0;
+
+    LATGbits.LATG1=0;
+    LATFbits.LATF7=0;
+    LATAbits.LATA4=0;
+
+    LATDbits.LATD3=0;
+    LATDbits.LATD4=0;
+
+
+
+
 
 }
 
@@ -24369,7 +24464,7 @@ unsigned int color_read_Green(void)
  unsigned int tmp;
  I2C_2_Master_Start();
  I2C_2_Master_Write(0x52 | 0x00);
- I2C_2_Master_Write(0xA0 | 0x16);
+ I2C_2_Master_Write(0xA0 | 0x18);
  I2C_2_Master_RepStart();
  I2C_2_Master_Write(0x52 | 0x01);
  tmp=I2C_2_Master_Read(1);
@@ -24394,22 +24489,115 @@ unsigned int color_read_Blue(void)
 
 
 void readColours (struct RGB *vals) {
+
     vals ->R = color_read_Red();
     vals ->B = color_read_Blue();
     vals ->G = color_read_Green();
     vals ->L = color_read_lum();
 }
 
+
 void colour_rel(struct RGB *vals, struct RGB_rel *rel){
-    rel -> R = vals->R/vals->L;
-    rel -> B = vals->B/vals->L;
-    rel -> G = vals->G/vals->L;
+    float R = vals->R;
+    float G = vals->G;
+    float B = vals->B;
+    float L = vals->L;
+    rel -> R = R/(R+G+B+L);
+    rel -> B = B/(R+G+B+L);
+    rel -> G = G/(R+G+B+L);
+
 }
 
-int Colour_decider(struct RGB_rel *rel){
-    if ((rel->R>0.5) && (rel->G<0.3) && (rel->B <0.12)){
+int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
+    float Cmax = 0;
+    float Cmin= 100000;
+    int Cmax_i =4;
 
+    int i;
+    float RGB_col[3]={vals->R,vals->G,vals->B};
+    float Hue;
+
+
+    for (i=0; i<3 ;i++){
+        if (RGB_col[i]>Cmax){
+            Cmax=RGB_col[i];
+            Cmax_i=i;
+        }
+        if (RGB_col[i]<Cmin){Cmin=RGB_col[i];}
+    }
+
+    if (Cmax-Cmin==0){return 0;}
+
+
+    if (Cmax_i==0){
+        Hue = 60 * ((RGB_col[1]-RGB_col[2])/(Cmax-Cmin));
+
+        if (Hue < 0) {Hue += 360;}
+    }
+
+    else if (Cmax_i==1){
+        Hue=60*(2+(RGB_col[2]-RGB_col[0])/(Cmax-Cmin));
 
     }
+
+    else {
+        Hue=(4+(RGB_col[0]-RGB_col[1])/(Cmax-Cmin))*60;
+    }
+
+
+    if ((330<=Hue)&(Hue<=360)){
+        return 1;
+    }
+
+    else if ((5<=Hue)&(Hue<=11)){
+        return 2;
+    }
+
+    else if ((18<=Hue)&(Hue<=25)){
+
+        if ((rel->R<=0.26)&&(rel->B>0.10)&&(vals->L>1000)){
+            return 0;
+        }
+        else if ((rel->R>=0.26)&&(rel->B<0.10)){
+            return 3;
+        }
+        else{
+            return 10;
+        }
+
+    }
+
+    else if ((85<=Hue)&(Hue<=160)){
+        return 4;
+    }
+
+
+    else if ((60<=Hue)&(Hue<=77)){
+        if ((0.12<=rel->B)&(0.21>rel->G)){
+            return 6;
+        }
+        else if ((0.12>rel->B)&(0.21<rel->G)){
+            return 5;
+        }
+        else{
+            return 10;
+        }
+
+    }
+
+    else if ((12<=Hue)&(Hue<=17)){
+            return 7;
+          }
+
+
+    else{
+        return 10;
+    }
+
+
+
+
+
+
 
 }
