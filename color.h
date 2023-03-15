@@ -3,6 +3,7 @@
 
 #include <xc.h>
 
+
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
 
@@ -40,12 +41,17 @@ struct RGB_rel{
     float B;
 };
 
+int prev_colour =0; // variable to decide what the previous colour is 
+int consecuitive=0; // variable to register how many consecuitive readings there are
+
 
 
 void colour_rel(struct RGB *vals, struct RGB_rel *rel);
 
 int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
 void readColours (struct RGB *vals);
+
+int consecutive_read(struct RGB *vals, struct RGB_rel *rel);
 
 
 

@@ -24411,7 +24411,7 @@ void sendStringSerial4(char *string);
 # 17 "main.c" 2
 
 # 1 "./color.h" 1
-# 12 "./color.h"
+# 13 "./color.h"
 void color_click_init(void);
 
 
@@ -24443,12 +24443,17 @@ struct RGB_rel{
     float B;
 };
 
+int prev_colour =0;
+int consecuitive=0;
+
 
 
 void colour_rel(struct RGB *vals, struct RGB_rel *rel);
 
 int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
 void readColours (struct RGB *vals);
+
+int consecutive_read(struct RGB *vals, struct RGB_rel *rel);
 # 18 "main.c" 2
 
 # 1 "./i2c.h" 1
@@ -24560,8 +24565,8 @@ void TurnDelay(int Turn45Delay);
 # 18 "./Memory.h"
 char WayBack [50];
 int Time_forward[50];
-extern volatile unsigned int move_count;
-int run_flag;
+extern volatile unsigned int move_count=-1;
+int run_flag=1;
 
 void go_Home (char *WayBack, int *Time_forward);
 # 22 "main.c" 2
@@ -24595,6 +24600,15 @@ void LED_init(void);
 void Buttons_init(void);
 # 24 "main.c" 2
 
+# 1 "./colour_move.h" 1
+# 10 "./colour_move.h"
+int lost_count=0;
+
+
+void colour_move (int recognized_colour);
+# 25 "main.c" 2
+
+
 
 
 
@@ -24610,7 +24624,6 @@ void main(void) {
     Buttons_init();
     initDCmotorsPWM(200);
     Timer0_init();
-    char buf[100];
 
     motorL.power=0;
     motorL.direction=1;
@@ -24625,22 +24638,24 @@ void main(void) {
     motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);
     motorR.PWMperiod=200;
 
-    int consecuitive=0;
-    int prev_colour =0;
-    run_flag=1;
-    move_count=-1;
-    int lost_count=0;
+    char buf[100];
+
+
+
+
     turnCalibration(&motorL,&motorR);
 
     LATFbits.LATF0=0;
     _delay((unsigned long)((1000)*(64000000/4000.0)));
 
+
     while (!!PORTFbits.RF2);
     _delay((unsigned long)((1000)*(64000000/4000.0)));
+
     T0CON0bits.T0EN=1;
     while (run_flag)
     {
-        consecuitive=0;
+
 
         fullSpeedAhead(&motorL,&motorR);
 
@@ -24659,90 +24674,14 @@ void main(void) {
             stop(&motorL, &motorR);
 
 
-
-
-            while (consecuitive<20){
-                _delay((unsigned long)((100)*(64000000/4000.0)));
-                readColours(&vals);
-                colour_rel(&vals, &rel);
-                int colour = Colour_decider(&vals, &rel);
-                if (colour==prev_colour){
-                    consecuitive++;
-                }
-                else{
-                    consecuitive=0;
-                }
-                prev_colour=colour;
-            }
-
+            int recognized_colour = consecutive_read(&vals, &rel);
 
 
             sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
             sendStringSerial4(buf);
 
-            if (prev_colour==1){
-                RedMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=1;
-                lost_count=0;
-            }
-            else if(prev_colour==2){
-                OrangeMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=2;
-                lost_count=0;
-            }
-            else if(prev_colour==3){
-                YellowMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=3;
-                lost_count=0;
-            }
-            else if(prev_colour==4){
-                BlueMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=4;
-                lost_count=0;
-            }
-            else if(prev_colour==5){
-                GreenMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=5;
-                lost_count=0;
-            }
-            else if(prev_colour==6){
-                LightBlueMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=6;
-                lost_count=0;
-            }
-            else if(prev_colour==7){
-                PinkMove(&motorL, &motorR);
-                TMR0H=0;
-                TMR0L=0;
-                WayBack[move_count]=7;
-                lost_count=0;
-            }
-            else if (prev_colour==10){
-                lost_count++;
-                if (lost_count>=3){
-                    go_Home(WayBack, Time_forward);
-                }
-                else{
-                    RetryMove(&motorL, &motorR);
-                    TMR0H=0;
-                    TMR0L=0;
-                }
-            }
-            else if (prev_colour==0){
-                go_Home(WayBack, Time_forward);
-            }
+            colour_move (recognized_colour);
+
         }else if (lost_flag){
             move_count++;
             Time_forward[move_count]=65535;

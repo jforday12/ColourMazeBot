@@ -2031,9 +2031,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19
 [; ;./Memory.h: 19: int Time_forward[50];
 [v _Time_forward `i ~T0 @X0 -> 50 `i e ]
+"20
+[; ;./Memory.h: 20: extern volatile unsigned int move_count=-1;
+[v _move_count `Vui ~T0 @X0 1 e ]
+[i _move_count
+-> -U -> 1 `i `ui
+]
 "21
-[; ;./Memory.h: 21: int run_flag;
+[; ;./Memory.h: 21: int run_flag=1;
 [v _run_flag `i ~T0 @X0 1 e ]
+[i _run_flag
+-> 1 `i
+]
 "18 ./dc_motor.h
 [; ;./dc_motor.h: 18: struct DC_motor motorL, motorR;
 [v _motorL `S2015 ~T0 @X0 1 e ]

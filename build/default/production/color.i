@@ -24232,7 +24232,7 @@ unsigned char __t3rd16on(void);
 # 1 "color.c" 2
 
 # 1 "./color.h" 1
-# 12 "./color.h"
+# 13 "./color.h"
 void color_click_init(void);
 
 
@@ -24264,12 +24264,17 @@ struct RGB_rel{
     float B;
 };
 
+int prev_colour =0;
+int consecuitive=0;
+
 
 
 void colour_rel(struct RGB *vals, struct RGB_rel *rel);
 
 int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
 void readColours (struct RGB *vals);
+
+int consecutive_read(struct RGB *vals, struct RGB_rel *rel);
 # 2 "color.c" 2
 
 # 1 "./i2c.h" 1
@@ -24591,4 +24596,23 @@ int Colour_decider(struct RGB *vals, struct RGB_rel *rel){
 
 
 
+}
+
+
+int consecutive_read(struct RGB *vals, struct RGB_rel *rel){
+        while (consecuitive<20){
+            _delay((unsigned long)((100)*(64000000/4000.0)));
+            readColours(&vals);
+            colour_rel(&vals, &rel);
+            int colour = Colour_decider(&vals, &rel);
+            if (colour==prev_colour){
+                consecuitive++;
+            }
+            else{
+                consecuitive=0;
+            }
+            prev_colour=colour;
+        }
+
+    return(prev_colour);
 }

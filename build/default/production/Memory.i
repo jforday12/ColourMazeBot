@@ -24241,8 +24241,8 @@ unsigned char __t3rd16on(void);
 
 char WayBack [50];
 int Time_forward[50];
-extern volatile unsigned int move_count;
-int run_flag;
+extern volatile unsigned int move_count=-1;
+int run_flag=1;
 
 void go_Home (char *WayBack, int *Time_forward);
 # 1 "Memory.c" 2

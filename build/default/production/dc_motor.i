@@ -24301,7 +24301,7 @@ extern volatile unsigned int move_count;
 # 3 "dc_motor.c" 2
 
 # 1 "./color.h" 1
-# 12 "./color.h"
+# 13 "./color.h"
 void color_click_init(void);
 
 
@@ -24333,12 +24333,17 @@ struct RGB_rel{
     float B;
 };
 
+int prev_colour =0;
+int consecuitive=0;
+
 
 
 void colour_rel(struct RGB *vals, struct RGB_rel *rel);
 
 int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
 void readColours (struct RGB *vals);
+
+int consecutive_read(struct RGB *vals, struct RGB_rel *rel);
 # 4 "dc_motor.c" 2
 
 # 1 "./LED_buttons.h" 1
@@ -24434,12 +24439,12 @@ void setMotorPWM(struct DC_motor *m)
 
     if (m->direction) {
 
-        *(m->posDutyHighByte)=posDuty;
-        *(m->negDutyHighByte)=negDuty;
-
-    } else {
         *(m->posDutyHighByte)=negDuty;
         *(m->negDutyHighByte)=posDuty;
+
+    } else {
+        *(m->posDutyHighByte)=posDuty;
+        *(m->negDutyHighByte)=negDuty;
     }
 }
 

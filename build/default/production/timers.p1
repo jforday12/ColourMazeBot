@@ -43,9 +43,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39188
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39188: extern volatile unsigned char TMR0L __attribute__((address(0xFD3)));
 [v _TMR0L `Vuc ~T0 @X0 0 e@4051 ]
-"20 ./Memory.h
-[; ;./Memory.h: 20: extern volatile unsigned int move_count;
-[v _move_count `Vui ~T0 @X0 0 e ]
 [v F192 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
@@ -2036,9 +2033,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19
 [; ;./Memory.h: 19: int Time_forward[50];
 [v _Time_forward `i ~T0 @X0 -> 50 `i e ]
+"20
+[; ;./Memory.h: 20: extern volatile unsigned int move_count=-1;
+[v _move_count `Vui ~T0 @X0 1 e ]
+[i _move_count
+-> -U -> 1 `i `ui
+]
 "21
-[; ;./Memory.h: 21: int run_flag;
+[; ;./Memory.h: 21: int run_flag=1;
 [v _run_flag `i ~T0 @X0 1 e ]
+[i _run_flag
+-> 1 `i
+]
 "8 timers.c
 [; ;timers.c: 8: void Timer0_init(void)
 [v _Timer0_init `(v ~T0 @X0 1 ef ]

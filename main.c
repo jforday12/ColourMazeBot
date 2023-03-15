@@ -22,6 +22,8 @@
 #include "Memory.h"
 #include "timers.h"
 #include "LED_buttons.h"
+#include "colour_move.h"
+
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
 
@@ -37,7 +39,6 @@ void main(void) {
     Buttons_init(); // initialize buttons
     initDCmotorsPWM(200);
     Timer0_init();
-    char buf[100];
     
     motorL.power=0; 						//zero power to start
     motorL.direction=1; 					//set default motor direction
@@ -52,29 +53,31 @@ void main(void) {
     motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);  //store address of CCP2 duty high byte
     motorR.PWMperiod=200; 			//store PWMperiod for motor (value of T2PR in this case)
     
-    int consecuitive=0; // variable to register how many consecuitive readings there are
-    int prev_colour =0; // variable to decide what the previous colour is 
-    run_flag=1;
-    move_count=-1;
-    int lost_count=0;
+    char buf[100];
+    
+//    run_flag=1;
+//    move_count=-1;
+    
     turnCalibration(&motorL,&motorR);
     
     Left_Signal=0;  // turn off left signal
     __delay_ms(1000);
     
+    
     while (!RF2_button); // PORTFbits.RF2
     __delay_ms(1000);
+    
     T0CON0bits.T0EN=1;
     while (run_flag)
     {
-        consecuitive=0;
+        //consecuitive=0;
         
         fullSpeedAhead(&motorL,&motorR);
         // read the colours and store it in the struct vals
         readColours(&vals);
 
         // obtain the relative RGB values and store it in the struct RGB_rel vals
-        colour_rel(&vals, &rel);
+        colour_rel(&vals, &rel); // can we get rid of this? it is done again in consecutive_read
 
         // if the clear value is greater than 2500 (value obtained from lowest clear value card which was blue) then it has hit a wall so detect what colour it sees
         if (vals.L>=500){
@@ -84,92 +87,16 @@ void main(void) {
             Forwardhalfblock(&motorL,&motorR);
             // stop the buggy
             stop(&motorL, &motorR);
-//            int colour= Colour_decider(&vals, &rel);
-//            sprintf(buf,"red=%f green=%f blue=%f lum=%d colour=%d \r\n",rel.R, rel.G,rel.B,vals.L,colour);
-//            sendStringSerial4(buf);
-        
-            while (consecuitive<20){
-                __delay_ms(100);
-                readColours(&vals);
-                colour_rel(&vals, &rel);
-                int colour = Colour_decider(&vals, &rel);
-                if (colour==prev_colour){
-                    consecuitive++;
-                }
-                else{
-                    consecuitive=0;
-                }
-                prev_colour=colour;
-            }
-            //int temp=TMR0L;
-            //sprintf(buf,"red=%d green=%d blue=%d colour=%d \r\n",vals.R, vals.G,vals.B,TMR0H);
-            //sprintf(buf,"red=%d green=%d blue=%d lum=%d colour=%d \r\n",vals.R, vals.G,vals.B,vals.L,prev_colour);
+            
+            
+            int recognized_colour = consecutive_read(&vals, &rel); // let buggie have consecutive reading to make sure colour reading is correct
+            
+            // serial communication for testing
             sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
             sendStringSerial4(buf);
-                //give move instruction based on returned colour
-            if (prev_colour==1){ //red
-                RedMove(&motorL, &motorR); 
-                TMR0H=0; // reset timer values
-                TMR0L=0;
-                WayBack[move_count]=1;
-                lost_count=0;
-            }
-            else if(prev_colour==2){ //orange
-                OrangeMove(&motorL, &motorR);
-                TMR0H=0; // reset timer values
-                TMR0L=0;
-                WayBack[move_count]=2;
-                lost_count=0;
-            }
-            else if(prev_colour==3){ //yellow
-                YellowMove(&motorL, &motorR);
-                TMR0H=0; // reset timer values
-                TMR0L=0;
-                WayBack[move_count]=3;
-                lost_count=0;
-            }
-            else if(prev_colour==4){ //blue
-                BlueMove(&motorL, &motorR);
-                TMR0H=0; // reset timer values
-                TMR0L=0;
-                WayBack[move_count]=4;
-                lost_count=0;
-            }
-            else if(prev_colour==5){ //green
-                GreenMove(&motorL, &motorR);
-                TMR0H=0; // reset timer values
-                TMR0L=0;
-                WayBack[move_count]=5;
-                lost_count=0;
-            }
-            else if(prev_colour==6){ //light blue
-                LightBlueMove(&motorL, &motorR);
-                TMR0H=0; // reset timer values
-                TMR0L=0;
-                WayBack[move_count]=6;
-                lost_count=0;
-            }
-            else if(prev_colour==7){ //pink
-                PinkMove(&motorL, &motorR);
-                TMR0H=0; // reset timer values
-                TMR0L=0;
-                WayBack[move_count]=7;
-                lost_count=0;
-            }
-            else if (prev_colour==10){// undecided colour
-                lost_count++;
-                if (lost_count>=3){
-                    go_Home(WayBack, Time_forward);
-                }
-                else{
-                    RetryMove(&motorL, &motorR);
-                    TMR0H=0; // reset timer values
-                    TMR0L=0;
-                }
-            }
-            else if (prev_colour==0){
-                go_Home(WayBack, Time_forward);
-            }
+            
+            colour_move (recognized_colour); // give buggie move instruction based on recognized colour
+
         }else if (lost_flag){
             move_count++; // increment index of move and timer arrays
             Time_forward[move_count]=65535; // as timer overflow ammount so need to retravel this ammount in a straight line to go home

@@ -2322,6 +2322,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _RunOneBlockTime
 -> 1050 `i
 ]
+"44 ./color.h
+[; ;./color.h: 44: int prev_colour =0;
+[v _prev_colour `i ~T0 @X0 1 e ]
+[i _prev_colour
+-> 0 `i
+]
+"45
+[; ;./color.h: 45: int consecuitive=0;
+[v _consecuitive `i ~T0 @X0 1 e ]
+[i _consecuitive
+-> 0 `i
+]
 "7 dc_motor.c
 [; ;dc_motor.c: 7: void initDCmotorsPWM(unsigned int PWMperiod){
 [v _initDCmotorsPWM `(v ~T0 @X0 1 ef1`ui ]
@@ -2482,11 +2494,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! != -> . *U _m 1 `i -> 0 `i 2022  ]
 {
 "84
-[; ;dc_motor.c: 84:         *(m->posDutyHighByte)=posDuty;
-[e = *U . *U _m 4 _posDuty ]
+[; ;dc_motor.c: 84:         *(m->posDutyHighByte)=negDuty;
+[e = *U . *U _m 4 _negDuty ]
 "85
-[; ;dc_motor.c: 85:         *(m->negDutyHighByte)=negDuty;
-[e = *U . *U _m 5 _negDuty ]
+[; ;dc_motor.c: 85:         *(m->negDutyHighByte)=posDuty;
+[e = *U . *U _m 5 _posDuty ]
 "87
 [; ;dc_motor.c: 87:     } else {
 }
@@ -2494,11 +2506,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2022 ]
 {
 "88
-[; ;dc_motor.c: 88:         *(m->posDutyHighByte)=negDuty;
-[e = *U . *U _m 4 _negDuty ]
+[; ;dc_motor.c: 88:         *(m->posDutyHighByte)=posDuty;
+[e = *U . *U _m 4 _posDuty ]
 "89
-[; ;dc_motor.c: 89:         *(m->negDutyHighByte)=posDuty;
-[e = *U . *U _m 5 _posDuty ]
+[; ;dc_motor.c: 89:         *(m->negDutyHighByte)=negDuty;
+[e = *U . *U _m 5 _negDuty ]
 "90
 [; ;dc_motor.c: 90:     }
 }
