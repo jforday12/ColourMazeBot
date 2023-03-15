@@ -102,7 +102,19 @@ We use the turn right and left 45 degrees in order to execute the different colo
     	turnRight45(&motorL, &motorR);
 	}
 
- 
+In regards with the Light Blue and Orange cards we alter the instruction slightly to include a quater block forward instruction which acts as a shuffle forward. This increases our distance from the wall before we restart the timer so that on the reverse movement we do not hit the wall which would disrupt the alignment of the buggy significantly. 
+
+The orange function is listed below:
+
+	void OrangeMove(struct DC_motor *mL,struct DC_motor *mR){
+		reverseDetect(&motorL, &motorR);
+		// turn right 135 degree
+		turnRight45(&motorL, &motorR);
+		turnRight45(&motorL, &motorR);
+		turnRight45(&motorL, &motorR);
+		quaterForward(&motorL, &motorR);
+	}
+
 
 The reverse detect function backs up the buggy slightly to avoid turning into or hitting the wall. We calibrated the length of time to back up to be 200ms. 
 
@@ -121,6 +133,7 @@ Another reverse function to the reverseDetect is the reverse 1 block. This is us
     stop(&motorL, &motorR);
     __delay_ms(50); 
 	}
+We have a similar function called Backhalfblock a block in dc_motor.c and is used in the way back home to realign the buggy and ensure it is perpendicular. 
 
 In regarding forward movemnt the first function we have is full speed ahead. The fullspeedAhead function is the function that is run in the main code and will ramp up the speed of the car until the specified power at which point the car will move continuouslly forward until another instruction is received. 
 
@@ -151,7 +164,7 @@ The ForwardOneBlock function is used when doing the reverse of each yellow and p
 
 ### Reverse movement ###
 
-In handeling reverse movement as stated in the memory function most colours can be handled by executing their complementary colours. However, for reverse Yellow and reverse Pink this is not possible. Thus two new move functions our created that do the opposite of these cards as shown below:
+In handeling reverse movement as stated in the memory function most colours can be handled by executing their complementary colours. However, for  Yellow ,Pink, Light Blue and orange this is not possible. Regarrding first Yellow and Pink two new move functions our created that do the opposite of these cards as shown below:
 
 	void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR){
 	    reverseDetect(&motorL, &motorR);
@@ -175,8 +188,8 @@ In handeling reverse movement as stated in the memory function most colours can 
 	    turnLeft45(&motorL, &motorR);
 	    turnLeft45(&motorL, &motorR);
 	}
-
 	
+Regarding the Reverse Light Blue and Light Pink movements these are almost identical to the previous code but now we remove the quater step forward function as we purposefully want to undershoot the hitting the wall as this will alter our alignment. 
 	
 
 ## Distinction of colours
@@ -262,15 +275,15 @@ The second function is the getTMR0val which is called whenever the buggy hits th
 	void getTMR0val(void){
     	unsigned int temp= TMR0L;
     	int moving=(TMR0H<<8)|(temp&0xff);
-    	if (moving>700){
-        	moving=moving-700;
+    	if (moving>500){
+        	moving=moving-500;
    	 }
     
     	Time_forward[move_count]=moving;
     	// function to input TMR0H into the array
 	}
 
-This function concatonates the upper and lower bit of the timer function and then subtracts 350ms off it if the time travelled forward is greater than this. This is because this avoids us hitting the wall on our return and helps slighlty undershoot which prevents it from crashing into the side of corners such as a 135 turn. It then puts the time into the Time_forward array. 
+This function concatonates the upper and lower bit of the timer function and then subtracts 250ms off it if the time travelled forward is greater than this. This is because this avoids us hitting the wall on our return and helps slighlty undershoot which prevents it from crashing into the side of corners such as a 135 turn. It then puts the time into the Time_forward array. 
 
 The final function is delayed_ms which is simply a custom delay function which takes in the length of time to delay for and will delay for that set of time. As our Tint is 0.5ms the delay of the for loop is 500 microseconds. This function is used in the timed_forward command to run for that set period of time. 
 
@@ -291,59 +304,70 @@ After identifing the WayBack array it then executes the reverse move of the colo
 Colour | Reverse instruction
 ---------|---------
 Red | Green
-Orange | Light Blue
+Orange | Reverse Orange
 Yellow | Reverse Yellow
 Blue | Blue
 Green | Red
-Light blue | Orange
+Light blue | Reverse Light Blue
 Pink | Reverse Pink
+
+After execuiting this movement it then reverses back into the wall to ensure alignment with the wall before executing the move forward command. 
 
 After it has run through the for loop it then stops the motor and turns the run flag off to prevent accidental restarts. 
 go_Home function:
 
-    int i;
-    BlueMove(&motorL, &motorR);
-    T0CON0bits.T0EN=0;
-    for (i = move_count; i >= 0; i--){
-        timed_forward(&motorL, &motorR,Time_forward[i]);
-            
-        if (WayBack[i-1]==1){
-            reverseDetect(&motorL, &motorR);
-            GreenMove(&motorL, &motorR); // opposite of red move
-        }
-        else if (WayBack[i-1]==2){
-            reverseDetect(&motorL, &motorR);
-            LightBlueMove(&motorL, &motorR); // opposite of orange move
-        }
-        else if (WayBack[i-1]==3){
-            reverseDetect(&motorL, &motorR);
-            ReverseYellow(&motorL, &motorR); // opposite of yellow move
-        }
-        else if (WayBack[i-1]==4){
-            reverseDetect(&motorL, &motorR);
-            BlueMove(&motorL, &motorR); // 180 degrees same either way
-        }
-        else if (WayBack[i-1]==5){
-            reverseDetect(&motorL, &motorR);
-            RedMove(&motorL, &motorR); //opposite of green move
-        }
-        else if (WayBack[i-1]==6){
-            reverseDetect(&motorL, &motorR);
-            OrangeMove(&motorL, &motorR); // opposite of light blue move
-        }
-        else if (WayBack[i-1]==7){
-            reverseDetect(&motorL, &motorR);
-            ReversePink(&motorL, &motorR);
-        }
-        stop(&motorL, &motorR);
-        run_flag=0;
+	void go_Home (char *WayBack, int *Time_forward){
+	    int i;
+	    BlueMove(&motorL, &motorR);
+	    T0CON0bits.T0EN=0;
+	    for (i = move_count; i >= 0; i--){
+			timed_forward(&motorL, &motorR,Time_forward[i]);
+
+			if (WayBack[i-1]==1){
+			    //homeReverse(&motorL, &motorR);
+			    GreenMove(&motorL, &motorR); // opposite of red move
+			    Backhalfblock(&motorL, &motorR);
+			}
+			else if (WayBack[i-1]==2){
+			    //homeReverse(&motorL, &motorR);
+			    ReverseOrangeMove(&motorL, &motorR); // opposite of orange move
+			    Backhalfblock(&motorL, &motorR);
+			}
+			else if (WayBack[i-1]==3){
+			    //homeReverse(&motorL, &motorR);
+			    ReverseYellow(&motorL, &motorR); // opposite of yellow move
+			    Backhalfblock(&motorL, &motorR);
+			}
+			else if (WayBack[i-1]==4){
+			    //homeReverse(&motorL, &motorR);
+			    BlueMove(&motorL, &motorR); // 180 degrees same either way
+			    Backhalfblock(&motorL, &motorR);
+			}
+			else if (WayBack[i-1]==5){
+			    //homeReverse(&motorL, &motorR);
+			    RedMove(&motorL, &motorR); //opposite of green move
+			    Backhalfblock(&motorL, &motorR);
+			}
+			else if (WayBack[i-1]==6){
+			    //homeReverse(&motorL, &motorR);
+			    ReverseLightBlueMove(&motorL, &motorR); // opposite of light blue move
+			    Backhalfblock(&motorL, &motorR);
+			}
+			else if (WayBack[i-1]==7){
+			    //homeReverse(&motorL, &motorR);
+			    ReversePink(&motorL, &motorR);
+			    Backhalfblock(&motorL, &motorR);
+			}
 
 
-  	} 
+
+		} 
+		stop(&motorL, &motorR);
+		run_flag=0;
 	}
 
 ## Exceptions
-There are two main exceptions which we handle in our code. The first is an overflow of the timer which occurs every approximately 33.5 seconds. As we reset the timer each time we hit a wall this means if we have overflowed we have been travelling for over 33.5 seconds which is highly unlikely. Thus we flag a return home function using the interrupt. 
+There are three main exceptions which we handle in our code. The first is an overflow of the timer which occurs every approximately 33.5 seconds. As we reset the timer each time we hit a wall this means if we have overflowed we have been travelling for over 33.5 seconds which is highly unlikely. Thus we flag a return home function using the interrupt. 
 	
 	void __interrupt(high_priority) HighISR(){
     		if (PIR0bits.TMR0IF){
@@ -361,7 +385,13 @@ The second exception handled is if we recieve from the colour decider function t
                 if (lost_count>=3){
                     go_Home(WayBack, Time_forward);
 		}
-
+The final exception is if we are stuck in an endless loop. Thus the timer is not overflowing but the buggy is going in circles. We handle this by determing each time whether the move_count index has reached 99 as this is the maximum number of moves we can store in the array. If this value is reached we return back home. 
+	
+	    move_count++; // increment index of move and timer arrays
+            getTMR0val();// place time moving forward in time array
+            if (move_count>98){ // check if the maximum index is reached 
+                go_Home(WayBack, Time_forward);
+            }
 
 ## Performance
 
