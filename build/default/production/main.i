@@ -24670,13 +24670,11 @@ void main(void) {
 
         if (vals.L>=500){
             move_count++;
+            getTMR0val();
             if (move_count>98){
-                getTMR0val();
                 go_Home(WayBack, Time_forward);
             }
             else{
-                getTMR0val();
-
                 Forwardhalfblock(&motorL,&motorR);
                 while (consecuitive<20){
                     _delay((unsigned long)((100)*(64000000/4000.0)));

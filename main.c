@@ -79,13 +79,11 @@ void main(void) {
         // if the clear value is greater than 2500 (value obtained from lowest clear value card which was blue) then it has hit a wall so detect what colour it sees
         if (vals.L>=500){
             move_count++; // increment index of move and timer arrays
+            getTMR0val();// place time moving forward in time array
             if (move_count>98){
-                getTMR0val();
                 go_Home(WayBack, Time_forward);
             }
             else{
-                getTMR0val(); // place time moving forward in time array
-
                 Forwardhalfblock(&motorL,&motorR);
                 while (consecuitive<20){
                     __delay_ms(100);

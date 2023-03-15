@@ -2329,12 +2329,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 81:             move_count++;
 [e ++ _move_count -> -> 1 `i `Vui ]
 "82
-[; ;main.c: 82:             if (move_count>98){
+[; ;main.c: 82:             getTMR0val();
+[e ( _getTMR0val ..  ]
+"83
+[; ;main.c: 83:             if (move_count>98){
 [e $ ! > _move_count -> -> 98 `i `ui 2028  ]
 {
-"83
-[; ;main.c: 83:                 getTMR0val();
-[e ( _getTMR0val ..  ]
 "84
 [; ;main.c: 84:                 go_Home(WayBack, Time_forward);
 [e ( _go_Home (2 , &U _WayBack &U _Time_forward ]
@@ -2347,106 +2347,103 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2028 ]
 {
 "87
-[; ;main.c: 87:                 getTMR0val();
-[e ( _getTMR0val ..  ]
-"89
-[; ;main.c: 89:                 Forwardhalfblock(&motorL,&motorR);
+[; ;main.c: 87:                 Forwardhalfblock(&motorL,&motorR);
 [e ( _Forwardhalfblock (2 , &U _motorL &U _motorR ]
-"90
-[; ;main.c: 90:                 while (consecuitive<20){
+"88
+[; ;main.c: 88:                 while (consecuitive<20){
 [e $U 2030  ]
 [e :U 2031 ]
 {
-"91
-[; ;main.c: 91:                     _delay((unsigned long)((100)*(64000000/4000.0)));
+"89
+[; ;main.c: 89:                     _delay((unsigned long)((100)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"92
-[; ;main.c: 92:                     readColours(&vals);
+"90
+[; ;main.c: 90:                     readColours(&vals);
 [e ( _readColours (1 &U _vals ]
-"93
-[; ;main.c: 93:                     colour_rel(&vals, &rel);
+"91
+[; ;main.c: 91:                     colour_rel(&vals, &rel);
 [e ( _colour_rel (2 , &U _vals &U _rel ]
-"94
-[; ;main.c: 94:                     int colour = Colour_decider(&vals, &rel);
+"92
+[; ;main.c: 92:                     int colour = Colour_decider(&vals, &rel);
 [v _colour `i ~T0 @X0 1 a ]
 [e = _colour ( _Colour_decider (2 , &U _vals &U _rel ]
-"95
-[; ;main.c: 95:                     if (colour==prev_colour){
+"93
+[; ;main.c: 93:                     if (colour==prev_colour){
 [e $ ! == _colour _prev_colour 2033  ]
 {
-"96
-[; ;main.c: 96:                         consecuitive++;
+"94
+[; ;main.c: 94:                         consecuitive++;
 [e ++ _consecuitive -> 1 `i ]
-"97
-[; ;main.c: 97:                     }
+"95
+[; ;main.c: 95:                     }
 }
 [e $U 2034  ]
-"98
-[; ;main.c: 98:                     else{
+"96
+[; ;main.c: 96:                     else{
 [e :U 2033 ]
 {
-"99
-[; ;main.c: 99:                         consecuitive=0;
+"97
+[; ;main.c: 97:                         consecuitive=0;
 [e = _consecuitive -> 0 `i ]
-"100
-[; ;main.c: 100:                     }
+"98
+[; ;main.c: 98:                     }
 }
 [e :U 2034 ]
-"101
-[; ;main.c: 101:                     prev_colour=colour;
+"99
+[; ;main.c: 99:                     prev_colour=colour;
 [e = _prev_colour _colour ]
-"102
-[; ;main.c: 102:                 }
+"100
+[; ;main.c: 100:                 }
 }
 [e :U 2030 ]
-"90
-[; ;main.c: 90:                 while (consecuitive<20){
+"88
+[; ;main.c: 88:                 while (consecuitive<20){
 [e $ < _consecuitive -> 20 `i 2031  ]
 [e :U 2032 ]
-"105
-[; ;main.c: 105:                 sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+"103
+[; ;main.c: 103:                 sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
 [e ( _sprintf (1 , , , , , (. , &U _buf :s 1C -> . _rel 0 `d -> . _rel 1 `d -> . _rel 2 `d . _vals 3 _prev_colour ]
-"106
-[; ;main.c: 106:                 sendStringSerial4(buf);
+"104
+[; ;main.c: 104:                 sendStringSerial4(buf);
 [e ( _sendStringSerial4 (1 &U _buf ]
-"108
-[; ;main.c: 108:                 colour_move (prev_colour);
+"106
+[; ;main.c: 106:                 colour_move (prev_colour);
 [e ( _colour_move (1 _prev_colour ]
-"109
-[; ;main.c: 109:             }
+"107
+[; ;main.c: 107:             }
 }
 [e :U 2029 ]
-"110
-[; ;main.c: 110:         }else if (lost_flag){
+"108
+[; ;main.c: 108:         }else if (lost_flag){
 }
 [e $U 2035  ]
 [e :U 2027 ]
 [e $ ! != _lost_flag -> 0 `i 2036  ]
 {
-"111
-[; ;main.c: 111:             move_count++;
+"109
+[; ;main.c: 109:             move_count++;
 [e ++ _move_count -> -> 1 `i `Vui ]
-"112
-[; ;main.c: 112:             Time_forward[move_count]=65535;
+"110
+[; ;main.c: 110:             Time_forward[move_count]=65535;
 [e = *U + &U _Time_forward * -> _move_count `ux -> -> # *U &U _Time_forward `ui `ux -> -> 65535 `l `i ]
-"113
-[; ;main.c: 113:             go_Home(WayBack, Time_forward);
+"111
+[; ;main.c: 111:             go_Home(WayBack, Time_forward);
 [e ( _go_Home (2 , &U _WayBack &U _Time_forward ]
-"115
-[; ;main.c: 115:         }
+"113
+[; ;main.c: 113:         }
 }
 [e :U 2036 ]
 [e :U 2035 ]
-"116
-[; ;main.c: 116:     }
+"114
+[; ;main.c: 114:     }
 }
 [e :U 2024 ]
 "69
 [; ;main.c: 69:     while (run_flag)
 [e $ != _run_flag -> 0 `i 2025  ]
 [e :U 2026 ]
-"117
-[; ;main.c: 117: }
+"115
+[; ;main.c: 115: }
 [e :UE 2020 ]
 }
 [p f _sprintf 8396928 ]

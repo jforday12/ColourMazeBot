@@ -119,6 +119,8 @@
 [v _turnLeft45 turnLeft45 `(v  1 e 1 0 ]
 "226
 [v _reverseDetect reverseDetect `(v  1 e 1 0 ]
+"232
+[v _homeReverse homeReverse `(v  1 e 1 0 ]
 "240
 [v _reverseOneBlock reverseOneBlock `(v  1 e 1 0 ]
 "246
@@ -289,7 +291,7 @@
 "11513
 [u S519 . 1 `S510 1 . 1 0 ]
 [v _ANSELDbits ANSELDbits `VES519  1 e 1 @3751 ]
-[s S2244 . 1 `uc 1 ANSELF0 1 0 :1:0 
+[s S2246 . 1 `uc 1 ANSELF0 1 0 :1:0 
 `uc 1 ANSELF1 1 0 :1:1 
 `uc 1 ANSELF2 1 0 :1:2 
 `uc 1 ANSELF3 1 0 :1:3 
@@ -299,8 +301,8 @@
 `uc 1 ANSELF7 1 0 :1:7 
 ]
 "12319
-[u S2253 . 1 `S2244 1 . 1 0 ]
-[v _ANSELFbits ANSELFbits `VES2253  1 e 1 @3764 ]
+[u S2255 . 1 `S2246 1 . 1 0 ]
+[v _ANSELFbits ANSELFbits `VES2255  1 e 1 @3764 ]
 "14196
 [v _SSP2BUF SSP2BUF `VEuc  1 e 1 @3797 ]
 "14216
@@ -635,14 +637,14 @@
 "30018
 [u S56 . 1 `S47 1 . 1 0 ]
 [v _TRISGbits TRISGbits `VES56  1 e 1 @3975 ]
-[s S2231 . 1 `uc 1 TRISH0 1 0 :1:0 
+[s S2233 . 1 `uc 1 TRISH0 1 0 :1:0 
 `uc 1 TRISH1 1 0 :1:1 
 `uc 1 TRISH2 1 0 :1:2 
 `uc 1 TRISH3 1 0 :1:3 
 ]
 "30071
-[u S2236 . 1 `S2231 1 . 1 0 ]
-[v _TRISHbits TRISHbits `VES2236  1 e 1 @3976 ]
+[u S2238 . 1 `S2233 1 . 1 0 ]
+[v _TRISHbits TRISHbits `VES2238  1 e 1 @3976 ]
 [s S952 . 1 `uc 1 RF0 1 0 :1:0 
 `uc 1 RF1 1 0 :1:1 
 `uc 1 RF2 1 0 :1:2 
@@ -839,12 +841,12 @@
 "39600
 "39600
 [v _T0CON0bits T0CON0bits `VES993  1 e 1 @4053 ]
-[s S1988 . 1 `uc 1 T0CKPS 1 0 :4:0 
+[s S1990 . 1 `uc 1 T0CKPS 1 0 :4:0 
 `uc 1 T0ASYNC 1 0 :1:4 
 `uc 1 T0CS 1 0 :3:5 
 ]
 "39676
-[s S1992 . 1 `uc 1 T0CKPS0 1 0 :1:0 
+[s S1994 . 1 `uc 1 T0CKPS0 1 0 :1:0 
 `uc 1 T0CKPS1 1 0 :1:1 
 `uc 1 T0CKPS2 1 0 :1:2 
 `uc 1 T0CKPS3 1 0 :1:3 
@@ -854,19 +856,19 @@
 `uc 1 T0CS2 1 0 :1:7 
 ]
 "39676
-[s S2001 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S2003 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 ]
 "39676
-[s S2006 . 1 `uc 1 T0PS 1 0 :4:0 
+[s S2008 . 1 `uc 1 T0PS 1 0 :4:0 
 ]
 "39676
-[u S2008 . 1 `S1988 1 . 1 0 `S1992 1 . 1 0 `S2001 1 . 1 0 `S2006 1 . 1 0 ]
+[u S2010 . 1 `S1990 1 . 1 0 `S1994 1 . 1 0 `S2003 1 . 1 0 `S2008 1 . 1 0 ]
 "39676
 "39676
-[v _T0CON1bits T0CON1bits `VES2008  1 e 1 @4054 ]
+[v _T0CON1bits T0CON1bits `VES2010  1 e 1 @4054 ]
 [s S776 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
@@ -907,11 +909,11 @@
 "33
 [v _main main `(v  1 e 1 0 ]
 {
-"94
+"92
 [v main@colour colour `i  1 a 2 100 ]
 "56
 [v main@buf buf `[100]uc  1 a 100 0 ]
-"117
+"115
 } 0
 "392 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\dc_motor.c
 [v _turnCalibration turnCalibration `(v  1 e 1 0 ]
@@ -924,10 +926,10 @@
 "9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S2759 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S2761 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
-[s S2762 _IO_FILE 11 `S2759 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S2762  1 a 11 102 ]
+[s S2764 _IO_FILE 11 `S2761 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S2764  1 a 11 102 ]
 "12
 [v sprintf@ap ap `[1]*.39v  1 a 2 100 ]
 "9
@@ -940,9 +942,9 @@
 {
 "1523
 [v vfprintf@cfmt cfmt `*.32uc  1 a 2 78 ]
-[s S2794 _IO_FILE 0 ]
+[s S2796 _IO_FILE 0 ]
 "1520
-[v vfprintf@fp fp `*.39S2794  1 p 2 72 ]
+[v vfprintf@fp fp `*.39S2796  1 p 2 72 ]
 [v vfprintf@fmt fmt `*.32Cuc  1 p 2 74 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 76 ]
 "1543
@@ -950,15 +952,15 @@
 "1007
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S2843 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
+[u S2845 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
 "1016
-[v vfpfcnvrt@convarg convarg `S2843  1 a 8 61 ]
+[v vfpfcnvrt@convarg convarg `S2845  1 a 8 61 ]
 "1009
 [v vfpfcnvrt@cp cp `*.32uc  1 a 2 70 ]
 [v vfpfcnvrt@c c `uc  1 a 1 69 ]
-[s S2794 _IO_FILE 0 ]
+[s S2796 _IO_FILE 0 ]
 "1007
-[v vfpfcnvrt@fp fp `*.39S2794  1 p 2 53 ]
+[v vfpfcnvrt@fp fp `*.39S2796  1 p 2 53 ]
 [v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 55 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 57 ]
 "1517
@@ -966,15 +968,15 @@
 "506
 [v _efgtoa efgtoa `(v  1 s 1 efgtoa ]
 {
-[u S2812 flui 4 `d 1 f 4 0 `l 1 u 4 0 ]
+[u S2814 flui 4 `d 1 f 4 0 `l 1 u 4 0 ]
 "511
-[v efgtoa@u u `S2812  1 a 4 49 ]
-[v efgtoa@g g `S2812  1 a 4 45 ]
+[v efgtoa@u u `S2814  1 a 4 49 ]
+[v efgtoa@g g `S2814  1 a 4 45 ]
 "510
 [v efgtoa@l l `d  1 a 4 38 ]
 [v efgtoa@h h `d  1 a 4 34 ]
 "511
-[v efgtoa@ou ou `S2812  1 a 4 28 ]
+[v efgtoa@ou ou `S2814  1 a 4 28 ]
 "509
 [v efgtoa@n n `i  1 a 2 43 ]
 [v efgtoa@i i `i  1 a 2 32 ]
@@ -990,9 +992,9 @@
 [v efgtoa@nmode nmode `uc  1 a 1 19 ]
 [v efgtoa@mode mode `uc  1 a 1 18 ]
 [v efgtoa@pp pp `uc  1 a 1 17 ]
-[s S2794 _IO_FILE 0 ]
+[s S2796 _IO_FILE 0 ]
 "506
-[v efgtoa@fp fp `*.39S2794  1 p 2 0 ]
+[v efgtoa@fp fp `*.39S2796  1 p 2 0 ]
 [v efgtoa@f f `d  1 p 4 2 ]
 [v efgtoa@c c `uc  1 p 1 6 ]
 "787
@@ -1033,9 +1035,9 @@
 "3 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\floorf.c
 [v _floorf floorf `(f  1 e 4 0 ]
 {
-[u S2930 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S2932 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "5
-[v floorf@u u `S2930  1 a 4 90 ]
+[v floorf@u u `S2932  1 a 4 90 ]
 "7
 [v floorf@m m `ul  1 a 4 84 ]
 "6
@@ -1043,21 +1045,21 @@
 "3
 [v floorf@x x `f  1 p 4 74 ]
 "4
-[v floorf@F526 F526 `S2930  1 s 4 F526 ]
+[v floorf@F526 F526 `S2932  1 s 4 F526 ]
 "27
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\__fpclassifyf.c
 [v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
 {
-[u S2930 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S2932 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "6
-[v ___fpclassifyf@u u `S2930  1 a 4 10 ]
+[v ___fpclassifyf@u u `S2932  1 a 4 10 ]
 "7
 [v ___fpclassifyf@e e `i  1 a 2 8 ]
 "4
 [v ___fpclassifyf@x x `f  1 p 4 0 ]
 "5
-[v ___fpclassifyf@F465 F465 `S2930  1 s 4 F465 ]
+[v ___fpclassifyf@F465 F465 `S2932  1 s 4 F465 ]
 "11
 } 0
 "43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
@@ -1087,9 +1089,9 @@
 [v dtoa@p p `i  1 a 2 47 ]
 "445
 [v dtoa@s s `uc  1 a 1 61 ]
-[s S2794 _IO_FILE 0 ]
+[s S2796 _IO_FILE 0 ]
 "443
-[v dtoa@fp fp `*.39S2794  1 p 2 27 ]
+[v dtoa@fp fp `*.39S2796  1 p 2 27 ]
 [v dtoa@d d `o  1 p 8 29 ]
 "502
 } 0
@@ -1099,9 +1101,9 @@
 "135
 [v pad@w w `i  1 a 2 25 ]
 [v pad@i i `i  1 a 2 23 ]
-[s S2794 _IO_FILE 0 ]
+[s S2796 _IO_FILE 0 ]
 "133
-[v pad@fp fp `*.39S2794  1 p 2 16 ]
+[v pad@fp fp `*.39S2796  1 p 2 16 ]
 [v pad@buf buf `*.39uc  1 p 2 18 ]
 [v pad@p p `i  1 p 2 20 ]
 "164
@@ -1115,18 +1117,18 @@
 [v fputs@c c `uc  1 a 1 13 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 9 ]
-[u S2759 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2762 _IO_FILE 11 `S2759 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.39S2762  1 p 2 11 ]
+[u S2761 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S2764 _IO_FILE 11 `S2761 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.39S2764  1 p 2 11 ]
 "19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[u S2759 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2762 _IO_FILE 11 `S2759 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S2762  1 p 2 2 ]
+[u S2761 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S2764 _IO_FILE 11 `S2761 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S2764  1 p 2 2 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\putch.c
@@ -1282,7 +1284,7 @@
 "4
 [v go_Home@WayBack WayBack `*.39uc  1 p 2 35 ]
 [v go_Home@Time_forward Time_forward `*.39i  1 p 2 37 ]
-"51
+"50
 } 0
 "166 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\dc_motor.c
 [v _timed_forward timed_forward `(v  1 e 1 0 ]
@@ -1302,7 +1304,15 @@
 [v delayed_ms@time time `i  1 p 2 0 ]
 "47
 } 0
-"352 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\dc_motor.c
+"232 C:\Users\jford\OneDrive\Documents\Imperial\Computing\ECM\final-project-josh-and-edward.X\dc_motor.c
+[v _homeReverse homeReverse `(v  1 e 1 0 ]
+{
+[s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
+[v homeReverse@mL mL `*.39S24  1 p 2 25 ]
+[v homeReverse@mR mR `*.39S24  1 p 2 27 ]
+"237
+} 0
+"352
 [v _ReverseYellow ReverseYellow `(v  1 e 1 0 ]
 {
 [s S24 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
@@ -1662,17 +1672,17 @@
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S2624 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S2626 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S2629 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S2632 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2624 1 fAsBytes 4 0 `S2629 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S2632  1 a 4 35 ]
+[s S2631 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S2634 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2626 1 fAsBytes 4 0 `S2631 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S2634  1 a 4 35 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 29 ]
-[s S2700 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S2702 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S2703 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2700 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S2703  1 a 2 39 ]
+[u S2705 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2702 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S2705  1 a 2 39 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 34 ]
 "11

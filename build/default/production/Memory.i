@@ -24345,9 +24345,9 @@ void go_Home (char *WayBack, int *Time_forward){
             Backhalfblock(&motorL, &motorR);
         }
         else if (WayBack[i-1]==4){
-
+            homeReverse(&motorL, &motorR);
             BlueMove(&motorL, &motorR);
-            Backhalfblock(&motorL, &motorR);
+
         }
         else if (WayBack[i-1]==5){
 
@@ -24364,9 +24364,8 @@ void go_Home (char *WayBack, int *Time_forward){
             ReversePink(&motorL, &motorR);
             Backhalfblock(&motorL, &motorR);
         }
-        stop(&motorL, &motorR);
-        run_flag=0;
 
-
-  }
+    }
+    stop(&motorL, &motorR);
+    run_flag=0;
 }

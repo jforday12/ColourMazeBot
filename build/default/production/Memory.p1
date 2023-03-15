@@ -39,6 +39,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "52
 [; ;./dc_motor.h: 52: void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
 [v _ReverseYellow `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"37
+[; ;./dc_motor.h: 37: void homeReverse(struct DC_motor *mL,struct DC_motor *mR);
+[v _homeReverse `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "43
 [; ;./dc_motor.h: 43: void RedMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _RedMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
@@ -2142,12 +2145,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2024 ]
 [e $ ! == -> *U + _WayBack * -> - _i -> 1 `i `x -> -> # *U _WayBack `i `x `i -> 4 `i 2026  ]
 {
+"27
+[; ;Memory.c: 27:             homeReverse(&motorL, &motorR);
+[e ( _homeReverse (2 , &U _motorL &U _motorR ]
 "28
 [; ;Memory.c: 28:             BlueMove(&motorL, &motorR);
 [e ( _BlueMove (2 , &U _motorL &U _motorR ]
-"29
-[; ;Memory.c: 29:             Backhalfblock(&motorL, &motorR);
-[e ( _Backhalfblock (2 , &U _motorL &U _motorR ]
 "30
 [; ;Memory.c: 30:         }
 }
@@ -2203,20 +2206,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2025 ]
 [e :U 2023 ]
 [e :U 2021 ]
-"46
-[; ;Memory.c: 46:         stop(&motorL, &motorR);
-[e ( _stop (2 , &U _motorL &U _motorR ]
 "47
-[; ;Memory.c: 47:         run_flag=0;
-[e = _run_flag -> 0 `i ]
-"50
-[; ;Memory.c: 50:   }
+[; ;Memory.c: 47:     }
 }
 [e -- _i -> 1 `i ]
 [e $ >= _i -> 0 `i 2017  ]
 [e :U 2018 ]
 }
-"51
-[; ;Memory.c: 51: }
+"48
+[; ;Memory.c: 48:     stop(&motorL, &motorR);
+[e ( _stop (2 , &U _motorL &U _motorR ]
+"49
+[; ;Memory.c: 49:     run_flag=0;
+[e = _run_flag -> 0 `i ]
+"50
+[; ;Memory.c: 50: }
 [e :UE 2016 ]
 }
