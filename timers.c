@@ -19,12 +19,9 @@ void Timer0_init(void)
 }
 
 /************************************
- * Function to return the full 16bit timer value
+ * Function to return the full 8 most significant bit timer value
  * Note TMR0L and TMR0H must be read in the correct order, or TMR0H will not contain the correct value
 ************************************/
-
-
-
 void getTMR0val(void)
 {
     unsigned int temp= TMR0L;
@@ -40,6 +37,7 @@ void getTMR0val(void)
 	//add your code to get the full 16 bit timer value here
 }
 
+// custom delay function to use timer value
 void delayed_ms(int time){
     for(unsigned int i=0;i<time;i++){
         __delay_us(500);

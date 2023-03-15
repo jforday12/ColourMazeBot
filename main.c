@@ -1,10 +1,3 @@
-/* 
- * File:   main.c
- * Author: jford
- *
- * Created on February 9, 2023, 11:06 AM
- */
-
 // CONFIG1L
 #pragma config FEXTOSC = HS     // External Oscillator mode Selection bits (HS (crystal oscillator) above 8 MHz; PFM set to high power)
 #pragma config RSTOSC = EXTOSC_4PLL// Power-up default value for COSC bits (EXTOSC with 4x PLL, with EXTOSC operating per FEXTOSC bits)
@@ -25,7 +18,6 @@
 #include "colour_move.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
-
 
 struct RGB_rel rel;
 struct RGB vals;
@@ -55,17 +47,15 @@ void main(void) {
     
     char buf[100];
     
-    
     turnCalibration(&motorL,&motorR);
     
-    Left_Signal=0;  // turn off left signal
+    Left_Signal=0;  // turn off left signal to show exit calibration code
     __delay_ms(1000);
-    
     
     while (!RF2_button); // PORTFbits.RF2
     __delay_ms(1000);
     
-    T0CON0bits.T0EN=1;
+    T0CON0bits.T0EN=1; // start timer
     while (run_flag)
     {
         consecuitive=0;

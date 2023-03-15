@@ -1,7 +1,6 @@
 #include <xc.h>
 #include "interrupts.h"
 
-
 /************************************
  * Function to turn on interrupts and set if priority is used
  * Note you also need to enable peripheral interrupts in the INTCON register to use CM1IE.
@@ -22,13 +21,11 @@ void Interrupts_init(void)
 ************************************/
 void __interrupt(high_priority) HighISR()
 {
-    if (PIR0bits.TMR0IF){
-        TMR0H=0;
+    if (PIR0bits.TMR0IF){ // timer overflow interrupt
+        TMR0H=0; // reset timer
         TMR0L=0;
-        lost_flag=1;
-        PIR0bits.TMR0IF=0;
+        lost_flag=1; // set lost flag to trigger go home function 
+        PIR0bits.TMR0IF=0; // reset overflow interrupt
     }
 
-    
-	//add your ISR code here i.e. check the flag, do something (i.e. toggle an LED), clear the flag...
 }

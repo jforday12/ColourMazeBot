@@ -176,7 +176,6 @@ void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time)
         setMotorPWM(mL);
         setMotorPWM(mR);
         
-        
         __delay_ms(20);
     }
     delayed_ms(time);

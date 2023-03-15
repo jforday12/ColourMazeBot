@@ -5,11 +5,13 @@
         <group>
             <file>file:/C:/ECM/final-project-josh-and-edward.X/dc_motor.c</file>
             <file>file:/C:/ECM/final-project-josh-and-edward.X/colour_move.c</file>
+            <file>file:/C:/ECM/final-project-josh-and-edward.X/interrupts.c</file>
+            <file>file:/C:/ECM/final-project-josh-and-edward.X/serial.c</file>
             <file>file:/C:/ECM/final-project-josh-and-edward.X/color.c</file>
+            <file>file:/C:/ECM/final-project-josh-and-edward.X/LED_buttons.c</file>
+            <file>file:/C:/ECM/final-project-josh-and-edward.X/timers.c</file>
             <file>file:/C:/ECM/final-project-josh-and-edward.X/main.c</file>
-            <file>file:/C:/ECM/final-project-josh-and-edward.X/color.h</file>
-            <file>file:/C:/ECM/final-project-josh-and-edward.X/colour_move.h</file>
-            <file>file:/C:/ECM/final-project-josh-and-edward.X/LED_buttons.h</file>
+            <file>file:/C:/ECM/final-project-josh-and-edward.X/Memory.c</file>
         </group>
     </open-files>
 </project-private>
