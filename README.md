@@ -394,7 +394,9 @@ The final exception is if we are stuck in an endless loop. Thus the timer is not
             }
 
 ## Performance
+This link shows videos of us doing an easy practice maze with the calibration sequence, a practice hard maze and the final maze
 
+https://imperiallondon-my.sharepoint.com/:f:/r/personal/jf1320_ic_ac_uk/Documents/ECM_videos?csf=1&web=1&e=4wK5mQ
 
 ## Challenge brief
 
