@@ -311,7 +311,7 @@ Green | Red
 Light blue | Reverse Light Blue
 Pink | Reverse Pink
 
-After execuiting this movement it then reverses back into the wall to ensure alignment with the wall before executing the move forward command. 
+After execuiting this movement it then reverses back into the wall to ensure alignment with the wall before executing the move forward command. When execuiting the blue command we back up slightly to ensure there is a full turning circle of it.  Moreover, we do not have to reverse half a square for it as it is already in the blue code. 
 
 After it has run through the for loop it then stops the motor and turns the run flag off to prevent accidental restarts. 
 go_Home function:
@@ -339,9 +339,8 @@ go_Home function:
 			    Backhalfblock(&motorL, &motorR);
 			}
 			else if (WayBack[i-1]==4){
-			    //homeReverse(&motorL, &motorR);
+			    homeReverse(&motorL, &motorR);
 			    BlueMove(&motorL, &motorR); // 180 degrees same either way
-			    Backhalfblock(&motorL, &motorR);
 			}
 			else if (WayBack[i-1]==5){
 			    //homeReverse(&motorL, &motorR);
