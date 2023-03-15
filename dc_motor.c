@@ -81,12 +81,12 @@ void setMotorPWM(struct DC_motor *m)
     
     if (m->direction) { //changed original code to make car go forward when direction=1
         
-        *(m->posDutyHighByte)=negDuty;  //do it the other way around to change direction
-        *(m->negDutyHighByte)=posDuty;
+        *(m->posDutyHighByte)=posDuty;  //do it the other way around to change direction
+        *(m->negDutyHighByte)=negDuty;
   
     } else {
-        *(m->posDutyHighByte)=posDuty;  //assign values to the CCP duty cycle registers
-        *(m->negDutyHighByte)=negDuty;     
+        *(m->posDutyHighByte)=negDuty;  //assign values to the CCP duty cycle registers
+        *(m->negDutyHighByte)=posDuty;     
     }
 }
 

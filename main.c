@@ -70,7 +70,7 @@ void main(void) {
     T0CON0bits.T0EN=1;
     while (run_flag)
     {
-        //consecuitive=0;
+        consecuitive=0;
         
         fullSpeedAhead(&motorL,&motorR);
         // read the colours and store it in the struct vals
@@ -88,14 +88,26 @@ void main(void) {
             // stop the buggy
             stop(&motorL, &motorR);
             
-            
-            int recognized_colour = consecutive_read(&vals, &rel); // let buggie have consecutive reading to make sure colour reading is correct
+            while (consecuitive<20){
+                __delay_ms(100);
+                readColours(&vals);
+                colour_rel(&vals, &rel);
+                int colour = Colour_decider(&vals, &rel);
+                if (colour==prev_colour){
+                    consecuitive++;
+                }
+                else{
+                    consecuitive=0;
+                }
+                prev_colour=colour;
+            }
+            //int recognized_colour = consecutive_read(&vals, &rel); // let buggie have consecutive reading to make sure colour reading is correct
             
             // serial communication for testing
             sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
             sendStringSerial4(buf);
             
-            colour_move (recognized_colour); // give buggie move instruction based on recognized colour
+            colour_move (prev_colour); // give buggie move instruction based on recognized colour
 
         }else if (lost_flag){
             move_count++; // increment index of move and timer arrays

@@ -2494,11 +2494,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! != -> . *U _m 1 `i -> 0 `i 2022  ]
 {
 "84
-[; ;dc_motor.c: 84:         *(m->posDutyHighByte)=negDuty;
-[e = *U . *U _m 4 _negDuty ]
+[; ;dc_motor.c: 84:         *(m->posDutyHighByte)=posDuty;
+[e = *U . *U _m 4 _posDuty ]
 "85
-[; ;dc_motor.c: 85:         *(m->negDutyHighByte)=posDuty;
-[e = *U . *U _m 5 _posDuty ]
+[; ;dc_motor.c: 85:         *(m->negDutyHighByte)=negDuty;
+[e = *U . *U _m 5 _negDuty ]
 "87
 [; ;dc_motor.c: 87:     } else {
 }
@@ -2506,11 +2506,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2022 ]
 {
 "88
-[; ;dc_motor.c: 88:         *(m->posDutyHighByte)=posDuty;
-[e = *U . *U _m 4 _posDuty ]
+[; ;dc_motor.c: 88:         *(m->posDutyHighByte)=negDuty;
+[e = *U . *U _m 4 _negDuty ]
 "89
-[; ;dc_motor.c: 89:         *(m->negDutyHighByte)=negDuty;
-[e = *U . *U _m 5 _negDuty ]
+[; ;dc_motor.c: 89:         *(m->negDutyHighByte)=posDuty;
+[e = *U . *U _m 5 _posDuty ]
 "90
 [; ;dc_motor.c: 90:     }
 }

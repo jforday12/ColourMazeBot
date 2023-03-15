@@ -3,4 +3,5 @@ colour_move.c  \
 colour_move.h  \
 dc_motor.h  \
 Memory.h  \
-serial.h 
+serial.h  \
+color.h 

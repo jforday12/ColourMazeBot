@@ -2086,6 +2086,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _TxBufReadCnt
 -> -> 0 `i `uc
 ]
+"44 ./color.h
+[; ;./color.h: 44: int prev_colour =0;
+[v _prev_colour `i ~T0 @X0 1 e ]
+[i _prev_colour
+-> 0 `i
+]
+"45
+[; ;./color.h: 45: int consecuitive=0;
+[v _consecuitive `i ~T0 @X0 1 e ]
+[i _consecuitive
+-> 0 `i
+]
 "8 colour_move.c
 [; ;colour_move.c: 8: void colour_move (int recognized_colour)
 [v _colour_move `(v ~T0 @X0 1 ef1`i ]
@@ -2101,7 +2113,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "12
 [; ;colour_move.c: 12:     if (recognized_colour==1){
-[e $ ! == _recognized_colour -> 1 `i 2017  ]
+[e $ ! == _recognized_colour -> 1 `i 2019  ]
 {
 "13
 [; ;colour_move.c: 13:         RedMove(&motorL, &motorR);
@@ -2121,11 +2133,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18
 [; ;colour_move.c: 18:     }
 }
-[e $U 2018  ]
+[e $U 2020  ]
 "19
 [; ;colour_move.c: 19:     else if(recognized_colour==2){
-[e :U 2017 ]
-[e $ ! == _recognized_colour -> 2 `i 2019  ]
+[e :U 2019 ]
+[e $ ! == _recognized_colour -> 2 `i 2021  ]
 {
 "20
 [; ;colour_move.c: 20:         OrangeMove(&motorL, &motorR);
@@ -2145,11 +2157,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "25
 [; ;colour_move.c: 25:     }
 }
-[e $U 2020  ]
+[e $U 2022  ]
 "26
 [; ;colour_move.c: 26:     else if(recognized_colour==3){
-[e :U 2019 ]
-[e $ ! == _recognized_colour -> 3 `i 2021  ]
+[e :U 2021 ]
+[e $ ! == _recognized_colour -> 3 `i 2023  ]
 {
 "27
 [; ;colour_move.c: 27:         YellowMove(&motorL, &motorR);
@@ -2169,11 +2181,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32
 [; ;colour_move.c: 32:     }
 }
-[e $U 2022  ]
+[e $U 2024  ]
 "33
 [; ;colour_move.c: 33:     else if(recognized_colour==4){
-[e :U 2021 ]
-[e $ ! == _recognized_colour -> 4 `i 2023  ]
+[e :U 2023 ]
+[e $ ! == _recognized_colour -> 4 `i 2025  ]
 {
 "34
 [; ;colour_move.c: 34:         BlueMove(&motorL, &motorR);
@@ -2193,11 +2205,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39
 [; ;colour_move.c: 39:     }
 }
-[e $U 2024  ]
+[e $U 2026  ]
 "40
 [; ;colour_move.c: 40:     else if(recognized_colour==5){
-[e :U 2023 ]
-[e $ ! == _recognized_colour -> 5 `i 2025  ]
+[e :U 2025 ]
+[e $ ! == _recognized_colour -> 5 `i 2027  ]
 {
 "41
 [; ;colour_move.c: 41:         GreenMove(&motorL, &motorR);
@@ -2217,11 +2229,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "46
 [; ;colour_move.c: 46:     }
 }
-[e $U 2026  ]
+[e $U 2028  ]
 "47
 [; ;colour_move.c: 47:     else if(recognized_colour==6){
-[e :U 2025 ]
-[e $ ! == _recognized_colour -> 6 `i 2027  ]
+[e :U 2027 ]
+[e $ ! == _recognized_colour -> 6 `i 2029  ]
 {
 "48
 [; ;colour_move.c: 48:         LightBlueMove(&motorL, &motorR);
@@ -2241,11 +2253,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "53
 [; ;colour_move.c: 53:     }
 }
-[e $U 2028  ]
+[e $U 2030  ]
 "54
 [; ;colour_move.c: 54:     else if(recognized_colour==7){
-[e :U 2027 ]
-[e $ ! == _recognized_colour -> 7 `i 2029  ]
+[e :U 2029 ]
+[e $ ! == _recognized_colour -> 7 `i 2031  ]
 {
 "55
 [; ;colour_move.c: 55:         PinkMove(&motorL, &motorR);
@@ -2265,18 +2277,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "60
 [; ;colour_move.c: 60:     }
 }
-[e $U 2030  ]
+[e $U 2032  ]
 "61
 [; ;colour_move.c: 61:     else if (recognized_colour==10){
-[e :U 2029 ]
-[e $ ! == _recognized_colour -> 10 `i 2031  ]
+[e :U 2031 ]
+[e $ ! == _recognized_colour -> 10 `i 2033  ]
 {
 "62
 [; ;colour_move.c: 62:         lost_count++;
 [e ++ _lost_count -> 1 `i ]
 "63
 [; ;colour_move.c: 63:         if (lost_count>=3){
-[e $ ! >= _lost_count -> 3 `i 2032  ]
+[e $ ! >= _lost_count -> 3 `i 2034  ]
 {
 "64
 [; ;colour_move.c: 64:             go_Home(WayBack, Time_forward);
@@ -2284,10 +2296,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "65
 [; ;colour_move.c: 65:         }
 }
-[e $U 2033  ]
+[e $U 2035  ]
 "66
 [; ;colour_move.c: 66:         else{
-[e :U 2032 ]
+[e :U 2034 ]
 {
 "67
 [; ;colour_move.c: 67:             RetryMove(&motorL, &motorR);
@@ -2301,15 +2313,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "70
 [; ;colour_move.c: 70:         }
 }
-[e :U 2033 ]
+[e :U 2035 ]
 "71
 [; ;colour_move.c: 71:     }
 }
-[e $U 2034  ]
+[e $U 2036  ]
 "72
 [; ;colour_move.c: 72:     else if (recognized_colour==0){
-[e :U 2031 ]
-[e $ ! == _recognized_colour -> 0 `i 2035  ]
+[e :U 2033 ]
+[e $ ! == _recognized_colour -> 0 `i 2037  ]
 {
 "73
 [; ;colour_move.c: 73:         go_Home(WayBack, Time_forward);
@@ -2317,16 +2329,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "74
 [; ;colour_move.c: 74:     }
 }
-[e :U 2035 ]
-[e :U 2034 ]
+[e :U 2037 ]
+[e :U 2036 ]
+[e :U 2032 ]
 [e :U 2030 ]
 [e :U 2028 ]
 [e :U 2026 ]
 [e :U 2024 ]
 [e :U 2022 ]
 [e :U 2020 ]
-[e :U 2018 ]
 "75
 [; ;colour_move.c: 75: }
-[e :UE 2016 ]
+[e :UE 2018 ]
 }

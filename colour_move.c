@@ -3,7 +3,7 @@
 #include "dc_motor.h"
 #include "Memory.h"
 #include "serial.h"
-
+#include "color.h"
 
 void colour_move (int recognized_colour) 
 {

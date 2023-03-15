@@ -24439,12 +24439,12 @@ void setMotorPWM(struct DC_motor *m)
 
     if (m->direction) {
 
-        *(m->posDutyHighByte)=negDuty;
-        *(m->negDutyHighByte)=posDuty;
-
-    } else {
         *(m->posDutyHighByte)=posDuty;
         *(m->negDutyHighByte)=negDuty;
+
+    } else {
+        *(m->posDutyHighByte)=negDuty;
+        *(m->negDutyHighByte)=posDuty;
     }
 }
 

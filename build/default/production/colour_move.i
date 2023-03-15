@@ -24322,6 +24322,51 @@ void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
 # 5 "colour_move.c" 2
 
+# 1 "./color.h" 1
+# 13 "./color.h"
+void color_click_init(void);
+
+
+
+
+
+
+void color_writetoaddr(char address, char value);
+
+
+
+
+
+unsigned int color_read_Red(void);
+unsigned int color_read_Blue(void);
+unsigned int color_read_Green(void);
+unsigned int color_read_lum(void);
+struct RGB{
+    int R;
+    int G;
+    int B;
+    int L;
+};
+
+
+struct RGB_rel{
+    float R;
+    float G;
+    float B;
+};
+
+int prev_colour =0;
+int consecuitive=0;
+
+
+
+void colour_rel(struct RGB *vals, struct RGB_rel *rel);
+
+int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
+void readColours (struct RGB *vals);
+
+int consecutive_read(struct RGB *vals, struct RGB_rel *rel);
+# 6 "colour_move.c" 2
 
 
 void colour_move (int recognized_colour)
