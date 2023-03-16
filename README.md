@@ -417,7 +417,7 @@ This link shows videos of us doing an easy practice maze with the calibration se
 
 https://imperiallondon-my.sharepoint.com/:f:/r/personal/jf1320_ic_ac_uk/Documents/ECM_videos?csf=1&web=1&e=4wK5mQ
 
-As we can see we had perfect run for the first two actual mazes and we achieved a perfect run on the third attempt of the hard maze. The reason why we had to nudge it slightly is due to a slight drift in the motors on the way back shifting it off course.
+As we can see we had perfect run for the first two actual mazes and we achieved a perfect run on the final hard maze. If things were to go wrong we may have had to nudge it slightly is due to a slight drift in the motors on the way back shifting it off course.
 
 
 
