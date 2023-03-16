@@ -24570,7 +24570,7 @@ void TurnDelay(int Turn45Delay);
 
 char WayBack [50];
 int Time_forward[50];
-extern volatile unsigned int move_count=-1;
+unsigned int move_count=-1;
 int run_flag=1;
 
 void go_Home (char *WayBack, int *Time_forward);
@@ -24587,7 +24587,6 @@ void go_Home (char *WayBack, int *Time_forward);
 void Timer0_init(void);
 void getTMR0val(void);
 void delayed_ms(int time);
-extern volatile unsigned int move_count;
 # 17 "main.c" 2
 
 # 1 "./LED_buttons.h" 1

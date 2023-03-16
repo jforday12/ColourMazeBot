@@ -24242,7 +24242,6 @@ unsigned char __t3rd16on(void);
 void Timer0_init(void);
 void getTMR0val(void);
 void delayed_ms(int time);
-extern volatile unsigned int move_count;
 # 2 "timers.c" 2
 
 # 1 "./interrupts.h" 1
@@ -24271,7 +24270,7 @@ int lost_flag=0;
 
 char WayBack [50];
 int Time_forward[50];
-extern volatile unsigned int move_count=-1;
+unsigned int move_count=-1;
 int run_flag=1;
 
 void go_Home (char *WayBack, int *Time_forward);

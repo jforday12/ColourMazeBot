@@ -24303,7 +24303,6 @@ void TurnDelay(int Turn45Delay);
 void Timer0_init(void);
 void getTMR0val(void);
 void delayed_ms(int time);
-extern volatile unsigned int move_count;
 # 3 "dc_motor.c" 2
 
 # 1 "./color.h" 1

@@ -8,7 +8,7 @@
 
 char WayBack [50]; // create list to store sequence of colour card
 int Time_forward[50]; // create list to store straight line times
-extern volatile unsigned int move_count=-1; // global variable for list index
+unsigned int move_count=-1; // global variable for list index
 int run_flag=1; // define variable for main loop
 
 void go_Home (char *WayBack, int *Time_forward); // function to carry out return home instruction based on lists
