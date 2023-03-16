@@ -288,7 +288,23 @@ Light Blue and Green:
 
 
 ## Timers
-The timers file consist of 3 functions. The first is the initilisation where the prescaler is set to 1:8192 or 0b1101 which gives us an T_int of 0.512ms. The timer is not started in the initilisation routine as we want to start it only once the calibration routine has ended and the RF2 button is clicked. 
+The timers file consist of 3 functions. The first is the initilisation where the prescaler is set to 1:8192 or 0b1101 which gives us an T_int of 0.512ms. This gives us an overflow time of 33.15 seconds.  The timer is not started in the initilisation routine as we want to start it only once the calibration routine has ended and the RF2 button is clicked. 
+
+	void Timer0_init(void)
+	{
+	    T0CON1bits.T0CS=0b010; // Fosc/4
+	    T0CON1bits.T0ASYNC=1; // see datasheet errata - needed to ensure correct operation when Fosc/4 used as clock source
+	    T0CON1bits.T0CKPS=0b1101; // 1:8192 // 0.512ms interval
+	    T0CON0bits.T016BIT=1;	//16bit mode	
+
+	    // it's a good idea to initialise the timer registers so we know we are at 0
+	    TMR0H=0;            //write High reg first, update happens when low reg is written to
+	    TMR0L=0; 
+	    T0CON0bits.T0EN=0;	//start the timer
+	}
+
+
+
 
 The second function is the getTMR0val which is called whenever the buggy hits the wall and obtains a value for how long the buggy has been going straight for. 
 
