@@ -23,10 +23,12 @@ void color_writetoaddr(char address, char value);
  *  Function to read the red channel
  *	Returns a 16 bit ADC value representing colour intensity
  ***********************************************/
-unsigned int color_read_Red(void);
-unsigned int color_read_Blue(void);
-unsigned int color_read_Green(void);
-unsigned int color_read_lum(void);
+unsigned int color_read_Red(void); // read red value from colour click
+unsigned int color_read_Blue(void); // read blue value from colour click
+unsigned int color_read_Green(void); // read green value from colour click
+unsigned int color_read_lum(void); // read luminance value from colour click
+
+// structure to store value of RGB readings
 struct RGB{
     int R;
     int G;
@@ -34,7 +36,7 @@ struct RGB{
     int L;
 };
 
-
+// structure to store relative value of RGB readings
 struct RGB_rel{
     float R;
     float G;
@@ -44,14 +46,10 @@ struct RGB_rel{
 int prev_colour =0; // variable to decide what the previous colour is 
 int consecuitive=0; // variable to register how many consecuitive readings there are
 
-
-
-void colour_rel(struct RGB *vals, struct RGB_rel *rel);
-
-int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
-void readColours (struct RGB *vals);
-
-int consecutive_read(struct RGB *vals, struct RGB_rel *rel);
+void colour_rel(struct RGB *vals, struct RGB_rel *rel); // function to calculate relative colour reading values
+int Colour_decider(struct RGB *vals, struct RGB_rel *rel); // function to recognize colour based on colour readings
+void readColours (struct RGB *vals); // function to receive reading from colour click
+int consecutive_read(struct RGB *vals, struct RGB_rel *rel); // function to confirm correct colour readings
 
 
 

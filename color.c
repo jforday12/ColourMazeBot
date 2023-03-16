@@ -33,10 +33,6 @@ void color_click_init(void)
     LATDbits.LATD3=0;  // Toggles the front white LEDs (at full brightness)
     LATDbits.LATD4=0;     // Toggles the rear red LEDs (at full brightness)
     
-
-
-
-    
 }
 
 void color_writetoaddr(char address, char value){

@@ -11,18 +11,18 @@ void LED_init(void);
 // function to initialize Buttons
 void Buttons_init(void);
 
-// define LED on the colour click
-#define RED_LED LATGbits.LATG1
+// define name for LED on the colour click
+#define RED_LED LATGbits.LATG1 
 #define GREEN_LED LATAbits.LATA4
 #define BLUE_LED LATFbits.LATF7
 
 
-// define buttons on the clicker 2 board
+// define name for buttons on the clicker 2 board
 #define RF2_button !PORTFbits.RF2
 #define RF3_button !PORTFbits.RF3
 
 
-// define LED on Buggie
+// define name for LED on Buggie
 #define Right_Signal LATHbits.LATH0
 #define Left_Signal LATFbits.LATF0
 #define Break_Light LATDbits.LATD4

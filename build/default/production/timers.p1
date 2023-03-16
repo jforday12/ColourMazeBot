@@ -2027,20 +2027,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _lost_flag
 -> 0 `i
 ]
-"18 ./Memory.h
-[; ;./Memory.h: 18: char WayBack [50];
+"9 ./Memory.h
+[; ;./Memory.h: 9: char WayBack [50];
 [v _WayBack `uc ~T0 @X0 -> 50 `i e ]
-"19
-[; ;./Memory.h: 19: int Time_forward[50];
+"10
+[; ;./Memory.h: 10: int Time_forward[50];
 [v _Time_forward `i ~T0 @X0 -> 50 `i e ]
-"20
-[; ;./Memory.h: 20: extern volatile unsigned int move_count=-1;
+"11
+[; ;./Memory.h: 11: extern volatile unsigned int move_count=-1;
 [v _move_count `Vui ~T0 @X0 1 e ]
 [i _move_count
 -> -U -> 1 `i `ui
 ]
-"21
-[; ;./Memory.h: 21: int run_flag=1;
+"12
+[; ;./Memory.h: 12: int run_flag=1;
 [v _run_flag `i ~T0 @X0 1 e ]
 [i _run_flag
 -> 1 `i
@@ -2078,67 +2078,67 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;timers.c: 19: }
 [e :UE 2015 ]
 }
-"28
-[; ;timers.c: 28: void getTMR0val(void)
+"25
+[; ;timers.c: 25: void getTMR0val(void)
 [v _getTMR0val `(v ~T0 @X0 1 ef ]
-"29
-[; ;timers.c: 29: {
+"26
+[; ;timers.c: 26: {
 {
 [e :U _getTMR0val ]
 [f ]
-"30
-[; ;timers.c: 30:     unsigned int temp= TMR0L;
+"27
+[; ;timers.c: 27:     unsigned int temp= TMR0L;
 [v _temp `ui ~T0 @X0 1 a ]
 [e = _temp -> _TMR0L `ui ]
-"32
-[; ;timers.c: 32:     int moving=(TMR0H<<8)|(temp&0xff);
+"29
+[; ;timers.c: 29:     int moving=(TMR0H<<8)|(temp&0xff);
 [v _moving `i ~T0 @X0 1 a ]
 [e = _moving -> | -> << -> _TMR0H `i -> 8 `i `ui & _temp -> -> 255 `i `ui `i ]
-"33
-[; ;timers.c: 33:     if (moving>500){
+"30
+[; ;timers.c: 30:     if (moving>500){
 [e $ ! > _moving -> 500 `i 2017  ]
 {
-"34
-[; ;timers.c: 34:         moving=moving-500;
+"31
+[; ;timers.c: 31:         moving=moving-500;
 [e = _moving - _moving -> 500 `i ]
-"35
-[; ;timers.c: 35:     }
+"32
+[; ;timers.c: 32:     }
 }
 [e :U 2017 ]
-"37
-[; ;timers.c: 37:     Time_forward[move_count]=moving;
+"34
+[; ;timers.c: 34:     Time_forward[move_count]=moving;
 [e = *U + &U _Time_forward * -> _move_count `ux -> -> # *U &U _Time_forward `ui `ux _moving ]
-"41
-[; ;timers.c: 41: }
+"38
+[; ;timers.c: 38: }
 [e :UE 2016 ]
 }
-"43
-[; ;timers.c: 43: void delayed_ms(int time){
+"41
+[; ;timers.c: 41: void delayed_ms(int time){
 [v _delayed_ms `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _delayed_ms ]
 [v _time `i ~T0 @X0 1 r1 ]
 [f ]
-"44
-[; ;timers.c: 44:     for(unsigned int i=0;i<time;i++){
+"42
+[; ;timers.c: 42:     for(unsigned int i=0;i<time;i++){
 {
 [v _i `ui ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `ui ]
 [e $U 2022  ]
 [e :U 2019 ]
 {
-"45
-[; ;timers.c: 45:         _delay((unsigned long)((500)*(64000000/4000000.0)));
+"43
+[; ;timers.c: 43:         _delay((unsigned long)((500)*(64000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
-"46
-[; ;timers.c: 46:     }
+"44
+[; ;timers.c: 44:     }
 }
 [e ++ _i -> -> 1 `i `ui ]
 [e :U 2022 ]
 [e $ < _i -> _time `ui 2019  ]
 [e :U 2020 ]
 }
-"47
-[; ;timers.c: 47: }
+"45
+[; ;timers.c: 45: }
 [e :UE 2018 ]
 }

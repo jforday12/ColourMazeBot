@@ -3,8 +3,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./dc_motor.h: 8: struct DC_motor {
 [s S2015 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
 [n S2015 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
-"45
-[; ;./dc_motor.h: 45: void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
+"46
+[; ;./dc_motor.h: 46: void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _BlueMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "39586 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 39586:     struct {
@@ -27,8 +27,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "31 ./dc_motor.h
 [; ;./dc_motor.h: 31: void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time);
 [v _timed_forward `(v ~T0 @X0 0 ef3`*S2015`*S2015`i ]
-"44
-[; ;./dc_motor.h: 44: void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
+"45
+[; ;./dc_motor.h: 45: void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _GreenMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "40
 [; ;./dc_motor.h: 40: void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR);
@@ -42,8 +42,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37
 [; ;./dc_motor.h: 37: void homeReverse(struct DC_motor *mL,struct DC_motor *mR);
 [v _homeReverse `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"43
-[; ;./dc_motor.h: 43: void RedMove(struct DC_motor *mL,struct DC_motor *mR);
+"44
+[; ;./dc_motor.h: 44: void RedMove(struct DC_motor *mL,struct DC_motor *mR);
 [v _RedMove `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "55
 [; ;./dc_motor.h: 55: void ReverseLightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
@@ -2028,20 +2028,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40927
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 40927: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"18 ./Memory.h
-[; ;./Memory.h: 18: char WayBack [50];
+"9 ./Memory.h
+[; ;./Memory.h: 9: char WayBack [50];
 [v _WayBack `uc ~T0 @X0 -> 50 `i e ]
-"19
-[; ;./Memory.h: 19: int Time_forward[50];
+"10
+[; ;./Memory.h: 10: int Time_forward[50];
 [v _Time_forward `i ~T0 @X0 -> 50 `i e ]
-"20
-[; ;./Memory.h: 20: extern volatile unsigned int move_count=-1;
+"11
+[; ;./Memory.h: 11: extern volatile unsigned int move_count=-1;
 [v _move_count `Vui ~T0 @X0 1 e ]
 [i _move_count
 -> -U -> 1 `i `ui
 ]
-"21
-[; ;./Memory.h: 21: int run_flag=1;
+"12
+[; ;./Memory.h: 12: int run_flag=1;
 [v _run_flag `i ~T0 @X0 1 e ]
 [i _run_flag
 -> 1 `i

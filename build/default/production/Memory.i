@@ -8,7 +8,9 @@
 # 2 "<built-in>" 2
 # 1 "Memory.c" 2
 # 1 "./Memory.h" 1
-# 11 "./Memory.h"
+
+
+
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24231,9 +24233,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 2 3
-# 11 "./Memory.h" 2
-
-
+# 4 "./Memory.h" 2
 
 
 
@@ -24288,6 +24288,7 @@ void homeReverse(struct DC_motor *mL,struct DC_motor *mR);
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 void quaterForward(struct DC_motor *mL,struct DC_motor *mR);
 
 void RedMove(struct DC_motor *mL,struct DC_motor *mR);
@@ -24297,7 +24298,6 @@ void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
 void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
 void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
 void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
-void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
 void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
 void ReversePink(struct DC_motor *mL,struct DC_motor *mR);

@@ -24250,6 +24250,8 @@ unsigned int color_read_Red(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Green(void);
 unsigned int color_read_lum(void);
+
+
 struct RGB{
     int R;
     int G;
@@ -24267,13 +24269,9 @@ struct RGB_rel{
 int prev_colour =0;
 int consecuitive=0;
 
-
-
 void colour_rel(struct RGB *vals, struct RGB_rel *rel);
-
 int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
 void readColours (struct RGB *vals);
-
 int consecutive_read(struct RGB *vals, struct RGB_rel *rel);
 # 2 "color.c" 2
 
@@ -24353,6 +24351,7 @@ void homeReverse(struct DC_motor *mL,struct DC_motor *mR);
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 void quaterForward(struct DC_motor *mL,struct DC_motor *mR);
 
 void RedMove(struct DC_motor *mL,struct DC_motor *mR);
@@ -24362,7 +24361,6 @@ void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
 void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
 void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
 void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
-void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
 void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
 void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
@@ -24417,10 +24415,6 @@ void color_click_init(void)
 
     LATDbits.LATD3=0;
     LATDbits.LATD4=0;
-
-
-
-
 
 }
 

@@ -8,18 +8,12 @@
 # 2 "<built-in>" 2
 # 1 "main.c" 2
 
-
-
-
-
-
-
-
 #pragma config FEXTOSC = HS
 #pragma config RSTOSC = EXTOSC_4PLL
 
 
 #pragma config WDTE = OFF
+
 
 
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 1 3
@@ -24244,7 +24238,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 2 3
-# 15 "main.c" 2
+# 9 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
@@ -24390,7 +24384,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 16 "main.c" 2
+# 10 "main.c" 2
 
 # 1 "./serial.h" 1
 # 13 "./serial.h"
@@ -24408,7 +24402,7 @@ void initUSART4(void);
 char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
-# 17 "main.c" 2
+# 11 "main.c" 2
 
 # 1 "./color.h" 1
 # 13 "./color.h"
@@ -24429,6 +24423,8 @@ unsigned int color_read_Red(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Green(void);
 unsigned int color_read_lum(void);
+
+
 struct RGB{
     int R;
     int G;
@@ -24446,15 +24442,11 @@ struct RGB_rel{
 int prev_colour =0;
 int consecuitive=0;
 
-
-
 void colour_rel(struct RGB *vals, struct RGB_rel *rel);
-
 int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
 void readColours (struct RGB *vals);
-
 int consecutive_read(struct RGB *vals, struct RGB_rel *rel);
-# 18 "main.c" 2
+# 12 "main.c" 2
 
 # 1 "./i2c.h" 1
 # 13 "./i2c.h"
@@ -24489,7 +24481,7 @@ void I2C_2_Master_Write(unsigned char data_byte);
 
 
 unsigned char I2C_2_Master_Read(unsigned char ack);
-# 19 "main.c" 2
+# 13 "main.c" 2
 
 # 1 "./interrupts.h" 1
 
@@ -24504,7 +24496,7 @@ void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 int lost_flag=0;
-# 20 "main.c" 2
+# 14 "main.c" 2
 
 # 1 "./dc_motor.h" 1
 
@@ -24547,6 +24539,7 @@ void homeReverse(struct DC_motor *mL,struct DC_motor *mR);
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 void quaterForward(struct DC_motor *mL,struct DC_motor *mR);
 
 void RedMove(struct DC_motor *mL,struct DC_motor *mR);
@@ -24556,7 +24549,6 @@ void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
 void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
 void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
 void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
-void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
 void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
 void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
@@ -24565,17 +24557,24 @@ void ReverseLightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
 
 void turnCalibration(struct DC_motor *mL,struct DC_motor *mR);
 void TurnDelay(int Turn45Delay);
-# 21 "main.c" 2
+# 15 "main.c" 2
 
 # 1 "./Memory.h" 1
-# 18 "./Memory.h"
+
+
+
+
+
+
+
+
 char WayBack [50];
 int Time_forward[50];
 extern volatile unsigned int move_count=-1;
 int run_flag=1;
 
 void go_Home (char *WayBack, int *Time_forward);
-# 22 "main.c" 2
+# 16 "main.c" 2
 
 # 1 "./timers.h" 1
 
@@ -24589,7 +24588,7 @@ void Timer0_init(void);
 void getTMR0val(void);
 void delayed_ms(int time);
 extern volatile unsigned int move_count;
-# 23 "main.c" 2
+# 17 "main.c" 2
 
 # 1 "./LED_buttons.h" 1
 
@@ -24604,16 +24603,18 @@ void LED_init(void);
 
 
 void Buttons_init(void);
-# 24 "main.c" 2
+# 18 "main.c" 2
 
 # 1 "./colour_move.h" 1
-# 10 "./colour_move.h"
+
+
+
+
+
 int lost_count=0;
 
-
 void colour_move (int recognized_colour);
-# 25 "main.c" 2
-
+# 19 "main.c" 2
 
 
 
@@ -24631,12 +24632,17 @@ void main(void) {
     initDCmotorsPWM(200);
     Timer0_init();
 
+
+
+
     motorL.power=0;
     motorL.direction=1;
     motorL.brakemode=1;
     motorL.posDutyHighByte=(unsigned char *)(&CCPR1H);
     motorL.negDutyHighByte=(unsigned char *)(&CCPR2H);
     motorL.PWMperiod=200;
+
+
     motorR.power=0;
     motorR.direction=1;
     motorR.brakemode=1;
@@ -24646,12 +24652,10 @@ void main(void) {
 
     char buf[100];
 
-
     turnCalibration(&motorL,&motorR);
 
     LATFbits.LATF0=0;
     _delay((unsigned long)((1000)*(64000000/4000.0)));
-
 
     while (!!PORTFbits.RF2);
     _delay((unsigned long)((1000)*(64000000/4000.0)));
@@ -24696,6 +24700,7 @@ void main(void) {
 
                 colour_move (prev_colour);
             }
+
         }else if (lost_flag){
             move_count++;
             Time_forward[move_count]=65535;

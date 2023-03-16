@@ -3,12 +3,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./dc_motor.h: 8: struct DC_motor {
 [s S2019 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
 [n S2019 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
-"38 ./color.h
-[; ;./color.h: 38: struct RGB_rel{
+"40 ./color.h
+[; ;./color.h: 40: struct RGB_rel{
 [s S2018 `f 1 `f 1 `f 1 ]
 [n S2018 RGB_rel R G B ]
-"30
-[; ;./color.h: 30: struct RGB{
+"32
+[; ;./color.h: 32: struct RGB{
 [s S2017 `i 1 `i 1 `i 1 `i 1 ]
 [n S2017 RGB R G B L ]
 [p mainexit ]
@@ -103,23 +103,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30 ./dc_motor.h
 [; ;./dc_motor.h: 30: void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR);
 [v _fullSpeedAhead `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
-"52 ./color.h
-[; ;./color.h: 52: void readColours (struct RGB *vals);
+"51 ./color.h
+[; ;./color.h: 51: void readColours (struct RGB *vals);
 [v _readColours `(v ~T0 @X0 0 ef1`*S2017 ]
 "9 ./timers.h
 [; ;./timers.h: 9: void getTMR0val(void);
 [v _getTMR0val `(v ~T0 @X0 0 ef ]
-"23 ./Memory.h
-[; ;./Memory.h: 23: void go_Home (char *WayBack, int *Time_forward);
+"14 ./Memory.h
+[; ;./Memory.h: 14: void go_Home (char *WayBack, int *Time_forward);
 [v _go_Home `(v ~T0 @X0 0 ef2`*uc`*i ]
-"50 ./dc_motor.h
-[; ;./dc_motor.h: 50: void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+"41 ./dc_motor.h
+[; ;./dc_motor.h: 41: void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 [v _Forwardhalfblock `(v ~T0 @X0 0 ef2`*S2019`*S2019 ]
 "49 ./color.h
 [; ;./color.h: 49: void colour_rel(struct RGB *vals, struct RGB_rel *rel);
 [v _colour_rel `(v ~T0 @X0 0 ef2`*S2017`*S2018 ]
-"51
-[; ;./color.h: 51: int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
+"50
+[; ;./color.h: 50: int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
 [v _Colour_decider `(i ~T0 @X0 0 ef2`*S2017`*S2018 ]
 "109 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 109: int sprintf(char *restrict, const char *restrict, ...);
@@ -127,14 +127,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26 ./serial.h
 [; ;./serial.h: 26: void sendStringSerial4(char *string);
 [v _sendStringSerial4 `(v ~T0 @X0 0 ef1`*uc ]
-"13 ./colour_move.h
-[; ;./colour_move.h: 13: void colour_move (int recognized_colour);
+"8 ./colour_move.h
+[; ;./colour_move.h: 8: void colour_move (int recognized_colour);
 [v _colour_move `(v ~T0 @X0 0 ef1`i ]
-"9 main.c
+"2 main.c
 [p x FEXTOSC  =  HS      ]
-"10
+"3
 [p x RSTOSC  =  EXTOSC_4PLL ]
-"13
+"6
 [p x WDTE  =  OFF         ]
 "54 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
@@ -2140,14 +2140,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _TxBufReadCnt
 -> -> 0 `i `uc
 ]
-"44 ./color.h
-[; ;./color.h: 44: int prev_colour =0;
+"46 ./color.h
+[; ;./color.h: 46: int prev_colour =0;
 [v _prev_colour `i ~T0 @X0 1 e ]
 [i _prev_colour
 -> 0 `i
 ]
-"45
-[; ;./color.h: 45: int consecuitive=0;
+"47
+[; ;./color.h: 47: int consecuitive=0;
 [v _consecuitive `i ~T0 @X0 1 e ]
 [i _consecuitive
 -> 0 `i
@@ -2180,270 +2180,270 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _RunOneBlockTime
 -> 1050 `i
 ]
-"18 ./Memory.h
-[; ;./Memory.h: 18: char WayBack [50];
+"9 ./Memory.h
+[; ;./Memory.h: 9: char WayBack [50];
 [v _WayBack `uc ~T0 @X0 -> 50 `i e ]
-"19
-[; ;./Memory.h: 19: int Time_forward[50];
+"10
+[; ;./Memory.h: 10: int Time_forward[50];
 [v _Time_forward `i ~T0 @X0 -> 50 `i e ]
-"20
-[; ;./Memory.h: 20: extern volatile unsigned int move_count=-1;
+"11
+[; ;./Memory.h: 11: extern volatile unsigned int move_count=-1;
 [v _move_count `Vui ~T0 @X0 1 e ]
 [i _move_count
 -> -U -> 1 `i `ui
 ]
-"21
-[; ;./Memory.h: 21: int run_flag=1;
+"12
+[; ;./Memory.h: 12: int run_flag=1;
 [v _run_flag `i ~T0 @X0 1 e ]
 [i _run_flag
 -> 1 `i
 ]
-"10 ./colour_move.h
-[; ;./colour_move.h: 10: int lost_count=0;
+"6 ./colour_move.h
+[; ;./colour_move.h: 6: int lost_count=0;
 [v _lost_count `i ~T0 @X0 1 e ]
 [i _lost_count
 -> 0 `i
 ]
-"30 main.c
-[; ;main.c: 30: struct RGB_rel rel;
+"23 main.c
+[; ;main.c: 23: struct RGB_rel rel;
 [v _rel `S2018 ~T0 @X0 1 e ]
-"31
-[; ;main.c: 31: struct RGB vals;
+"24
+[; ;main.c: 24: struct RGB vals;
 [v _vals `S2017 ~T0 @X0 1 e ]
-"32
-[; ;main.c: 32: volatile unsigned int move_count;
+"25
+[; ;main.c: 25: volatile unsigned int move_count;
 [v _move_count `Vui ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"33
-[; ;main.c: 33: void main(void) {
+"26
+[; ;main.c: 26: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"34
-[; ;main.c: 34:     initUSART4();
+"27
+[; ;main.c: 27:     initUSART4();
 [e ( _initUSART4 ..  ]
-"35
-[; ;main.c: 35:     Interrupts_init();
+"28
+[; ;main.c: 28:     Interrupts_init();
 [e ( _Interrupts_init ..  ]
-"36
-[; ;main.c: 36:     color_click_init();
+"29
+[; ;main.c: 29:     color_click_init();
 [e ( _color_click_init ..  ]
-"37
-[; ;main.c: 37:     I2C_2_Master_Init();
+"30
+[; ;main.c: 30:     I2C_2_Master_Init();
 [e ( _I2C_2_Master_Init ..  ]
-"38
-[; ;main.c: 38:     LED_init();
+"31
+[; ;main.c: 31:     LED_init();
 [e ( _LED_init ..  ]
-"39
-[; ;main.c: 39:     Buttons_init();
+"32
+[; ;main.c: 32:     Buttons_init();
 [e ( _Buttons_init ..  ]
-"40
-[; ;main.c: 40:     initDCmotorsPWM(200);
+"33
+[; ;main.c: 33:     initDCmotorsPWM(200);
 [e ( _initDCmotorsPWM (1 -> -> 200 `i `ui ]
-"41
-[; ;main.c: 41:     Timer0_init();
+"34
+[; ;main.c: 34:     Timer0_init();
 [e ( _Timer0_init ..  ]
-"43
-[; ;main.c: 43:     motorL.power=0;
+"39
+[; ;main.c: 39:     motorL.power=0;
 [e = . _motorL 0 -> -> 0 `i `uc ]
-"44
-[; ;main.c: 44:     motorL.direction=1;
+"40
+[; ;main.c: 40:     motorL.direction=1;
 [e = . _motorL 1 -> -> 1 `i `uc ]
-"45
-[; ;main.c: 45:     motorL.brakemode=1;
+"41
+[; ;main.c: 41:     motorL.brakemode=1;
 [e = . _motorL 2 -> -> 1 `i `uc ]
-"46
-[; ;main.c: 46:     motorL.posDutyHighByte=(unsigned char *)(&CCPR1H);
+"42
+[; ;main.c: 42:     motorL.posDutyHighByte=(unsigned char *)(&CCPR1H);
 [e = . _motorL 4 -> &U _CCPR1H `*uc ]
-"47
-[; ;main.c: 47:     motorL.negDutyHighByte=(unsigned char *)(&CCPR2H);
+"43
+[; ;main.c: 43:     motorL.negDutyHighByte=(unsigned char *)(&CCPR2H);
 [e = . _motorL 5 -> &U _CCPR2H `*uc ]
-"48
-[; ;main.c: 48:     motorL.PWMperiod=200;
+"44
+[; ;main.c: 44:     motorL.PWMperiod=200;
 [e = . _motorL 3 -> -> 200 `i `ui ]
-"49
-[; ;main.c: 49:     motorR.power=0;
+"47
+[; ;main.c: 47:     motorR.power=0;
 [e = . _motorR 0 -> -> 0 `i `uc ]
-"50
-[; ;main.c: 50:     motorR.direction=1;
+"48
+[; ;main.c: 48:     motorR.direction=1;
 [e = . _motorR 1 -> -> 1 `i `uc ]
-"51
-[; ;main.c: 51:     motorR.brakemode=1;
+"49
+[; ;main.c: 49:     motorR.brakemode=1;
 [e = . _motorR 2 -> -> 1 `i `uc ]
-"52
-[; ;main.c: 52:     motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);
+"50
+[; ;main.c: 50:     motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);
 [e = . _motorR 4 -> &U _CCPR3H `*uc ]
-"53
-[; ;main.c: 53:     motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);
+"51
+[; ;main.c: 51:     motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);
 [e = . _motorR 5 -> &U _CCPR4H `*uc ]
-"54
-[; ;main.c: 54:     motorR.PWMperiod=200;
+"52
+[; ;main.c: 52:     motorR.PWMperiod=200;
 [e = . _motorR 3 -> -> 200 `i `ui ]
-"56
-[; ;main.c: 56:     char buf[100];
+"54
+[; ;main.c: 54:     char buf[100];
 [v _buf `uc ~T0 @X0 -> 100 `i a ]
-"59
-[; ;main.c: 59:     turnCalibration(&motorL,&motorR);
+"56
+[; ;main.c: 56:     turnCalibration(&motorL,&motorR);
 [e ( _turnCalibration (2 , &U _motorL &U _motorR ]
-"61
-[; ;main.c: 61:     LATFbits.LATF0=0;
+"58
+[; ;main.c: 58:     LATFbits.LATF0=0;
 [e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
-"62
-[; ;main.c: 62:     _delay((unsigned long)((1000)*(64000000/4000.0)));
+"59
+[; ;main.c: 59:     _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"65
-[; ;main.c: 65:     while (!!PORTFbits.RF2);
+"61
+[; ;main.c: 61:     while (!!PORTFbits.RF2);
 [e $U 2021  ]
 [e :U 2022 ]
 [e :U 2021 ]
 [e $ ! ! != -> . . _PORTFbits 0 2 `i -> 0 `i 2022  ]
 [e :U 2023 ]
-"66
-[; ;main.c: 66:     _delay((unsigned long)((1000)*(64000000/4000.0)));
+"62
+[; ;main.c: 62:     _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"68
-[; ;main.c: 68:     T0CON0bits.T0EN=1;
+"64
+[; ;main.c: 64:     T0CON0bits.T0EN=1;
 [e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
-"69
-[; ;main.c: 69:     while (run_flag)
+"65
+[; ;main.c: 65:     while (run_flag)
 [e $U 2024  ]
 [e :U 2025 ]
-"70
-[; ;main.c: 70:     {
+"66
+[; ;main.c: 66:     {
 {
-"71
-[; ;main.c: 71:         consecuitive=0;
+"67
+[; ;main.c: 67:         consecuitive=0;
 [e = _consecuitive -> 0 `i ]
-"73
-[; ;main.c: 73:         fullSpeedAhead(&motorL,&motorR);
+"69
+[; ;main.c: 69:         fullSpeedAhead(&motorL,&motorR);
 [e ( _fullSpeedAhead (2 , &U _motorL &U _motorR ]
-"75
-[; ;main.c: 75:         readColours(&vals);
+"71
+[; ;main.c: 71:         readColours(&vals);
 [e ( _readColours (1 &U _vals ]
-"80
-[; ;main.c: 80:         if (vals.L>=500){
+"76
+[; ;main.c: 76:         if (vals.L>=500){
 [e $ ! >= . _vals 3 -> 500 `i 2027  ]
 {
-"81
-[; ;main.c: 81:             move_count++;
+"77
+[; ;main.c: 77:             move_count++;
 [e ++ _move_count -> -> 1 `i `Vui ]
-"82
-[; ;main.c: 82:             getTMR0val();
+"78
+[; ;main.c: 78:             getTMR0val();
 [e ( _getTMR0val ..  ]
-"83
-[; ;main.c: 83:             if (move_count>98){
+"79
+[; ;main.c: 79:             if (move_count>98){
 [e $ ! > _move_count -> -> 98 `i `ui 2028  ]
 {
-"84
-[; ;main.c: 84:                 go_Home(WayBack, Time_forward);
+"80
+[; ;main.c: 80:                 go_Home(WayBack, Time_forward);
 [e ( _go_Home (2 , &U _WayBack &U _Time_forward ]
-"85
-[; ;main.c: 85:             }
+"81
+[; ;main.c: 81:             }
 }
 [e $U 2029  ]
-"86
-[; ;main.c: 86:             else{
+"82
+[; ;main.c: 82:             else{
 [e :U 2028 ]
 {
-"87
-[; ;main.c: 87:                 Forwardhalfblock(&motorL,&motorR);
+"83
+[; ;main.c: 83:                 Forwardhalfblock(&motorL,&motorR);
 [e ( _Forwardhalfblock (2 , &U _motorL &U _motorR ]
-"88
-[; ;main.c: 88:                 while (consecuitive<20){
+"84
+[; ;main.c: 84:                 while (consecuitive<20){
 [e $U 2030  ]
 [e :U 2031 ]
 {
-"89
-[; ;main.c: 89:                     _delay((unsigned long)((100)*(64000000/4000.0)));
+"85
+[; ;main.c: 85:                     _delay((unsigned long)((100)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"90
-[; ;main.c: 90:                     readColours(&vals);
+"86
+[; ;main.c: 86:                     readColours(&vals);
 [e ( _readColours (1 &U _vals ]
-"91
-[; ;main.c: 91:                     colour_rel(&vals, &rel);
+"87
+[; ;main.c: 87:                     colour_rel(&vals, &rel);
 [e ( _colour_rel (2 , &U _vals &U _rel ]
-"92
-[; ;main.c: 92:                     int colour = Colour_decider(&vals, &rel);
+"88
+[; ;main.c: 88:                     int colour = Colour_decider(&vals, &rel);
 [v _colour `i ~T0 @X0 1 a ]
 [e = _colour ( _Colour_decider (2 , &U _vals &U _rel ]
-"93
-[; ;main.c: 93:                     if (colour==prev_colour){
+"89
+[; ;main.c: 89:                     if (colour==prev_colour){
 [e $ ! == _colour _prev_colour 2033  ]
 {
-"94
-[; ;main.c: 94:                         consecuitive++;
+"90
+[; ;main.c: 90:                         consecuitive++;
 [e ++ _consecuitive -> 1 `i ]
-"95
-[; ;main.c: 95:                     }
+"91
+[; ;main.c: 91:                     }
 }
 [e $U 2034  ]
-"96
-[; ;main.c: 96:                     else{
+"92
+[; ;main.c: 92:                     else{
 [e :U 2033 ]
 {
-"97
-[; ;main.c: 97:                         consecuitive=0;
+"93
+[; ;main.c: 93:                         consecuitive=0;
 [e = _consecuitive -> 0 `i ]
-"98
-[; ;main.c: 98:                     }
+"94
+[; ;main.c: 94:                     }
 }
 [e :U 2034 ]
-"99
-[; ;main.c: 99:                     prev_colour=colour;
+"95
+[; ;main.c: 95:                     prev_colour=colour;
 [e = _prev_colour _colour ]
-"100
-[; ;main.c: 100:                 }
+"96
+[; ;main.c: 96:                 }
 }
 [e :U 2030 ]
-"88
-[; ;main.c: 88:                 while (consecuitive<20){
+"84
+[; ;main.c: 84:                 while (consecuitive<20){
 [e $ < _consecuitive -> 20 `i 2031  ]
 [e :U 2032 ]
-"103
-[; ;main.c: 103:                 sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
+"99
+[; ;main.c: 99:                 sprintf(buf,"red=%f green=%f blue=%f lum=%d actual_colour=%d \r\n",rel.R, rel.G,rel.B,vals.L, prev_colour);
 [e ( _sprintf (1 , , , , , (. , &U _buf :s 1C -> . _rel 0 `d -> . _rel 1 `d -> . _rel 2 `d . _vals 3 _prev_colour ]
-"104
-[; ;main.c: 104:                 sendStringSerial4(buf);
+"100
+[; ;main.c: 100:                 sendStringSerial4(buf);
 [e ( _sendStringSerial4 (1 &U _buf ]
-"106
-[; ;main.c: 106:                 colour_move (prev_colour);
+"102
+[; ;main.c: 102:                 colour_move (prev_colour);
 [e ( _colour_move (1 _prev_colour ]
-"107
-[; ;main.c: 107:             }
+"103
+[; ;main.c: 103:             }
 }
 [e :U 2029 ]
-"108
-[; ;main.c: 108:         }else if (lost_flag){
+"105
+[; ;main.c: 105:         }else if (lost_flag){
 }
 [e $U 2035  ]
 [e :U 2027 ]
 [e $ ! != _lost_flag -> 0 `i 2036  ]
 {
-"109
-[; ;main.c: 109:             move_count++;
+"106
+[; ;main.c: 106:             move_count++;
 [e ++ _move_count -> -> 1 `i `Vui ]
-"110
-[; ;main.c: 110:             Time_forward[move_count]=65535;
+"107
+[; ;main.c: 107:             Time_forward[move_count]=65535;
 [e = *U + &U _Time_forward * -> _move_count `ux -> -> # *U &U _Time_forward `ui `ux -> -> 65535 `l `i ]
-"111
-[; ;main.c: 111:             go_Home(WayBack, Time_forward);
+"108
+[; ;main.c: 108:             go_Home(WayBack, Time_forward);
 [e ( _go_Home (2 , &U _WayBack &U _Time_forward ]
-"113
-[; ;main.c: 113:         }
+"110
+[; ;main.c: 110:         }
 }
 [e :U 2036 ]
 [e :U 2035 ]
-"114
-[; ;main.c: 114:     }
+"111
+[; ;main.c: 111:     }
 }
 [e :U 2024 ]
-"69
-[; ;main.c: 69:     while (run_flag)
+"65
+[; ;main.c: 65:     while (run_flag)
 [e $ != _run_flag -> 0 `i 2025  ]
 [e :U 2026 ]
-"115
-[; ;main.c: 115: }
+"112
+[; ;main.c: 112: }
 [e :UE 2020 ]
 }
 [p f _sprintf 8396928 ]

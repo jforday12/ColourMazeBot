@@ -24251,7 +24251,6 @@ int lost_flag=0;
 
 
 
-
 void Interrupts_init(void)
 {
     INTCONbits.IPEN=0;
@@ -24274,7 +24273,5 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
         lost_flag=1;
         PIR0bits.TMR0IF=0;
     }
-
-
 
 }

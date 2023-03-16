@@ -5,8 +5,8 @@
 
 #define _XTAL_FREQ 64000000
 
-void Timer0_init(void);
-void getTMR0val(void);
-void delayed_ms(int time);
-extern volatile unsigned int move_count;
+void Timer0_init(void); // initialize timer
+void getTMR0val(void); // read count from timer
+void delayed_ms(int time); // custom delay function
+extern volatile unsigned int move_count; // global variable for list index
 #endif

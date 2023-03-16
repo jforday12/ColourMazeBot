@@ -24232,9 +24232,12 @@ unsigned char __t3rd16on(void);
 # 1 "colour_move.c" 2
 
 # 1 "./colour_move.h" 1
-# 10 "./colour_move.h"
-int lost_count=0;
 
+
+
+
+
+int lost_count=0;
 
 void colour_move (int recognized_colour);
 # 2 "colour_move.c" 2
@@ -24280,6 +24283,7 @@ void homeReverse(struct DC_motor *mL,struct DC_motor *mR);
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
 void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 void quaterForward(struct DC_motor *mL,struct DC_motor *mR);
 
 void RedMove(struct DC_motor *mL,struct DC_motor *mR);
@@ -24289,7 +24293,6 @@ void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
 void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
 void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
 void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
-void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
 void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
 void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
 void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
@@ -24301,7 +24304,14 @@ void TurnDelay(int Turn45Delay);
 # 3 "colour_move.c" 2
 
 # 1 "./Memory.h" 1
-# 18 "./Memory.h"
+
+
+
+
+
+
+
+
 char WayBack [50];
 int Time_forward[50];
 extern volatile unsigned int move_count=-1;
@@ -24347,6 +24357,8 @@ unsigned int color_read_Red(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Green(void);
 unsigned int color_read_lum(void);
+
+
 struct RGB{
     int R;
     int G;
@@ -24364,13 +24376,9 @@ struct RGB_rel{
 int prev_colour =0;
 int consecuitive=0;
 
-
-
 void colour_rel(struct RGB *vals, struct RGB_rel *rel);
-
 int Colour_decider(struct RGB *vals, struct RGB_rel *rel);
 void readColours (struct RGB *vals);
-
 int consecutive_read(struct RGB *vals, struct RGB_rel *rel);
 # 6 "colour_move.c" 2
 

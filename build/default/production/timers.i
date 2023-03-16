@@ -24261,7 +24261,14 @@ int lost_flag=0;
 # 3 "timers.c" 2
 
 # 1 "./Memory.h" 1
-# 18 "./Memory.h"
+
+
+
+
+
+
+
+
 char WayBack [50];
 int Time_forward[50];
 extern volatile unsigned int move_count=-1;
@@ -24285,7 +24292,11 @@ void Timer0_init(void)
     TMR0L=0;
     T0CON0bits.T0EN=0;
 }
-# 28 "timers.c"
+
+
+
+
+
 void getTMR0val(void)
 {
     unsigned int temp= TMR0L;
@@ -24300,6 +24311,7 @@ void getTMR0val(void)
 
 
 }
+
 
 void delayed_ms(int time){
     for(unsigned int i=0;i<time;i++){

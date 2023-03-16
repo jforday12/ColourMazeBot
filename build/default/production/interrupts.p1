@@ -2028,60 +2028,60 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _lost_flag
 -> 0 `i
 ]
-"9 interrupts.c
-[; ;interrupts.c: 9: void Interrupts_init(void)
+"8 interrupts.c
+[; ;interrupts.c: 8: void Interrupts_init(void)
 [v _Interrupts_init `(v ~T0 @X0 1 ef ]
-"10
-[; ;interrupts.c: 10: {
+"9
+[; ;interrupts.c: 9: {
 {
 [e :U _Interrupts_init ]
 [f ]
-"11
-[; ;interrupts.c: 11:     INTCONbits.IPEN=0;
+"10
+[; ;interrupts.c: 10:     INTCONbits.IPEN=0;
 [e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
-"12
-[; ;interrupts.c: 12:     INTCONbits.PEIE=0;
+"11
+[; ;interrupts.c: 11:     INTCONbits.PEIE=0;
 [e = . . _INTCONbits 1 1 -> -> 0 `i `uc ]
-"13
-[; ;interrupts.c: 13:     INTCONbits.GIE=1;
+"12
+[; ;interrupts.c: 12:     INTCONbits.GIE=1;
 [e = . . _INTCONbits 1 2 -> -> 1 `i `uc ]
-"14
-[; ;interrupts.c: 14:     PIE0bits.TMR0IE=1;
+"13
+[; ;interrupts.c: 13:     PIE0bits.TMR0IE=1;
 [e = . . _PIE0bits 0 5 -> -> 1 `i `uc ]
-"17
-[; ;interrupts.c: 17: }
+"16
+[; ;interrupts.c: 16: }
 [e :UE 2015 ]
 }
 [v $root$_HighISR `(v ~T0 @X0 0 e ]
-"23
-[; ;interrupts.c: 23: void __attribute__((picinterrupt(("high_priority")))) HighISR()
+"22
+[; ;interrupts.c: 22: void __attribute__((picinterrupt(("high_priority")))) HighISR()
 [v _HighISR `(v ~T2 @X0 1 ef ]
-"24
-[; ;interrupts.c: 24: {
+"23
+[; ;interrupts.c: 23: {
 {
 [e :U _HighISR ]
 [f ]
-"25
-[; ;interrupts.c: 25:     if (PIR0bits.TMR0IF){
+"24
+[; ;interrupts.c: 24:     if (PIR0bits.TMR0IF){
 [e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2017  ]
 {
-"26
-[; ;interrupts.c: 26:         TMR0H=0;
+"25
+[; ;interrupts.c: 25:         TMR0H=0;
 [e = _TMR0H -> -> 0 `i `uc ]
-"27
-[; ;interrupts.c: 27:         TMR0L=0;
+"26
+[; ;interrupts.c: 26:         TMR0L=0;
 [e = _TMR0L -> -> 0 `i `uc ]
-"28
-[; ;interrupts.c: 28:         lost_flag=1;
+"27
+[; ;interrupts.c: 27:         lost_flag=1;
 [e = _lost_flag -> 1 `i ]
-"29
-[; ;interrupts.c: 29:         PIR0bits.TMR0IF=0;
+"28
+[; ;interrupts.c: 28:         PIR0bits.TMR0IF=0;
 [e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
-"30
-[; ;interrupts.c: 30:     }
+"29
+[; ;interrupts.c: 29:     }
 }
 [e :U 2017 ]
-"34
-[; ;interrupts.c: 34: }
+"31
+[; ;interrupts.c: 31: }
 [e :UE 2016 ]
 }

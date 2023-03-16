@@ -24,36 +24,36 @@ int RunOneBlockTime = 1050; // time delay to run one block
 //function prototypes
 void initDCmotorsPWM(unsigned int PWMperiod); // function to setup PWM
 void setMotorPWM(struct DC_motor *m);
-void stop(struct DC_motor *mL,struct DC_motor *mR);
-void turnLeft(struct DC_motor *mL,struct DC_motor *mR);
-void turnRight(struct DC_motor *mL,struct DC_motor *mR);
-void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR);
-void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time);
-void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR);
+void stop(struct DC_motor *mL,struct DC_motor *mR); // function to let left and right motor stop
+void turnLeft(struct DC_motor *mL,struct DC_motor *mR); // function to let car turn right continuously
+void turnRight(struct DC_motor *mL,struct DC_motor *mR); // function to let car turn left continuously
+void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR); // function to let car go forward continuously
+void timed_forward(struct DC_motor *mL, struct DC_motor *mR, int time); // function to let car go forward for variable amount of time
+void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR); // function to let car go backward continuously
 
-void turnRight45(struct DC_motor *mL,struct DC_motor *mR);
-void turnLeft45(struct DC_motor *mL,struct DC_motor *mR);
-void reverseDetect(struct DC_motor *mL,struct DC_motor *mR);
-void homeReverse(struct DC_motor *mL,struct DC_motor *mR);
-void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR);
-void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR);
-void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR);
-void quaterForward(struct DC_motor *mL,struct DC_motor *mR);
+void turnRight45(struct DC_motor *mL,struct DC_motor *mR); // function to let car turn right 45 degrees
+void turnLeft45(struct DC_motor *mL,struct DC_motor *mR); // function to let car turn left 45 degrees
+void reverseDetect(struct DC_motor *mL,struct DC_motor *mR); // function to let car reverse set amount of time
+void homeReverse(struct DC_motor *mL,struct DC_motor *mR); 
+void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR); // function to let car reverse one block
+void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR); // function to let car forward one block
+void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR); // function to let car reverse half block
+void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR); // function to let car forward half block
+void quaterForward(struct DC_motor *mL,struct DC_motor *mR); // function to let car forward 1/4 block
 
-void RedMove(struct DC_motor *mL,struct DC_motor *mR);
-void GreenMove(struct DC_motor *mL,struct DC_motor *mR);
-void BlueMove(struct DC_motor *mL,struct DC_motor *mR);
-void YellowMove(struct DC_motor *mL,struct DC_motor *mR);
-void PinkMove(struct DC_motor *mL,struct DC_motor *mR);
-void OrangeMove(struct DC_motor *mL,struct DC_motor *mR);
-void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
-void Forwardhalfblock(struct DC_motor *mL,struct DC_motor *mR);
+void RedMove(struct DC_motor *mL,struct DC_motor *mR); // function to let car carry out movement corresponding to red card
+void GreenMove(struct DC_motor *mL,struct DC_motor *mR); // function to let car carry out movement corresponding to green card
+void BlueMove(struct DC_motor *mL,struct DC_motor *mR); // function to let car carry out movement corresponding to blue card
+void YellowMove(struct DC_motor *mL,struct DC_motor *mR); // function to let car carry out movement corresponding to yellow card
+void PinkMove(struct DC_motor *mL,struct DC_motor *mR); // function to let car carry out movement corresponding to pink card
+void OrangeMove(struct DC_motor *mL,struct DC_motor *mR); // function to let car carry out movement corresponding to orange card
+void LightBlueMove(struct DC_motor *mL,struct DC_motor *mR); // function to let car carry out movement corresponding to light blue card
 void RetryMove(struct DC_motor *mL,struct DC_motor *mR);
-void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR);
-void ReversePink(struct DC_motor *mL,struct DC_motor *mR);
-void ReverseOrangeMove(struct DC_motor *mL,struct DC_motor *mR);
-void ReverseLightBlueMove(struct DC_motor *mL,struct DC_motor *mR);
+void ReverseYellow(struct DC_motor *mL,struct DC_motor *mR); // function to let car carry out reverse movement corresponding to yellow card when returning home
+void ReversePink(struct DC_motor *mL,struct DC_motor *mR); // function to let car carry out reverse movement corresponding to pink card when returning home
+void ReverseOrangeMove(struct DC_motor *mL,struct DC_motor *mR); // function to let car carry out reverse movement corresponding to orange card when returning home
+void ReverseLightBlueMove(struct DC_motor *mL,struct DC_motor *mR); // function to let car carry out reverse movement corresponding to light blue card when returning home
 
-void turnCalibration(struct DC_motor *mL,struct DC_motor *mR);
-void TurnDelay(int Turn45Delay);
+void turnCalibration(struct DC_motor *mL,struct DC_motor *mR); // function to allow user calibrate turn angle before start exploring maze
+void TurnDelay(int Turn45Delay); // custom delay function to allow variable turn delay time
 #endif

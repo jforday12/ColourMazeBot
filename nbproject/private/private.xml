@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/ECM/final-project-josh-and-edward.X/dc_motor.c</file>
-            <file>file:/C:/ECM/final-project-josh-and-edward.X/colour_move.c</file>
-            <file>file:/C:/ECM/final-project-josh-and-edward.X/interrupts.c</file>
-            <file>file:/C:/ECM/final-project-josh-and-edward.X/serial.c</file>
-            <file>file:/C:/ECM/final-project-josh-and-edward.X/color.c</file>
-            <file>file:/C:/ECM/final-project-josh-and-edward.X/LED_buttons.c</file>
-            <file>file:/C:/ECM/final-project-josh-and-edward.X/timers.c</file>
-            <file>file:/C:/ECM/final-project-josh-and-edward.X/main.c</file>
-            <file>file:/C:/ECM/final-project-josh-and-edward.X/Memory.c</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

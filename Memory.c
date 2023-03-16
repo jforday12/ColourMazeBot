@@ -45,6 +45,6 @@ void go_Home (char *WayBack, int *Time_forward){
         }
         
     } 
-    stop(&motorL, &motorR);
-    run_flag=0;
+    stop(&motorL, &motorR); // stop car
+    run_flag=0; // set run flat to 0 when returned home
 }
