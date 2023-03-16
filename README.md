@@ -33,6 +33,22 @@
 2. When luminance value gets larger than 500, which means a card is detected, stop timer, store timer value in list Time_forward
 3. Forward half a block to make sure the colour click cover is against the card.
 4. Read card colour and ask for 20 consecutive same reading before confirm coour recognition, store colour card in WayBack
+	Consecuitive function:
+	
+	while (consecuitive<20){
+                    __delay_ms(100);
+                    readColours(&vals);
+                    colour_rel(&vals, &rel);
+                    int colour = Colour_decider(&vals, &rel);
+                    if (colour==prev_colour){
+                        consecuitive++;
+                    }
+                    else{
+                        consecuitive=0;
+                    }
+                    prev_colour=colour;
+                } 
+		
 5. Give move instruction based on card colour.
 6. When detected white card, read values from lists Time_forward & WayBack to give buggie instrctions to go home.
 
