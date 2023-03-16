@@ -34,7 +34,7 @@ void fullSpeedBack(struct DC_motor *mL,struct DC_motor *mR); // function to let 
 void turnRight45(struct DC_motor *mL,struct DC_motor *mR); // function to let car turn right 45 degrees
 void turnLeft45(struct DC_motor *mL,struct DC_motor *mR); // function to let car turn left 45 degrees
 void reverseDetect(struct DC_motor *mL,struct DC_motor *mR); // function to let car reverse set amount of time
-void homeReverse(struct DC_motor *mL,struct DC_motor *mR); 
+void homeReverse(struct DC_motor *mL,struct DC_motor *mR); // reverse a little on blue card go home route
 void reverseOneBlock(struct DC_motor *mL,struct DC_motor *mR); // function to let car reverse one block
 void ForwardOneBlock(struct DC_motor *mL,struct DC_motor *mR); // function to let car forward one block
 void Backhalfblock(struct DC_motor *mL,struct DC_motor *mR); // function to let car reverse half block
