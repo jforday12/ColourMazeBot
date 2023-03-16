@@ -22,7 +22,7 @@
 
 struct RGB_rel rel; // structure for colour click readings
 struct RGB vals; // structure for colour click readings
-volatile unsigned int move_count;  // variable to keep track of list index
+
 void main(void) {
     initUSART4(); 
     Interrupts_init(); // initialize timer interrupt

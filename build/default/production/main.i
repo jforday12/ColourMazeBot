@@ -24620,7 +24620,7 @@ void colour_move (int recognized_colour);
 
 struct RGB_rel rel;
 struct RGB vals;
-volatile unsigned int move_count;
+
 void main(void) {
     initUSART4();
     Interrupts_init();
