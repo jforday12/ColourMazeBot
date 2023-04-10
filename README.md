@@ -19,7 +19,7 @@
 ## Performance
 This link shows videos of us doing an easy practice maze with the calibration sequence, a practice hard maze and the final maze. We further have our loss function calibration for the no colour detection and going straight too long exception. The final loss function of the array overflowing was too long too film but works on the same principle. 
 
-https://imperiallondon-my.sharepoint.com/:f:/r/personal/jf1320_ic_ac_uk/Documents/ECM_videos?csf=1&web=1&e=4wK5mQ
+https://www.youtube.com/playlist?list=PL0STWKg9W0LT4J-QS4BPPFaeQ9rQj3Qln
 
 As we can see we had perfect run for the first two actual mazes and we achieved a perfect run on the final hard maze. If things were to go wrong we may have had to nudge it slightly is due to a slight drift in the motors on the way back shifting it off course.
 
