@@ -16,6 +16,16 @@
 
 #### Memory.c/.h: Create arrays to store route information, function to let the buggie return to base by calling arrays
 
+## Performance
+This link shows videos of us doing an easy practice maze with the calibration sequence, a practice hard maze and the final maze. We further have our loss function calibration for the no colour detection and going straight too long exception. The final loss function of the array overflowing was too long too film but works on the same principle. 
+
+https://imperiallondon-my.sharepoint.com/:f:/r/personal/jf1320_ic_ac_uk/Documents/ECM_videos?csf=1&web=1&e=4wK5mQ
+
+As we can see we had perfect run for the first two actual mazes and we achieved a perfect run on the final hard maze. If things were to go wrong we may have had to nudge it slightly is due to a slight drift in the motors on the way back shifting it off course.
+
+
+
+In order to correct this one method would be to employ a tachometer on each wheel to determine the RPM and ensure they are all spinning at the same speed. If they are not it can increase the power automatically to that wheel. 
 ## Physical modifications
 
 ![image](https://user-images.githubusercontent.com/96208188/225457969-d8394f43-9aa3-4e4c-8f5c-e6457990b899.png)
@@ -429,16 +439,7 @@ The final exception is if we are stuck in an endless loop. Thus the timer is not
                 go_Home(WayBack, Time_forward);
             }
 
-## Performance
-This link shows videos of us doing an easy practice maze with the calibration sequence, a practice hard maze and the final maze. We further have our loss function calibration for the no colour detection and going straight too long exception. The final loss function of the array overflowing was too long too film but works on the same principle. 
 
-https://imperiallondon-my.sharepoint.com/:f:/r/personal/jf1320_ic_ac_uk/Documents/ECM_videos?csf=1&web=1&e=4wK5mQ
-
-As we can see we had perfect run for the first two actual mazes and we achieved a perfect run on the final hard maze. If things were to go wrong we may have had to nudge it slightly is due to a slight drift in the motors on the way back shifting it off course.
-
-
-
-In order to correct this one method would be to employ a tachometer on each wheel to determine the RPM and ensure they are all spinning at the same speed. If they are not it can increase the power automatically to that wheel. 
 
 ## Challenge brief
 
