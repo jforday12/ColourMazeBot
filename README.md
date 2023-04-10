@@ -22,6 +22,7 @@
 
 1. 3D printed cover to remove ambient light
 2. Thermoplastic bumper to avoid damage
+- Thermoplastic was selected due to having a higher elasticity thus reducing force imparted on the buggy
 
 ## Instruction for the user
 1. Turn on Buggy and go through the motor calibration, to ensure desirable performance in different surface settings (explained below). 
