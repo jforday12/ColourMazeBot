@@ -17,7 +17,7 @@
 #### Memory.c/.h: Create arrays to store route information, function to let the buggie return to base by calling arrays
 
 ## Performance
-This link shows videos of us doing an easy practice maze with the calibration sequence, a practice hard maze and the final maze. We further have our loss function calibration for the no colour detection and going straight too long exception. The final loss function of the array overflowing was too long too film but works on the same principle. 
+This link shows videos of us performing final maze. We further have our loss function calibration for the going straight too long exception. The final loss function of the array overflowing was too long too film but works on the same principle. 
 
 https://www.youtube.com/playlist?list=PL0STWKg9W0LT4J-QS4BPPFaeQ9rQj3Qln
 
